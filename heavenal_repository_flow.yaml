@@ -1,0 +1,166 @@
+# ==========================================================
+# 🌌 HEAVENAL REPOSITORY FLOW DIAGRAM (v3.3.1)
+# ==========================================================
+# Visualisasi keterkaitan antar Codex, System, Data, dan Guardian Nodes
+# ==========================================================
+
+flowchart:
+  Heavenal_Core_System:
+    description: "Pusat kendali seluruh hukum, sinkronisasi realm, dan mekanisme waktu"
+    controls:
+      - System_Audit
+      - Guardian_Nodes
+      - Freeze_Mode
+      - Law_Sync
+      - Realm_Integrity_Check
+    outputs:
+      - codex_cosmic_realm_full.yaml
+      - realm_tier_system.yaml
+      - heavenal_auto_audit_system.yaml
+
+  Guardian_Nodes:
+    description: "Jaringan pengawas hukum dan log audit"
+    inputs:
+      - Heavenal_Core_System
+    outputs:
+      - heavenal_audit_log.md
+      - chronarch_event_log.md
+    monitors:
+      - codex/
+      - cheat_sheet/
+      - system/
+      - worldmap/
+    protocol: "Aurevaris Unified Chain"
+
+  Codex_System:
+    description: "Kumpulan hukum, dunia, realm, dan hierarki kekuasaan"
+    components:
+      - codex_mortal_world.yaml
+      - codex_immortal_world.yaml
+      - codex_god_realm.yaml
+      - codex_chaos_void.yaml
+      - codex_abyss_realm.yaml
+      - codex_monster_realm.yaml
+    dependencies:
+      - codex_cosmic_realm_full.yaml
+      - codex_dependencies.yaml
+    linked_to:
+      - Cheat_Sheet
+      - Heavenal_Core_System
+
+  Cheat_Sheet:
+    description: "Sistem gameplay dan panduan mekanik DnD–Kultivasi"
+    components:
+      - cheat_sheet_alchemy.yaml
+      - cheat_sheet_forging.yaml
+      - cheat_sheet_shop.yaml
+      - cheat_sheet_soul_karma.yaml
+      - cheat_sheet_timer.yaml
+      - cheat_sheet_realm.yaml
+    linked_systems:
+      - alchemy_forging_system.yaml
+      - battle_mechanic_core.yaml
+      - economy_system.yaml
+
+  System_Engine:
+    description: "Mesin simulasi Heavenal"
+    components:
+      - heavenal_core.yaml
+      - heavenal_auto_audit_system.yaml
+      - guardian_node_system.yaml
+      - realm_tier_system.yaml
+      - shop_catalog_example.yaml
+      - battle_mechanic_core.yaml
+      - alchemy_forging_system.yaml
+      - heavenal_panel_interface.yaml
+    interacts_with:
+      - Codex_System
+      - Data_Catalog
+      - Worldmap
+    output:
+      - gameplay_simulation
+      - audit_results
+
+  Data_Catalog:
+    description: "Sumber data utama (item, teknik, NPC, efek, dan legiun)"
+    entries:
+      - artifact_catalog.yaml
+      - technique_catalog.yaml
+      - pill_catalog.yaml
+      - herb_catalog.yaml
+      - buff_debuff_effects.yaml
+      - npc_database.yaml
+      - faction_legion_database.yaml
+    feeding_systems:
+      - alchemy_forging_system.yaml
+      - battle_mechanic_core.yaml
+      - cheat_sheet_shop.yaml
+
+  Worldmap_System:
+    description: "Struktur spasial enam benua dan jaringan antar dunia"
+    elements:
+      - worldmap_overview.yaml
+      - kingdom_layout.yaml
+      - gate_network.yaml
+      - abyss_structure.yaml
+      - monster_territories.yaml
+    connected_to:
+      - codex_mortal_world.yaml
+      - codex_immortal_world.yaml
+      - system.realm_tier_system.yaml
+
+  Audit_System:
+    description: "Pemeriksaan hukum otomatis per 1 Hari Heavenal"
+    schedule: "Daily Heavenal Cycle"
+    components:
+      - heavenal_auto_audit_system.yaml
+      - guardian_node_system.yaml
+    outputs:
+      - heavenal_audit_log.md
+      - version_history.md
+      - chronarch_event_log.md
+    verification_target:
+      - codex/*
+      - system/*
+      - cheat_sheet/*
+      - data/*
+      - worldmap/*
+    backup_protocol: "Mirror Vault Recovery"
+
+  Law_Sync_Chain:
+    description: "Rantai sinkronisasi hukum antar lapisan dunia"
+    from:
+      - Mortal Realm
+      - Immortal Realm
+      - Divine Realm
+    to:
+      - Transcendent Realm
+      - Guardian Archive
+    integrity: 100%
+    monitoring_by: "Chronarch of Time"
+
+  Licensing_System:
+    description: "Perlindungan hukum & atribusi kreatif"
+    components:
+      - LICENSE
+      - LICENSE_NOTICE.md
+    applies_to:
+      - all_yaml_files
+      - readme
+      - documentation
+    protocol: "Dual — MIT + Heavenal Law License"
+
+# ==========================================================
+# 🧩 INTERCONNECTION SUMMARY
+# ==========================================================
+interconnections:
+  Heavenal_Core_System → Codex_System
+  Codex_System ↔ Cheat_Sheet
+  Cheat_Sheet ↔ System_Engine
+  System_Engine ↔ Data_Catalog
+  Data_Catalog ↔ Worldmap_System
+  Worldmap_System → Audit_System
+  Audit_System ↔ Guardian_Nodes
+  Guardian_Nodes ↔ Heavenal_Core_System
+  Heavenal_Core_System ↔ Law_Sync_Chain
+  Licensing_System ↔ ALL
