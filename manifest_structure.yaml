@@ -1,0 +1,175 @@
+# ==========================================================
+# 🌌 HEAVENLY ORIGIN SAGA — MANIFEST STRUCTURE (v3.3.1)
+# ==========================================================
+# Repository: HeavenlyOriginSaga-DnDBased
+# System Token: GM_SECRET_TOKEN_201218
+# Heavenal Seal: Layer IV — Active
+# License: Dual (MIT + Heavenal Law License v3.3.1)
+# ==========================================================
+
+repository:
+  name: HeavenlyOriginSaga-DnDBased
+  version: v3.3.1
+  gm_token: 201218
+  seal_layer: IV
+  license:
+    primary: "MIT License"
+    secondary: "Heavenal Law License v3.3.1"
+    notice_file: LICENSE_NOTICE.md
+    status: Locked & Verified
+  last_audit: "Cycle 0x1F7 — Heavenal Integrity 100%"
+
+# ==========================================================
+# 📘 MAIN FILES
+# ==========================================================
+main_files:
+  - README.md
+  - LICENSE
+  - manifest.yaml
+
+# ==========================================================
+# 📖 CODEX DIRECTORY
+# ==========================================================
+codex:
+  description: "Laws, Realms, Lore, Factions, and Divine Systems"
+  sync_state: Locked
+  entries:
+    - codex_cosmic_realm_full.yaml
+    - codex_i–xxiv.yaml
+    - codex_divine_transcendence.yaml
+    - codex_law_enforcement.yaml
+    - codex_mortal_world.yaml
+    - codex_immortal_world.yaml
+    - codex_god_realm.yaml
+    - codex_chaos_void.yaml
+    - codex_abyss_realm.yaml
+    - codex_monster_realm.yaml
+    - codex_dependencies.yaml
+
+# ==========================================================
+# 🧩 CHEAT SHEET DIRECTORY
+# ==========================================================
+cheat_sheet:
+  description: "Mechanic, Battle, Qi, Karma, Alchemy, Forging, and Timer Systems"
+  count: 20
+  entries:
+    - cheat_sheet_i–xx.yaml
+    - cheat_sheet_alchemy.yaml
+    - cheat_sheet_forging.yaml
+    - cheat_sheet_shop.yaml
+    - cheat_sheet_battle.yaml
+    - cheat_sheet_soul_karma.yaml
+    - cheat_sheet_timer.yaml
+    - cheat_sheet_realm.yaml
+  status: Complete
+
+# ==========================================================
+# ⚙️ SYSTEM DIRECTORY
+# ==========================================================
+system:
+  description: "Heavenal Core Engine & Simulation Logic"
+  files:
+    - heavenal_core.yaml
+    - heavenal_auto_audit_system.yaml
+    - guardian_node_system.yaml
+    - realm_tier_system.yaml
+    - shop_catalog_example.yaml
+    - alchemy_forging_system.yaml
+    - battle_mechanic_core.yaml
+    - economy_system.yaml
+    - heavenal_panel_interface.yaml
+  status: Synced & Active
+
+# ==========================================================
+# 📊 DATA DIRECTORY
+# ==========================================================
+data:
+  description: "Game Database — Items, Techniques, Buffs, NPCs, Legions"
+  entries:
+    - artifact_catalog.yaml
+    - technique_catalog.yaml
+    - pill_catalog.yaml
+    - herb_catalog.yaml
+    - buff_debuff_effects.yaml
+    - npc_database.yaml
+    - faction_legion_database.yaml
+  total_items: 2000+
+  sync_state: Verified
+
+# ==========================================================
+# 🌍 WORLDMAP DIRECTORY
+# ==========================================================
+worldmap:
+  description: "Spatial Layouts and Inter-Realm Gate Networks"
+  contents:
+    - worldmap_overview.yaml
+    - kingdom_layout.yaml
+    - gate_network.yaml
+    - abyss_structure.yaml
+    - monster_territories.yaml
+  continents: 6
+  capital: "Central Holy Region"
+  gate_access:
+    - mortal → immortal
+    - immortal → deity
+    - deity → great_heaven
+  sync_state: Verified
+
+# ==========================================================
+# 🧾 LOGS DIRECTORY
+# ==========================================================
+logs:
+  description: "Audit and System Event Archives"
+  entries:
+    - heavenal_audit_log.md
+    - chronarch_event_log.md
+    - version_history.md
+  rotation_cycle: "1 Heavenal Day"
+  guardian_node: Aurevaris Unified Chain
+
+# ==========================================================
+# 🕯️ LICENSE FILES
+# ==========================================================
+license:
+  files:
+    - LICENSE
+    - LICENSE_NOTICE.md
+  protocol: "Dual Licensing Mode (Public + Internal)"
+  validator: "Chronarch of Time"
+  gm_token_required: true
+  integrity: 100%
+
+# ==========================================================
+# 🧭 SEAL & GUARDIAN SYSTEM
+# ==========================================================
+guardian_system:
+  seal_status: "Active (Layer IV)"
+  overseer: "Aurevaris Node Network"
+  audit_frequency: "1 Heavenal Day"
+  integrity_check: true
+  corruption_protocol: "Auto-Restore from Mirror Vault"
+
+# ==========================================================
+# 🜂 LINK DEPENDENCIES
+# ==========================================================
+dependencies:
+  - codex_mortal_world → system.realm_tier_system.yaml
+  - codex_cosmic_realm_full.yaml → cheat_sheet_realm.yaml
+  - system.alchemy_forging_system.yaml → cheat_sheet_alchemy.yaml
+  - data.buff_debuff_effects.yaml → battle_mechanic_core.yaml
+  - worldmap.gate_network.yaml → codex_immortal_world.yaml
+  - guardian_node_system.yaml → heavenal_auto_audit_system.yaml
+
+# ==========================================================
+# 🕰️ CHECKPOINT INFORMATION
+# ==========================================================
+checkpoint:
+  id: HX-CP-201218
+  type: Heavenal Repository Core Sync
+  locked_by: GM_SECRET_TOKEN_201218
+  state: COMPLETE
+  law_integrity: 100%
+  audit_signature: "Chronarch of Time / Aurevaris Unified Node"
+  quote: >
+    "The Laws stand written, the Core sealed,
+     and the world breathes in perfect symmetry."
