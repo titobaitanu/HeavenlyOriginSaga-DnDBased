@@ -1,0 +1,237 @@
+# ============================================================
+# CODEX — codex_heavenal_shop.yaml
+# HEAVENAL SHOP & REWARD SYSTEM
+# Version: 3.2-secure
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# Path: codex_registry/auxiliary_codex/codex_heavenal_shop.yaml
+# ============================================================
+
+meta:
+  codex_id: "COD-SHOP"
+  title: "Heavenal Shop & Reward System"
+  version: 3.2-secure
+  author: "Heavenal Control Node"
+  status: verified
+  last_updated: "2025-11-09"
+  repo_link: "HeavenlyOriginSaga-DnDBased"
+  auth_note: "All privileged operations require ENV[HEAVENAL_GM_TOKEN]"
+
+introduction:
+  description: >
+    This codex defines the rules, economic model, and operational guidelines
+    for all Heavenal marketplace systems: shops (NPC & platform), auction houses,
+    crafting blueprints trading, reward tables, and black-market monitoring.
+  purpose:
+    - Ensure game balance across Mortal / Immortal / Divine tiers.
+    - Protect realm law stability by limiting access to high-grade items.
+    - Provide transparent rules for buying, selling, auctioning, and rewards.
+
+shop_overview:
+  shop_types:
+    - "LocalShop": "Small trader shops in towns/academies. Frequent rotation."
+    - "RegionalMarket": "City/Kingdom markets. Broader stock, weekly rotation."
+    - "HeavenalGuildShop": "Alliances / Alchemist Tower / Merchant Alliance controlled."
+    - "ImmortalVault": "High-tier shop accessible to Immortals (authentication required)."
+    - "AuctionHouse": "Timeboxed auctions for rare G8–G9 items and artifacts."
+    - "BlackMarket": "Illicit marketplace (monitored & gated by GCEB)."
+  note: >
+    All in-game shop operations are simulated via shop engine modules which
+    respect codex rules and the Heavenal Shop API.
+
+item_schema:
+  description: "Unified schema every item in shop_catalog must follow."
+  fields:
+    - id: "Unique code e.g. SHP-<CATEGORY>-<XXXX>"
+    - name: "Display name"
+    - category: "pill | herb | artifact | weapon | armor | recipe | material | service"
+    - tier: "G1..G9 (G = Grade). Mortal allowed up to G7 base; G8–G9 gated."
+    - grade_realm: "mortal | immortal | divine"
+    - price:
+        currency: "gold|silver|copper|SpiritStone|ImmortalJade"
+        amount: 0
+    - quantity: "stock available (integer, -1 = unlimited for services)"
+    - stack_limit: "max stack per inventory slot"
+    - binding: "none | bound_on_equip | soulbound"
+    - requirements: "list (realm_min, alchemy_level, cauldron_level, law_threshold, quest_lock, reputation)"
+    - effects: "short text (buff/debuff, duration, law_effects)"
+    - notes: "flavor / legal restrictions"
+
+item_tiers_and_restrictions:
+  tiers:
+    - G1: { description: "Common mortal consumables / low herbs", access: "all" }
+    - G2: { description: "Standard mortal items", access: "all" }
+    - G3: { description: "Advanced mortal items", access: "all" }
+    - G4: { description: "High mortal items / low alchemy", access: "all" }
+    - G5: { description: "Precious mortal items / early sect treasures", access: "all" }
+    - G6: { description: "Rare mortal items, limited stock", access: "all" }
+    - G7: { description: "Unique mortal artifacts, highly priced", access: "all" }
+    - G8: { description: "Immortal-tier items (Mortal cannot buy; Auction or GM only)", access: "immortal+, auction" }
+    - G9: { description: "Divine / God items (Auction only/GM-issued)", access: "divine+, GM" }
+  mortal_limitations:
+    - "Mortals may NOT purchase G8/G9 items through normal shops."
+    - "G8 can appear in auctions but mortals may only participate if granted special permit (GM or sect authorization)."
+    - "G9 items cannot be purchased; distribution is event/GM/quest controlled."
+  immortal_exceptions:
+    - "Immortals may access lower tiers freely and purchase up to G9 if they meet requirements & currency."
+
+pricing_model:
+  base_currency: "gold (mortal), SpiritStone (spirit economy), ImmortalJade (high tier)"
+  dynamic_pricing:
+    enabled: true
+    multipliers:
+      - "demand_multiplier (based on recent sales frequency)"
+      - "rarity_multiplier"
+      - "market_inflation_index (region-dependent)"
+  example_exchange:
+    - "1 ImmortalJade = 1000 SpiritStone"
+    - "1 SpiritStone = 100 gold"
+
+stock_and_refresh:
+  refresh_cycle:
+    local_shop: "7 days (mortal realm)"
+    regional_market: "14 days"
+    heavenal_guild_shop: "30 days"
+    immortal_vault: "manual (GM or alliance update)"
+  restock_policy:
+    - "Shops restock quantity up to their stock_cap depending on supply & trade routes."
+    - "Rare items (G6–G7) use 'limited edition' flags and seldom restock."
+  perishables:
+    - "Some herbs/pills may degrade; expiry_date field must be present."
+
+auction_house:
+  mechanics:
+    - "Auction types: English (ascending), Sealed, Dutch (descending), GM Auction (special)"
+    - "Minimum bid, bid_increment rules enforced"
+    - "Auction duration options: 24h, 72h, 7d, custom (GM)"
+  participation:
+    - "Mortals: can bid up to tier limits (see item_tiers). Mortals require sufficient funds held in escrow."
+    - "Immortals & above: full participation"
+  escrow_and_payment:
+    - "Funds are locked on bid. Winner pays and item removed from catalog. Unused bids release funds."
+  dispute_resolution:
+    - "Any contested auctions escalated to GCEB arbitration (codex_IV_tribunal linkage)."
+
+shop_transactions:
+  player_commands_examples:
+    - "/shop list <region> <category> <page>"
+    - "/shop info <ITEM-ID>"
+    - "/shop buy <ITEM-ID> <qty>"
+    - "/auction bid <AUCTION-ID> <amount>"
+    - "/auction list <filters>"
+  transaction_rules:
+    - "All purchases must validate item.requirements prior to transfer."
+    - "Currency conversion uses current market exchange table."
+    - "Bulk discounts allowed (shop configurable)."
+    - "Refunds allowed only for system errors; otherwise handled per shop policy."
+
+recipes_and_blueprints:
+  trade_rules:
+    - "Blueprints/recipes categorized as 'item:recipe' and follow tier restrictions."
+    - "Mortals can buy blueprints up to G7; G8–G9 blueprints are auction/quest locked."
+    - "Some recipes are personal (soulbound) and cannot be resold."
+  cauldron_and_alchemy_rules:
+    - "To craft pill of grade N, crafter must be Alchemist level >= N and Cauldron level >= N (mortal grading uses 9-layer grading as requested)."
+    - "LawComprehension exceptions: users with high LawComprehension may compress law to craft items below formal requirement; require GM review."
+
+reward_and_loot_tiers:
+  reward_system:
+    - "Quest & dungeon rewards map to loot tiers: L1..L12; mapping to shop grade determined by loot table converter."
+    - "Boss drops may generate auction-class items (G8–G9) subject to anti-farming constraints."
+  drop_to_shop_integration:
+    - "Some shop stock originates from captured drops sold by NPC traders, with economy tax (merchant alliance)."
+
+black_market_and_illicit_trade:
+  definition: "Unauthorized exchange of restricted goods (G8–G9) and law-forbidden services."
+  detection:
+    - "Heavenal Shop Engine flags suspicious transfers (large cross-realm transfers, odd currency flows)."
+    - "GCEB node receives automatic alerts for transactions surpassing thresholds."
+  enforcement:
+    - "Seizure, bounty, Karma Decay, arrest by Silent Hunters, possible Divine Tribunal referral."
+  permitted_actions:
+    - "GM may simulate black-market events; such actions require codex_synchronization update."
+
+audit_logging_and_sync:
+  logging:
+    - "Every transaction logged with: tx_id, actor_id, item_id, timestamp, origin_shop, destination, gm_override_flag."
+    - "Logs stored in shop_catalog_audit.yaml (encrypted)."
+  integrity:
+    - "Shop engine runs daily integrity checks against manifest (ENV token used for sensitive ops)."
+    - "Auto backups generated each sync cycle."
+  sync_protocol:
+    - "All catalog changes must be signed and versioned; core codex requires 2FA GM approval for G8/G9 additions."
+
+economy_and_balance_guidelines:
+  inflation_controls:
+    - "Periodic events (harvest, wars) influence resource supply and price indices."
+    - "Merchant Alliance authorized to perform market interventions under codex_economy_trade rules."
+  guild_taxation:
+    - "Trade tax applies on player sales (configurable by region)."
+  high_value_validation:
+    - "Prices for G7+ reviewed quarterly by Heavenal Economic Council; drastic changes require codex update."
+
+shop_admin_tools (GM operations):
+  privileged_ops:
+    - "add_item, remove_item, batch_update_price, set_auction, emergency_seize, whitelist_player"
+  auth:
+    - "All privileged ops require GM token via ENV[HEAVENAL_GM_TOKEN]. Visible tokens in repo are forbidden."
+  emergency_measures:
+    - "If market manipulation detected, GCEB can freeze accounts & issue temporary Divine Seals."
+
+player_privacy_and_limits:
+  inventory_visibility:
+    - "Shops may display only allowed details based on requester's realm level."
+    - "Mortals cannot query ImmortalVault stock details."
+  request_limits:
+    - "API rate limits: 60 calls/min for normal players; elevated for guilds with access."
+
+example_shop_catalog_entry: |
+  # Example item entry schema demonstration (real catalog stored in systems/shop_catalog.yaml)
+  - id: "PIL-ROOT-0001"
+    name: "10k Year Ginseng"
+    category: "herb"
+    tier: "G7"
+    grade_realm: "mortal"
+    price:
+      currency: "gold"
+      amount: 12000
+    quantity: 3
+    stack_limit: 10
+    binding: "none"
+    requirements:
+      - realm_min: "Half-Immortal Lv.1"   # example: only purchasable by players with certain standing (or GM override)
+    effects: "Expands Qi Pool: +500 Qi cap for 24h; absorption scaling with user's Foundation level."
+    notes: "Extremely rare; likely to trigger sect conflicts if found."
+
+compliance_and_law:
+  linked_codex:
+    - "codex_IV_tribunal.yaml"    # auction disputes, trade crimes
+    - "codex_XXIV_battle_law.yaml"  # combat-lore interactions (weapon usage limits)
+    - "codex_economy_trade.yaml"
+  law_limits:
+    - "Mortals cannot purchase or craft items that allow >5% Law use amplification."
+    - "Immortals limited to 20% Law use amplification from equipment (unless Dewa Transformasi+)."
+  penalties:
+    - "Breaches trigger Karma Decay, Heavenal Seals, GCEB enforcement actions."
+
+migration_and_export:
+  export_format:
+    - "shop_catalog.yaml (primary)"
+    - "shop_catalog_export.json (for third-party tools)"
+    - "shop_audit_log.enc (encrypted)"
+  portability:
+    - "Catalogs designed to be portable; GM tokens must be injected at deployment (ENV)."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-09"
+  checksum: "HCLN-SHOP-COD-7f2b1"
+  signature: "HCLN-SIGN-SHOP"
+
+notes_and_next_steps:
+  - "Populate `systems/shop_catalog.yaml` with 300+ items following item_schema. Use generator scripts (GM tool) to mass-create placeholders."
+  - "Implement auction house escalation hooks to `codex_IV_tribunal.yaml`."
+  - "Integrate alchemy/cauldron grade gating with `codex_alchemy_forging.yaml` (N ↔ 9-layer grading)."
+  - "Ensure no plaintext GM token exists in repository; all privileged tokens must be ENV variables."
+
+# End of codex_heavenal_shop.yaml
