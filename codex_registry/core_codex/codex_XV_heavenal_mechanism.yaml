@@ -1,0 +1,244 @@
+# ============================================================
+# CODEX XV — THE HEAVENAL MECHANISM & LAW SYNCHRONIZATION ENGINE
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: codex_registry/core_codex/codex_XV_heavenal_mechanism.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "COD-XV"
+  title: "The Heavenal Mechanism & Law Synchronization Engine"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  status: verified
+  sync_hash: "COD-XV-LOCK-F99E2"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  linked_to:
+    - codex_XII_divine_communication_matrix.yaml
+    - codex_XIII_heavenly_tribunal.yaml
+    - codex_XIV_abyssal_law_and_demonic_concord.yaml
+  classification: "Core Codex — World Engine & Law Regulation System"
+
+---
+
+introduction:
+  description: >
+    The Heavenal Mechanism is the self-sustaining divine engine that maintains
+    universal order and Law balance across all realms — Mortal, Immortal, Divine,
+    Abyssal, and Transcendent.
+    It synchronizes the frequency of existence, stabilizes Qi flow, and prevents
+    excessive interference between dimensions.
+    This Codex defines its function, structure, and the protocols that control
+    Law equilibrium and karma restoration.
+  quote: |
+    “When Heaven breathes, worlds align.  
+     When Heaven pauses, all creation trembles.”
+
+---
+
+mechanism_structure:
+  layers:
+    - Outer Ring: "Law Distribution Matrix — regulates flow of Laws and Qi."
+    - Middle Core: "Law Resonance Synchronizer — aligns all realm frequencies."
+    - Inner Core: "Judicium Engine — automatic correction unit of Heavenal Law."
+    - Celestial Nexus: "Heart of the Mechanism; interface linked to Heavenal Control Node."
+  components:
+    - Heavenal Gear Assemblies: "Rotate Law frequencies across dimensions."
+    - Law Crystals: "Contain harmonized Law energy signatures."
+    - Heavenal Mirrors: "Reflect state of realms for dynamic synchronization."
+    - Core Spindle: "Anchor point linking creation cycles to Heavenal pulse."
+  function:
+    - "Regulates Qi and Law transfer between realms."
+    - "Detects imbalance and initiates correction via Heavenal Pulse."
+    - "Manages time dilation across worlds."
+    - "Records karmic distortion for Tribunal audit."
+
+---
+
+law_synchronization_protocols:
+  operational_modes:
+    - Passive Mode: "Maintains resonance across all realms (default)."
+    - Active Mode: "Triggered when imbalance > 0.05% between realms."
+    - Correction Mode: "Deploys Heavenal Pulse to stabilize Law structure."
+    - Reset Mode: "Full Law reset during era-ending events."
+  frequency_intervals:
+    - Heavenal Cycle: 100,000 years (1 full synchronization rotation)
+    - Minor Cycle: 10,000 years (local Law recalibration)
+    - Pulse Interval: 100 years (micro-adjustment for realm balance)
+  monitoring_parameters:
+    - Law Density
+    - Qi Flow Efficiency
+    - Karma Displacement
+    - Realm Resonance Factor (RRF)
+  formula_reference:
+    - Balance Index = (Qi Flow + Law Density) / Karma Flux × Resonance Factor
+
+---
+
+heavenal_pulse_system:
+  description: >
+    The Heavenal Pulse is an energy wave emitted by the Mechanism to correct
+    Law instability or imbalance between realms.  
+    It can trigger phenomena such as Tribulation, Divine Intervention,
+    or even complete Law Rewrite in extreme cases.
+  types:
+    - Stabilization Pulse: "Rebalances Qi and Law densities."
+    - Correction Pulse: "Removes corrupted Law fragments or false energies."
+    - Judgment Pulse: "Delivers punishment for mass Law violations."
+    - Resonance Pulse: "Enhances ascension energy for compatible cultivators."
+  side_effects:
+    - “Temporary disruption of inter-realm communication.”
+    - “Increased Tribulation frequency.”
+    - “Amplified Law sensitivity for high-tier cultivators.”
+  overseers:
+    - Heavenal Control Node (Primary)
+    - GCEB Void Division (Monitor)
+    - Holy Region Council (Witnessing Body)
+
+---
+
+tribulation_and_balance:
+  description: >
+    Tribulation is not punishment — it is Heaven’s mechanism for correction.
+    Every being that reaches the threshold of imbalance with the Law
+    must face a personalized trial reflecting their karmic essence.
+  classification:
+    - Mortal Tribulation: "Heaven tests will and resolve."
+    - Immortal Tribulation: "Heaven tests Law comprehension."
+    - Divine Tribulation: "Heaven tests alignment with creation."
+    - Transcendent Tribulation: "Heaven tests purpose itself."
+  success_effects:
+    - “Law density stabilization.”
+    - “Increased resonance synchronization.”
+    - “Permanent Law Affinity boost.”
+  failure_effects:
+    - “Soul fracture or essence corruption.”
+    - “Regression to lower realm or erasure from Law record.”
+  control_index:
+    - “Tribulation Power = Karma × Law Density × Heavenal Coefficient.”
+
+---
+
+law_correction_and_rewrite:
+  description: >
+    The Heavenal Mechanism contains a subsystem known as the
+    *Judicium Engine*, which activates during Law Collapse or forbidden interference.
+    It can rewrite Laws at the expense of massive karmic energy expenditure.
+  triggers:
+    - “Cross-realm violation.”
+    - “Unauthorized Law Creation.”
+    - “Existence of double resonance (duplicate souls).”
+    - “Heavenal Communication Disruption.”
+  stages:
+    - Stage I: Law Detection
+    - Stage II: Data Comparison
+    - Stage III: Temporal Lock
+    - Stage IV: Rewrite Command Execution
+  energy_requirements:
+    - “Minimum 10^9 Essence Units.”
+    - “Heavenal Control Node authorization required.”
+  risks:
+    - “Excessive correction may destabilize timeline.”
+    - “Overuse may trigger catastrophic collapse (Law Burn).”
+
+---
+
+heavenal_control_node:
+  description: >
+    The Heavenal Control Node (HCN) acts as the governing intelligence
+    and interface of the Heavenal Mechanism.
+    It manages relay synchronization, Law audit logs, and
+    auto-corrects cosmic anomalies without manual intervention.
+  roles:
+    - “Process realm resonance data and initiate synchronization cycles.”
+    - “Verify Tribunal verdict alignment with Heavenal Law.”
+    - “Transmit updates to lower realm administrative entities.”
+  subsystems:
+    - Pulse Management Core
+    - Law Analytics Archive
+    - Karma Audit Interface
+    - Realm Frequency Stabilizer
+  access_rules:
+    - “Only Arbiter Supreme or Divine-Grade entities may directly command HCN.”
+    - “GM access requires verified Heavenal Token authentication.”
+    - “Unauthorized access triggers Law Seal and karma backlash.”
+
+---
+
+inter_realm_balance_matrix:
+  description: >
+    This matrix calculates the relational stability of all realms.
+    The balance must be preserved at all times to prevent multiversal collapse.
+  realm_factors:
+    - Mortal Realm: 0.6 baseline resonance.
+    - Immortal Realm: 1.0 standard resonance.
+    - Divine Realm: 1.4 high-density resonance.
+    - Abyss Realm: -0.8 counter-resonance (neutralized via Abyssal Concord).
+    - Beast Realm: 0.9 natural resonance.
+    - Void: -1.0 null resonance.
+    - Chaos: undefined; isolated by Heavenal Lock.
+  stability_requirement:
+    - “Total Resonance Ratio must remain between 0.85 and 1.25.”
+  emergency_procedure:
+    - “Below 0.75 → Initiate Stabilization Pulse.”
+    - “Above 1.50 → Trigger Judgment Pulse.”
+    - “Void resonance interference → Activate Seal Protocol.”
+
+---
+
+law_observation_and_audit:
+  governing_entities:
+    - Heavenal Audit Bureau: "Reviews data anomalies and resonance fluctuations."
+    - Tribunal Division: "Issues corrective orders."
+    - Great Court Enforcement Bureau (GCEB): "Executes enforcement."
+  process:
+    - Step 1: Detection of imbalance.
+    - Step 2: Resonance cross-check.
+    - Step 3: Tribunal authorization.
+    - Step 4: Heavenal correction or Seal command.
+  audit_cycle:
+    - Major Audit: every 10,000 years.
+    - Minor Audit: every 500 years.
+  recorded_by: "Heavenal Archive Scribes."
+
+---
+
+integration:
+  linked_codex:
+    - codex_XII_divine_communication_matrix.yaml
+    - codex_XIII_heavenly_tribunal.yaml
+    - codex_XIV_abyssal_law_and_demonic_concord.yaml
+  affects:
+    - "Tribulation Mechanics"
+    - "World Stability Index"
+    - "Event Engine Time and Law Modifiers"
+  system_dependencies:
+    - Heavenal Control Node
+    - Great Court Enforcement Bureau
+    - Holy Region Alliance
+    - Realm Synchronization Grid
+
+---
+
+security:
+  classification: "Heavenal Core — Synchronization Engine Tier"
+  encryption: enabled
+  gm_access_required: true
+  gm_auth_token_ref: "ENV[HEAVENAL_GM_TOKEN]"
+  codex_integrity: verified
+  last_audit: "2025-11-09"
+  approved_by: "Heavenal Control Node"
+  network_status: "Stable — 100% Law Synchronization"
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-09"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "COD-XV-SHA-9F7A2"
+  sign_key: "HCLN-HEAVENAL-MECHANISM-SECURE"
