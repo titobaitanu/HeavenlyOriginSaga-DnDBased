@@ -1,0 +1,179 @@
+# ============================================================
+# AUXILIARY CODEX XXI — SECURITY PROTOCOLS & SYSTEM INTEGRITY
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_security_protocol.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-XXI"
+  title: "Security Protocols & Heavenal Integrity Framework"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "Auxiliary Codex — Security & Law Enforcement Layer"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  last_updated: "2025-11-10"
+  sync_hash: "AUX-XXI-LOCK-99E3F"
+  status: verified
+
+---
+
+introduction:
+  description: >
+    Codex ini mendefinisikan seluruh protokol keamanan Heavenal System,
+    termasuk autentikasi GM, izin akses pemain, enkripsi repository,
+    serta metode sinkronisasi antara sistem dunia dan Codex Engine.
+    Semua proses hukum, perubahan file, atau aksi lintas realm
+    harus melewati validasi Heavenal Control Node (HCN).
+  quote: |
+    “Even the Laws must obey their Keeper —  
+     and no Codex shall change without the Will of Heaven.”
+
+---
+
+authentication_system:
+  gm_token_reference: "ENV[HEAVENAL_GM_TOKEN]"
+  gm_token_length: 6
+  gm_token_status: "Active"
+  gm_token_last_validated: "2025-11-10"
+  backup_token_path: "local_secure/heavenal_token_backup.yaml"
+  auth_levels:
+    - GM:
+        level: 9
+        access_scope: "Full control, modification, and Codex unlocking"
+        permissions:
+          - unlock_codex
+          - modify_manifest
+          - authorize_event
+          - system_reboot
+          - codex_write
+    - Developer:
+        level: 7
+        access_scope: "Edit auxiliary Codex & debug systems"
+        permissions:
+          - system_patch
+          - modify_aux_codex
+          - validate_sync
+    - Contributor:
+        level: 4
+        access_scope: "Lore expansion and event data input"
+        permissions:
+          - lore_update
+          - npc_entry
+          - data_append
+    - Viewer:
+        level: 1
+        access_scope: "Read-only"
+        permissions:
+          - read_codex
+          - download_manifest
+  revocation_policy:
+    - "Jika token GM bocor, seluruh token dinonaktifkan dan diganti otomatis dalam 24 jam."
+    - "Developer token memiliki masa aktif 90 hari dan perlu verifikasi ulang."
+    - "Semua log akses disimpan dalam Heavenal_Log_Archive/."
+
+---
+
+encryption_protocol:
+  algorithm: "AES-256 Heavenal Hash Variant"
+  encryption_mode: "local_safe"
+  backup_mode: "auto-compress"
+  encryption_rules:
+    - "Semua file Codex dan Manifest dienkripsi sebelum ekspor publik."
+    - "Token tidak boleh tertulis secara plaintext di repositori publik."
+    - "Checksum unik dihasilkan pada setiap sinkronisasi global."
+  checksum_example:
+    codex_file: "b29f1e-verified-lock"
+    manifest_file: "ae71f3c4b1-secure"
+  key_storage:
+    type: "Local Environment Key"
+    description: >
+      Semua kunci enkripsi disimpan secara lokal pada perangkat GM.
+      Heavenal Engine menggunakan layer ganda: runtime memory dan vault file.
+
+---
+
+integrity_management:
+  integrity_check_modes:
+    - "codex_linkage"
+    - "system_dependency"
+    - "npc_binding"
+    - "law_consistency"
+  validation_frequency: "Every 1 Heavenal Day"
+  repair_protocols:
+    - "Jika ada modul rusak → aktivasi auto_recover mode."
+    - "Sinkronisasi ulang checksum dari Codex Master."
+    - "Laporkan ke Heavenal Control Node (HCLN) untuk validasi ulang."
+  integrity_status:
+    codex_integrity: verified
+    system_integrity: stable
+    npc_binding: synchronized
+    dependency_check: complete
+  law_consistency_verification: "Validated by Heavenal Tribunal Core"
+
+---
+
+auto_backup_and_recovery:
+  schedule: "Every 3 Heavenal Days"
+  storage_path: "local_secure/backups/"
+  backup_format: ".tar.gz (encrypted)"
+  recovery_modes:
+    - "Soft Restore — untuk file minor (tanpa kehilangan sync)."
+    - "Hard Restore — reset checksum & struktur Codex (hanya GM)."
+  auto_recover_trigger:
+    - "Corruption detected in .yaml / .json file."
+    - "Integrity mismatch between Manifest and Codex."
+    - "Unauthorized edit attempt from external client."
+  recovery_process:
+    step_1: "Lock seluruh Codex sementara."
+    step_2: "Kembalikan versi backup terakhir."
+    step_3: "Generate log dan checksum baru."
+    step_4: "Unlock kembali setelah validasi manual GM."
+
+---
+
+law_enforcement_and_audit:
+  overseer_entity: "Great Court Enforcement Bureau (GCEB)"
+  enforcement_layers:
+    - Heavenal Arbiter Layer: "Mengawasi perubahan hukum & izin modifikasi."
+    - GCEB Log Auditors: "Memeriksa perubahan lintas Codex & event engine."
+    - Void Marshal Division: "Menangani pelanggaran hukum digital (void access)."
+  audit_cycle: "Setiap 10 Heavenal Days"
+  infraction_types:
+    - "Unauthorized Code Injection (Level 3)"
+    - "Codex Fabrication or Alteration (Level 5)"
+    - "Token Theft or False Signature (Level 9)"
+  punishments:
+    - Level 3: "Revokasi akses hingga 30 Heavenal Days."
+    - Level 5: "Sinkronisasi akun dihapus dari Manifest."
+    - Level 9: "Data wipe & lock permanen hingga GM override."
+
+---
+
+emergency_override:
+  protocol_name: "Heavenal Override Protocol (HOP-Δ)"
+  activation_condition: "Manifest corruption or Codex desynchronization ≥ 30%"
+  authorized_roles:
+    - GM
+    - Heavenal Control Node (autonomous)
+  override_sequence:
+    - "Lock all write operations."
+    - "Backup all live Codex data."
+    - "Regenerate manifest integrity hash."
+    - "Reboot Heavenal Engine."
+  post_override_action:
+    - "Update security checksum."
+    - "Revalidate all NPC bindings."
+    - "Sync with Codex Master Archive."
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  integrity_check: verified
+  checksum: "AUX-XXI-SHA-98E1C"
+  sign_key: "HCLN-SECURITY-PROTOCOL-SECURE"
