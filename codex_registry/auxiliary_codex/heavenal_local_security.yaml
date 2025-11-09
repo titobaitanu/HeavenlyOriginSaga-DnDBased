@@ -1,0 +1,107 @@
+# ============================================================
+# HEAVENAL LOCAL SECURITY MANIFEST — heavenal_local_security.yaml
+# Local / Offline Security Manifest (v3.2-local)
+# Purpose: Offline GM verification, quick-recovery metadata, and local integrity checks.
+# WARNING: DO NOT COMMIT THIS FILE TO PUBLIC REPOSITORIES IF IT CONTAINS SENSITIVE VALUES.
+# ============================================================
+
+meta:
+  manifest_id: "LOCAL-SEC-2025"
+  version: "3.2-local"
+  owner: "Heavenal Control Node (Local GM)"
+  created_on: "2025-11-10"
+  device_id: "<REPLACE_WITH_DEVICE_ID>"
+  note: "Store this file in a secure local vault. Keep gm token in ENV, not here."
+
+auth:
+  gm_token_env_ref: "ENV[HEAVENAL_GM_TOKEN]"
+  local_token_hash: "<REPLACE_WITH_SHA256_HEX_OF_YOUR_TOKEN_OR_LEAVE_EMPTY>"
+  last_validated: "2025-11-10T00:00:00Z"
+  validation_method: "compare ENV token SHA256 to local_token_hash"
+  token_hint: "Do NOT store token plaintext. Use OS environment variables."
+
+access_control:
+  allowed_roles_local:
+    - GM
+    - Developer
+    - Contributor
+    - Viewer
+  offline_auth_mode: true
+  offline_auth_requirements:
+    - "Presence of local_token_hash"
+    - "Hardware device_id match"
+    - "Local passphrase (optional)"
+
+encryption:
+  enabled: true
+  algorithm: "AES-256-GCM"
+  key_source: "local_keyfile or ENV[HEAVENAL_LOCAL_KEY]"
+  key_storage_note: "Keep encryption key offline; rotate every 90 days"
+
+integrity:
+  local_checksum: "<REPLACE_WITH_MANIFEST_CHECKSUM>"
+  last_checksum_update: "2025-11-10T00:00:00Z"
+  integrity_checks:
+    - codex_linkage: "verified/unknown"
+    - system_dependency: "verified/unknown"
+    - npc_binding: "verified/unknown"
+    - law_consistency: "verified/unknown"
+  auto_check_interval: "Every 1 Local Day (configurable)"
+
+backup:
+  auto_backup_enabled: true
+  backup_path: "./local_secure/backups/"
+  backup_format: ".tar.gz.encrypted"
+  backup_schedule: "Every 3 Local Days"
+  max_backups_keep: 10
+
+auto_recover:
+  enabled: true
+  triggers:
+    - "integrity_mismatch"
+    - "checksum_corruption"
+    - "unauthorized_write_detected"
+  recovery_mode: "soft_by_default / hard_with_gm_override"
+  recovery_notes:
+    - "Soft restore will attempt to restore last good backup automatically."
+    - "Hard restore requires GM confirmation and will reset local sync metadata."
+
+sync:
+  auto_sync_to_master: false
+  last_sync_with_manifest: "2025-11-10T00:00:00Z"
+  pending_changes_queue: []
+  sync_on_connect: true
+  remote_manifest_ref: "manifest.yaml (remote/master)"
+
+audit_log:
+  path: "./local_secure/heavenal_local_audit.log"
+  rotate_every: "100MB"
+  retention_days: 365
+  sample_entry: "2025-11-10T00:00:00Z | GM_VALIDATE | device_id:xxxx | status:OK"
+
+emergency:
+  override_protocol: "LOCAL-HOP"
+  activation_requirements:
+    - "GM environment token validated"
+    - "Device hardware token present (optional)"
+    - "Manual passphrase confirmation"
+  emergency_actions:
+    - "Lock local write ops"
+    - "Backup live data to backup_path"
+    - "Notify remote Heavenal Control Node on next connection"
+
+instructions:
+  - "1) Generate SHA256 of your GM token and place the hex into local_token_hash (optional)."
+  - "   Example (Linux/macOS): echo -n 'YOUR_TOKEN' | sha256sum"
+  - "2) Keep encryption key in ENV[HEAVENAL_LOCAL_KEY] or a secure keyfile."
+  - "3) Do NOT upload this file with real token values to public repos."
+  - "4) Use this file for offline verification and local auto-recovery only."
+
+warnings:
+  - "Do not expose ENV tokens in any committed file."
+  - "If token leak suspected: delete local_token_hash, rotate token in ENV immediately."
+
+verification:
+  maintained_by: "Heavenal Control Node (Local)"
+  last_checked: "2025-11-10"
+  status: "ready_for_configuration"
