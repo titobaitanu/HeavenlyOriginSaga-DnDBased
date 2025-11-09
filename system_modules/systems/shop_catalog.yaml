@@ -1,0 +1,208 @@
+# ============================================================
+# SYSTEM MODULE — HEAVENAL SHOP CATALOG
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: system_modules/system/shop_catalog.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  module_id: "SYS-SHOP"
+  title: "Heavenal Shop & Trade System"
+  version: 3.2-secure
+  maintainer: "Heavenal Control Node"
+  author: "Tito Baitanu"
+  last_updated: "2025-11-10"
+  linked_codex:
+    - "codex_heavenal_shop.yaml"
+    - "codex_economy_trade.yaml"
+    - "codex_alchemy_forging.yaml"
+  sync_hash: "SYS-SHOP-LOCK-8F1A2"
+  status: verified
+
+---
+
+shop_system:
+  description: >
+    Modul Heavenal Shop mengatur sistem perdagangan lintas realm —
+    termasuk Mortal, Immortal, Abyss, Beast, dan Divine.  
+    Setiap realm memiliki daftar barang, batas grade, dan jadwal restock tersendiri.
+    Semua data harga, jumlah stok, dan efek hukum (Law Limitations)
+    diambil secara otomatis dari database JSON eksternal.
+  shop_modes:
+    - mortal_shop
+    - immortal_shop
+    - divine_shop
+    - abyssal_blackmarket
+    - beast_tradepost
+
+---
+
+data_integration:
+  sources:
+    - name: "alchemy_tools"
+      file: "alchemy_tools_2000.json"
+      description: "Berisi seluruh alat alkimia seperti cauldron, catalyst bowl, dan flame regulator."
+    - name: "artifacts"
+      file: "artifacts_10000.json"
+      description: "Daftar artefak dan senjata dari tingkat mortal hingga divine."
+    - name: "catalysts"
+      file: "catalyst_catalog_2000.json"
+      description: "Kumpulan bahan campuran untuk meningkatkan efek pill atau forging success."
+    - name: "forging_tools"
+      file: "forging_tools_2000.json"
+      description: "Alat penempaan spiritual seperti hammer, anvil, spirit flame, dan formation furnace."
+    - name: "herbs"
+      file: "herb_catalog_2000.json"
+      description: "Katalog lengkap herbal alami dan spiritual."
+    - name: "npc"
+      file: "npc_20000.json"
+      description: "NPC merchant, alchemist, dan blacksmith yang mengelola setiap shop node."
+    - name: "pills"
+      file: "pill_catalog_2000.json"
+      description: "Daftar pill dan elixir beserta efek buff/debuff-nya."
+    - name: "sutras"
+      file: "Sutras_2000.json"
+      description: "Sutra dan teknik kultivasi tingkat tinggi yang dapat dibeli secara terbatas."
+    - name: "techniques"
+      file: "techniques_10000.json"
+      description: "Katalog seni bela diri, soul art, dan elemental art yang dijual di tiap realm."
+  import_type: "linked_json"
+  sync_mode: "on_load"
+  integrity_check: "auto"
+  update_interval: "Every 7 Heavenal Days"
+
+---
+
+realm_shops:
+  mortal_shop:
+    tier_range: "G1–G6"
+    currency: "Spirit Stones"
+    restock_interval: "7 Heavenal Days"
+    stock_source: ["herbs", "pills", "low_tier_artifacts", "basic_techniques"]
+    restrictions:
+      - "Cannot purchase items above G6."
+      - "Artifact G7–G9 are kingdom-class treasures; auction only."
+    dynamic_events:
+      - name: "Merchant Festival"
+        effect: "All prices -15% for 3 Heavenal Days."
+      - name: "Heavenal Tax Week"
+        effect: "Prices +10%, restock frozen for 1 day."
+  immortal_shop:
+    tier_range: "G6–G12"
+    currency: "Immortal Jades"
+    restock_interval: "14 Heavenal Days"
+    stock_source: ["pills", "forging_tools", "artifacts", "sutras", "techniques"]
+    restrictions:
+      - "Immortal shop may sell lower-tier items freely."
+      - "Access restricted to Half-Immortal Lv.10+."
+  divine_shop:
+    tier_range: "G13–G18"
+    currency: "Divine Crystals"
+    restock_interval: "30 Heavenal Days"
+    stock_source: ["divine_artifacts", "sutras", "law_scrolls"]
+    restrictions:
+      - "Only accessible to Dewa Transformasi Lv.50+."
+      - "All purchases trigger Heavenal Log Trace."
+  abyssal_blackmarket:
+    tier_range: "G6–G15"
+    currency: "Abyssal Coins"
+    restock_interval: "10 Heavenal Days"
+    stock_source: ["forbidden_artifacts", "poison_pills", "corrupt_techniques"]
+    restrictions:
+      - "Illegal in Immortal and Divine realms."
+      - "Trades monitored by GCEB via Karmic Trace."
+  beast_tradepost:
+    tier_range: "G1–G12"
+    currency: "Beast Cores / Spirit Stones"
+    restock_interval: "10 Heavenal Days"
+    stock_source: ["herbs", "catalysts", "natural_artifacts"]
+    restrictions:
+      - "Trade based on barter system."
+      - "No Law items beyond Immortal tier."
+
+---
+
+price_adjustment_system:
+  mechanics:
+    base_price_formula: "BaseValue × RealmMultiplier × RarityFactor × LawAlignment"
+    realm_multiplier:
+      mortal: 1.0
+      immortal: 3.0
+      divine: 10.0
+      abyssal: 5.0
+      beast: 2.0
+    rarity_factor:
+      common: 1.0
+      rare: 2.5
+      epic: 5.0
+      legendary: 10.0
+      divine: 20.0
+    law_alignment:
+      heavenly: 1.0
+      demonic: 0.8
+      evil: 0.7
+      neutral: 1.0
+      abyssal: 0.9
+  dynamic_price_variation: true
+  tax_rules:
+    - name: "Heavenal Levy"
+      applied_to: ["immortal_shop", "divine_shop"]
+      rate: 5
+    - name: "Merchant Guild Tax"
+      applied_to: ["mortal_shop"]
+      rate: 2
+    - name: "Abyssal Tribute"
+      applied_to: ["abyssal_blackmarket"]
+      rate: 10
+
+---
+
+restock_mechanics:
+  global_refresh:
+    mortal: 7
+    immortal: 14
+    divine: 30
+    abyssal: 10
+    beast: 10
+  refresh_policy: "Weighted Random Selection"
+  conditionals:
+    - "If rarity > epic: low chance of restock (5%)."
+    - "If stock < 5%: emergency replenishment triggered."
+    - "Divine items cannot restock automatically (manual GM event)."
+  supplier_logic:
+    mortal_shop_supplier: "Local Merchant NPC"
+    immortal_supplier: "Heavenly Merchant Guild"
+    divine_supplier: "Heavenal Treasury"
+    abyssal_supplier: "Void Dealers"
+    beast_supplier: "Beast Clan Traders"
+
+---
+
+inventory_control:
+  item_quantity_display: true
+  dynamic_stock_limits:
+    mortal: 100–500
+    immortal: 50–200
+    divine: 10–50
+    abyssal: 30–100
+    beast: 80–150
+  purchase_log:
+    enabled: true
+    log_to: "Heavenal_Log_Archive/"
+  auto_archive:
+    frequency: "Every 1 Heavenal Week"
+    format: "csv"
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  linked_to:
+    - "codex_heavenal_shop.yaml"
+    - "codex_economy_trade.yaml"
+  integrity_check: verified
+  checksum: "SYS-SHOP-SHA-7B291"
+  sign_key: "HCLN-SHOP-MODULE-SECURE"
