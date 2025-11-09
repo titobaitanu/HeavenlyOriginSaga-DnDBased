@@ -1,42 +1,46 @@
 # ===========================================
-# HEAVENLY ORIGIN SAGA — MANIFEST v3.2-secure
-# ===========================================
-# Repository: HeavenlyOriginSaga-DnDBased
+# HEAVENLY ORIGIN SAGA — MANIFEST (v3.2-secure-revised)
+# Generated: 2025-11-09TUTC
 # Maintainer: Heavenal Control Node
-# Security Level: PUBLIC-SAFE
-# Authentication: Local Environment Variable
-# Last Updated: 2025-11-09
+# Note: GM token must be provided via environment variable: HEAVENAL_GM_TOKEN
 # ===========================================
 
 meta:
-  version: 3.2-secure
+  version: "3.2-secure-revised"
+  repository: "HeavenlyOriginSaga-DnDBased"
   author: "Tito Baitanu"
   maintainer: "Heavenal Control Node"
   auth_reference: "ENV[HEAVENAL_GM_TOKEN]"
-  license_model: "Dual License (MIT + HLOCL)"
-  codex_count: 42
-  sync_integrity: verified
-  checksum_hash: "ae71f3c4b1-secure"
-  repository_status: stable
-  encryption_mode: local_safe
-  build_environment: Heavenal Engine v2.0
-  release_channel: public
+  license_model: "Dual License (MIT + Heavenal Law Open-Collab)"
+  codex_count: 43
+  sync_integrity: "verified"
+  checksum_hash: "ae71f3c4b1-secure-v3"
+  repository_status: "stable"
+  encryption_mode: "local_safe"
+  build_environment: "Heavenal Engine v2.0"
+  release_channel: "public"
+  last_updated: "2025-11-09"
 
----
-
+# -------------------------
+# Core Codex Registry
+# -------------------------
 codex_registry:
   core_codex:
+    # Core legal / cosmology / mechanistic codices (ordered, authoritative)
     - codex_I_creation.yaml
     - codex_II_balance.yaml
     - codex_III_structure.yaml
-    - codex_IV_tribunal.yaml
+    - codex_IV_immortal_structure.yaml        # Great Court, GCEB, Immortal law & hierarchy
+    - codex_V_divine_tribunal.yaml           # Divine Tribunal, Diety court & divine law
     - codex_XV_heavenal_mechanism.yaml
     - codex_XIX_technique_system.yaml
     - codex_XX_realm_architecture.yaml
     - codex_XXIV_battle_law.yaml
     - codex_XXV_abyss_beast.yaml
     - codex_cosmic_realm_full.yaml
+
   auxiliary_codex:
+    # Gameplay, economy, systems, and lore indices (supporting but editable)
     - codex_lore_master_index.yaml
     - codex_alchemy_forging.yaml
     - codex_economy_trade.yaml
@@ -47,9 +51,15 @@ codex_registry:
     - codex_beast_doctrine.yaml
     - codex_synchronization.yaml
     - codex_world_event.yaml
+    - codex_forging_recipes_index.yaml
+    - codex_pill_catalog_index.yaml
+    - codex_artifact_index.yaml
+    - codex_codex_dependencies.yaml         # explicit dependency map between codices
+    - codex_security_protocols.yaml
 
----
-
+# -------------------------
+# System Modules (runtime)
+# -------------------------
 system_modules:
   - systems/shop_catalog.yaml
   - systems/forging_sheet.yaml
@@ -59,48 +69,63 @@ system_modules:
   - systems/ascension_trial.yaml
   - systems/inventory_module.yaml
   - systems/reward_loot_tier.yaml
+  - systems/heaven_timer.yaml
+  - systems/law_compression_engine.yaml
+  - systems/heavenal_audit.yaml
 
----
-
+# -------------------------
+# World Architecture files
+# -------------------------
 world_architecture:
   - world/realm_structure.yaml
   - world/world_map.yaml
   - world/beast_realm.yaml
   - world/abyss_realm.yaml
   - world/immortal_domains.yaml
+  - world/deity_domain.yaml
+  - world/great_heaven.yaml
   - world/economy_matrix.yaml
   - world/holy_region.yaml
   - world/merchant_network.yaml
+  - world/continent_division.yaml
 
----
-
+# -------------------------
+# NPC, Faction & Legion registries
+# -------------------------
 npc_and_faction:
   - npc/faction_index.yaml
   - npc/npc_registry.yaml
   - npc/divine_entities.yaml
   - npc/beast_clans.yaml
   - npc/abyss_legion.yaml
+  - npc/merchant_guilds.yaml
+  - npc/academy_registry.yaml
 
----
-
+# -------------------------
+# Event Engine & triggers
+# -------------------------
 event_engine:
   - event/world_event_engine.yaml
   - event/karma_trigger.yaml
   - event/ascension_trial.yaml
   - event/divine_intervention.yaml
   - event/void_invasion.yaml
+  - event/heavenal_resonance_watch.yaml
 
----
-
+# -------------------------
+# Security & sync protocols
+# -------------------------
 security_protocols:
-  token_reference: "ENV[HEAVENAL_GM_TOKEN]"
+  token_reference: "ENV[HEAVENAL_GM_TOKEN]"    # DO NOT store token plaintext in repo
   sync_mode: true
   auto_backup: true
   encryption: true
   auto_recover: enabled
   access_control:
     gm_level: 9
+    lead_maintainer: 8
     contributor_level: 4
+    reviewer_level: 3
     viewer_level: 1
   integrity_check:
     law_consistency: verified
@@ -108,37 +133,83 @@ security_protocols:
     npc_binding: synchronized
     system_dependency: complete
 
----
-
+# -------------------------
+# Sync Status Snapshot
+# -------------------------
 sync_status:
-  codex: 100%
-  systems: 100%
-  npc_registry: 98%
-  world_architecture: 99%
-  event_engine: 97%
-  overall_sync: 98.8%
-  notes: "All modules are operational and harmonized with Heavenal Core Engine."
+  codex: "100%"
+  systems: "100%"
+  npc_registry: "99%"
+  world_architecture: "99%"
+  event_engine: "98%"
+  shop_catalog: "100%"
+  alchemy_db: "96%"
+  overall_sync: "98.6%"
+  notes: >
+    Most modules operational. alchemy recipe DB still awaiting full validation (approx 4% remaining).
+    GM environment variable required for write-lock operations.
 
----
-
+# -------------------------
+# Update Log (recent)
+# -------------------------
 update_log:
-  - date: 2025-11-09
+  - date: "2025-11-09"
+    author: "Heavenal Control Node"
     changes:
-      - Replaced all plaintext tokens with environment variable references
-      - Added encryption and integrity layers
+      - Replaced plaintext tokens with environment variable references (ENV[HEAVENAL_GM_TOKEN])
+      - Separated Immortal Structure (Codex IV) from Divine Tribunal (Codex V)
+      - Added encryption and repository integrity layers
       - Validated Heavenal Law Open-Collab compliance
-      - Completed synchronization with 42 Codex entries
-      - Secured repository for public GitHub deployment
-  - date: 2025-11-08
+      - Completed secure sync of core codex files
+  - date: "2025-11-08"
+    author: "Heavenal Control Node"
     changes:
-      - Integrated NPC Faction index
-      - Finalized Abyss and Beast Realm doctrines
-      - Adjusted world economy for mortal tier 7–9 artifacts
+      - Integrated NPC Faction index and Beast Doctrine
+      - Finalized Beast Realm and Abyss adjustments
+      - Adjusted world economy balancing for Mortal Tier 7–9 artifacts
 
----
-
+# -------------------------
+# Verification / Signatures
+# -------------------------
 verification:
   signed_by: "Heavenal Control Node"
-  key_signature: "HCLN-SECURE-PRIME"
+  key_signature: "HCLN-SECURE-PRIME-v3"
   verified_date: "2025-11-09"
-  signature_hash: "b29f1e-verified-lock"
+  signature_hash: "b29f1e-verified-lock-v3"
+
+# -------------------------
+# Operational Notes (GM)
+# -------------------------
+operational:
+  gm_instructions:
+    - "Set HEAVENAL_GM_TOKEN in your environment before performing any lock/unlock operations."
+    - "Do NOT commit tokens or secrets to the repository. Use .gitignore for local export files."
+    - "When updating core codex files, increment manifest.version and add an update_log entry."
+    - "Use codex_codex_dependencies.yaml to validate cross-codex references before merging."
+  backup_policy:
+    frequency: "daily"
+    retention_days: 90
+    location: "encrypted-local / remote-s3-optional"
+  release_policy:
+    stable_branch: "main"
+    dev_branch: "dev"
+    hotfix_branch_prefix: "hotfix/"
+
+# -------------------------
+# Developer / Export Helpers
+# -------------------------
+export_presets:
+  archive_format: "tar.gz"
+  manifest_export: "manifest_v3.2-secure-revised.yaml"
+  recommended_files_for_export:
+    - README.md
+    - LICENSE
+    - LICENSE_NOTICE.md
+    - manifest.yaml
+    - codex_registry/
+    - systems/
+    - world/
+    - npc/
+    - event/
+
+# End of manifest
