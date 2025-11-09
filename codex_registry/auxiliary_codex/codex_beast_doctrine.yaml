@@ -1,0 +1,158 @@
+# ============================================================
+# CODEX BEAST DOCTRINE — PRIMAL ASCENSION & SPIRITUAL EVOLUTION
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_beast_doctrine.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-VIII"
+  title: "Beast Doctrine — Primal Ascension & Spiritual Evolution"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  status: verified
+  registry_order: 8
+  sync_hash: "AUX-VIII-LOCK-761B9"
+  classification: "Auxiliary Codex — Beast Realm Doctrine"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+
+---
+
+introduction:
+  description: >
+    The Beast Doctrine defines the natural evolution, cultivation, and ascension
+    system of sentient beasts within the Heavenly Origin Saga.
+    Unlike humans or immortals, beasts evolve through instinctual comprehension
+    of primal laws — their cultivation shaped by survival, territory, and bloodline memory.
+  quote: |
+    “Before the first gods, before the first immortals — the beasts roamed freely,
+     guided only by instinct, and born from the pulse of Heaven and Earth.”
+
+---
+
+beast_origin:
+  creation_theory:
+    - "All beasts originate from fragments of Primordial Qi within the Mortal Realm."
+    - "Through instinctual resonance, they awaken sentience once reaching Golden Core."
+    - "Upon forming spiritual consciousness, beasts develop their personal Law Aspect."
+  primal_law_aspects:
+    - Elemental Instinct: "Fire, Water, Wind, Earth, Lightning."
+    - Bloodline Resonance: "Inherited from Primordial Beasts."
+    - Territory Law: "Control over environment via instinctual Qi influence."
+  divine_recognition:
+    - "Only after Nihility Realm can a beast receive Heavenal acknowledgment."
+    - "Recognized beasts gain access to Ascension Path and reincarnation cycles."
+
+---
+
+beast_realm_structure:
+  realms:
+    - Mortal Beasts: "Exist within mortal lands; instinctive cultivators."
+    - Spirit Beasts: "Golden Core–Nascent Soul level; capable of forming contracts with mortals."
+    - Ascended Beasts: "Half-Immortal–Immortal level; gain human forms and intellect."
+    - Divine Beasts: "Dewa-level entities bound by Law."
+    - Transcendent Beasts: "Protectors of realms; beyond form and nature."
+  realm_division:
+    - Low Beastlands: "Territory shared with Mortal Realm forests and mountains."
+    - Mid Beastlands: "Sanctuaries between realms, inhabited by Ascended Beasts."
+    - Great Beast Realm: "Independent plane connected via Beast Ascension Gate."
+  governing_entity:
+    - Primordial Beast Council:
+        leader: "Azure Sovereign"
+        members: 9
+        duty: "Maintain beast law balance and prevent mortal incursion."
+
+---
+
+beast_cultivation_system:
+  foundation_process:
+    - "Absorb Qi through instinct, not meridians."
+    - "Condense Spirit Core through hunting and life absorption."
+    - "Comprehend Law via survival and elemental resonance."
+  transformation_path:
+    - "Golden Core → Sentient Mind"
+    - "Nascent Soul → Human Form"
+    - "Ensoulment → Dual Nature (Beast & Human)"
+    - "Ascension → Entry to Beast Realm"
+    - "Half-Immortal → Recognition of Heavenal Law"
+  law_cap:
+    - Mortal Beast: 1.0
+    - Immortal Beast: 5.0
+    - Divine Beast: 7.0
+    - Transcendent Beast: ∞
+  special_case:
+    - "Primordial Bloodline Beasts may exceed normal Law limits temporarily."
+
+---
+
+beast_society:
+  hierarchy:
+    - Beast Lord: "Leader of local territories (Immortal level)."
+    - Beast King: "Ruler of multiple clans; governs through instinctual decree."
+    - Sovereign Beast: "Dewa level; controls beast domain law."
+    - Primordial Beast: "Ancient transcendent entities embodying universal forces."
+  political_entities:
+    - Beast Council: "Nine-member group ruling the Great Beast Realm."
+    - Fang Clans: "Warrior tribes specialized in defense and elemental combat."
+    - Spirit Tamers: "Beasts who coexist peacefully with humans."
+  diplomacy_rules:
+    - "Beast Clans may trade essence crystals with Merchant Alliance."
+    - "Crossbreeding between species is forbidden except under Law of Union."
+    - "Killing a recognized beast is punishable under Heavenal Law."
+
+---
+
+ascension_path:
+  conditions:
+    - "Attain Sentience (Soul Power > 60%)"
+    - "Absorb Primordial Qi (Beast Realm only)"
+    - "Pass the Trial of Instinct (Survive heavenly thunderstorm)"
+    - "Offer Blood to the Azure Sovereign for recognition."
+  ascension_gates:
+    - Mortal Realm → Beast Gate (Hidden in Glacial Forest)
+    - Beast Realm → Heavenal Gate (Controlled by Azure Sovereign)
+    - Abyssal Realm → Forbidden Null Path (Rare)
+  trials:
+    - Trial of Fang: "Battle against stronger beast for dominance."
+    - Trial of Soul: "Meditation through instinct and primal fear."
+    - Trial of Heaven: "Resisting Law Compression during transformation."
+
+---
+
+relation_to_other_realms:
+  diplomatic_status:
+    - With Mortal Realm: "Neutral with trade permission."
+    - With Immortal Realm: "Cautious — balance maintained by Heavenal Court."
+    - With Divine Realm: "Respectful neutrality; Divine Beasts serve as guardians."
+    - With Abyssal Realm: "Hostile — demonic corruption rejected by beast laws."
+  shared_treaties:
+    - "Beast Migration Accord (signed 5500 years ago)."
+    - "Sacred Forest Pact with Holy Region."
+  cross_realm_interaction:
+    - "Beasts may descend for balance missions with Heavenal Seal approval."
+    - "Beast soul reincarnation follows mortal cycle under Heavenal oversight."
+
+---
+
+spiritual_ecosystem:
+  resources:
+    - Beast Essence Crystal: "Condensed Qi of slain beasts, used in alchemy."
+    - Beast Core: "Law-infused nucleus of sentient beasts."
+    - Beast Bloodline Pearl: "Carries memory and instinct of ancestral beasts."
+  ecological_balance:
+    - "Hunting beyond need invites Beast Calamity."
+    - "If Beast Core pollution exceeds threshold, Law of Nature retaliates."
+    - "Primordial Beasts may purge regions to reset life balance."
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "AUX-VIII-SHA-918G3B"
+  sign_key: "HCLN-BEAST-SECURE"
