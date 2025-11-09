@@ -1,38 +1,41 @@
-# ⚖️ Heavenal Law License Notice (v3.3.1)
-**Part of:** Heavenly Origin Saga — D&D x Cultivation Simulation System  
-**Repository:** HeavenlyOriginSaga-DnDBased  
-**Author:** GM Tito Baitanu  
-**License Protocol:** Dual (MIT + Heavenal Law License v3.3.1)  
-**Verification Token:** GM_SECRET_TOKEN_201218  
-**Seal Layer:** IV (Aurevaris Unified Node)
+# ⚖️ License Notice — Heavenly Origin Saga
+
+This repository, *Heavenly Origin Saga – Codex Primus Edition*,  
+is developed and maintained under **GM_Token_201218** authority.
 
 ---
 
-## 📘 Short License Declaration
-This directory and its contents are protected under **Heavenal Law License v3.3.1**,  
-in combination with the public **MIT License** declared in the root repository.
-
-- All `.yaml`, `.md`, `.json`, and `.yml` files are part of a living world simulation.  
-- Any modification, extraction, or duplication must retain this notice.  
-- Derivative worlds or modules must link back to the original repository.  
-- All world laws, Codex systems, and gameplay mechanics are bound to the Heavenal Seal.  
-- Unauthorized editing of `codex_*.yaml` or `system/*.yaml` without GM Token is a direct violation of Heavenal Protocol.
+## 📜 Rights & Use
+- Semua dokumen, YAML system, dan Codex adalah milik dunia fiksi Heavenly Origin Saga.  
+- Konten bersifat **open for collaborative storytelling**, bukan untuk komersial.  
+- Setiap modifikasi wajib menyertakan referensi ke **Codex Primus**.  
+- GM Token `201218` memiliki hak tertinggi untuk memutuskan hukum dunia.
 
 ---
 
-## 🜂 Heavenal Law Addendum
-The **Heavenal Law License** governs metaphysical simulation systems.  
-By using or modifying this project, you agree to:
-
-1. Preserve the balance between realms and law structures.  
-2. Not alter locked YAMLs (Codex, System Core, Law Engine) without GM Token.  
-3. Retain original attribution to the Heavenal Origin Saga.  
-4. Respect the in-world law hierarchy and limit realm/law edits to authorized users.  
-5. Comply with the Heavenal Audit & Guardian Node system that validates this repository daily.
-
-Violations will trigger **Law Desync Warning** within the Heavenal Engine.  
-In-universe consequences (law corruption) are simulated automatically.
+## 🧩 Collaborative Rules
+- Player lain dapat membuat dunia bercabang dengan izin GM.  
+- Codex dan sistem tidak boleh dihapus, hanya dapat di-*mirror* atau *fork*.  
+- Seluruh interaksi mengikuti **Heavenal Law Balance Protocol**.
 
 ---
 
-## 🕯️ Legal & Attribution Summary
+## 🔒 GM Authority
+| Token | Authority Scope | Description |
+|--------|-----------------|--------------|
+| **201218** | Global | Full control over Codex Primus, Tribunal override, system lock/unlock |
+| **TEMP_TOKEN** | Regional | GM cabang dengan batas realm tertentu |
+| **PLAYER_TOKEN** | Limited | Player access untuk simulasi dan quest |
+
+---
+
+## 🌌 Liability
+Dunia ini adalah simulasi naratif — setiap entitas, hukum, atau keputusan tidak memiliki efek dunia nyata.  
+Segala bentuk pelanggaran atau eksploitasi sistem akan ditangani oleh **Heavenal Tribunal Simulation**.
+
+---
+
+## 🕊️ Final Clause
+> “Those who wield the law must remember:  
+> Creation is not ownership — it is responsibility.”  
+> — Divine Transcendent Archivum
