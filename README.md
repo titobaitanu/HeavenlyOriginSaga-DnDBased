@@ -1,66 +1,91 @@
 # 🌌 Heavenly Origin Saga — Codex Primus Edition
 **Version:** 3.0Ω  
 **Maintainer:** GM_Token_201218  
-**Type:** Mixed D&D x Cultivation World System  
+**Repository:** [HeavenlyOriginSaga-DnDBased](https://github.com/titobaitanu/HeavenlyOriginSaga-DnDBased)  
+**License:** Dual MIT + Heavenal Law Open-Collab  
 
 ---
 
 ## 🕯️ Overview
-Heavenly Origin Saga adalah dunia **DnD–Kultivasi dinamis**, diatur oleh **42 Codex, 27 Cheat Sheets, dan 19 Sistem Modular** yang terhubung ke inti *Heavenal Law Network*.  
-Semua hukum dunia diatur oleh **Codex Primus**, pusat keseimbangan antara Chaos, Void, dan Rebirth.
+**Heavenly Origin Saga** adalah dunia **DnD–Kultivasi interaktif** yang hidup di bawah sistem hukum surgawi.  
+Semua realm, hukum, dan makhluk diatur oleh **Codex Primus**, pusat hukum universal yang menghubungkan 42 Codex, 27 Cheat Sheet, dan 19 modul dunia.
+
+Dunia ini mencakup lima lapisan eksistensi:  
+🜏 **Mortal Realm**, ☯️ **Immortal Realm**, ⚖️ **Divine Realm**, 🜂 **Transcendent Layer**, dan ♾️ **Eternal Nexus**.
 
 ---
 
-## ⚖️ Core Features
-- **Codex Primus Integration:** Semua hukum dan realm terhubung dalam sistem abadi.
-- **Heavenal Tribunal System:** Penegakan hukum antar dunia, dijalankan GCEB.
-- **Rebirth & Continuum Cycle:** Dunia hidup, mati, dan lahir kembali secara alami.
-- **Dynamic Realm Progression:** Realm dari Mortal → Divine → Transcendent dengan 480 total level.
-- **Economy Matrix:** Sistem perdagangan dan pasar dengan mata uang berjenjang.
-- **Alchemy & Forging Module:** Ribuan resep pill dan formula artefak terintegrasi.
-- **World Event Engine:** NPC dan fraksi dapat memicu event global berdasarkan Karma & Law Influence.
+## ⚙️ Heavenal System Components
+| Komponen | Jumlah | Format | Status |
+|-----------|----------|----------|-----------|
+| Codex | 42 | `.yaml` | ✅ Lengkap |
+| Cheat Sheet | 27 | `.yaml` | ✅ Sinkron |
+| Sistem Modular | 19 | `.yaml` | ✅ Stabil |
+| NPC & Faksi | 213 entitas | `.yaml` | 🔄 Aktif |
+| Event Dunia | 48 event global | `.yaml` | 🔄 Dinamis |
 
 ---
 
-## 🪶 Realm Structure
-| Realm | Level Range | Core Energy | Law Limit |
-|--------|--------------|--------------|-------------|
-| Mortal | Lv.1–10 | Qi Energy | 1.5 |
-| Immortal | Lv.1–20 | Immortal Essence | 5 |
-| Divine | Lv.1–100 | Creation Qi | 7 |
-| Transcendent | Lv.∞ | Primordial/Void/Eternity | ∞ |
+## ⚖️ Realm & Law Structure
+| Realm | Level | Energi Inti | Batas Law | Pengawas |
+|--------|----------|--------------|--------------|-----------|
+| Mortal | Lv.1–10 per realm | Qi Energy | 1.5 | Heavenly Inspectors |
+| Immortal | Lv.1–20 per realm | Immortal Essence | 5 | Great Court & GCEB |
+| Divine | Lv.1–100 per realm | Creation Qi | 7 | Twelve Great Gods |
+| Transcendent | Lv.∞ | Primordial/Void Essence | ∞ | Divine Transcendents |
+| Eternal Nexus | — | Dual Primordial Law | — | Peerless Ancient Wanderer |
 
 ---
 
-## 🜇 Repository Components
-- 📘 **heavenal_primus_archive.yaml** — Arsip pusat semua hukum dan sistem.
-- 📜 **manifest.yaml** — Struktur dependensi dan status sinkronisasi dunia.
-- 💠 **license_notice.md** — Perjanjian penggunaan dan hak cipta.
-- ⚙️ **/codex/** — Seluruh 42 Codex lengkap.
-- 🧩 **/systems/** — Cheat sheet, forging, alchemy, shop, dan economy.
-- 🗺️ **/world/** — Peta kosmik dan world event system.
-- 🧙 **/npc/** — Faksi, ras, dan karakter utama.
+## 💠 Core Codex Network
+| ID | Nama Codex | Fungsi Utama | Status |
+|----|-------------|----------------|----------|
+| I | Codex of Creation | Asal mula hukum dan energi | ✅ Lengkap |
+| XVII | Cycle of Rebirth | Mekanisme kelahiran & kehancuran dunia | ✅ Lengkap |
+| XIX | Tribunal & Enforcement | Sistem peradilan dan hukum Langit | ✅ Lengkap |
+| XX | Law Architecture | Struktur hukum semesta dan Nexus | ✅ Lengkap |
+| XXII | Heavenly War Code | Hukum perang antar realm | ✅ Lengkap |
+| XXIV | Battle Law Limitation | Regulasi kekuatan & hukum pertarungan | ✅ Lengkap |
+| XXV | Abyss & Beast Doctrine | Sistem Abyss, Beast Realm & keseimbangan alam | ✅ Lengkap |
+| PRIMUS | Heavenal Integration Manifest | Penggabungan total semua hukum | ✅ Aktif |
+
+---
+
+## 🧩 File Struktur
+HeavenlyOriginSaga-DnDBased/
+├── README.md
+├── LICENSE
+├── license_notice.md
+├── manifest.yaml
+├── heavenal_primus_archive.yaml
+├── /codex/
+│   ├── codex_I_creation.yaml
+│   ├── codex_XVII_rebirth.yaml
+│   ├── codex_XIX_tribunal.yaml
+│   ├── codex_XX_architecture.yaml
+│   ├── codex_XXV_abyss_beast.yaml
+│   └── …
+├── /systems/
+│   ├── forging_sheet.yaml
+│   ├── alchemy_sheet.yaml
+│   ├── shop_catalog.yaml
+│   └── battle_law_limitation.yaml
+├── /world/
+│   ├── world_map.yaml
+│   ├── realm_structure.yaml
+│   └── economy_matrix.yaml
+├── /npc/
+│   ├── faction_index.yaml
+│   ├── npc_registry.yaml
+│   └── divine_entities.yaml
+└── /event/
+├── world_event_engine.yaml
+├── karma_trigger.yaml
+└── ascension_trial.yaml
 
 ---
 
 ## 💎 GM Access
-Gunakan GM Token: `201218`  
-Akses memungkinkan:
-- Penguncian & pembukaan Codex
-- Menjalankan Law Integration Command
-- Freeze/Unfreeze Mode
-- Heavenal Tribunal Override
-
----
-
-## 🜏 License
-Hak cipta diatur dalam file [license_notice.md](./license_notice.md).  
-Seluruh aset bersifat **open-collab** untuk dunia DnD interaktif berbasis narasi hukum.
-
----
-
-## 🌠 Credits
-> “The law remembers.  
-> The world endures.  
-> And every story is a reflection of Heaven itself.”  
-> — Peerless Ancient Wanderer
+Gunakan GM Token:
+```plaintext
+201218
