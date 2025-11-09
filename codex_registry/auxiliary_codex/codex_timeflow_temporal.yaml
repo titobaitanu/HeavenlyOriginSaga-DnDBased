@@ -1,0 +1,148 @@
+# ============================================================
+# CODEX TIMEFLOW & TEMPORAL LAW — THE LAW OF COSMIC CHRONOLOGY
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_timeflow_temporal_law.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-XIV"
+  title: "Codex of Timeflow & Temporal Law — The Law of Cosmic Chronology"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  status: verified
+  registry_order: 14
+  sync_hash: "AUX-XIV-LOCK-884N1"
+  classification: "Auxiliary Codex — Temporal Stability and Law of Timeflow"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+
+---
+
+introduction:
+  description: >
+    The Codex of Timeflow & Temporal Law defines the mechanics of time across
+    the cosmic hierarchy — Mortal, Immortal, Divine, and Transcendent Realms.
+    It establishes how temporal energy interacts with Law, Karma, and Rebirth,
+    maintaining the chronological integrity of Heavenal Order.
+  quote: |
+    “Time is not motion — it is the echo of causality.
+     To command time is to bear the weight of every consequence ever made.”
+
+---
+
+temporal_structure:
+  cosmic_time_layers:
+    - Mortal Flow: "Fastest, 1 Heavenal hour = 24 Mortal hours."
+    - Immortal Flow: "1 Heavenal hour = 4 Mortal hours."
+    - Divine Flow: "1 Heavenal hour = 1 Mortal hour."
+    - Transcendent Flow: "Timeless; exists outside chronology."
+  relation_between_flows:
+    - "Mortal → Immortal: Time compression ×6."
+    - "Immortal → Divine: Time compression ×4."
+    - "Divine → Transcendent: Time loss; law synchronization only."
+  temporal_constant:
+    - base_ratio: "1 Heavenal day = 1440 Mortal days (4 Mortal years)."
+    - deviation_range: "±10% per Law instability."
+  governing_law: "Chronos Principle — time follows the strongest Law resonance."
+
+---
+
+temporal_energy_system:
+  definition: >
+    Temporal Energy (T-Energy) is the force sustaining the existence of time.
+    It is not Qi or Essence but the manifestation of Continuity Law.
+  classifications:
+    - Temporal Qi: "Used by mortals with temporal affinity."
+    - Chrono Essence: "Immortal-grade time essence compressed through cultivation."
+    - Divine Chronos Core: "Pure time source used by gods."
+    - Eternity Fragment: "Transcendent construct maintaining law stability."
+  sources:
+    - "Heavenal Domain’s Chronos Gate (primary source)."
+    - "Void-Temporal Rift between realms."
+    - "Residual Time Echo from fallen Transcendents."
+  usage:
+    - "Stabilize temporal collapse."
+    - "Slow or accelerate localized time zones."
+    - "Anchor temporal coordinates for Returners or reincarnators."
+
+---
+
+law_of_time:
+  axioms:
+    - "Time is relative to the flow of Law and Karma."
+    - "Temporal manipulation requires Law comprehension ≥ 7."
+    - "Every alteration creates an echo ripple that propagates through history."
+  temporal_entities:
+    - Custodians of Time: "Transcendents guarding the Chronos Axis."
+    - Heavenal Archivists: "Divine recorders of temporal flow."
+    - Chrono Keepers: "Immortal sect dedicated to stabilizing time."
+  temporal_stability_index:
+    - safe_range: "0.8–1.2 (relative stability)"
+    - unstable_range: "1.3–2.0 (requires intervention)"
+    - collapse_threshold: ">2.5 — temporal anomaly formation."
+
+---
+
+temporal_anomalies:
+  description: >
+    Temporal anomalies occur when the Law of Time is distorted by mortals,
+    immortals, or gods. They manifest as paradoxes, time echoes, or recursive fates.
+  anomaly_types:
+    - Time Loop: "Repeated segment of history caused by paradox."
+    - Chrono Drift: "Temporal desync between realms."
+    - Fate Overlap: "Two destinies colliding due to Law fracture."
+    - Echo Entity: "Residual consciousness repeating past events."
+  anomaly_effects:
+    - "Temporal fatigue (loss of Qi regeneration)."
+    - "Memory instability."
+    - "Time dilation zones appearing in local domains."
+  correction_mechanisms:
+    - "Heavenal Sync Pulse recalibrates time every 7 Heavenal days."
+    - "Chronos Custodian may manually collapse time loops."
+    - "Transcendent can rewrite single timeline segment via Divine Code."
+
+---
+
+temporal_sanctions:
+  forbidden_actions:
+    - "Direct alteration of past events without Heavenal permit."
+    - "Temporal acceleration for ascension purposes."
+    - "Cross-realm time extraction (stealing future Qi)."
+    - "Self-duplication across timeline."
+  penalties:
+    - Minor Violation: "Temporal burn — lifespan reduced by 10%."
+    - Major Violation: "Soul phase shift — loss of one cultivation realm."
+    - Supreme Violation: "Existence erasure from all timelines."
+  exception_clauses:
+    - "Heavenal Tribunal authorization may override Chronos Law."
+    - "Transcendent actions logged in Eternal Record for oversight."
+
+---
+
+integration_with_codex:
+  linked_codex:
+    - codex_rebirth_evolution.yaml
+    - codex_karma_registry.yaml
+    - codex_synchronization.yaml
+    - codex_world_event.yaml
+  influence_on_system:
+    - "Affects duration of rebirth and reincarnation cycles."
+    - "Modifies Karma decay rate relative to realm."
+    - "Temporal anomalies may trigger special events in event_engine."
+  synchronization_protocol:
+    - "Every 10 Heavenal days, time recalibrates across realms."
+    - "Temporal drift auto-corrected by Heavenal Pulse Signal."
+    - "GM override: /time_realign <realm> <ratio>"
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "AUX-XIV-SHA-449N2"
+  sign_key: "HCLN-TIMEFLOW-SECURE"
