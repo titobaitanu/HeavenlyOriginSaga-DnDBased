@@ -85,7 +85,3 @@ HeavenlyOriginSaga-DnDBased/
 
 ---
 
-## 💎 GM Access
-Gunakan GM Token:
-```plaintext
-201218
