@@ -1,0 +1,285 @@
+# ============================================================
+# CODEX — FACTION & LEGION INDEX (codex_faction_legion.yaml)
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_faction_legion.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# Version: 3.2-secure
+# Last Verified: 2025-11-09
+# ============================================================
+
+meta:
+  codex_id: "AUX-003"
+  title: "Faction & Legion Index — Organization, Deployment, and Military Law"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "Auxiliary Codex — Faction & Military Systems"
+  linked_to:
+    - codex_faction_legion.yaml
+    - codex_XX_realm_architecture.yaml
+    - codex_XXIV_battle_law.yaml
+    - codex_economy_trade.yaml
+    - systems/forging_sheet.yaml
+  checksum: "AUX-003-LOCK-B5A2F"
+  verified: true
+
+introduction:
+  description: >
+    Dokumen ini menetapkan standar organisasi faksi, formasi legion, hirarki komando,
+    aturan rekrutmen, mekanika ekonomi militer, dan batas-batas hukum saat faksi
+    bertindak dalam maupun lintas realm. Termasuk 36 Great Sects (Immortal-linked),
+    7 Martial Families, 3 Neutral Alliances, Abyss & Beast faction registry, dan
+    pedoman bagi sekte mortal (12 sekte mortal per jalur).
+  purpose:
+    - "Standarisasi struktur faksi agar dapat di-simulasikan dan diotomasi oleh Heavenal Engine."
+    - "Menjaga keseimbangan hukum saat konflik skala besar."
+    - "Memberi referee (GM / GCEB) pedoman operasi dan sanksi."
+
+# -------------------------
+# Faction Types & Summary
+# -------------------------
+faction_types:
+  - Immortal Great Sects:
+      description: "36 besar (12 Heavenly / 12 Demonic / 12 Evil). Memiliki cabang mortal."
+      leader_requirement: "Penguasa Immortal Lv.10+ (minimum)"
+      typical_legion_size: "10K - 1M (tergantung wilayah & sumber daya)"
+  - Martial Families:
+      description: "7 garis keturunan; fokus legiun profesional & pelatihan tempur."
+      leader_requirement: "Raja Immortal / Penguasa Immortal"
+      typical_legion_size: "5K - 100K"
+  - Neutral Alliances:
+      description: "Merchant Alliance, Alchemist Tower, Holy Region Alliance"
+      role: "Kontrol ekonomi, perdagangan artefak, penyeimbang politik"
+  - Abyss Factions:
+      description: "12 Demonic & 12 Evil (Abyss independent registry) — bukan di bawah Great Court"
+      note: "Diawasi oleh GCEB untuk ancaman lintas-realm"
+  - Beast Clans:
+      description: "Klan Beast Realm yang berstruktur mirip faksi manusia"
+      ascension_path: "Golden Core → Beast Nascent → Beast Immortal"
+  - Mortal Sects:
+      description: "12 Sekte Mortal (4 per jalur) — cabang sekte Immortal atau independen"
+      leader_requirement: "Half-Immortal Elder (domain-dependent)"
+
+# -------------------------
+# Legion Structure Template
+# -------------------------
+legion_structure:
+  hierarchy:
+    - Legion: "Komando teratas untuk operasi medan (dipimpin oleh Lord/General)"
+    - Cohort: "Divisi besar (10-20% legion), dipimpin oleh Cohort Commander"
+    - Battalion: "Unit operasional menengah (10s–100s), dipimpin oleh Battalion Captain"
+    - Company: "Unit kecil (10–50), dipimpin oleh Company Leader"
+    - Squad: "Unit tempur dasar (3–10), dipimpin oleh Squad Leader"
+  command_slots:
+    - Lord/General: "Strategic command; membuat keputusan politik-militer"
+    - Marshal: "Pelaksana teknik perang & logistik"
+    - Arcane/Alchemy Officer: "Mengatur penggunaan pill, elixir, artefak"
+    - Law Liaison: "Pejabat yang mengawasi kepatuhan hukum langit saat perang"
+    - Scout/Intelligence: "Operasi pengintaian & spycraft"
+
+# -------------------------
+# Recruitment & Training
+# -------------------------
+recruitment:
+  eligibility_rules:
+    - "Warga lokal atau rekrutan lintas-kingdom (dependent pada faksi)."
+    - "Minimum stat requirement (berdasarkan role): e.g. Soldier STR 30+, Adept DEX 25+, Alchemist INT 35+"
+    - "Background check: Karma < threshold, unless diperlukan (mis. penal corps)."
+  conscription:
+    - "Mortal territories may conscript during declared war with Great Court approval (unless Abyss)."
+  training:
+    - basic_training: "3–30 heavenal-days depending on role"
+    - specialization: "Martial families run specialized academies (10–100 heavenal-days)"
+  advancement:
+    - "XP-based promotions + Law/Title endorsements."
+    - "Higher ranks require realm-tier thresholds (e.g. Penguasa Immortal untuk Lord)."
+
+# -------------------------
+# Legion Economy & Logistics
+# -------------------------
+logistics:
+  supply_lines:
+    - "Fixed: controlled by Merchant Alliance contracts."
+    - "Field: requisition via Caravan Legions (protected by escort squads)."
+  provisioning:
+    - "Pill & Elixir quotas require Alchemist Tower certification for Immortal-grade supplies."
+    - "Mortal-tier pills may be sold freely in Mortal markets (subject to local law)."
+  funding:
+    - "Factions financed by: tribute, merchant taxes, looting, alliance grants, Great Court endowments."
+  marketplace_rules:
+    - "Sale of G8+ pill or G9 artefact to mortals is prohibited (unless licensed by Great Court)."
+    - "Black-market trades monitored; GCEB has warrantless audit powers for inter-realm trades."
+
+# -------------------------
+# Deployment & Engagement Rules
+# -------------------------
+deployment:
+  jurisdiction:
+    - "Mortal Realm operations: allowed for mortal-tier factions or those authorized by Great Court."
+    - "Immortal Realm operations: requires registration with Great Court & GCEB notification."
+    - "Abyss Realm operations: autonomous but monitored; incurs diplomatic consequences if crossing realms."
+  engagement_rules:
+    - "Hierarchy Rule: cannot attack foes 2 realm-tiers above without Divine Seal or Great Court warrant (except Abyss internal conflicts)."
+    - "Collateral Minimization: heavy destructive Laws are restricted near critical Heavenal Nodes."
+    - "Tribulation Interaction: large-scale law manipulations may trigger Heavenal Tribulation events."
+  cross_realm_invasion:
+    - "Cross-realm invasion requires: Great Court declaration OR Abyss unilateral (then GCEB response)."
+    - "Unauthorized cross-realm assault -> automatic pursuit by Void Guardians if threshold met."
+
+# -------------------------
+# Law, Sanctions & Oversight
+# -------------------------
+law_and_oversight:
+  role_of_GCEB:
+    - "Investigate extrajudicial legion actions."
+    - "Seize unlawful artifacts and freeze assets through Heavenal Seal."
+    - "Conduct Void operations against trans-realm incursions."
+  sanctions:
+    - "Minor breach: fines, trade embargo, Karma Decay."
+    - "Major breach: Legion disbandment, leader sentencing (Law Burn)."
+    - "Supreme breach: Divine Accusation → Potential Soul Erasure (requires Great Court trial)."
+  reporting:
+    - "All Immortal legions must file monthly logs to Heavenal Domain (aggregated, redacted for security)."
+    - "Neutral alliances must publish quarterly trade manifests."
+
+# -------------------------
+# Legion Rank & Title System
+# -------------------------
+rank_system:
+  mortal_tier_ranks:
+    - Private
+    - Corporal
+    - Sergeant
+    - Lieutenant
+    - Captain
+    - Major
+    - Commander
+    - Warlord (domain-specific)
+  immortal_tier_ranks:
+    - Blade-Keeper
+    - Legion Commander
+    - Sovereign Marshal
+    - Lord-Protector
+    - High-General (Raja Immortal threshold)
+  honorary_titles:
+    - "Patriarch / Matriarch (sect elder titles)"
+    - "Divine Protector (award by Holy Region Alliance)"
+    - "Law-Bearer (title for those serving as Law Liaison)"
+
+# -------------------------
+# Special Units & Assets
+# -------------------------
+special_units:
+  - Void Guard: "GCEB-aligned guard units protecting void gates."
+  - Heavenal Vanguard: "Elite legion formed by Holy Region for cross-realm defense."
+  - Merchant Convoy Guard: "Tasked to protect trade caravans across domains."
+  - Beast Hunt Corps: "Special unit to handle beast realm incursions and tame threats."
+
+assets:
+  - War-Standard Artifacts: "Raise morale & can broadcast Law signal (requires license)."
+  - Legion Sigils: "Bound tokens for command authorization; forgery is capital."
+  - Supply Caravans: "Protected resource chains; can be targeted in economic warfare."
+
+# -------------------------
+# Faction Entry Template (for registry)
+# -------------------------
+faction_entry_template:
+  id: "<FACTION-CODE>"
+  name: "<Faction Name>"
+  path: "<Heavenal Registry Path>"
+  alignment: "<Heavenly | Demonic | Evil | Neutral | Beast | Abyss>"
+  headquarters: "<Location / Realm>"
+  leader:
+    name: "<Leader Name>"
+    title: "<Title>"
+    realm_level: "<Realm & Level>"
+  legions:
+    - legion_id: "<LEGION-001>"
+      name: "<Legion Name>"
+      size: "<Numeric Estimate>"
+      specialty: "<e.g. archers / pill-usage / law-suppression>"
+  economy:
+    treasury: "<currency amount>"
+    major_revenue: "<tributes / trade / plunder>"
+  allies: ["<Faction Code>", "..."]
+  enemies: ["<Faction Code>", "..."]
+  notes: "<special conditions or historical remarks>"
+
+# -------------------------
+# Example Faction Entries (sample)
+# -------------------------
+example_factions:
+  - id: "SCT-HV-001"
+    name: "Azure Heaven Sect"
+    path: "Heavenly"
+    headquarters: "Azure Pillar, Middle Realm"
+    leader:
+      name: "Lord Mei Zhen"
+      title: "High Patriarch"
+      realm_level: "Raja Immortal Lv.12"
+    legions:
+      - legion_id: "AZH-01"
+        name: "Azure Vanguard"
+        size: 120000
+        specialty: "spear phalanx & pillar formation"
+    economy:
+      treasury: "2,400 Immortal Jade"
+      major_revenue: "tribute from coastal kingdoms; jade mines"
+    allies: ["SCT-HV-009","MRT-TR-002"]
+    enemies: ["SCT-EV-004"]
+    notes: "Holds treaty with Merchant Alliance for sea lanes."
+
+  - id: "FAM-MF-003"
+    name: "Blackbridge Martial Family"
+    path: "Neutral / Martial Family"
+    headquarters: "Blackbridge Citadel, Middle Realm"
+    leader:
+      name: "Matriarch Shen Hu"
+      title: "Steel Matron"
+      realm_level: "Penguasa Immortal Lv.14"
+    legions:
+      - legion_id: "BBF-01"
+        name: "Iron Phalanx"
+        size: 45000
+        specialty: "artifact-enhanced heavy infantry"
+    economy:
+      treasury: "500 Immortal Jade"
+      major_revenue: "forging commissions; mercenary contracts"
+    allies: ["SCT-HV-001"]
+    enemies: []
+    notes: "Famous for artifact-forging guild; recruits widely."
+
+# -------------------------
+# Registry Maintenance & Data Sync
+# -------------------------
+registry_operations:
+  update_frequency: "weekly (or immediate upon major political change)"
+  required_fields_for_commit:
+    - id
+    - name
+    - path
+    - leader.name
+    - leader.realm_level
+    - at least one legion entry
+  auth_policy:
+    - "Changes to core factions (36 Great Sects / 7 Families / Holy Region) require GM Token elevation and HCLN signature."
+  backup_policy:
+    - "Auto-backup daily; snapshot stored encrypted by Heavenal Control Node."
+
+# -------------------------
+# Notes & Implementation Guidance
+# -------------------------
+implementation_notes:
+  - "This codex is authoritative for all simulated faction behaviour in the Heavenal Engine."
+  - "Factions marked 'Abyss' or 'Beast' follow separate ascension doctrines (see codex_beast_doctrine.yaml & codex_abyss_beast.yaml)."
+  - "When simulating battles, refer to codex_XXIV_battle_law.yaml for legal limits and visual buff/debuff hooks."
+  - "GM may create derived faction files using faction_entry_template and register them to npc/faction_index.yaml."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-09"
+  sync_with: "manifest.yaml v3.2-secure"
+  checksum: "AUX-003-SHA-1F7C2"
+  integrity_check: verified
+  signature_key: "HCLN-FACTION-LEGION-SECURE"
