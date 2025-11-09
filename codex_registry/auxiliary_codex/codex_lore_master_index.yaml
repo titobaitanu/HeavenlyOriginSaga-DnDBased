@@ -1,0 +1,156 @@
+# ============================================================
+# CODEX LORE MASTER INDEX — UNIVERSAL LORE & TIMELINE ARCHIVE
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_lore_master_index.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-001"
+  title: "Lore Master Index — Universal Timeline and Realm Relations"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "Auxiliary Codex — Lore & Chronology"
+  linked_to:
+    - codex_I_creation.yaml
+    - codex_XXIII_cosmic_cycle.yaml
+    - codex_XXV_abyss_beast.yaml
+    - codex_XXX_heavenal_reset_genesis.yaml
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  checksum: "AUX-001-LOCK-554C1"
+  verified: true
+
+---
+
+universal_timeline:
+  stages:
+    - Era of Genesis (Cycle I):
+        event: "Birth of Heaven, Chaos, and Void — first Laws formed."
+        key_entities: ["Primordial Sovereign", "True Void Lord"]
+        notes: "Origin of all existence; Heart of Rebirth ignites for the first time."
+    - Era of Balance (Cycle II):
+        event: "Stabilization of Heavenal Law and creation of Mortal Realms."
+        key_entities: ["Divine Transcendent"]
+        notes: "Beast, Mortal, and Abyss realms begin separation."
+    - Era of Conflict (Cycle III):
+        event: "War of Heaven and Abyss — birth of Heavenal Great Court."
+        key_entities: ["Kaisar Immortal", "Heavenal Arbiter"]
+        notes: "Creation of GCEB and Law of Hierarchical Combat."
+    - Era of Enlightenment (Cycle IV):
+        event: "Birth of Sects, Empires, and Law-based civilizations."
+        key_entities: ["Immortal Monarchs", "Alchemist Lords"]
+        notes: "Establishment of merchant, alchemist, and holy alliances."
+    - Era of Collapse (Cycle V):
+        event: "Heavenal decay begins; Transcendents withdraw from lower realms."
+        key_entities: ["Divine Transcendent", "Peerless Ancient Wanderer"]
+        notes: "First recorded Heavenal Reset preparation begins."
+    - Era of Rebirth (Cycle VI):
+        event: "Heart of Rebirth ignites; new realms begin their Genesis."
+        key_entities: ["Peerless Ancient Wanderer"]
+        notes: "Marks the start of the current playable Heavenal Cycle."
+
+---
+
+realm_relationships:
+  mortal_realm:
+    description: "Foundation of cultivation and karma — the seedbed of all souls."
+    connection:
+      - "Ascends to: Immortal Realm (via Heavenal Gate)"
+      - "Influenced by: Heavenal Inspectors & Karma Law"
+  immortal_realm:
+    description: "Bridge of Law comprehension and divine ascension."
+    connection:
+      - "Linked to: Great Heaven and Heavenal Domain"
+      - "Supervised by: Immortal Great Court"
+  divine_realm:
+    description: "Seat of the gods — where creation and judgment meet."
+    connection:
+      - "Connected to: Heavenal Domain & Heart of Rebirth"
+      - "Governed by: Divine Concord Council"
+  abyss_realm:
+    description: "Plane of corruption, freedom, and forbidden power."
+    connection:
+      - "Linked through: Abyssal Rifts"
+      - "Watched by: GCEB Shadow Division"
+  beast_realm:
+    description: "Origin of sentient beast races who attained consciousness."
+    connection:
+      - "Formed naturally from Mortal Qi"
+      - "Guided by: Primordial Beast Protector"
+  chaos_void:
+    description: "Beyond existence — raw source of creation and destruction."
+    connection:
+      - "Only accessible by: Transcendents"
+      - "Serves as: Origin and End of all Laws"
+
+---
+
+faction_summary:
+  heavenly_path:
+    ideology: "Order, balance, ascension through virtue and law."
+    major_sects: 12
+    alignment: lawful_good
+  demonic_path:
+    ideology: "Freedom, personal strength, and rejection of divine hierarchy."
+    major_sects: 10 + Heavenly Demon Sect
+    alignment: chaotic_neutral
+  evil_path:
+    ideology: "Dominion through corruption and forbidden laws."
+    major_sects: 12
+    alignment: lawful_evil
+  holy_region:
+    role: "Mediator between realms; link to Divine Realms."
+    alignment: true_neutral
+  beast_clans:
+    role: "Natural guardians of balance between life and law."
+    notable_factions: ["Azure Fang", "Crimson Scale", "Golden Howl"]
+  abyss_legions:
+    role: "Army of the void-born; fragments of fallen Law."
+    notable_factions: ["Shadow Abyss Court", "Dread Hollow Host"]
+
+---
+
+divine_timeline_events:
+  - event: "Heavenal Concord Signed"
+    participants: ["12 Divine Beings", "Immortal Court"]
+    result: "Peace enforced between Immortal and Divine realms."
+  - event: "First Heavenal Collapse"
+    participants: ["Peerless Ancient Wanderer"]
+    result: "World reset; Heart of Rebirth reactivated."
+  - event: "Void War"
+    participants: ["GCEB", "Abyssal Lords"]
+    result: "Shadow Division established as a permanent enforcement unit."
+  - event: "Divine Tribunal Era"
+    participants: ["Divine Cardinals", "Heavenal Judges"]
+    result: "Law of Karma rewritten into permanent balance cycle."
+
+---
+
+reference_links:
+  codex_core_link:
+    - codex_I_creation.yaml
+    - codex_XV_heavenal_mechanism.yaml
+    - codex_XX_realm_architecture.yaml
+    - codex_XXIV_battle_law.yaml
+    - codex_XXX_heavenal_reset_genesis.yaml
+  system_link:
+    - systems/karma_system.yaml
+    - systems/event_engine.yaml
+    - systems/ascension_trial.yaml
+  world_link:
+    - world/world_map.yaml
+    - world/holy_region.yaml
+    - world/abyss_realm.yaml
+    - world/beast_realm.yaml
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-09"
+  sync_with: "manifest.yaml v3.2-secure"
+  checksum: "AUX-001-SHA-334FA"
+  integrity_check: verified
+  signature_key: "HCLN-LORE-MASTER-SECURE"
