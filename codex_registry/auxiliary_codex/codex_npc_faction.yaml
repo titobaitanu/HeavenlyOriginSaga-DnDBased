@@ -1,57 +1,82 @@
 # ============================================================
-# CODEX NPC & FACTION INDEX
-# codex_registry/auxiliary_codex/codex_npc_faction.yaml
-# Secure Public Version (v3.2)
+# CODEX NPC & FACTION DIRECTORY — HEAVENLY ORIGIN SAGA
+# Secure Public Version (v3.2-secure)
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_npc_faction.yaml
 # Maintainer: Heavenal Control Node
 # License: Dual (MIT + Heavenal Law Open-Collab)
 # ============================================================
 
 meta:
   codex_id: "AUX-VI"
-  title: "NPC & Faction Index — Mortal, Immortal, Abyss, Beast, Divine"
+  title: "Comprehensive Faction & NPC Directory — Mortal, Immortal, Divine, Abyss, Beast"
   version: 3.2-secure
   author: "Tito Baitanu"
   maintainer: "Heavenal Control Node"
   status: verified
-  sync_hash: "AUX-VI-LOCK-88B2C"
-  repository_link: "HeavenlyOriginSaga-DnDBased"
   registry_order: 6
+  sync_hash: "AUX-VI-LOCK-9A82D"
+  classification: "Auxiliary Codex — Factional Structure & NPC Index"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  linked_systems:
+    - "Codex of Conflict Matrix"
+    - "Codex of Economy & Trade"
+    - "World Event Engine"
   last_updated: "2025-11-10"
 
-overview:
+---
+
+introduction:
   description: >
-    Indeks faksi dan NPC adalah panduan taktis untuk GM dan sistem dunia.
-    Mencakup struktur organisasi, leadership, legions, hubungan antar-faksi,
-    mekanik reputasi, wilayah pengaruh, dan aturan interaksi lintas-realm.
+    Codex NPC & Faction berfungsi sebagai tulang punggung sosial dan politik dari
+    seluruh ras berakal di semesta Heavenly Origin Saga. Dokumen ini menyatukan
+    daftar faksi lintas realm, hierarki NPC, sistem reputasi, hubungan antar faksi,
+    dan aturan intervensi GCEB. Semua entitas besar diatur dalam keseimbangan kosmik
+    antara Mortal, Immortal, Abyssal, Divine, dan Beast Realm.
   purpose: >
-    Menyediakan referensi terstandarisasi untuk event engine, konflik matrix,
-    NPC generation, dan orchestration GCEB interventions.
+    - Menstandarkan interaksi antar-faksi untuk event engine dan conflict matrix.
+    - Menyediakan daftar NPC untuk campaign, lore, dan world generation.
+    - Menjadi dasar bagi modul reputasi, ekonomi, dan perang antar realm.
+  quote: |
+    “Tiada nama tanpa beban; tiada kekuatan tanpa pengawasan.
+     Bahkan bayangan memiliki tempatnya di bawah Langit.”
+
+---
 
 global_rules:
-  - "Semua faksi harus teregistrasi pada NPC Registry untuk pengawasan GCEB."
-  - "Abyss factions (Demonic & Evil major sects) bersifat semi-independen: tidak langsung tunduk Great Court, tetapi tindakan lintas-realm besar dapat memicu GCEB."
-  - "Beast Realm autonomous — memiliki hukum internal namun dapat bersekutu atau konflik dengan mortal/immortal faksi."
-  - "Merchant & Alchemist Alliances bersifat netral; mereka memfasilitasi perdagangan lintas realm."
-  - "Reputation dan Karma mempengaruhi akses ke auction, rare shop, dan divine permits."
+  - "Semua faksi aktif harus terdaftar di NPC Registry."
+  - "Faksi Abyss bersifat independen dari Great Court, namun aktivitas lintas realm diawasi oleh GCEB."
+  - "Beast Realm otonom, diatur oleh hukum klan dan protector beast."
+  - "Holy Region, Alchemist Tower, dan Merchant Alliance bersifat netral dan menjadi penyeimbang."
+  - "Reputasi, Karma, dan Alignment menentukan akses shop, auction, dan world events."
+  - "NPC besar (Raja, Patriarch, Lord) hanya dapat digenerate oleh GM."
 
-faction_categories:
-  mortal:
-    description: "Sekte, kerajaan, guild, akademi, dan organisasi mortal (Dunia Mortal)."
-    note: "Setiap kerajaan memiliki 4 akademi dan 25 pedagang (18 kecil, 5 menengah, 2 besar)."
-  immortal:
-    description: "36 Great Sects (3 jalur), 7 Martial Families, serta organisasi pemerintahan Immortal Realm."
-  divine:
-    description: "Entitas Dewa, Divine Guilds, dan organ supranatural (Heavenal Orders)."
-  abyss:
-    description: "Abyss Realm dengan dua cabang mayor: Demonic Path & Evil Path. Independen dari Great Court."
-  beast:
-    description: "Beast Clans dan Primordial Beast Houses — bersifat komunitas dan kerajaan alami."
+---
+
+realm_faction_structure:
+  branches:
+    - Mortal Realm
+    - Immortal Realm
+    - Divine Realm
+    - Abyss Realm
+    - Beast Realm
+  classification:
+    Sect: "Organisasi kultivasi dan jalur spiritual."
+    Clan: "Keluarga darah tua dengan warisan teknik."
+    Guild: "Asosiasi perdagangan dan profesi."
+    Alliance: "Koalisi netral dan politik lintas realm."
+    Court: "Lembaga hukum dan pemerintahan langit."
+
+---
 
 # =================================================================
-# MORTAL FACTIONS (sample master list; GM may expand per region)
+# MORTAL REALM FACTIONS
 # =================================================================
 mortal_factions:
-  Kingdoms:
+  overview: >
+    Dunia Mortal berisi kerajaan, sekte, guild, dan akademi spiritual.
+    Tiap kerajaan memiliki empat akademi besar dan jaringan pedagang.
+  examples:
     - name: "Tianlun Kingdom"
       capital: "Tianlun City"
       governor: "Governor Lian"
@@ -64,323 +89,206 @@ mortal_factions:
         large: 2
         medium: 5
         small: 18
-      allied_sects: ["Azure Gate Sect (Heavenly branch)", "Shadow Fang Union (Neutral)"]
+      allied_sects: ["Azure Gate Sect", "Shadow Fang Union"]
       influence_radius_km: 3200
-    - name: "Baiyang Principality"
-      capital: "Baiyang Harbor"
-      governor: "Duke Shen"
-      academies:
-        - "Harbor Art of Spears"
-        - "Baiyang Soul Institute"
-        - "Golden Core Forging School"
-        - "Merchant's Harbor Academy"
-      merchant_nodes:
-        large: 2
-        medium: 5
-        small: 18
-      allied_sects: ["Lotus Flame Sect (Evil branch)", "Heavenly Merchant Guild"]
-      influence_radius_km: 2800
-
-  Sects_and_Guilds:
     - name: "Heavenly Merchant Guild"
       type: "Guild"
-      base: "Central Celestial Region (Holy District)"
+      base: "Holy Region"
       leader: "Master Kredan"
-      role: "Commerce, cross-realm logistics, exchange oversight"
-      reputation: 85
-      faction_relations:
-        allied: ["Alchemist Tower", "Holy Region Alliance"]
+      role: "Perdagangan lintas realm dan pengawasan ekonomi spiritual."
+      relation:
+        allied: ["Alchemist Tower"]
         rival: ["Shadow Fang Union"]
-        neutral: []
-    - name: "Alchemist Tower (Tower of Refinement)"
-      type: "Guild / Institution"
-      base: "Tower Capital, Holy District"
-      leader: "Grand Alchemist Seretha"
-      role: "Regulates cauldrons, pill grades, and certifications"
-      certifications: ["Cauldron Grade I–IX", "Alchemist Rank I–IX"]
-      special_permissions: ["Heavenal Cauldron Registry Access"]
-    - name: "Shadow Fang Union"
-      type: "Organization"
-      base: "Western Marshlands"
-      leader: "Elder Wuhen"
-      role: "Artifact hunters, covert operations"
-      reputation: 42
-      faction_relations:
-        allied: []
-        rival: ["Heavenly Merchant Guild"]
-        neutral: ["Local Kingdoms"]
 
-  mortal_sects_sample:
-    - name: "Azure Gate Sect"
-      path: "Heavenly"
-      base: "Azure Peaks"
-      leader: "Sect Elder Fayan (Immortal Branch: Azure Gate, Immortal Langit affiliate)"
-      rank_requirement: "Elder: Half Immortal Lv.5+ for top posts"
-      troops_est: 4800
-      role: "Martial training and guarding trade routes"
-    - name: "Lotus Flame Sect"
-      path: "Evil"
-      base: "Crimson Marsh"
-      leader: "Master Qiu"
-      troops_est: 2100
-      role: "Pyromancy & pill smuggling"
+---
 
 # =================================================================
-# IMMORTAL FACTIONS (36 Great Sects & 7 Martial Families snapshot)
+# IMMORTAL REALM FACTIONS
 # =================================================================
 immortal_factions:
-  great_sects_summary:
+  great_sects:
     total: 36
-    organized_by_path:
-      heavenly: 12
-      demonic: 12
-      evil: 12
-  sample_great_sects:
-    - name: "Celestial Ninefold"
-      path: "Heavenly"
-      headquarter: "Ninefold Sky Citadel (Immortal Middle Realm)"
-      leader: "Archon Mireo (Raja Immortal)"
-      legions: 3
-      legion_strength_est: 1200 (each)
-      special_law: "Skybound Formation Law"
-      political_weight: 9
-    - name: "Heavenly Demon Order"
-      path: "Demonic"
-      headquarter: "Demonbridge Hold (Abyss border)"
-      leader: "Heavenly Demonic Lord (Transcendent Protector)"
-      legions: 5
-      role: "Demonic cultivation line with independent protections (Abyss ties)"
-      political_weight: 10
-    - name: "Obsidian Covenant"
-      path: "Evil"
-      headquarter: "Obsidian Spire"
-      leader: "Lord Nox Obsidian"
-      legions: 4
-      role: "Shadow law & covert operations across realms"
-      political_weight: 8
-
+    divided_into:
+      - Heavenly Path: 12
+      - Demonic Path: 12
+      - Evil Path: 12
+    notable_sects:
+      - name: "Celestial Ninefold"
+        path: "Heavenly"
+        leader: "Archon Mireo"
+        realm: "Raja Immortal"
+        location: "Ninefold Sky Citadel"
+      - name: "Heavenly Demon Order"
+        path: "Demonic"
+        leader: "Heavenly Demonic Lord"
+        realm: "Transcendent-level protector"
+        domain: "Abyssal Bridgehold"
+      - name: "Obsidian Covenant"
+        path: "Evil"
+        leader: "Lord Nox Obsidian"
+        realm: "Raja Immortal"
+        domain: "Obsidian Spire"
   martial_families:
     total: 7
     list:
       - "Family of Azure Spear"
-      - "Family of Voidsteel"
       - "Family of Nine Heavens Palm"
-      - "Family of Soulforged"
       - "Family of Thunderblood"
+      - "Family of Voidsteel"
+      - "Family of Soulforged"
       - "Family of Golden Lotus"
       - "Family of Everdawn"
-    notes: >
-      Each family fields at least one legion that can be mobilized at the Great Court's request.
-      Legions operate under martial codes and answer to family patriarchs.
+  neutral_alliances:
+    - "Merchant Alliance"
+    - "Alchemist Tower"
+    - "Holy Region Alliance"
 
-  immortal_governance:
-    - "Immortal Great Court (Seat: Great Heaven) — lawmaking and adjudication."
-    - "GCEB — enforcement branch reporting to Heavenly Arbiter."
-    - "Regional Governors — Penguasa Immortal who manage five regions."
+---
 
 # =================================================================
-# DIVINE FACTIONS
+# DIVINE REALM FACTIONS
 # =================================================================
 divine_factions:
-  overview:
-    description: >
-      Dewa & Divine Orders are supranatural patrons and institutions.
-      They rarely interact directly with mortals unless cosmic balance is threatened.
-  key_orders:
+  description: >
+    Dunia para Dewa terbagi menjadi entitas besar yang menjaga hukum
+    dan pengatur siklus kosmik antar realm.
+  organizations:
+    - name: "The Twelve Thrones"
+      function: "Mengatur 12 aspek hukum surgawi."
+      level: "Dewa Agung"
     - name: "Order of Law Keepers"
-      function: "Interpretation and maintenance of Law Edicts"
-      leader: "Deus Ardentis (Dewa Sejati)"
-      authority_level: "High (may convene Divine Tribunal)"
+      leader: "Deus Ardentis"
+      function: "Menafsirkan hukum surgawi dan menjaga keseimbangan."
     - name: "Soul Wardens"
-      function: "Manage Soul Wheel & reincarnation protocol"
       leader: "Goddess Shura Ilyana"
-      authority_level: "High"
+      function: "Mengatur roda reinkarnasi dan kelahiran jiwa."
+    - name: "Heavenal Control Node"
+      nature: "Autonomous AI-like Law Consciousness"
+      domain: "Heavenal Domain Core"
+      purpose: "Sinkronisasi hukum antar dunia."
 
-  divine_legions:
-    - name: "Aetherion Sentinels"
-      commanded_by: "Eternal Marshal Kynthos"
-      role: "Defend points of Divine influence (eg. Heart of Rebirth)"
-      size_est: "Variable (manifestation based on crisis)"
+---
 
 # =================================================================
-# ABYSS FACTIONS (Demonic & Evil Paths)
+# ABYSSAL FACTIONS — DEMONIC & EVIL PATH
 # =================================================================
-abyss_factions:
+abyssal_factions:
   governance:
-    - "Independent from Great Court — Abyss realm holds its own laws."
-    - "Two main political blocs: Demonic Path (freedom / order variants) and Evil Path (struggle for dominance)."
-    - "GCEB authority limited to cross-realm enforcement and incursions detection."
-  major_sects_sample:
-    - name: "Tenebrous Conclave"
-      classification: "Evil Path"
-      leader: "High Patriarch Vor"
-      stronghold: "The Hollow Spire (Abyssal Depths)"
-      troops_est: 15000
-      relations:
-        hostile_to: ["Heavenly Merchant Guild"]
-        aligned_with: []
-      special_ability: "Void Corruption Rites"
+    - "Realm independen dengan dua poros kekuasaan besar: Demonic Path & Evil Path."
+    - "Demonic Path dipimpin oleh Heavenly Demonic Lord dengan 10 keluarga utama."
+    - "Evil Path terdiri dari 12 sekte di bawah Abyssal Sovereign."
+  factions:
     - name: "Heavenly Demon Circle"
-      classification: "Demonic Path"
-      leader: "Lord of Freed Will (Heavenly Demonic Lord)"
-      stronghold: "Demon's Fold"
+      path: "Demonic"
+      leader: "Heavenly Demonic Lord"
       troops_est: 9000
-      relations:
-        allied_with: ["Some Immortal Demonic Sects"]
-        neutral_to: ["Beast Protector Houses"]
-      special_ability: "Law Stealing (forbidden technique)"
+      alliance: "Beberapa sekte demonic immortal"
+    - name: "Twelve Abyssal Halls"
+      path: "Evil"
+      leader: "Abyssal Sovereign"
+      troops_est: 15000
+      specialty: "Void Corruption Rites"
+  interaction_rules:
+    - "Tidak tunduk Great Court."
+    - "Cross-realm incursions diawasi GCEB."
+    - "Perdagangan black market sah di Abyss, tapi karmic trace aktif di realm lain."
 
-  abyss_rules_of_engagement:
-    - "Abyssian entities may invade Mortal Realm if target is mortal-level (no trans-realm law use)."
-    - "Large-scale incursions trigger GCEB watch and potential Immortal intervention."
-    - "Black Market trade allowed within Abyss but flagged by Karmic Trace if crossing realms."
+---
 
 # =================================================================
-# BEAST REALM — CLANS & PRIMORDIAL HOUSES
+# BEAST REALM FACTIONS
 # =================================================================
 beast_factions:
-  overview:
-    description: >
-      Beasts arise from mortal fauna that ascend naturally; they form clans,
-      tottering between primal instinct and cultivated awareness.
-    governance: "Clan Councils (Elder Pride) → Primordial Protector (Transcendent-level guardian)"
-  clan_structure_sample:
+  governance: "Dewan Klan dan Beast Protector."
+  examples:
     - name: "Ironfang Pride"
-      origin_biome: "Mountain Ranges"
-      leader: "Elder Ironfang (Ensouled Golden Core)"
-      population_est: 1200
-      role: "Territorial defense, herb guardians"
-      relations:
-        allied_with: ["Tianlun Kingdom (trade)"]
-        hostile_to: ["Corrupted Marsh Wyrms"]
-    - name: "Abyssal Maw Pack"
-      origin_biome: "Borderlands"
-      leader: "Prime Maw (Void-born)"
-      population_est: 8000
-      role: "Raids & territorial expansion"
-      relations:
-        allied_with: ["Demonic Path factions at times"]
-        hostile_to: ["Merchant caravans"]
-
-  beast_protectors:
+      biome: "Mountain Ranges"
+      leader: "Elder Ironfang"
+      realm: "Ensouled Golden Core"
+      population: 1200
+      alliance: "Tianlun Kingdom"
+    - name: "Primordial Beast Council"
+      leader: "Azure Sovereign"
+      realm: "Transcendent"
+      function: "Penjaga pintu Beast Ascension."
+  protector:
     - name: "Primordial Beast — Raxus"
-      role: "Guardian of Beast Realm passages"
-      status: "Transcendent (Primordial-aligned)"
-      function: "Can open Beast Ascension Gates when invoked by clan consensus."
+      role: "Penjaga batas antara Beast Realm dan Mortal World."
+      realm: "Transcendent"
+
+---
 
 # =================================================================
-# FACTION RELATIONSHIP MATRIX (simplified)
+# REPUTATION & KARMA SYSTEM
 # =================================================================
-relationship_matrix:
-  keys:
-    - "A" : "Allied / Strong Cooperation"
-    - "N" : "Neutral / Trade"
-    - "H" : "Hostile / Conflict"
-    - "S" : "Subordinate / Vassal"
-  sample_relations:
-    Heavenly Merchant Guild:
-      Celestial Ninefold: "A"
-      Shadow Fang Union: "H"
-      Alchemist Tower: "A"
-    Heavenly Demon Order:
-      Great Court: "H"
-      Demonic Path Sects: "A"
-      Beast Clans: "N"
-    Obsidian Covenant:
-      GCEB: "H"
-      Immortal Great Court: "H"
-      Local Kingdoms: "N"
-
-# =================================================================
-# FACTION MECHANICS — REPUTATION, INFLUENCE, & KARMA
-# =================================================================
-faction_mechanics:
-  reputation:
-    scale: 0..100
-    sources:
-      - "Quest completion for faction"
-      - "Donations to faction guild (currency based)"
-      - "Military aid / defense / raids"
-      - "Completion of faction-specific rites"
-    effects:
-      - ">= 60: Access to elite shop catalog & auctions"
-      - ">= 80: Invitation to regional councils"
-      - "< 30: Trade restrictions and bounty markers"
-  influence:
-    computation: "Base_influence + (reputation × holdings_factor) + (military_strength × 0.5)"
-    holdings_factor: "Value derived from controlled territory & assets"
+faction_reputation:
+  scale:
+    - "Hostile (-500)"
+    - "Neutral (0)"
+    - "Trusted (+100)"
+    - "Allied (+500)"
+    - "Divine Vassal (+1000)"
+  mechanics:
+    - "Quest, donasi, dan bantuan perang meningkatkan reputasi."
+    - "Betrayal mengurangi reputasi besar dan memicu Law of Oath Break."
   karma:
-    definition: "World-level moral ledger influenced by major faction actions"
-    mechanics:
-      - "Large-scale genocide / world-harming actions -> negative karma spike"
-      - "Massive charitable deeds -> positive karma spike"
-      - "Karma events can trigger Heavenal Tribunal reviews"
+    - "High Karma → Favor dari Heavenal & Holy."
+    - "Low Karma → Koneksi dengan Abyss & Evil Path."
+    - "Beast Realm menilai keseimbangan, bukan moral."
+
+---
 
 # =================================================================
-# NPC GENERATION (for GM & event engine)
+# GCEB OVERSIGHT & INTERVENTION
 # =================================================================
-npc_generation:
-  templates:
-    - type: "Faction Leader"
-      required_fields: ["name","title","realm_rank","affiliation","power_estimate","unique_skill"]
-    - type: "Legion Commander"
-      required_fields: ["name","legion","command_capacity","unit_strength"]
-    - type: "Merchant"
-      required_fields: ["name","trade_level","inventory_scope","reputation"]
-    - type: "Alchemist Master"
-      required_fields: ["name","cauldron_grade","alchemy_rank","recipe_access"]
-  spawn_rules:
-    - "Major faction leaders spawn only during faction-level events or GM calls."
-    - "Legion commanders may be generated dynamically during wartime (event engine)."
-    - "Merchants respawn / restock per shop_catalog restock_interval."
+gceb_intervention:
+  authority:
+    - "Investigasi lintas realm dan pelanggaran hukum."
+    - "Penegakan hukum terhadap makhluk immortal atau abyssal."
+  tiers:
+    - Tier 1: "Silent Hunters (Immortal Langit)"
+    - Tier 2: "Heavenly Inquisitors (Immortal Emas)"
+    - Tier 3: "Void Marshal & Arbiter (Kaisar Immortal)"
+  tools:
+    - "Karmic Trace"
+    - "Heaven Seal Strike"
+    - "Containment Portal"
+
+---
 
 # =================================================================
-# GCEB INTERACTIONS & OVERSIGHT
-# =================================================================
-gceb_interactions:
-  authority_scope:
-    - "Investigate cross-realm crimes (smuggling, law theft, forbidden tech)."
-    - "Intervene when Abyss factions breach Immortal domain thresholds."
-    - "Apprehend rogue immortals or factions violating Heavenal Law."
-  intervention_tiers:
-    - Tier 1 (Local): "Silent Hunters & Clerks of Law (Immortal Langit)"
-    - Tier 2 (Regional): "Heavenly Inquisitors & Void Guardians (Immortal Emas)"
-    - Tier 3 (Global): "Void Marshal & Heavenly Arbiter (Kaisar Immortal)"
-  enforcement_mechanics:
-    - "Karmic Trace: monetary and action trail detection"
-    - "Heaven Seal Strike: used only on validated major offenders"
-    - "Containment Portals: temporary quarantines of affected zones"
-
-# =================================================================
-# EVENT TRIGGERS (FACTION-BASED)
+# EVENT TRIGGERS
 # =================================================================
 event_triggers:
   trade_conflict:
-    condition: "Cross-realm trade of restricted G7–G9 items"
-    reaction: "Merchant Alliance audit + GCEB watchlist"
+    trigger: "Perdagangan lintas realm G7–G9"
+    effect: "Merchant Alliance audit + GCEB tracing"
   military_invasion:
-    condition: "Legion mobilization > threshold in neighbor territory"
-    reaction: "Regional Court summons + possible Heavenal Arbiter review"
+    trigger: "Mobilisasi pasukan besar antar wilayah"
+    effect: "Regional Court summon"
   abyss_incursion:
-    condition: "Abyss faction troops crossing Mortal border without Grace"
-    reaction: "Automatic GCEB detection & Heavenly Marshals dispatched"
+    trigger: "Abyss troops memasuki Mortal tanpa izin"
+    effect: "Heavenal alert & Arbiter review"
   beast_ascension:
-    condition: "Beast clan achieves Golden Core and performs Ascension Rite"
-    reaction: "Local kingdoms attempt diplomacy; Alchemist Tower offers fusion options"
+    trigger: "Beast mencapai Golden Core & melakukan ritual ascension"
+    effect: "Diplomasi & pengawasan Heavenal"
 
-# =================================================================
-# NOTES & GM GUIDELINES
-# =================================================================
-gm_guidelines:
-  - "Use relationship_matrix to adjudicate NPC reactions in roleplay."
-  - "Balance faction power relative to realm caps (law_cap & realm multipliers)."
-  - "Record all major faction events in Heavenal Log Archive (not codex)."
-  - "When introducing new faction, update npc_registry and notify Heavenal Control Node (manifest sync)."
+---
+
+integration_system:
+  sync_with:
+    - "codex_lore_master_index.yaml"
+    - "codex_economy_trade.yaml"
+    - "codex_conflict_matrix.yaml"
+  monitored_by: "Heavenal Control Node"
+  npc_refresh_interval: "3 Heavenal Days"
+
+---
 
 verification:
   maintained_by: "Heavenal Control Node"
   validated_on: "2025-11-10"
   sync_with: "manifest.yaml v3.2-secure"
   integrity_check: verified
-  checksum: "AUX-VI-SHA-4C9D12"
-  sign_key: "HCLN-FACTION-INDEX-SECURE"
+  checksum: "AUX-VI-SHA-FF12B3"
+  sign_key: "HCLN-FACTION-DIRECTORY-SECURE"
