@@ -1,0 +1,215 @@
+# ============================================================
+# CODEX XX — REALM ARCHITECTURE & CULTIVATION FRAMEWORK
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: codex_registry/core_codex/codex_XX_realm_architecture.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "COD-XX"
+  title: "Realm Architecture & Cultivation Framework"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  status: verified
+  sync_hash: "COD-XX-LOCK-992E7"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  linked_to:
+    - codex_XIX_heavenly_technique_system.yaml
+    - codex_XVIII_soul_wheel_and_reincarnation.yaml
+    - codex_XV_heavenal_mechanism.yaml
+  classification: "Core Codex — Realm Law and Progression Structure"
+
+---
+
+introduction:
+  description: >
+    The Realm Architecture defines the structure of existence across all planes:
+    Mortal, Immortal, Divine, and Transcendent. 
+    Each Realm represents a distinct layer of Heaven’s law, where energy density,
+    time flow, and law comprehension scale exponentially. 
+    Cultivation is the process of harmonizing one’s essence with the Realm’s Law.
+  quote: |
+    “To ascend is not to leave one’s world —  
+     it is to rewrite one’s place within Heaven’s script.”
+
+---
+
+realm_overview:
+  total_realms: 4
+  energy_hierarchy:
+    - Mortal → Qi Energy
+    - Immortal → Immortal Essence
+    - Divine → Divine/Creation Qi
+    - Transcendent → Primordial/Void/Eternal Force
+  law_cap_system:
+    - Mortal → 1.5
+    - Immortal → 5
+    - Divine → 7
+    - Transcendent → ∞
+  realm_transition_rule: >
+    Each transition between realms requires tribulation,
+    Heavenal acknowledgment, and synchronization with the Heavenal Mechanism.
+
+---
+
+mortal_realm:
+  realm_tiers:
+    - Qi Refining (Lv.1–10): "Foundation of life energy, awakening meridians."
+    - Foundation Qi (Lv.1–10): "Stabilization of dantian and Qi circulation."
+    - Golden Core (Lv.1–10): "Qi condensed into spiritual core; birth of inner world."
+    - Soul Wandering (Lv.1–10): "Spirit projection and early Law awareness."
+    - Nascent Soul (Lv.1–10): "Soul gains autonomy and develops will."
+    - Ensoulment (Lv.1–10): "Soul merges with Law fragments; early domain formation."
+    - Nihility (Lv.1–10): "Understanding emptiness; preparing for ascension."
+    - Ascension (Lv.1–10): "Crossing realm barrier; attracting Heavenal Trial."
+    - Half-Immortal (Lv.1–10): "Embryonic form of Immortal Essence within mortal body."
+  energy_source: "Qi Energy"
+  tribulation_trigger: "Each level-up post-Soul Wandering"
+  ascension_requirement:
+    - "Soul Integrity ≥ 90%"
+    - "Essence Stability ≥ 85%"
+    - "Karma < 1000 units"
+  governing_laws:
+    - "Law of Karma"
+    - "Law of Ascension"
+    - "Law of Balance"
+  note: >
+    Mortal realm is the testing ground of Heaven. Every soul begins here.
+
+---
+
+immortal_realm:
+  realm_tiers:
+    - Immortal Langit (Lv.1–20): "Pure immortal Qi circulation and Heavenal synchronization."
+    - Immortal Emas (Lv.1–20): "Body refinement and spiritual essence crystallization."
+    - Penguasa Immortal (Lv.1–20): "Dominion over local laws and domain establishment."
+    - Raja Immortal (Lv.1–20): "Command over law-linked territories; mastery of sect power."
+    - Kaisar Immortal (Lv.1–20): "Heaven-recognized ruler; capable of rewriting regional Laws."
+  energy_source: "Immortal Essence"
+  tribulation_trigger: "Each 10 levels; Ascension requires Heavenal recognition."
+  ascension_requirement:
+    - "Law Comprehension ≥ 3.0"
+    - "Immortal Essence Purity ≥ 90%"
+    - "Soul Resonance ≥ 80%"
+  governing_laws:
+    - "Law of Essence"
+    - "Law of Resonance"
+    - "Heavenal War Code"
+  note: >
+    The Immortal Realm is the judiciary and political heart of Heaven’s hierarchy.
+
+---
+
+divine_realm:
+  realm_tiers:
+    - Dewa Transformasi (Lv.1–100): "Transforms existence and influences Laws directly."
+    - Dewa Sejati (Lv.1–100): "Perfect embodiment of one or more universal Laws."
+    - Dewa Agung (Lv.1–100): "Holds dominion over creation or destruction aspects."
+  structure_layers:
+    - Lower Divine Realm: "Populated by Transformative Gods and minor Thrones."
+    - Upper Divine Realm: "Seat of the Twelve Thrones and Law Thrones of Heaven."
+  energy_source: "Creation/Divine Qi"
+  tribulation_trigger: "Every 5 levels; major ascension at level 100 per tier."
+  ascension_requirement:
+    - "Law Comprehension ≥ 6.5"
+    - "Divine Synchronization ≥ 80%"
+    - "Karma Debt ≤ 0"
+  governing_laws:
+    - "Law of Creation"
+    - "Law of Silence"
+    - "Law of Renewal"
+  note: >
+    The Divine Realm governs existence itself — where creation and destruction become tools of will.
+
+---
+
+transcendent_realm:
+  realm_tiers:
+    - Primordial Sovereign: "Master of Chaos, creator of new Laws."
+    - True Void Lord: "Lord of Emptiness, eraser of existence."
+    - Divine Transcendent: "Balancer of Chaos and Void, keeper of universal harmony."
+    - Peerless Ancient Wanderer: "Beyond all concepts — embodiment of Heaven’s renewal."
+  energy_source: "Primordial/Void/Eternal Force"
+  ascension_condition:
+    - “Must master both Chaos and Void Laws.”
+    - “Tribulation no longer external — becomes internal.”
+  law_effect:
+    - “Transcendents can rewrite or erase the Heavenal Mechanism.”
+    - “Their actions ripple through all worlds simultaneously.”
+  note: >
+    Beyond this point, no record or Law binds existence. 
+    Only the will of the Transcendent defines what is real.
+
+---
+
+realm_interconnection:
+  portals:
+    - Mortal → Immortal: "Ascension Gate."
+    - Immortal → Divine: "Heavenal Gate."
+    - Divine → Transcendent: "Law Collapse or Self-Ascension."
+  travel_conditions:
+    - “Realm permission required.”
+    - “Law Synchronization > 90%.”
+    - “Soul Integrity ≥ 95%.”
+  control_authorities:
+    - Heavenal Mechanism
+    - Great Court
+    - Divine Tribunal
+
+---
+
+time_and_energy_dynamics:
+  time_ratio:
+    - Mortal Realm: "1 day real = 365 mortal days."
+    - Immortal Realm: "1 day real = 100 immortal days."
+    - Divine Realm: "1 day real = 10 divine days."
+    - Transcendent Realm: "1 day real = undefined (nonlinear)."
+  energy_density_ratio:
+    - Mortal: 1x
+    - Immortal: 100x
+    - Divine: 10,000x
+    - Transcendent: ∞
+  note: >
+    Realm energy density determines the rate of cultivation, 
+    but also the lethality of tribulations.
+
+---
+
+integration:
+  linked_codex:
+    - codex_XIX_heavenly_technique_system.yaml
+    - codex_XVIII_soul_wheel_and_reincarnation.yaml
+    - codex_XV_heavenal_mechanism.yaml
+  affects:
+    - "Realm Progression System"
+    - "Ascension and Tribulation Engine"
+    - "World Map and Gate Network"
+  dependencies:
+    - Heavenal Control Node
+    - Great Court System
+    - Heavenal Mechanism
+
+---
+
+security:
+  classification: "Cosmic Framework Tier — Structural Law Archive"
+  encryption: enabled
+  gm_access_required: true
+  gm_auth_token_ref: "ENV[HEAVENAL_GM_TOKEN]"
+  codex_integrity: verified
+  last_audit: "2025-11-09"
+  approved_by: "Heavenal Control Node"
+  network_status: "Stable — 99.7% Law Synchronization"
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-09"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "COD-XX-SHA-FF97A"
+  sign_key: "HCLN-REALM-ARCHITECTURE-SECURE"
