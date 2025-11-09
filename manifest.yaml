@@ -1,0 +1,354 @@
+# manifest.yaml
+manifest_version: "1.0"
+project:
+  name: "Heavenly Origin Saga"
+  short: "Heavenal"
+  description: "Mixed DnD x Cultivation world — codex, systems, shop catalog, and game modules."
+  maintainer: "Tito Baitanu"
+  gm_token: "201218"            # GM token (use with care)
+  created_at: "2025-11-09"
+  contact: "GM_Token_201218"
+
+repository:
+  root: "."
+  primary_branch: "main"
+  license: ["MIT", "Heavenal Law Open-Collab License (HLOCL)"]
+
+# File registry (core files). Update hash when files change.
+files:
+  - path: "README.md"
+    type: "documentation"
+    version: "1.0.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "LICENSE"
+    type: "legal"
+    version: "1.0.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "license_notice.md"
+    type: "legal"
+    version: "3.0Ω"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "manifest.yaml"
+    type: "manifest"
+    version: "1.0"
+    hash: "sha256:REGENERATE"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "codex/codex_index.yaml"
+    type: "codex_index"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "partial"   # index present, content needs sync
+  - path: "codex/codex_primus.yaml"
+    type: "codex"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "codex/codex_cosmic_realm_full.yaml"
+    type: "codex"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "locked"    # locked by GM token
+  - path: "cheatsheets/cheat_sheet_ascension.yaml"
+    type: "cheatsheet"
+    version: "v1.2"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "cheatsheets/cheat_sheet_soul_resonance.yaml"
+    type: "cheatsheet"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "partial"
+  - path: "shop/shop_catalog_example.yaml"
+    type: "catalog"
+    version: "v0.9"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "partial"   # needs expansion to full 300 items
+  - path: "shop/pill_catalog.yaml"
+    type: "catalog"
+    version: "v0.5"
+    count: 0
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "pending"   # plan: generate 500 pill entries
+  - path: "shop/artifact_catalog.yaml"
+    type: "catalog"
+    version: "v0.5"
+    count: 0
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "pending"   # plan: generate 500 artifacts
+  - path: "forging/forging_recipes.yaml"
+    type: "forging"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "partial"   # 20 core formulas present, expand to 500
+  - path: "alchemy/recipes_index.yaml"
+    type: "alchemy"
+    version: "v0.9"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "partial"   # plan: 500 pills
+  - path: "npc/factions_index.yaml"
+    type: "npc"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "partial"
+  - path: "gameplay/system_rules.yaml"
+    type: "system"
+    version: "v2.1"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "ui/heavenal_panel_template.yaml"
+    type: "ui_template"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "examples/sample_character_tian_dong.yaml"
+    type: "example"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+  - path: "backup/heavenal_backup_20251109.zip"
+    type: "backup"
+    version: "v1.0"
+    hash: "sha256:PLACEHOLDER"
+    last_updated: "2025-11-09"
+    status: "complete"
+
+# Codex registry & completeness summary
+codex:
+  total_declared: 42
+  listed:
+    - id: "COD-001"
+      title: "Codex I — Opening Invocation & Structure"
+      status: "complete"
+      synced: true
+    - id: "COD-002"
+      title: "Codex II — Divine Transcendence System"
+      status: "complete"
+      synced: true
+    - id: "COD-003"
+      title: "Codex III — Heavenly Technique System"
+      status: "complete"
+      synced: true
+    - id: "COD-004"
+      title: "Codex IV — Realm & Tier System"
+      status: "complete"
+      synced: true
+    - id: "COD-005"
+      title: "Codex V — Great Court & GCEB"
+      status: "complete"
+      synced: true
+    - id: "COD-006"
+      title: "Codex VI — Mortal World Structure"
+      status: "complete"
+      synced: true
+    - id: "COD-007"
+      title: "Codex VII — Heavenly Jurisprudence"
+      status: "partial"
+      synced: false
+    - id: "COD-008"
+      title: "Codex VIII — Ascension & Tribulation"
+      status: "complete"
+      synced: true
+    - id: "COD-009"
+      title: "Codex IX — Energy & Qi Systems"
+      status: "complete"
+      synced: true
+    - id: "COD-010"
+      title: "Codex X — World Cycles & Rebirth"
+      status: "complete"
+      synced: true
+    - id: "COD-011"
+      title: "Codex XI — Heavenly Market & Economics"
+      status: "partial"
+      synced: false
+    - id: "COD-012"
+      title: "Codex XII — NPC & Faction Rules"
+      status: "partial"
+      synced: false
+    - id: "COD-013"
+      title: "Codex XIII — Divine Transcendence (extended)"
+      status: "complete"
+      synced: true
+    - id: "COD-014"
+      title: "Codex XIV — Cosmic Eras & Rebirth Cycle"
+      status: "complete"
+      synced: true
+    - id: "COD-015"
+      title: "Codex XV — Path of Transcendence"
+      status: "partial"
+      synced: false
+    - id: "COD-016"
+      title: "Codex XVI — Heavenly Technique Grading"
+      status: "complete"
+      synced: true
+    - id: "COD-017"
+      title: "Codex XVII — Law of Resonant Comprehension"
+      status: "complete"
+      synced: true
+    - id: "COD-018"
+      title: "Codex XVIII — Resonance & Rejection"
+      status: "complete"
+      synced: true
+    - id: "COD-019"
+      title: "Codex XIX — Heavenly Technique System (detailed)"
+      status: "complete"
+      synced: true
+    - id: "COD-020"
+      title: "Codex XX — Law of Ascension & Heaven Evasion"
+      status: "complete"
+      synced: true
+    - id: "COD-021"
+      title: "Codex XXI — D&D Integration & Stat System"
+      status: "complete"
+      synced: true
+    - id: "COD-022"
+      title: "Codex XXII — (Pending: Beast Doctrine & Abyss Rules)"
+      status: "partial"
+      synced: false
+    - id: "COD-023"
+      title: "Codex XXIII — Shop, Loot & Economy (draft)"
+      status: "partial"
+      synced: false
+    - id: "COD-024"
+      title: "Codex XXIV — World Balancing Laws (GM rules)"
+      status: "complete"
+      synced: true
+    - id: "COD-025"
+      title: "Codex XXV — Race Path & Invasion Relations"
+      status: "partial"
+      synced: false
+    # ... remaining codex entries (fill as needed)
+  notes:
+    - "Complete codex should be > 85% written and synced."
+    - "Partial codex marked for GM review and completion."
+
+# Dependencies between major codex/modules
+dependencies:
+  codex_primus:
+    requires: ["codex/codex_cosmic_realm_full.yaml", "cheatsheets/cheat_sheet_ascension.yaml"]
+  shop_system:
+    requires: ["shop/shop_catalog_example.yaml", "codex/COD-011"]
+  forging_alchemy:
+    requires: ["forging/forging_recipes.yaml", "alchemy/recipes_index.yaml"]
+  npc_faction:
+    requires: ["npc/factions_index.yaml", "codex/COD-012"]
+  gameplay_engine:
+    requires: ["gameplay/system_rules.yaml", "codex/COD-021", "cheatsheets/cheat_sheet_soul_resonance.yaml"]
+
+# Catalog summary (planned)
+catalog:
+  pills:
+    planned_count: 500
+    current_count: 0
+    tiers:
+      mortal: 9
+      immortal: 9
+      divine: 9
+  artifacts:
+    planned_count: 500
+    current_count: 0
+  herbs:
+    planned_count: 500
+    current_count: 0
+  techniques_sutra:
+    planned_count: 500
+    current_count: 0
+  weapons:
+    planned_count: 500
+    current_count: 0
+
+# Sync report & pending tasks
+sync_report:
+  last_sync: "2025-11-09"
+  locked_items:
+    - path: "codex/codex_cosmic_realm_full.yaml"
+      locked_by: "GM_Token_201218"
+      lock_reason: "Core realm hierarchy locked as canonical"
+  pending_tasks:
+    - id: "TASK-001"
+      title: "Generate 500 pill catalog (ID & YAML entries)"
+      owner: "GM"
+      status: "open"
+    - id: "TASK-002"
+      title: "Complete shop_catalog to 300 visible + 300 hidden items"
+      owner: "Economy Team"
+      status: "open"
+    - id: "TASK-003"
+      title: "Forge 20 core forging formulas → expand to 500"
+      owner: "Forger"
+      status: "open"
+    - id: "TASK-004"
+      title: "Finalize Codex VII & Codex XXV"
+      owner: "GM"
+      status: "open"
+    - id: "TASK-005"
+      title: "Generate 80 artifacts + 480 techniques and balance prices"
+      owner: "GM"
+      status: "open"
+
+# Validation rules & constraints (enforced by world engine / GM)
+validation:
+  law_cap:
+    mortal: 1.5
+    immortal: 5.0
+    divine: 7.0
+    transcendent: "unbounded"
+  alchemy_cauldron_rule:
+    description: "To craft pill grade N requires Alchemist level >= N and Cauldron grade >= N unless Law Compression / high LC exception applies."
+  shop_purchase_rules:
+    mortal_buy_limit: "Cannot buy immortal-tier items (G10+) unless item flagged 'mortally-accessible' or via auction/leasing."
+    immortal_buy_rule: "Immortal may buy mortal-tier and immortal-tier freely."
+  realm_restriction:
+    "Mortal realm items and information are filtered by player's realm; higher realm players may access lower realm info but filtered for relevance."
+  tribulation_rule:
+    "Tribulation check on every level increment as per Codex XVIII/XX."
+
+# Export & backup configuration
+backup:
+  enabled: true
+  backup_interval_days: 7
+  last_backup: "2025-11-09"
+  backups:
+    - file: "backup/heavenal_backup_20251109.zip"
+      notes: "Initial sync & checkpoint"
+  recommended_store: "local + offline encrypted copy"
+
+# Quick commands (for GM use)
+commands:
+  lock_codex:
+    usage: "gm_tool lock <codex_path> --token <GM_TOKEN>"
+    example: "gm_tool lock codex/codex_cosmic_realm_full.yaml --token 201218"
+  unlock_codex:
+    usage: "gm_tool unlock <codex_path> --token <GM_TOKEN>"
+    example: "gm_tool unlock codex/codex_cosmic_realm_full.yaml --token 201218"
+  generate_catalog:
+    usage: "gm_tool generate_catalog --type pills --count 500 --out shop/pill_catalog.yaml"
+  backup_repo:
+    usage: "gm_tool backup --out backup/heavenal_backup_YYYYMMDD.zip --token 201218"
+
+# Notes & instructions
+notes:
+  - "When uploading the repo to GitHub: ensure sensitive tokens are not exposed publicly. This manifest contains GM token by user request; consider replacing with env var in public repos."
+  - "Replace all 'sha256:PLACEHOLDER' with actual checksums after files are finalized."
+  - "Use 'lock_codex' command to prevent accidental edits to canonical codex files."
+  - "Follow HLOCL rules when accepting community contributions."
