@@ -1,0 +1,196 @@
+# ==========================================================
+# HEAVENAL PRIMUS ARCHIVE — v3.2-secure
+# The Core Law Compendium of the Heavenly Origin Saga
+# ==========================================================
+# Maintainer: Heavenal Control Node
+# Repository: HeavenlyOriginSaga-DnDBased
+# License: Dual (MIT + HLOCL)
+# Last Updated: 2025-11-09
+# ==========================================================
+
+meta:
+  archive_version: 3.2-secure
+  authority: "Heavenal Control Node"
+  law_origin: "Heavenal Source Primus"
+  codex_linked: true
+  last_revision: "2025-11-09"
+  sync_status: "Verified"
+  access_level: "Divine-Class Archive"
+  license_reference: "Heavenal Law Open-Collab License"
+
+---
+
+heavenal_structure:
+  description: >
+    The Heavenal Primus Archive governs the flow of energy, law, and existence
+    across all realms of Heavenly Origin Saga. It defines the interaction between
+    Mortal, Immortal, Divine, and Transcendent planes, establishing equilibrium
+    through the Heavenal Synchronization Protocol.
+
+  pillars:
+    - Law of Balance
+    - Law of Karma
+    - Law of Ascension
+    - Law of Resonance
+    - Law of Rebirth
+    - Law of Tribulation
+    - Law of Return
+    - Law of Silence
+    - Law of Creation
+
+  governing_entities:
+    - name: "Heavenal Control Node"
+      class: "Divine Administrative Entity"
+      function: "Maintains codex synchronization and oversees realm law integrity."
+    - name: "Immortal Great Court"
+      class: "Judicial Assembly"
+      function: "Executes law enforcement across immortal and divine realms."
+    - name: "Great Court Enforcement Bureau (GCEB)"
+      class: "Shadow Enforcement Division"
+      function: "Monitors Abyss, Chaos, and Void activities for law breaches."
+    - name: "Holy Region Alliance"
+      class: "Neutral Divine Council"
+      function: "Balances the Heaven, Demonic, and Evil paths."
+
+---
+
+cosmic_energy_system:
+  tiers:
+    - Mortal: "Qi Energy — foundation of life and cultivation essence."
+    - Immortal: "Immortal Essence — energy refined through transcending mortality."
+    - Divine: "Divine Qi — energy formed by merging Law and Creation intent."
+    - Transcendent: "Primordial, Void, and Duality Energies — exist beyond Law."
+  conversion_ratio:
+    mortal_to_immortal: "100:1"
+    immortal_to_divine: "1000:1"
+    divine_to_transcendent: "∞"
+  elemental_branches:
+    - Fire
+    - Water
+    - Wind
+    - Earth
+    - Lightning
+    - Shadow
+    - Light
+    - Chaos
+    - Void
+
+---
+
+realm_structure:
+  mortal_realms:
+    - Qi Refining (Lv.1–10)
+    - Foundation Qi (Lv.1–10)
+    - Golden Core (Lv.1–10)
+    - Soul Wandering (Lv.1–10)
+    - Nascent Soul (Lv.1–10)
+    - Ensoulment (Lv.1–10)
+    - Nihility (Lv.1–10)
+    - Ascension (Lv.1–10)
+    - Half-Immortal (Lv.1–10)
+  immortal_realms:
+    - Immortal Langit (Lv.1–20)
+    - Immortal Emas (Lv.1–20)
+    - Penguasa Immortal (Lv.1–20)
+    - Raja Immortal (Lv.1–20)
+    - Kaisar Immortal (Lv.1–20)
+  divine_realms:
+    - Dewa Transformasi (Lv.1–100)
+    - Dewa Sejati (Lv.1–100)
+    - Dewa Agung (Lv.1–100)
+  transcendent_realms:
+    - Primordial Sovereign (Lv.∞)
+    - True Void Lord (Lv.∞)
+    - Divine Transcendent (Lv.∞)
+    - Peerless Ancient Wanderer (Lv.∞)
+
+---
+
+law_limitations:
+  mortal_law_cap: 1.5
+  immortal_law_cap: 5.0
+  divine_law_cap: 7.0
+  transcendent_law_cap: "∞"
+  restrictions:
+    mortal_law_usage: "≤ 5% of true Law power"
+    immortal_law_usage: "≤ 20%"
+    divine_law_usage: "≤ 50%"
+    transcendent_law_usage: "No restriction"
+
+---
+
+ascension_protocol:
+  description: >
+    The process of ascension is governed by the Law of Tribulation.
+    Each level within Mortal, Immortal, and Divine realms triggers a Heavenal
+    assessment. Failure leads to soul damage, reincarnation reset, or death.
+  tribulation_conditions:
+    - Realm advancement by level
+    - Karma imbalance
+    - Law violation or distortion
+    - Crossing realms without Heavenal approval
+  success_rate_factors:
+    - Soul Strength
+    - Qi Stability
+    - Law Comprehension
+    - Karma Purity
+    - Heavenal Blessing
+  failure_consequences:
+    - Partial regression in realm
+    - Soul fragmentation
+    - Divine Seal punishment
+    - Total erasure (for repeat offenders)
+
+---
+
+inter_realm_relations:
+  mortal_access:
+    - "Mortal beings cannot freely access Immortal realms without Ascension Gate."
+  immortal_access:
+    - "Immortal entities can descend to Mortal realms under Divine Seal restrictions."
+  divine_access:
+    - "Divine entities may not manifest in Mortal realm unless invoked by ritual law."
+  transcendent_access:
+    - "Transcendent beings operate outside Law but influence the Cosmic Cycle indirectly."
+
+---
+
+cosmic_balance_matrix:
+  forces:
+    - Heaven Path (Order)
+    - Demonic Path (Freedom)
+    - Evil Path (Corruption)
+    - Holy Alliance (Neutrality)
+    - Abyss (Decay)
+    - Beast Realm (Instinct)
+    - Chaos (Origin)
+    - Void (End)
+  balance_law: >
+    None of the eight forces may dominate without causing cosmic collapse.
+    The Holy Alliance and Heavenal System maintain equilibrium through reincarnation
+    and law resets every 10^15 mortal years.
+
+---
+
+transcendence_definition:
+  - Primordial Sovereign: "Creates Law from Chaos."
+  - True Void Lord: "Erases Law into Nothingness."
+  - Divine Transcendent: "Balances Creation and Erasure."
+  - Peerless Ancient Wanderer: "The living embodiment of rebirth — walks beyond eternity."
+
+---
+
+heavenal_decrees:
+  - "No mortal shall wield Law beyond 5% purity."
+  - "No immortal shall descend without the Divine Seal."
+  - "No Divine shall distort Karma for personal gain."
+  - "No being may halt the Heavenly Rebirth Cycle."
+  - "Those who break Heaven’s equilibrium shall face Heavenal Erasure."
+
+---
+
+verification:
+  signed_by: "Heavenal Control Node"
+  integrity_check: verified
+  sync_state: stable
+  signature_hash: "PRIMUS-ARCHIVE-LOCK-9D12F7"
