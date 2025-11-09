@@ -1,0 +1,338 @@
+# ============================================================
+# CODEX ECONOMY & TRADE — MARKET, CURRENCY, AND MERCHANTS
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_economy_trade.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# Version: 3.2-secure
+# Verified: 2025-11-09
+# ============================================================
+
+meta:
+  codex_id: "AUX-003"
+  title: "Codex — World Economy & Trade Matrix"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  linked_to:
+    - systems/shop_catalog.yaml
+    - systems/reward_loot_tier.yaml
+    - codex_heavenal_shop.yaml
+    - codex_alchemy_forging.yaml
+    - world/economy_matrix.yaml
+  checksum: "AUX-003-LOCK-4F7C1"
+  verified: true
+
+---
+
+overview:
+  description: >
+    The Heavenly Origin economy is multi-layered and law-aware.
+    Currency, trade rules, taxation, market refresh, auctions, black markets,
+    and merchant networks operate under Heavenal Law constraints to preserve balance.
+  design_principles:
+    - "Prevent any single actor (player or faction) from unbalancing realms."
+    - "Limit mortal access to extremely high-tier goods (G8-G9) by law & price."
+    - "Enable trade as key gameplay loop: crafting, resource funnels, and conflict drivers."
+    - "Model supply/demand influenced by world events, tribulations, and law shifts."
+
+---
+
+currencies:
+  - name: "Gold"
+    unit: "Gold"
+    use: "Primary high-valued mortal currency (former Mortal Coin)"
+    description: "Everyday trade in towns, shops, and basic auctions."
+  - name: "Silver"
+    unit: "Silver"
+    use: "Secondary mortal currency"
+    description: "Small-value purchases, food, basic reagents."
+  - name: "Copper"
+    unit: "Copper"
+    use: "Coin for smallest purchases"
+  - name: "Spirit Stone"
+    unit: "SS"
+    use: "Spiritual currency bridging Mortal→Immortal"
+    description: "Traded for cultivation materials, low-tier pills, and spirit services."
+  - name: "Immortal Jade"
+    unit: "IJ"
+    use: "High-tier immortal currency"
+    description: "Used for Immortal-tier goods, cross-realm transactions."
+  - name: "Divine Crystal"
+    unit: "DC"
+    use: "Great Heaven / divine-level currency"
+    description: "Used in Great Heaven and deity-level commerce."
+
+exchange_rates:
+  # canonical baseline (subject to world event modifiers)
+  base:
+    - "100 Copper = 1 Silver"
+    - "100 Silver = 1 Gold"
+    - "1,000 Gold = 1 Spirit Stone"
+    - "1,000 Spirit Stone = 1 Immortal Jade"
+    - "100 Immortal Jade = 1 Divine Crystal"
+  note: >
+    Rates may fluctuate by regional merchant networks and world events.
+    Official exchange overseen by Merchant Alliance & Great Court Treasury.
+
+---
+
+item_tiers_and_market_access:
+  tiers:
+    - code: "G1"
+      name: "Mortal Tier 1"
+      accessible_by: "All"
+      typical_price_range_gold: "1 - 50"
+    - code: "G2"
+      name: "Mortal Tier 2"
+      accessible_by: "All"
+      typical_price_range_gold: "50 - 200"
+    - code: "G3"
+      name: "Mortal Tier 3"
+      accessible_by: "All"
+      typical_price_range_gold: "200 - 800"
+    - code: "G4"
+      name: "Mortal Tier 4"
+      accessible_by: "All"
+      typical_price_range_gold: "800 - 3,000"
+    - code: "G5"
+      name: "Mortal Tier 5"
+      accessible_by: "All"
+      typical_price_range_gold: "3,000 - 12,000"
+    - code: "G6"
+      name: "Mortal Tier 6"
+      accessible_by: "All"
+      typical_price_range_gold: "12,000 - 60,000"
+    - code: "G7"
+      name: "Mortal Tier 7"
+      accessible_by: "All"
+      typical_price_range_gold: "60,000 - 500,000"
+      note: "High-value; may trigger faction attention."
+    - code: "G8"
+      name: "Spirit Tier (low Immortal)"
+      accessible_by: "Immortal (recommended) / Mortal via Auction/Quest only"
+      typical_price_range_gold: "500,000 - 5,000,000 or SS equivalent"
+      restrictions:
+        - "Cannot be sold to mortals through normal shops."
+        - "Primary acquisition: rare drops, auction houses, black market (risky), or faction reward."
+        - "G8 goods often require purchaser verification (shop-side law limit)."
+    - code: "G9"
+      name: "Immortal/Divine Tier"
+      accessible_by: "Immortal & above; purchase requires Immortal Jade or Divine Crystal + approval"
+      typical_price_range_gold: "5,000,000+ or IJ/DC equivalent"
+      restrictions:
+        - "Not available in mortal shops."
+        - "Acquisition mainly via forging, divine quests, or Great Heaven procurement."
+
+  shop_access_rules:
+    - "Mortal shops: may only list items G1–G7. G8 only via special events/auctions with strict verification."
+    - "Immortal shops: may list G1–G9 according to vendor credentials and law affinity."
+    - "GM and Great Court may lock or unlock items due to balance or story reasons."
+
+---
+
+shop_mechanics:
+  shop_types:
+    - "Local Mortal Shop"
+    - "Regional Merchant (merchant network)"
+    - "Holy Region Exchange"
+    - "Immortal Bazaar"
+    - "Auction House (public & private)"
+    - "Black Market (illegal; high risk/reward)"
+  restock:
+    mortal_shop_refresh_cycle_days: 7
+    regional_shop_refresh_cycle_days: 3
+    immortal_shop_refresh_cycle_days: 1
+    restock_rules:
+      - "Mortal shops refresh every 7 days; rare & G7 items rotate with low probability."
+      - "Stock quantity values are tracked per shop; example: '10-year ginseng: 3 units'."
+      - "GM may trigger special restock events (festival, tribute, war loot)."
+  listing:
+    - "Shops must publish quantity available and base price in YAML catalog."
+    - "Shops display item's tier code and law requirement if any."
+  dynamic_pricing:
+    base_price_formula: >
+      Price = BaseValue * (1 + DemandModifier - SupplyModifier + RegionModifier + EventModifier) * RarityMultiplier
+    modifiers:
+      DemandModifier: "f(demand_index) between -0.3..+1.5"
+      SupplyModifier: "f(supply_index) between -0.5..+0.5"
+      RegionModifier: "ports/holy nodes cheaper (-0.1..+0.2)"
+      EventModifier: "war/famine/boon impact (-0.5..+2.0)"
+      RarityMultiplier: "G-tier multiplier (G1=1, G2=1.3, G3=1.7 ... G9=100+)"
+  price_visibility:
+    - "All public shops must expose BasePrice and Quantity."
+    - "Auction starting bids are public for transparency."
+    - "Black market hides quantities and verifies buyer credibility; trades incur heavenly risk."
+
+---
+
+auction_house:
+  auction_types:
+    - "Open Auction"       # publicly bid over fixed period
+    - "Private Auction"    # invitation-only
+    - "Sealed Bid"         # secret bids, highest wins
+    - "Reverse Auction"    # seller sets decreasing price
+  bidding_rules:
+    - "Minimum increment: max(1% of current bid, flat minimum per tier)"
+    - "Reserve Price allowed"
+    - "Bids locked for last 60 seconds will trigger a 60s anti-snipe extension (up to N times configurable)."
+  fees:
+    - "Auction fee: 2% - 10% based on seller reputation and item tier"
+    - "House commission: collected in local currency or Spirit Stone for cross-realm items"
+  item_verification:
+    - "High-tier items (G8–G9) require seller verification & escrow by Merchant Alliance or Great Court."
+  sample_flow:
+    1: "Seller registers item (includes law tag if needed)."
+    2: "Auction opens with starting bid and reserve."
+    3: "Bidders place bids; anti-snipe may extend end time."
+    4: "Highest valid bid wins; payment goes to escrow; item delivery pending law checks."
+    5: "House deducts fees; remaining transferred to seller."
+
+---
+
+black_market:
+  overview: >
+    Illegal trade exists (Abyss conduits, corrupted merchants). GCEB tracks & may intervene.
+  risk:
+    - "High likelihood of Heavenal Detection: Karma Growth, Law Trace, or direct sanction."
+    - "Purchasing G8+ via black markets may result in confiscation and Karma penalties."
+  reward:
+    - "Access to items normally restricted; cheaper prices but unstable supply."
+  detection_mechanic:
+    detection_chance_formula: >
+      BaseDetection = 0.05 + (ItemTierCoefficient * 0.02) + (WorldAlertLevel * 0.1) - (BuyerStealthSkill * 0.01)
+    outcomes:
+      - "If detected: item confiscated; buyer receives 'Law Trace' (Karma +X) and possible bounty."
+      - "If undetected: buyer obtains item; market heat increases."
+
+---
+
+merchant_networks & guilds:
+  merchant_alliance:
+    role: "Main regulator of trade, exchange, and merchant law adherence."
+    privileges:
+      - "Issue trade licenses"
+      - "Run major auction houses"
+      - "Coordinate cross-realm exchanges"
+    fees_and_taxes:
+      - "Trade levy: 1%–5% dependent on item tier & route"
+  merchant_levels:
+    - "Small Trader (local): low fees, limited trade capacity"
+    - "Merchant (regional): medium fees, cross-city trading"
+    - "Merchant Lord (national): large capital, access to Merchant Alliance meetings"
+    - "Trade Magnate (alliance seat): access to Holy Region Exchange & Divine procurement"
+  reputation_system:
+    - "Reputation tracked per merchant; affects fees, loan access, and black market exposure."
+    - "Reputation gain: successful deliveries, tax compliance, charity. Loss: scams, illegal trades."
+
+---
+
+taxation_and_treasury:
+  tax_types:
+    - "Sales Tax: default 2% mortal regions, adjustable by kingdom."
+    - "Trade Levy: merchant alliance 1%–5% on cross-region trade"
+    - "Export Duty: on rare resources leaving a region (0%–20%)"
+    - "Tariff: applied during wartime or embargo"
+  treasury_users:
+    - "Kingdom Treasury"
+    - "Great Court Treasury (oversees cross-realm & divine funds)"
+    - "Merchant Alliance Reserve"
+  enforcement:
+    - "Tax evasion punished by fines, asset seizure, or Heavenal audit leading to Karma penalties."
+
+---
+
+crafting_economy_integration:
+  crafting_cost_formula:
+    - "CraftingCost = MaterialBaseValue + (LaborFactor * SkillTierMultiplier) + (Cauldron/AnvilTierFactor) + (LawAffinitySurcharge)"
+  catalyst_consumption:
+    - "High-tier crafting consumes Spirit Stones or Immortal Jade as catalyst."
+  pill_and_weapon_economy:
+    - "Pill rarity (G1–G9) determines material scarcity and auction value."
+    - "Pill production tied to Alchemist Rank and Cauldron Tier; mortal crafters restricted by cauldron grade rules."
+
+---
+
+world_event_influence:
+  event_types:
+    - "War"
+    - "Heavenal Tribunal"
+    - "Ascension Festival"
+    - "Heavenal Calamity"
+    - "Resource Boom/Famine"
+  economic_effects:
+    - "War: increases demand for weapon-forging, spikes in G5–G7 prices"
+    - "Tribunal: crackdown on black markets; short-term inflation in contraband"
+    - "Festival: temporary drop in low-tier prices due to oversupply; demand for rare goods increases"
+    - "Calamity: decreased supply, strong inflation, increased Merchant Alliance intervention"
+  volatility_formula:
+    - "PriceVolatility = BaseVolatility + EventSeverity * EventImpactFactor"
+
+---
+
+balancing_and_anti-exploit:
+  vaults_and_escrow:
+    - "High-tier transactions require escrow by Merchant Alliance or Great Court."
+  money_sink_mechanisms:
+    - "Taxes, crafting breakdown, artifact forging failure, Heavenal tributes, offering to Holy Region."
+  anti_duplication:
+    - "All rare item creation logged in Heavenal Domain registry; duplicates flagged."
+  law_limits:
+    - "Mortal players cannot hold an unbounded amount of Spirit Stones or Immortal Jade without attracting Heavenal Audit."
+    - "G8–G9 trade to mortals blocked by shop rules; requires special permit or auction verification."
+
+---
+
+gameplay_rolls_and_randomness:
+  market_roll_seed:
+    - "Daily market seed updated at server/world tick; affects restock and demand."
+  loot_to_price_mapping:
+    - "Common drop -> G1–G3 pricing"
+    - "Uncommon -> G3–G5"
+    - "Rare -> G5–G7"
+    - "Legendary/Divine -> G8–G9 (auction/quest-only)"
+  shop_purchase_checks:
+    - "Buying quantity > threshold triggers merchant suspicion roll (based on BuyerProfile & ItemTier)."
+    - "Large transfers may trigger automatic Heavenal Audit roll."
+
+---
+
+data_and_integration_points:
+  required_systems:
+    - systems/shop_catalog.yaml
+    - systems/forging_sheet.yaml
+    - systems/alchemy_sheet.yaml
+    - systems/inventory_module.yaml
+    - codex_alchemy_forging.yaml
+  api_endpoints_for_integration:
+    - "/market/price-check"
+    - "/auction/submit"
+    - "/merchant/verify"
+    - "/treasury/transfer"
+  export_format:
+    - "YAML for codex & manifests"
+    - "JSON for runtime market API"
+    - "CSV for offline economic reports"
+
+---
+
+governance_and_sanctions:
+  overseers:
+    - "Merchant Alliance (daily market governance)"
+    - "Great Court Treasury (cross-realm & tribunal-level)"
+    - "GCEB (illegal trade enforcement & black market takedowns)"
+  sanctions:
+    - "Seizure of goods"
+    - "Trade bans"
+    - "Karma penalties & Law Seals"
+    - "Asset forfeiture to Treasury"
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-09"
+  sync_with: "manifest.yaml v3.2-secure"
+  checksum: "AUX-003-SHA-922FA"
+  integrity_check: verified
+  signature_key: "HCLN-ECONOMY-SECURE"
