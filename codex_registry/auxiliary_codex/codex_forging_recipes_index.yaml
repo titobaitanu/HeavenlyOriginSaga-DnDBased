@@ -1,0 +1,800 @@
+# ============================================================
+# AUXILIARY FORGING RECIPES INDEX
+# codex_registry/auxiliary_codex/forging_recipes_index.yaml
+# Version: 3.2-secure
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-FORGE-INDEX"
+  title: "Forging & Artifact Recipes Index"
+  version: "3.2-secure"
+  author: "Heavenal Control Node"
+  maintainer: "Heavenal Control Node"
+  status: "draft"
+  last_updated: "2025-11-10"
+  notes: >
+    Index ini memuat resep dasar hingga tingkat lanjut untuk penempaan senjata,
+    armor, artefak, dan komponen hukum. Field success modifiers terhubung ke
+    modul forging_sheet.yaml dan alchemy_sheet.yaml.
+
+# Template resep (contoh fields)
+# recipe_id: unique id
+# name_en / name_id
+# category: weapon|armor|artifact|component|cauldron_part
+# tier_grade: G1..G12 (tingkat item)
+# realm_tier: mortal|immortal|divine
+# forge_grade_required: 1..9 (level forge/cauldron needed)
+# alchemist_rank_required: 1..9 (jika relevan)
+# ingredients: list of {item_id, name, qty, purity (optional)}
+# base_success_rate: 0..100 (percent)
+# success_modifiers: list rule objects (skill, forge_quality, material_purity, law_comprehension, random_roll)
+# output_effect_summary: short description
+# notes: GM notes / lore / restrictions
+
+recipes:
+  - recipe_id: "F-0001"
+    name_en: "Bronze Shortblade"
+    name_id: "Belati Perunggu Pendek"
+    category: "weapon"
+    tier_grade: "G1"
+    realm_tier: "mortal"
+    forge_grade_required: 1
+    alchemist_rank_required: null
+    ingredients:
+      - { item_id: "MAT-COPPER-1", name: "Tembaga Tulen", qty: 6 }
+      - { item_id: "MAT-TIN-1", name: "Timah", qty: 2 }
+      - { item_id: "MAT-OIL-1", name: "Minyak Pembakar", qty: 1 }
+    base_success_rate: 95
+    success_modifiers:
+      - { type: "Strength(STR) check", effect: "+1% per 2 STR above 10" }
+      - { type: "Forge Quality", required_min: 1, effect: "+0% to +5% depending on grade" }
+      - { type: "Material Purity", effect: "+0.5% per +1% purity above baseline" }
+    output_effect_summary: "Senjata fisik sederhana; +5 physical damage; cocok untuk mortal awal."
+    notes: "Bahan umum, dapat dibuat di kebanyakan pandai besi desa."
+
+  - recipe_id: "F-0002"
+    name_en: "Iron Longsword"
+    name_id: "Pedang Besi Panjang"
+    category: "weapon"
+    tier_grade: "G2"
+    realm_tier: "mortal"
+    forge_grade_required: 1
+    alchemist_rank_required: null
+    ingredients:
+      - { item_id: "MAT-IRON-1", name: "Besi Halus", qty: 8 }
+      - { item_id: "MAT-LEATHER-1", name: "Kulit Grip", qty: 1 }
+      - { item_id: "MAT-COAL-1", name: "Arang Halus", qty: 2 }
+    base_success_rate: 90
+    success_modifiers:
+      - { type: "Dexterity(DEX) check", effect: "+1% per 2 DEX above 10" }
+      - { type: "Forge Skill", effect: "+0.5% per forge skill rank" }
+    output_effect_summary: "+12 physical damage; stabilitas tinggi."
+    notes: "Standar militer lokal."
+
+  - recipe_id: "F-0010"
+    name_en: "Soul-Threaded Dagger"
+    name_id: "Belati Berbenang Jiwa"
+    category: "weapon"
+    tier_grade: "G3"
+    realm_tier: "mortal"
+    forge_grade_required: 2
+    alchemist_rank_required: 2
+    ingredients:
+      - { item_id: "MAT-IRON-2", name: "Besi Dipernis", qty: 5 }
+      - { item_id: "MAT-SPIRIT-FIBER", name: "Serat Roh", qty: 2, purity: 60 }
+      - { item_id: "MAT-ELIXIR-STAB", name: "Elixir Stabilitas (G2)", qty: 1 }
+    base_success_rate: 78
+    success_modifiers:
+      - { type: "Soul Power (SPIRIT)", effect: "+1% per 5 SPIRIT" }
+      - { type: "Alchemist Tier", effect: "+3% if alchemist_rank >=2" }
+    output_effect_summary: "Dagger kecil dengan resonansi jiwa — +8 physical, +5 soul damage vs low-soul targets."
+    notes: "Membutuhkan perpaduan forging + alchemy; stok bahan jarang."
+
+  - recipe_id: "F-0020"
+    name_en: "Reinforced Iron Cuirass"
+    name_id: "Baju Baja Perkuat"
+    category: "armor"
+    tier_grade: "G2"
+    realm_tier: "mortal"
+    forge_grade_required: 1
+    alchemist_rank_required: null
+    ingredients:
+      - { item_id: "MAT-IRON-2", name: "Besi Dipernis", qty: 12 }
+      - { item_id: "MAT-LEATHER-2", name: "Lapisan Kulit", qty: 4 }
+      - { item_id: "MAT-RIVET", name: "Paku Rivet", qty: 20 }
+    base_success_rate: 85
+    success_modifiers:
+      - { type: "Constitution(CON) check", effect: "+1% per 3 CON above 10" }
+    output_effect_summary: "+50 HP (Meridian), +5% physical DR"
+    notes: "Armor standar penjaga kota."
+
+  - recipe_id: "F-0030"
+    name_en: "Essence-Bound Talisman"
+    name_id: "Talisman Terikat Esensi"
+    category: "artifact"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 3
+    alchemist_rank_required: 3
+    ingredients:
+      - { item_id: "MAT-SPIRIT-ORE", name: "Bijih Roh (G3)", qty: 3 }
+      - { item_id: "MAT-SILVER-1", name: "Perak Murni", qty: 4 }
+      - { item_id: "MAT-RUNE-DUST", name: "Debu Rune", qty: 2 }
+    base_success_rate: 60
+    success_modifiers:
+      - { type: "Law Comprehension", effect: "+0.2% per 0.1 LC" }
+      - { type: "Cauldron/Forge Grade", effect: "+5% if forge_grade >=3" }
+    output_effect_summary: "Menambah +10 Qi pool, +3% Qi regen."
+    notes: "Umumnya dijual di pasar alkemis; dipakai untuk meditasi."
+
+  - recipe_id: "F-0040"
+    name_en: "Golden Spear - Trial Forged"
+    name_id: "Tombak Emas - Percobaan Tempa"
+    category: "weapon"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-GOLD-ESSENCE", name: "Esensi Emas (G4)", qty: 2 }
+      - { item_id: "MAT-HEAVY-IRON", name: "Besi Berat", qty: 10 }
+      - { item_id: "MAT-RUNE-CORE", name: "Inti Rune", qty: 1, purity: 80 }
+    base_success_rate: 48
+    success_modifiers:
+      - { type: "Forge Mastery", effect: "+2% per mastery rank" }
+      - { type: "Law Comprehension", effect: "+0.5% per 0.5 LC" }
+      - { type: "Random Tribulation Roll", effect: "May trigger minor forging tribulation on failure" }
+    output_effect_summary: "Tombak immortal; +40 physical, bonus +10 law-penetration vs low-law targets."
+    notes: "Dilarang menjual across-realm tanpa sertifikat Great Court."
+
+  - recipe_id: "F-0050"
+    name_en: "Cauldron Patchwork Core"
+    name_id: "Inti Patchwork Kuali"
+    category: "component"
+    tier_grade: "G3"
+    realm_tier: "mortal"
+    forge_grade_required: 3
+    alchemist_rank_required: 3
+    ingredients:
+      - { item_id: "MAT-CAUL-IRON", name: "Besi Kuali", qty: 4 }
+      - { item_id: "MAT-SPIRIT-FILAMENT", name: "Filamen Roh", qty: 2 }
+      - { item_id: "MAT-SALTPHOS", name: "Salt-Phos", qty: 1 }
+    base_success_rate: 70
+    success_modifiers:
+      - { type: "Alchemist Tier", effect: "+3% if rank >=3" }
+    output_effect_summary: "Bagian kuali untuk meningkatkan stability kuali +8%."
+    notes: "Komponen penting untuk cauldron grade up."
+
+  - recipe_id: "F-0060"
+    name_en: "Void-Servant Chain"
+    name_id: "Rantai Pelayan Void"
+    category: "artifact"
+    tier_grade: "G6"
+    realm_tier: "immortal"
+    forge_grade_required: 6
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-VOID-CORE", name: "Inti Void (G5)", qty: 1, purity: 70 }
+      - { item_id: "MAT-HEAVENAL-IRON", name: "Besi Heavenal", qty: 6 }
+      - { item_id: "MAT-ENCHANT-RUNE", name: "Rune Enchantment", qty: 3 }
+    base_success_rate: 35
+    success_modifiers:
+      - { type: "Law Comprehension", effect: "+1% per 0.5 LC" }
+      - { type: "Forge Grade", effect: "+10% if forge_grade >=6" }
+    output_effect_summary: "Artefak dengan efek 'bind void pulse' — dapat menyerap 5% damage law per hit (stackable)."
+    notes: "Resep terlarang disebarluaskan; butuh izin merchant alliance untuk lelang."
+
+  - recipe_id: "F-0070"
+    name_en: "Aegis of Stilled Storm"
+    name_id: "Perisai Badai Tenang"
+    category: "armor"
+    tier_grade: "G7"
+    realm_tier: "immortal"
+    forge_grade_required: 7
+    alchemist_rank_required: 6
+    ingredients:
+      - { item_id: "MAT-AETHER-PLATE", name: "Pelat Aether (G6)", qty: 5 }
+      - { item_id: "MAT-SPIRIT-GOLD", name: "Emas Roh (G6)", qty: 3 }
+      - { item_id: "MAT-RUNE-SEA", name: "Rune Laut", qty: 2 }
+    base_success_rate: 22
+    success_modifiers:
+      - { type: "Master Smithy", effect: "+3% per mastery level" }
+      - { type: "Law Comprehension", effect: "+0.25% per 0.1 LC" }
+    output_effect_summary: "Perisai besar; +250 HP Meridian, +12% elemental resistance, mengurangi efek debuff durasi 20%."
+    notes: "Biasanya di-pekerjakan oleh legiun keluarga martial."
+
+  - recipe_id: "F-0080"
+    name_en: "Heaven-Forged Blade"
+    name_id: "Pedang Tempa Langit"
+    category: "weapon"
+    tier_grade: "G8"
+    realm_tier: "immortal"
+    forge_grade_required: 8
+    alchemist_rank_required: 7
+    ingredients:
+      - { item_id: "MAT-HEAVENAL-CORE", name: "Inti Heavenal (G7)", qty: 1 }
+      - { item_id: "MAT-GODMETAL", name: "Godmetal Shard", qty: 2, purity: 90 }
+      - { item_id: "MAT-RITUAL-INK", name: "Tinta Rituales", qty: 1 }
+    base_success_rate: 12
+    success_modifiers:
+      - { type: "High Law Comprehension", effect: "+2% per 0.5 LC above 4" }
+      - { type: "Forge Ritual", effect: "Special ritual required — +25% if performed" }
+    output_effect_summary: "Pedang Immortal tingkat tinggi; +120 physical, +40 law damage, bisa memecah formasi hukum musuh."
+    notes: "G8 item hanya oleh lelang resmi atau hadiah Great Court."
+
+  - recipe_id: "F-0090"
+    name_en: "Transcendent Keystone"
+    name_id: "Batu Kunci Transenden"
+    category: "component"
+    tier_grade: "G9"
+    realm_tier: "divine"
+    forge_grade_required: 9
+    alchemist_rank_required: 9
+    ingredients:
+      - { item_id: "MAT-PRIMORDIAL-FRAG", name: "Fragmen Primordial", qty: 1, purity: 99 }
+      - { item_id: "MAT-HEART-OF-RE", name: "Heart of Rebirth Shard", qty: 1 }
+      - { item_id: "MAT-ETERNAL-RUNE", name: "Rune Abadi", qty: 4 }
+    base_success_rate: 5
+    success_modifiers:
+      - { type: "Divine Permit", effect: "+50% if permit granted by Great Court" }
+      - { type: "Law Comprehension", effect: "+5% per 1.0 LC ( divine preferred )" }
+    output_effect_summary: "Komponen inti untuk membuat gerbang ascension atau perangkat hukum besar."
+    notes: "Penggunaan dan pembuatan memerlukan otorisasi Heavenal Tribunal."
+
+  - recipe_id: "F-0100"
+    name_en: "Warding Ring (Basic)"
+    name_id: "Cincin Pelindung (Dasar)"
+    category: "artifact"
+    tier_grade: "G1"
+    realm_tier: "mortal"
+    forge_grade_required: 1
+    alchemist_rank_required: 1
+    ingredients:
+      - { item_id: "MAT-SILVER-1", name: "Perak", qty: 2 }
+      - { item_id: "MAT-RUNE-DUST", name: "Debu Rune Kecil", qty: 1 }
+    base_success_rate: 92
+    success_modifiers:
+      - { type: "Wisdom(WIS) check", effect: "+1% per 2 WIS above 10" }
+    output_effect_summary: "+5 resistance terhadap debuff minor; indikasi aura."
+    notes: "Cincin dasar untuk petualang."
+
+  - recipe_id: "F-0110"
+    name_en: "Leyline Anchor"
+    name_id: "Anchor Garis Ley"
+    category: "artifact"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-ESSENCE-CRYSTAL", name: "Kristal Esensi (G4)", qty: 2 }
+      - { item_id: "MAT-HEAVENAL-STEEL", name: "Baja Heavenal", qty: 6 }
+      - { item_id: "MAT-WARD-THREAD", name: "Benang Ward", qty: 3 }
+    base_success_rate: 45
+    success_modifiers:
+      - { type: "Law Resonance", effect: "+1% per 1% resonance sync" }
+    output_effect_summary: "Menstabilkan area 50m dari gangguan law; cocok untuk ritual."
+    notes: "Biasanya digunakan oleh sekte untuk mark ritual area."
+
+  - recipe_id: "F-0120"
+    name_en: "Dragonhide Gauntlets"
+    name_id: "Sarung Tangan Naga Kulit"
+    category: "armor"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 4
+    alchemist_rank_required: 3
+    ingredients:
+      - { item_id: "MAT-DRAGONHIDE", name: "Kulit Naga (G3)", qty: 2 }
+      - { item_id: "MAT-IRON-3", name: "Besi Terkondensasi", qty: 4 }
+      - { item_id: "MAT-THREAD", name: "Benang Penjepit", qty: 6 }
+    base_success_rate: 58
+    success_modifiers:
+      - { type: "Dexterity(DEX)", effect: "+1% per 2 DEX above 12" }
+    output_effect_summary: "+30 HP Meridian, +8% melee attack speed."
+    notes: "Kulit naga sukar didapat; banyak yang menyimpan resep ini."
+
+  - recipe_id: "F-0130"
+    name_en: "Stormforged Bow"
+    name_id: "Busur Tempa Badai"
+    category: "weapon"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-WIND-CORE", name: "Inti Angin (G4)", qty: 1 }
+      - { item_id: "MAT-WOOD-SPIRIT", name: "Kayu Berjiwa", qty: 5 }
+      - { item_id: "MAT-STRING-ETH", name: "Tali Eter", qty: 2 }
+    base_success_rate: 50
+    success_modifiers:
+      - { type: "Dexterity(DEX)", effect: "+1% per 2 DEX above 12" }
+      - { type: "Law Comprehension", effect: "+0.4% per 0.1 LC" }
+    output_effect_summary: "+35 ranged physical, +8 elemental lightning proc chance."
+    notes: "Sangat dicari oleh pemburu monster."
+
+  - recipe_id: "F-0140"
+    name_en: "Seal-Engraver Hammer"
+    name_id: "Palu Ukir Segel"
+    category: "tool"
+    tier_grade: "G3"
+    realm_tier: "mortal"
+    forge_grade_required: 3
+    alchemist_rank_required: 2
+    ingredients:
+      - { item_id: "MAT-STEEL-1", name: "Baja Ringan", qty: 3 }
+      - { item_id: "MAT-RUNE-INK", name: "Tinta Rune", qty: 1 }
+    base_success_rate: 80
+    success_modifiers:
+      - { type: "Forge Skill", effect: "+1% per skill rank" }
+    output_effect_summary: "Alat untuk mengukir segel kecil; menambah success pada segel hingga +12%."
+    notes: "Tool workshop alkemis dan penempaan hukum."
+
+  - recipe_id: "F-0150"
+    name_en: "Soulbind Chainmail"
+    name_id: "Baju Rantai Ikatan Jiwa"
+    category: "armor"
+    tier_grade: "G6"
+    realm_tier: "immortal"
+    forge_grade_required: 6
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-SOUL-PLATE", name: "Pelat Roh (G5)", qty: 10 }
+      - { item_id: "MAT-SPIRIT-THREAD", name: "Benang Roh", qty: 5 }
+    base_success_rate: 38
+    success_modifiers:
+      - { type: "Soul Power (SPIRIT)", effect: "+1% per 5 SPIRIT" }
+      - { type: "Alchemist Rank", effect: "+2% if rank >=5" }
+    output_effect_summary: "+180 HP Meridian, auto-siphon 2% incoming damage to Qi pool."
+    notes: "Kesulitan produksi tinggi; banyak pemesan dari keluarga martial."
+
+  - recipe_id: "F-0160"
+    name_en: "Echo-Lattice Lens"
+    name_id: "Lensa Anyaman Gema"
+    category: "artifact"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 4
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-GLASS-ETH", name: "Kaca Eter", qty: 2 }
+      - { item_id: "MAT-RUNE-DUST", name: "Debu Rune", qty: 2 }
+      - { item_id: "MAT-SPIRIT-ORE", name: "Bijih Roh (G3)", qty: 1 }
+    base_success_rate: 62
+    success_modifiers:
+      - { type: "Wisdom(WIS)", effect: "+1% per 2 WIS above 12" }
+    output_effect_summary: "Lensa untuk melihat resonansi jiwa; meningkatkan detection soul by +30%."
+    notes: "Biasanya dimiliki oleh inspector atau thief-hunter."
+
+  - recipe_id: "F-0170"
+    name_en: "Thunder Anvil Core"
+    name_id: "Inti Landasan Petir"
+    category: "component"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-THUNDER-CORE", name: "Inti Petir (G4)", qty: 1 }
+      - { item_id: "MAT-HEAVENAL-IRON", name: "Besi Heavenal", qty: 8 }
+    base_success_rate: 52
+    success_modifiers:
+      - { type: "Forge Mastery", effect: "+1% per mastery rank" }
+    output_effect_summary: "Meningkatkan chance elemental proc saat menempah senjata (+8%)."
+    notes: "Komponen khusus untuk smiths yang mengkhusus pada elemental weapon."
+
+  - recipe_id: "F-0180"
+    name_en: "Binding Seal Plate"
+    name_id: "Pelat Segel Pengikat"
+    category: "component"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 4
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-RUNE-PLATE", name: "Pelat Rune (G3)", qty: 2 }
+      - { item_id: "MAT-WARD-SILVER", name: "Perak Ward", qty: 3 }
+    base_success_rate: 60
+    success_modifiers:
+      - { type: "Law Comprehension", effect: "+0.3% per 0.1 LC" }
+    output_effect_summary: "Pelat untuk menambal segel; mengurangi kebocoran hukum 30%."
+    notes: "Dipakai oleh sect untuk menutup artefak berbahaya."
+
+  - recipe_id: "F-0190"
+    name_en: "Abyss-Threaded Blade"
+    name_id: "Pedang Berbenang Abyss"
+    category: "weapon"
+    tier_grade: "G7"
+    realm_tier: "immortal"
+    forge_grade_required: 7
+    alchemist_rank_required: 6
+    ingredients:
+      - { item_id: "MAT-ABYSS-FILAMENT", name: "Filamen Abyss (G6)", qty: 2 }
+      - { item_id: "MAT-GODMETAL", name: "Godmetal Shard", qty: 1, purity: 95 }
+      - { item_id: "MAT-RITUAL-INK", name: "Tinta Ritual Void", qty: 1 }
+    base_success_rate: 18
+    success_modifiers:
+      - { type: "Law Risk Roll", effect: "High risk: failure may cause 'taint' debuff" }
+      - { type: "Divine Permit", effect: "+40% if permitted" }
+    output_effect_summary: "Pedang dengan efek corrupt yang dapat merusak qi musuh; +60 physical, +30 corrupt."
+    notes: "Sumber bahan dari Abyss; pengawasan GCEB ketat."
+
+  - recipe_id: "F-0200"
+    name_en: "Celestial Compass"
+    name_id: "Kompas Surgawi"
+    category: "artifact"
+    tier_grade: "G6"
+    realm_tier: "immortal"
+    forge_grade_required: 6
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-STAR-FRAG", name: "Fragmen Bintang (G5)", qty: 1 }
+      - { item_id: "MAT-GOLD-ESSENCE", name: "Esensi Emas (G5)", qty: 2 }
+      - { item_id: "MAT-RUNE-CORE", name: "Inti Rune", qty: 2 }
+    base_success_rate: 34
+    success_modifiers:
+      - { type: "Law Resonance Sync", effect: "+1% per 1% sync" }
+    output_effect_summary: "Mendeteksi portal & leyline terdekat dalam radius 200m; berguna untuk ekspedisi."
+    notes: "Kompas ini mahal dan langka; diperebutkan ekspedisi."
+
+  - recipe_id: "F-0210"
+    name_en: "Spirit Reclaimer"
+    name_id: "Pengembalikan Roh"
+    category: "tool"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 4
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-SPIRIT-ORE", name: "Bijih Roh (G3)", qty: 4 }
+      - { item_id: "MAT-CLASP", name: "Kait Pengikat", qty: 2 }
+    base_success_rate: 55
+    success_modifiers:
+      - { type: "Soul Resonance (SR)", effect: "+1% per 2 SR" }
+    output_effect_summary: "Alat untuk mengumpulkan sisa-sisa jiwa; +repair to Soul Stability when used correctly."
+    notes: "Dilarang dipakai untuk mencuri jiwa tanpa izin."
+
+  - recipe_id: "F-0220"
+    name_en: "Skyforged Helm"
+    name_id: "Helm Tempa Langit"
+    category: "armor"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-HEAVENAL-STEEL", name: "Baja Heavenal", qty: 5 }
+      - { item_id: "MAT-RUNE-PLATE", name: "Pelat Rune (G4)", qty: 2 }
+    base_success_rate: 50
+    success_modifiers:
+      - { type: "Constitution(CON)", effect: "+1% per 3 CON above 12" }
+    output_effect_summary: "+110 HP Meridian, +6% elemental resist."
+    notes: "Dipakai oleh pengawal Great Court."
+
+  - recipe_id: "F-0230"
+    name_en: "Mirror of Echoes"
+    name_id: "Cermin Gema"
+    category: "artifact"
+    tier_grade: "G8"
+    realm_tier: "immortal"
+    forge_grade_required: 8
+    alchemist_rank_required: 7
+    ingredients:
+      - { item_id: "MAT-HEART-REFLECT", name: "Reflektor Hati (G7)", qty: 1 }
+      - { item_id: "MAT-ETERNAL-RUNE", name: "Rune Abadi", qty: 3 }
+    base_success_rate: 10
+    success_modifiers:
+      - { type: "High Wisdom(WIS)", effect: "+2% per 1 WIS above 18" }
+      - { type: "Divine Permit", effect: "+60% if permit present" }
+    output_effect_summary: "Cermin yang menyimpan ingatan era; dapat membuka memory-lock jika pengguna memenuhi syarat quest."
+    notes: "Strong lore item; biasanya disimpan Great Court Archive."
+
+  - recipe_id: "F-0240"
+    name_en: "Philosopher's Anvil"
+    name_id: "Landasan Filsuf"
+    category: "tool"
+    tier_grade: "G9"
+    realm_tier: "divine"
+    forge_grade_required: 9
+    alchemist_rank_required: 9
+    ingredients:
+      - { item_id: "MAT-PRIMORDIAL-FRAG", name: "Fragmen Primordial", qty: 1 }
+      - { item_id: "MAT-DIVINE-ORE", name: "Bijih Ilahi", qty: 4 }
+    base_success_rate: 3
+    success_modifiers:
+      - { type: "Divine Collaboration", effect: "Only creatable with 2+ Deity-level participants (+80%)" }
+    output_effect_summary: "Anvil untuk menempah artefak hukum tertinggi dan gerbang ringkas."
+    notes: "Pembuatan melibatkan ritus besar dan pengawasan Tribunal."
+
+  - recipe_id: "F-0250"
+    name_en: "Wisp-Threaded Cloak"
+    name_id: "Jubah Benang Wisp"
+    category: "armor"
+    tier_grade: "G3"
+    realm_tier: "mortal"
+    forge_grade_required: 3
+    alchemist_rank_required: 2
+    ingredients:
+      - { item_id: "MAT-WISP-FIBER", name: "Serat Wisp (G2)", qty: 4 }
+      - { item_id: "MAT-SILK-1", name: "Sutra Halus", qty: 3 }
+    base_success_rate: 72
+    success_modifiers:
+      - { type: "Dexterity(DEX)", effect: "+1% per 2 DEX above 10" }
+    output_effect_summary: "Menambah stealth dan mengurangi deteksi spirit sebesar 20%."
+    notes: "Favorit rogue atau assassin."
+
+  - recipe_id: "F-0260"
+    name_en: "Tome of Binding"
+    name_id: "Kitab Pengikat"
+    category: "artifact"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-INK-ARCANE", name: "Tinta Arkana", qty: 1 }
+      - { item_id: "MAT-PARCHMENT-ETH", name: "Paruhment Eter", qty: 2 }
+      - { item_id: "MAT-RUNE-CORE", name: "Inti Rune", qty: 1 }
+    base_success_rate: 46
+    success_modifiers:
+      - { type: "Law Literacy", effect: "+1% per literacy rank" }
+    output_effect_summary: "Kitab yang menampung 1 ikatan hukum kecil; dapat mengikat target sementara."
+    notes: "Perlu izin untuk mengikat makhluk mortal yang memiliki patron."
+
+  - recipe_id: "F-0270"
+    name_en: "Meteorite Edge"
+    name_id: "Tepi Meteorit"
+    category: "weapon"
+    tier_grade: "G6"
+    realm_tier: "immortal"
+    forge_grade_required: 6
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-METEOR-SHARD", name: "Pecahan Meteorit (G5)", qty: 2, purity: 85 }
+      - { item_id: "MAT-HEAVENAL-IRON", name: "Besi Heavenal", qty: 8 }
+    base_success_rate: 36
+    success_modifiers:
+      - { type: "Forge Ritual", effect: "+15% if performed" }
+    output_effect_summary: "Pedang dengan kemampuan memecah benda keras; +70 physical, +20 impact."
+    notes: "Bahan meteorit langka; biasanya di barter antar sekte."
+
+  - recipe_id: "F-0280"
+    name_en: "Golem Heart Frame"
+    name_id: "Rangka Hati Golem"
+    category: "component"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-IRON-3", name: "Besi Terkondensasi", qty: 10 }
+      - { item_id: "MAT-SPIRIT-CORE", name: "Inti Roh", qty: 2 }
+    base_success_rate: 44
+    success_modifiers:
+      - { type: "Crafting Expertise", effect: "+1% per expertise rank" }
+    output_effect_summary: "Frame inti untuk membuat golem penjaga; memberikan +50 base durability."
+    notes: "Biasanya dijual ke pengrajin automata dan sekte penjaga."
+
+  - recipe_id: "F-0290"
+    name_en: "Obsidian Shard Blade"
+    name_id: "Bilahan Obsidian"
+    category: "weapon"
+    tier_grade: "G3"
+    realm_tier: "mortal"
+    forge_grade_required: 2
+    alchemist_rank_required: 1
+    ingredients:
+      - { item_id: "MAT-OBSIDIAN", name: "Obsidian", qty: 6 }
+      - { item_id: "MAT-LEATHER-1", name: "Kulit Grip", qty: 1 }
+    base_success_rate: 85
+    success_modifiers:
+      - { type: "Dexterity(DEX)", effect: "+1% per 2 DEX above 10" }
+    output_effect_summary: "+14 physical, high crit chance vs armored targets."
+    notes: "Material mudah ditemukan di wilayah vulkanik."
+
+  - recipe_id: "F-0300"
+    name_en: "Talon of the Beast-King"
+    name_id: "Cakar Raja Binatang"
+    category: "artifact"
+    tier_grade: "G6"
+    realm_tier: "immortal"
+    forge_grade_required: 6
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-BEAST-CLAW", name: "Cakar Primordial (G5)", qty: 1 }
+      - { item_id: "MAT-SPIRIT-THREAD", name: "Benang Roh", qty: 4 }
+    base_success_rate: 33
+    success_modifiers:
+      - { type: "Beast Kinship", effect: "+5% if user has Beast Affinity" }
+    output_effect_summary: "Artefak yang meningkatkan beast-control / taming +30%."
+    notes: "Biasanya diperdagangkan antara beast clans dan guild pemburu."
+
+  - recipe_id: "F-0310"
+    name_en: "Forgebound Sigil"
+    name_id: "Sigil Terikat Tempa"
+    category: "component"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 4
+    alchemist_rank_required: 3
+    ingredients:
+      - { item_id: "MAT-RUNE-INK", name: "Tinta Rune", qty: 1 }
+      - { item_id: "MAT-PELLET-METAL", name: "Pellet Metal", qty: 3 }
+    base_success_rate: 68
+    success_modifiers:
+      - { type: "Forge Skill", effect: "+1% per skill rank" }
+    output_effect_summary: "Sigil kecil untuk meningkatkan kualitas tempa +8% selama durasi ritual."
+    notes: "Sering digunakan saat crafting elite items."
+
+  - recipe_id: "F-0320"
+    name_en: "Null-Drift Anchor"
+    name_id: "Jangkar Null-Drift"
+    category: "artifact"
+    tier_grade: "G9"
+    realm_tier: "divine"
+    forge_grade_required: 9
+    alchemist_rank_required: 9
+    ingredients:
+      - { item_id: "MAT-VOID-CORE-PRIME", name: "Inti Void Prime", qty: 1 }
+      - { item_id: "MAT-PRIMORDIAL-FRAG", name: "Fragmen Primordial", qty: 2 }
+    base_success_rate: 2
+    success_modifiers:
+      - { type: "Tribunal Sanction", effect: "+70% if sanctioned" }
+      - { type: "Law Comprehension", effect: "+3% per 1.0 LC (divine recommended)" }
+    output_effect_summary: "Anchor untuk menahan gelombang Void pada radius besar; digunakan hanya dalam event dunia."
+    notes: "Kreasi ini adalah alasan beberapa perdebatan antar dewa."
+
+  - recipe_id: "F-0330"
+    name_en: "Harmony Bell"
+    name_id: "Lonceng Harmoni"
+    category: "artifact"
+    tier_grade: "G3"
+    realm_tier: "mortal"
+    forge_grade_required: 3
+    alchemist_rank_required: 2
+    ingredients:
+      - { item_id: "MAT-GOLD-1", name: "Emas Murni (G2)", qty: 2 }
+      - { item_id: "MAT-RUNE-DUST", name: "Debu Rune", qty: 1 }
+    base_success_rate: 80
+    success_modifiers:
+      - { type: "Wisdom(WIS)", effect: "+1% per 2 WIS above 10" }
+    output_effect_summary: "Saat dibunyikan: +5% spiritual recovery area selama 30s."
+    notes: "Sering dipakai pada upacara pemurnian."
+
+  - recipe_id: "F-0340"
+    name_en: "Ironclad Pilgrim Boots"
+    name_id: "Sepatu Peziarah Besi"
+    category: "armor"
+    tier_grade: "G2"
+    realm_tier: "mortal"
+    forge_grade_required: 2
+    alchemist_rank_required: 1
+    ingredients:
+      - { item_id: "MAT-IRON-1", name: "Besi", qty: 4 }
+      - { item_id: "MAT-LEATHER-1", name: "Kulit", qty: 3 }
+    base_success_rate: 89
+    success_modifiers:
+      - { type: "Constitution(CON)", effect: "+1% per 2 CON above 10" }
+    output_effect_summary: "+20 HP Meridian, +3 movement speed on rough terrain."
+    notes: "Favorit pelancong dan pedagang."
+
+  - recipe_id: "F-0350"
+    name_en: "Seal-Breaker Rod"
+    name_id: "Tongkat Pemecah Segel"
+    category: "tool"
+    tier_grade: "G6"
+    realm_tier: "immortal"
+    forge_grade_required: 6
+    alchemist_rank_required: 6
+    ingredients:
+      - { item_id: "MAT-RUNE-CORE", name: "Inti Rune", qty: 3 }
+      - { item_id: "MAT-HEAVENAL-IRON", name: "Baja Heavenal", qty: 6 }
+    base_success_rate: 30
+    success_modifiers:
+      - { type: "Law Literacy", effect: "+1% per literacy rank" }
+      - { type: "Tribunal Permit", effect: "+40% if present" }
+    output_effect_summary: "Alat untuk menetralkan segel tenaga; mengurangi segel potency hingga 60% sementara."
+    notes: "Penggunaan tanpa izin dapat memicu retaliatory law."
+
+  - recipe_id: "F-0360"
+    name_en: "Ethereal Stitch Needle"
+    name_id: "Jarum Jahit Eter"
+    category: "tool"
+    tier_grade: "G2"
+    realm_tier: "mortal"
+    forge_grade_required: 2
+    alchemist_rank_required: 1
+    ingredients:
+      - { item_id: "MAT-IRON-1", name: "Besi", qty: 1 }
+      - { item_id: "MAT-SPIRIT-FILAMENT", name: "Filamen Roh (G1)", qty: 1 }
+    base_success_rate: 90
+    success_modifiers:
+      - { type: "Dexterity(DEX)", effect: "+1% per 2 DEX above 10" }
+    output_effect_summary: "Alat jahit untuk memperbaiki artefak minor dan meningkatkan durability +5%."
+    notes: "Tool murah dan berguna."
+
+  - recipe_id: "F-0370"
+    name_en: "Soulfire Lamp"
+    name_id: "Lampu Api Jiwa"
+    category: "artifact"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 4
+    alchemist_rank_required: 3
+    ingredients:
+      - { item_id: "MAT-SPIRIT-ORE", name: "Bijih Roh (G3)", qty: 2 }
+      - { item_id: "MAT-OIL-ARC", name: "Minyak Arkana", qty: 1 }
+    base_success_rate: 64
+    success_modifiers:
+      - { type: "Soul Resonance SR", effect: "+1% per 2 SR" }
+    output_effect_summary: "Lampu yang menjaga kebersihan roh area; mencegah korupsi minor."
+    notes: "Sering dipakai di kuil kecil."
+
+  - recipe_id: "F-0380"
+    name_en: "Chain of Binding"
+    name_id: "Rantai Pengikat"
+    category: "artifact"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 5
+    ingredients:
+      - { item_id: "MAT-HEAVENAL-IRON", name: "Besi Heavenal", qty: 8 }
+      - { item_id: "MAT-RUNE-DUST", name: "Debu Rune", qty: 3 }
+    base_success_rate: 40
+    success_modifiers:
+      - { type: "Law Comprehension", effect: "+0.5% per 0.1 LC" }
+    output_effect_summary: "Rantai yang menahan energi target; -20% mobility dan -10% yang berkaitan law while bound."
+    notes: "Biasanya digunakan oleh Heavenly Inquisitors."
+
+  - recipe_id: "F-0390"
+    name_en: "Soulforge Catalyst"
+    name_id: "Katalis Penempaan Jiwa"
+    category: "component"
+    tier_grade: "G4"
+    realm_tier: "mortal"
+    forge_grade_required: 4
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-SPIRIT-FILAMENT", name: "Serat Roh", qty: 3 }
+      - { item_id: "MAT-ESSENCE-CRYSTAL", name: "Kristal Esensi (G3)", qty: 1 }
+    base_success_rate: 58
+    success_modifiers:
+      - { type: "Alchemist Rank", effect: "+2% if rank >=4" }
+    output_effect_summary: "Menambah chance sukses pembuatan artefak yang melibatkan jiwa +12%."
+    notes: "Komponen yang banyak dicari alkemis."
+
+  - recipe_id: "F-0400"
+    name_en: "Runic Forgeplate"
+    name_id: "Pelat Tempa Runik"
+    category: "component"
+    tier_grade: "G5"
+    realm_tier: "immortal"
+    forge_grade_required: 5
+    alchemist_rank_required: 4
+    ingredients:
+      - { item_id: "MAT-RUNE-PLATE", name: "Pelat Rune", qty: 3 }
+      - { item_id: "MAT-HEAVENAL-STEEL", name: "Baja Heavenal", qty: 6 }
+    base_success_rate: 48
+    success_modifiers:
+      - { type: "Forge Skill", effect: "+1% per skill rank" }
+    output_effect_summary: "Pelat khusus untuk meningkatkan efektivitas tempa rune pada senjata (+15%)."
+    notes: "Sering dipakai oleh blacksmith elit."
+
+# GM NOTE:
+# - Daftar di atas adalah contoh 40+ resep; GM dapat menambah/mengimprovisasi hingga ratusan.
+# - Untuk setiap resep G7–G9 tambahkan check izin/permit, dan kemungkinan tribulation/law-risk.
+# - Success roll dihitung oleh modul forging_sheet.yaml:
+#     final_success = base_success_rate + sum(success_modifiers) + roll(1d100) adjustment - risk_penalty
+# - Jika ingin, saya dapat export versi lengkap 500 resep (pills/artifacts/weapons) dengan variasi statistik, harga, dan stok.
+# - Semua item G7+ default membutuhkan sertifikasi Alchemist Tower atau permit Great Court untuk cross-realm sale.
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: "partial (recipe pool draft)"
+  checksum: "AUX-FORGE-INDEX-SHA-11A2B"
+  sign_key: "HCLN-FORGE-INDEX-SECURE"
