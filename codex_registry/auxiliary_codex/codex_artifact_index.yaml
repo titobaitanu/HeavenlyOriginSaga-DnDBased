@@ -1,0 +1,174 @@
+# ============================================================
+# AUXILIARY CODEX XX — ARTIFACT INDEX & LAW-BOUND EQUIPMENT
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_artifact_index.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-XX"
+  title: "Artifact & Equipment Index — Heavenal Law Resonance"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "Auxiliary Codex — Artifact Catalog"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  last_updated: "2025-11-10"
+  sync_hash: "AUX-XX-LOCK-88E1F"
+  status: verified
+
+---
+
+overview:
+  description: >
+    Codex ini mencatat seluruh artefak, senjata, armor, dan aksesori yang
+    terhubung langsung dengan sistem energi dan hukum dunia.
+    Setiap artefak berinteraksi dengan pengguna melalui resonansi spiritual
+    dan dapat menyesuaikan kekuatannya dengan tingkat realm pengguna.
+  quote: |
+    “A weapon forged beneath Heaven does not serve the wielder —
+     it serves the law that acknowledges them.”
+
+---
+
+artifact_categories:
+  - Weapon: "Pedang, tombak, bilah, busur, cakram, belati, dan senjata tersembunyi."
+  - Armor: "Pelindung tubuh, perisai spiritual, dan jubah energi."
+  - Accessory: "Cincin, kalung, jimat, atau artefak minor yang meningkatkan energi."
+  - Relic: "Artefak kuno dengan kesadaran hukum."
+  - Cauldron & Forge Tools: "Peralatan untuk alkimia dan penempaan."
+  - Dimensional Devices: "Penyimpan, portal, dan alat transportasi antar realm."
+
+---
+
+artifact_tier:
+  mortal_tiers:
+    - Tier 1–3: "Umum, ditempa oleh pandai mortal, tanpa hukum."
+    - Tier 4–6: "Spirit-bound, bereaksi terhadap energi Qi pengguna."
+    - Tier 7–9: "Heaven-recognized; mampu menahan hukum minor."
+  immortal_tiers:
+    - Tier 10–12: "Immortal Essence Forged — hukum stabil, memiliki kesadaran rendah."
+    - Tier 13–15: "Law Resonant — mampu beresonansi dengan pemiliknya."
+  divine_tiers:
+    - Tier 16–18: "Divine Artifact — hukum murni, tidak dapat dihancurkan kecuali oleh Dewa."
+  transcendent_tier:
+    - Tier 19–∞: "Primordial or Voidbound Relics — eksis di luar hukum dan waktu."
+
+---
+
+law_resonance_mechanics:
+  resonance_types:
+    - Qi Resonance: "Menambah regenerasi energi."
+    - Soul Resonance: "Sinkronisasi kesadaran dan jiwa dengan artefak."
+    - Law Resonance: "Artefak mengikuti frekuensi hukum pengguna."
+  resonance_scaling:
+    mortal_max: "1.5 Law Cap"
+    immortal_max: "5 Law Cap"
+    divine_max: "7 Law Cap"
+    transcendent: "∞"
+  penalty_rules:
+    - "Menggunakan artefak di atas realm menurunkan efisiensi 60–90%."
+    - "Penggunaan berlebihan dapat memicu Thunder Tribulation."
+    - "Resonansi gagal dapat menghancurkan meridian pengguna."
+
+---
+
+sample_artifacts:
+  - id: "ARF-001"
+    name: "Voidsong Heavenly Edge"
+    type: "Weapon — Sword"
+    tier: "Divine (Tier 17)"
+    element: "Void"
+    resonance: "Law Resonance (Void Law)"
+    ability: "Menghapus eksistensi energi atau serangan di ruang target."
+    restriction: "Dewa Transformasi Lv.40+"
+    rarity: "Legendary"
+    base_value_gold: 120000
+    description: >
+      Sebilah pedang yang bernyanyi di antara ruang hampa. 
+      Tiap ayunan menciptakan resonansi Void yang dapat meniadakan energi lain.
+  - id: "ARF-012"
+    name: "Celestial Ironplate Armor"
+    type: "Armor — Plate"
+    tier: "Immortal (Tier 12)"
+    resonance: "Essence Resonance"
+    ability: "Mengubah 25% damage fisik menjadi serapan Qi."
+    restriction: "Immortal Emas Lv.10+"
+    rarity: "Epic"
+    base_value_gold: 38000
+  - id: "ARF-028"
+    name: "Crimson Soul Bell"
+    type: "Relic"
+    tier: "Mortal (Tier 8)"
+    resonance: "Soul Resonance"
+    ability: "Meningkatkan 15% kekuatan teknik jiwa."
+    restriction: "Nascent Soul Lv.5+"
+    rarity: "Rare"
+    base_value_gold: 9800
+  - id: "ARF-040"
+    name: "Heavenal Cauldron"
+    type: "Cauldron"
+    tier: "Divine (Tier 18)"
+    resonance: "Law Resonance (Creation Law)"
+    ability: "Menggandakan efektivitas alkimia dan menghapus impurity dari bahan."
+    restriction: "Dewa Transformasi Lv.70+"
+    rarity: "Mythic"
+    base_value_gold: 240000
+
+---
+
+crafting_system:
+  forging_requirements:
+    - "Resonansi antara pengguna dan inti logam (Law Core) minimal 60%."
+    - "Katalis elemen sesuai dengan jalur hukum artefak."
+    - "Penempaan tingkat Immortal memerlukan Flame of Essence."
+  fusion_mechanics:
+    - "Artefak dengan Law serupa dapat difusi menggunakan teknik Fusion Art."
+    - "Risiko gagal difusi menghasilkan artefak rusak (50% kehilangan fungsi)."
+    - "Artefak dengan jiwa (Spirit) dapat menolak fusi paksa."
+  repair_rules:
+    - "Artefak rusak membutuhkan bahan asli dan Essence pengguna untuk diperbaiki."
+    - "Divine Artifact hanya dapat diperbaiki di Heavenal Forge atau Altar of Creation."
+
+---
+
+ownership_and_binding:
+  modes:
+    - Unbound: "Bisa diperdagangkan atau diwariskan."
+    - Bound: "Terikat secara spiritual; hanya pemilik dapat menggunakannya."
+    - Soul-Forged: "Satu dengan jiwa pengguna, hancur bila pemilik mati."
+  transfer_rules:
+    - "Unbinding memerlukan Law Altar dan 10.000 Spirit Stones."
+    - "Soul-Forged artefak tidak dapat dipisahkan."
+  corruption_cases:
+    - "Jika pemilik berkhianat pada hukum artefak, artefak akan 'Dormant'."
+    - "Beberapa artefak memiliki kehendak yang bisa melawan pemiliknya."
+
+---
+
+trade_and_value_system:
+  trade_tiers:
+    mortal_market: "Tier 1–9"
+    immortal_market: "Tier 10–15"
+    divine_auction: "Tier 16–18"
+  governing_entities:
+    - "Merchant Alliance: regulasi harga lintas realm."
+    - "Alchemist Tower: sertifikasi kualitas dan hukum resonansi."
+    - "GCEB: pengawasan senjata dan artefak berbahaya."
+  valuation_factors:
+    - "Grade (Tier) × Resonance Level × Rarity × Purity"
+    - "Artefak dengan hukum aktif diberi nilai 3–5 kali lipat harga dasar."
+  black_market_notes: >
+    Artefak Tier 16+ yang dijual di Abyss akan ditandai oleh Karmic Seal,
+    menyebabkan risiko pelacakan oleh GCEB.
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  integrity_check: verified
+  checksum: "AUX-XX-SHA-771C12"
+  sign_key: "HCLN-ARTEFACT-INDEX-SECURE"
