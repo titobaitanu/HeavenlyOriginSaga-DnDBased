@@ -1,0 +1,172 @@
+# ============================================================
+# CODEX ALCHEMY & FORGING — CREATION THROUGH LAW AND ESSENCE
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_alchemy_forging.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-002"
+  title: "Codex of Alchemy & Forging — The Law of Essence Creation"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "Auxiliary Codex — Alchemy & Crafting System"
+  linked_to:
+    - systems/alchemy_sheet.yaml
+    - systems/forging_sheet.yaml
+    - codex_XIX_technique_system.yaml
+    - codex_XX_realm_architecture.yaml
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  checksum: "AUX-002-LOCK-8D92B"
+  verified: true
+
+---
+
+alchemy_system:
+  overview: >
+    Alchemy in the Heavenly Origin Saga is the art of transforming Qi and
+    material essence into pills, elixirs, or catalysts. It follows Heavenal Law,
+    requiring balance between Fire, Qi Flow, and Spirit Will.
+  core_elements:
+    - Fire of Refinement: "Purifies and condenses materials."
+    - Cauldron of Resonance: "Holds Qi and Spirit during creation."
+    - Alchemist’s Will: "Determines success and Law alignment."
+  energy_types:
+    - Mortal Flame (basic)
+    - Spirit Flame (advanced)
+    - Immortal Flame (refined)
+    - Heavenal Flame (divine)
+  law_interaction:
+    - Law of Purity: "Controls impurity rate and fusion balance."
+    - Law of Time: "Affects refinement duration."
+    - Law of Resonance: "Ensures Qi harmonization between components."
+    - Law of Life: "Determines vitality output for living materials."
+
+---
+
+alchemy_mechanics:
+  success_formula: >
+    Success Rate = (WIS + INT + Technique + FlameQuality + CauldronTier + MaterialGrade + LawComprehension) / 700
+  modifiers:
+    - Wisdom: +1% per 5 points
+    - Intelligence: +1% per 5 points
+    - Technique Rank: +5% per level
+    - Fire Control: +3% per tier
+    - Cauldron Grade: +5% per rank
+    - Material Grade: +2% per tier
+    - Law Resonance: +10% if matching alchemist’s Law Affinity
+  failure_effects:
+    - Minor Failure: "Loss of ingredients"
+    - Major Failure: "Explosive backlash (HP -20%)"
+    - Heavenal Rejection: "Karma +1000; minor Law Burn"
+  resonance_bonus:
+    - +10% if the formula matches the user’s elemental Law
+    - +15% if performed under Holy Region or Heavenal Dome
+
+---
+
+forging_system:
+  overview: >
+    Forging is the manipulation of Law Essence into physical form. Through hammer,
+    flame, and soul resonance, cultivators infuse materials with Heavenal energy to
+    create artifacts, weapons, and armor that channel Laws.
+  forging_elements:
+    - Essence Hammer: "Drives Law vibration into material."
+    - Spirit Anvil: "Anchors energy flow stability."
+    - Core Flame: "Determines fusion quality."
+    - Forging Intent: "User’s soul focus affects artifact growth."
+  energy_input:
+    - Qi: "Base fuel for forging heat."
+    - Essence: "Stabilizes spiritual matrix."
+    - Soul Power: "Imbues artifact with will and identity."
+  forging_grades:
+    - Mortal Forging (Lv.1–5)
+    - Spirit Forging (Lv.6–9)
+    - Immortal Forging (Lv.10–14)
+    - Divine Forging (Lv.15–18)
+  law_influence:
+    - Law of Metal: "Increases artifact hardness."
+    - Law of Fire: "Improves fusion rate."
+    - Law of Space: "Creates storage or spatial compression."
+    - Law of Soul: "Links artifact with wielder permanently."
+
+---
+
+forging_mechanics:
+  success_formula: >
+    Success Rate = (STR + DEX + Technique + AnvilTier + FlameControl + MaterialResonance + LawStability) / 700
+  modifiers:
+    - Strength: +1% per 5 points
+    - Dexterity: +1% per 5 points
+    - Technique Rank: +3% per level
+    - Anvil Quality: +5% per rank
+    - Flame Control: +3% per tier
+    - Material Resonance: +10% if matching user’s Law Affinity
+    - Law Stability: +5% if performed in balanced Qi environment
+  failure_effects:
+    - Minor Failure: "Loss of 1 main material"
+    - Severe Failure: "Artifact Cracking (Durability -50%)"
+    - Heavenal Rejection: "Tool Corruption; cannot forge for 3 days"
+  resonance_bonus:
+    - +10% if forging under Heavenal Flame
+    - +5% if using Law-infused materials
+    - +3% if performed under master guidance
+
+---
+
+alchemy_and_forging_integration:
+  shared_principles:
+    - "Both require Qi flow synchronization and Law balance."
+    - "Both influenced by user’s soul state and Law resonance."
+    - "Both may trigger Heavenal Resonance (rare event)."
+  combined_artifact_creation:
+    - Step 1: "Forge Artifact Core"
+    - Step 2: "Infuse with Essence Elixir (alchemy)"
+    - Step 3: "Stabilize under Heavenal Law Mirror"
+    - Step 4: "Bind to user through Soul Resonance"
+  special_event: "Heavenal Synthesis"
+  synthesis_effects:
+    - +25% Success Rate
+    - Creates Artifact with unique passive Law ability
+    - Grants 1 point Heavenal Recognition
+
+---
+
+alchemy_ranks:
+  - Apprentice Alchemist: "Can refine Mortal-grade pills (Lv.1–5)"
+  - Spirit Alchemist: "Can refine Spirit-grade pills (Lv.6–9)"
+  - Immortal Alchemist: "Can refine Immortal-grade pills (Lv.10–14)"
+  - Heavenal Alchemist: "Can refine Divine-grade pills (Lv.15–18)"
+  - Grandmaster Alchemist: "Immune to minor tribulation backlash"
+  - Divine Pill Sovereign: "Can create living elixirs that rewrite essence"
+
+forging_ranks:
+  - Apprentice Forger: "Can forge Mortal-tier tools"
+  - Spirit Forger: "Can forge Spirit-tier weapons and armor"
+  - Immortal Smith: "Can forge Immortal-tier artifacts"
+  - Heavenal Blacksmith: "Can manipulate Divine Essence"
+  - Artifact Lord: "Can imbue artifacts with living soul cores"
+  - Heavenal Constructor: "Can forge Divine Constructs and dimensional weapons"
+
+---
+
+law_correlation:
+  alchemy_law_cap: 4.0
+  forging_law_cap: 4.5
+  resonance_threshold: 85%
+  description: >
+    The alchemical and forging systems obey sub-laws of the Heavenal Balance.
+    Both are limited by the Law Cap of their practitioner’s realm and resonance
+    with Heavenal Qi frequency.
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-09"
+  sync_with: "manifest.yaml v3.2-secure"
+  checksum: "AUX-002-SHA-773AC"
+  integrity_check: verified
+  signature_key: "HCLN-ALCHEMY-FORGING-SECURE"
