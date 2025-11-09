@@ -1,0 +1,202 @@
+# ============================================================
+# CODEX AUX-XXIII — HERB & CATALYST COMPENDIUM
+# Secure Public Version (v3.2-secure)
+# ============================================================
+# Repository Path: codex_registry/auxiliary_codex/codex_herb_catalyst_compendium.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  codex_id: "AUX-XXIII"
+  title: "Herb & Catalyst Compendium — Foundations for Alchemy"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  status: verified
+  sync_hash: "AUX-XXIII-LOCK-7E2C1"
+  classification: "Auxiliary Codex — Alchemy Resources"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  last_updated: "2025-11-10"
+
+introduction:
+  description: >
+    Kompendium ini mencakup katalog herba, material spirit, dan katalis esensial yang
+    menjadi basis pembuatan pill, elixir, dan sebagian resep forging.
+    Mencakup: taksonomi, tier/rating, habitat, efek alkimia, kehilangan risiko,
+    metode pengumpulan, konservasi, dan aturan hukum terkait perdagangan lintas-realm.
+  purpose: >
+    Menstandarisasi sumber daya alkimia sehingga shop, forging, dan alchemy systems
+    dapat menggunakan referensi tunggal untuk crafting, harga, spawn, dan event.
+
+herb_tiers:
+  overview:
+    - Tier 1–3: Common Mortal Herbs (G1–G3 pill support)
+    - Tier 4–6: Refined Herbs (G4–G6 pill support)
+    - Tier 7–9: Immortal-grade Ingredients (G7–G9 pill support)
+    - Tier 10–12: Divine & Primordial Catalysts (G10–G12 pill support)
+  rules:
+    - "Herb tier menentukan maksimal grade pill yang dapat dibuat tanpa Law Compression."
+    - "Untuk membuat pill grade N, semua bahan utama minimal tier N (kecuali resep khusus)."
+    - "Katalis Primordial hanya boleh dimanipulasi oleh Alchemist Grade Master+ atau otorisasi Holy Region."
+
+harvest_mechanics:
+  methods:
+    - Foraging: "Normal gather roll + (Perception/WIS) check"
+    - Ritual Harvest: "Requires altar & minor sacrifice → increases yield quality"
+    - Divine Claim: "Only Divine/Transcendent entities may claim Primordial nodes"
+  spawn_rules:
+    - "Herb nodes refresh every 7 Heavenal Days in world map."
+    - "Rare nodes spawn tied to world events (e.g., Eclipse, Heavenal Storm)."
+  sustainability:
+    - "Overharvest reduces node quality by 30% and triggers Karma trace."
+    - "Protected groves (Holy/Alchemist) restore nodes faster."
+
+catalyst_types:
+  - name: "Spirit Seed"
+    category: "Catalyst — Qi Binder"
+    tier: 4
+    description: "Stabilizes Qi flow in pill distillation."
+    rarity: "Uncommon"
+  - name: "Heavenal Ember"
+    category: "Catalyst — Fire Condenser"
+    tier: 8
+    description: "Required for high-grade Essence Condensation; reacts violently with Abyssal materials."
+    rarity: "Rare"
+  - name: "Void Shard"
+    category: "Catalyst — Nullifier"
+    tier: 10
+    description: "Used to craft void-cleansing elixirs; handling risk: Law Rejection if mishandled."
+    rarity: "Very Rare"
+  - name: "Primordial Nectar"
+    category: "Catalyst — Transcendent Core"
+    tier: 12
+    description: "Core ingredient for transcendent-grade pills; extremely unstable and regulated."
+    rarity: "Mythic"
+
+sample_herb_entries:
+  - id: "HRB-001"
+    name: "Spiritleaf"
+    tier: 1
+    habitat: "Temperate forests, low altitude"
+    harvest_difficulty: "Easy"
+    primary_effects:
+      - "Minor Qi restoration when brewed"
+    uses:
+      - "Base for G1 Qi Restoration Pill"
+      - "Minor poultice for wound cleaning"
+    price_mortal_market: "5 copper"
+  - id: "HRB-087"
+    name: "Essence Orchid"
+    tier: 5
+    habitat: "High-mist valleys, near ley-lines"
+    harvest_difficulty: "Moderate (ritual recommended)"
+    primary_effects:
+      - "Increases Qi density when refined"
+      - "Resonates with Soul Arts"
+    uses:
+      - "Ingredient for G5 Essence Condensation Pill"
+      - "Component in forging balance cores"
+    price_mortal_market: "12 silver"
+  - id: "HRB-321"
+    name: "Flame Lotus"
+    tier: 9
+    habitat: "Volcanic springs & heavenal forges"
+    harvest_difficulty: "Hard (heat attunement needed)"
+    primary_effects:
+      - "Supports revival/phoenix elixirs"
+    uses:
+      - "Core for G10 Phoenix Rebirth Elixir"
+    price_mortal_market: "8 gold (high risk trade controlled by Alchemist Tower)"
+  - id: "CAT-PRIM-01"
+    name: "Primordial Fragment"
+    tier: 12
+    habitat: "Only in Primordial Ruins / Chaos rifts"
+    harvest_difficulty: "Extreme (requires divine sanction)"
+    primary_effects:
+      - "Reality-grade catalyst for transcendent work"
+    uses:
+      - "Transcendent Ascension Pill & Divine Artifact forging"
+    legal_status: "Restricted — Holy Region control"
+    price_mortal_market: "Not available (illegal/traceable)"
+
+ingredient_properties:
+  attributes:
+    - "QiAffinity: element(s) the herb resonates with (e.g., Fire, Void, Light)"
+    - "Stability: numeric 0..100 (affects pill success & side-effects)"
+    - "Purity: numeric 0..100 (affects potency)"
+    - "KarmicWeight: numeric (affects karma when harvested/sold)"
+  example:
+    Spiritleaf:
+      QiAffinity: ["Wind"]
+      Stability: 85
+      Purity: 70
+      KarmicWeight: 1
+
+alchemy_interactions:
+  crafting_rules:
+    - "To craft pill grade Gx: sum(tier of core ingredients)/count >= x (simplified check)."
+    - "Catalyst tier must be >= pill grade - 1 unless Law Compression applied."
+    - "Use of Abyssal components increases side-effect chance by +15% per abyssal ingredient."
+  success_rate_factors:
+    - "Alchemist Skill (primary)"
+    - "INT + WIS (secondary)"
+    - "Cauldron Grade matching ingredient tier"
+    - "Fire Grade (Spirit/Heavenal/Abyssal) compatibility"
+    - "Law Comprehension modifier (small positive if matches pill law affinity)"
+  failure_outcomes:
+    - "Pill Dust (materials lost, minor explosion)"
+    - "Poisoned Qi (user suffers debuff when consumed)"
+    - "Karmic Mark (trade blacklist if sold publicly)"
+
+trade_and_regulation:
+  legal_controls:
+    - "G7–G9 ingredients may be sold in regulated markets (license required)."
+    - "G10+ catalysts require Holy Region certification to move across borders."
+    - "Abyssal/Primordial items are flagged for GCEB / Alchemist Tower review on detection."
+  marketplace_rules:
+    - "Shops auto-flag high-karmic items; auction requires faction reputation >= 60."
+    - "Weekly mortal shop refresh; immortal vendors may stock higher tier if flagged."
+  black_market:
+    - "Exists primarily in Abyss & border towns; high Karma penalty when traced."
+
+node_and_spawn_examples:
+  common_nodes:
+    - "Spirit Grove (forest): yields Spiritleaf, minor roots"
+    - "Mist Vale (highland): yields Essence Orchid"
+  rare_nodes:
+    - "Ash Spring (volcanic seam): yields Flame Lotus (respawn 30 Heavenal Days)"
+    - "Void Pocket (Abyss border): yields Void Shard (spawns only during Karmic Eclipse events)"
+  node_control:
+    - "Control of rare nodes increases faction influence and merchant profits."
+
+integration_system:
+  sync_with:
+    - "codex_pill_catalog_index.yaml"
+    - "codex_alchemy_forging.yaml"
+    - "systems/alchemy_sheet.yaml"
+    - "systems/forging_sheet.yaml"
+    - "codex_heavenal_shop.yaml"
+  monitored_by: "Alchemist Tower & Heavenal Control Node"
+  refresh_interval: "Herb node: 7 Heavenal Days | Catalyst market: 14 Heavenal Days"
+
+gm_tools_and_commands:
+  examples:
+    - "/harvest node_id=<NODE-123> attempt=<skill_check>"
+    - "/register_node <coord> <herb_type> <owner_faction>"
+    - "/flag_item_trade <item_id> <reason>"
+  permissions:
+    - "GM / Alchemist Tower agent: create/modify nodes and rarity"
+    - "Shopkeepers: list stock & quantities within jurisdiction rules"
+
+recipes_link_preview:
+  - "See codex_pill_catalog_index.yaml → maps ingredient IDs to pill recipes."
+  - "See codex_forging_recipes_index.yaml → lists catalysts used in forging."
+
+verification:
+  maintained_by: "Alchemist Tower & Heavenal Control Node"
+  validated_on: "2025-11-10"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "AUX-XXIII-SHA-DA9F8"
+  sign_key: "HCLN-HERB-SECURE"
