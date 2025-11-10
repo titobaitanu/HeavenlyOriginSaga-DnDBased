@@ -1,1 +1,165 @@
+# ============================================================
+# JSON BINDING MAP — HEAVENLY ORIGIN SAGA
+# system/json_binding_map.yaml
+# ============================================================
+# Maintainer: Heavenal Control Node
+# Version: 3.2-secure
+# Purpose: Define all JSON dataset bindings for dynamic system loading
+# ============================================================
 
+meta:
+  file_id: "SYS-JBM"
+  title: "Heavenal JSON Binding Map"
+  version: 3.2-secure
+  maintainer: "Heavenal Control Node"
+  author: "Tito Baitanu"
+  classification: "System Module — Data Binding Layer"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  last_updated: "2025-11-11"
+  sync_status: verified
+  checksum: "SYS-JBM-SHA-339B9"
+  sign_key: "HCLN-BIND-MAP-SECURE"
+
+---
+
+description:
+  overview: >
+    This binding map defines the link between structured YAML systems and 
+    JSON datasets used by the Heavenal Engine. It ensures that all 
+    in-game data (alchemy, forging, NPCs, items, techniques, etc.) can 
+    be dynamically loaded, cached, and referenced by their YAML-based modules.
+  integration_target:
+    - "system/alchemy_sheet.yaml"
+    - "system/forging_sheet.yaml"
+    - "system/shop_catalog.yaml"
+    - "npc/npc_registry.yaml"
+    - "codex_registry/auxiliary_codex/*"
+  purpose: >
+    Simplify data management by consolidating all JSON link references 
+    and allowing cross-module synchronization through Heavenal Control Node.
+
+---
+
+binding_paths:
+  alchemy_data:
+    path: "data/alchemy_tools_2000.json"
+    description: "Contains 2000 alchemical instruments, cauldrons, and components."
+    linked_module: "system/alchemy_sheet.yaml"
+    dependency: ["codex_alchemy_forging.yaml", "codex_heavenal_shop.yaml"]
+    key_fields: ["item_id", "grade", "effect_bonus", "durability"]
+    binding_mode: "read/write"
+    update_interval: "every 7 Heavenal days"
+
+  forging_data:
+    path: "data/forging_tools_2000.json"
+    description: "Houses all forging hammers, furnaces, and blacksmith catalysts."
+    linked_module: "system/forging_sheet.yaml"
+    dependency: ["codex_alchemy_forging.yaml"]
+    key_fields: ["tool_id", "tier", "law_affinity", "material_limit"]
+    binding_mode: "read/write"
+    update_interval: "every 10 Heavenal days"
+
+  artifacts_data:
+    path: "data/artifacts_10000.json"
+    description: "Complete artifact and weapon catalog — 10,000 entries."
+    linked_module: "system/shop_catalog.yaml"
+    dependency: ["codex_heavenal_shop.yaml"]
+    key_fields: ["artifact_id", "grade", "law_alignment", "rarity", "origin_realm"]
+    binding_mode: "read"
+    update_interval: "weekly rotation"
+
+  herb_catalog:
+    path: "data/herb_catalog_2000.json"
+    description: "Database of herbs, roots, and natural catalysts — used in alchemy."
+    linked_module: "system/alchemy_sheet.yaml"
+    dependency: ["aux_pill_catalog_index.yaml"]
+    key_fields: ["herb_id", "growth_realm", "qi_affinity", "rarity", "effect"]
+    binding_mode: "read/write"
+    update_interval: "daily Heavenal refresh"
+
+  catalyst_catalog:
+    path: "data/catalyst_catalog_2000.json"
+    description: "Binding catalysts for fusion, forging, and transmutation."
+    linked_module: "system/forging_sheet.yaml"
+    dependency: ["codex_forging_recipes_index.yaml"]
+    key_fields: ["catalyst_id", "use_case", "law_interference_rate", "stability"]
+    binding_mode: "read"
+    update_interval: "every 14 Heavenal days"
+
+  pill_catalog:
+    path: "data/pill_catalog_2000.json"
+    description: "2000 pills, elixirs, and restorative draughts across all realms."
+    linked_module: "auxiliary_codex/pill_catalog_index.yaml"
+    dependency: ["codex_heavenal_shop.yaml", "alchemy_sheet.yaml"]
+    key_fields: ["pill_id", "tier", "effect_type", "duration", "success_rate"]
+    binding_mode: "read/write"
+    update_interval: "daily"
+
+  sutras_data:
+    path: "data/sutras_2000.json"
+    description: "Ancient Sutras containing cultivation methods, law doctrines, and divine insights."
+    linked_module: "codex_registry/core_codex/codex_XIX_technique_system.yaml"
+    dependency: ["codex_lore_master_index.yaml"]
+    key_fields: ["sutra_id", "realm_required", "law_resonance", "grade"]
+    binding_mode: "read"
+    update_interval: "monthly sync"
+
+  techniques_data:
+    path: "data/techniques_10000.json"
+    description: "Complete martial, sword, and elemental techniques database."
+    linked_module: "codex_registry/core_codex/codex_XIX_technique_system.yaml"
+    dependency: ["codex_lore_master_index.yaml"]
+    key_fields: ["technique_id", "type", "grade", "realm_required", "qi_cost"]
+    binding_mode: "read/write"
+    update_interval: "weekly rotation"
+
+  npc_registry:
+    path: "data/npc_20000.json"
+    description: "Full NPC dataset for 20,000 entities, covering all realms."
+    linked_module: "npc/npc_registry.yaml"
+    dependency: ["codex_npc_faction.yaml"]
+    key_fields: ["npc_id", "faction", "realm", "alignment", "role"]
+    binding_mode: "read/write"
+    update_interval: "every 5 Heavenal days"
+
+---
+
+binding_protocols:
+  refresh_mechanism:
+    - "Incremental update when data is appended."
+    - "Checksum verification every synchronization cycle."
+    - "Auto-rollback to last verified state if mismatch occurs."
+  cache_layer:
+    - "Hot cache: 24-hour retention"
+    - "Cold storage: 30 Heavenal days archival"
+  integrity_check:
+    - "Verify cross-field consistency with realm and codex linkages."
+    - "Automatic regeneration for missing JSON keys."
+    - "Validate ID uniqueness within each dataset."
+
+---
+
+integration_rules:
+  json_to_yaml_binding:
+    - "All JSON data must contain a unique primary key (e.g., item_id)."
+    - "YAML modules use reference anchors (<<: *binding_key) for cross-link."
+    - "When reading data, Heavenal Engine verifies checksum_hash from manifest.yaml."
+  external_data_import:
+    - supported_formats: [".json", ".csv"]
+    - restrictions:
+        - "Only verified sources signed by Heavenal Control Node."
+        - "Unauthorized imports trigger audit in heavenal_audit.yaml."
+  synchronization_intervals:
+    - minor_update: "Every 1 Heavenal day"
+    - major_update: "Every 7 Heavenal days"
+    - audit_sync: "Every 30 Heavenal days"
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-11"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "SYS-JBM-LOCK-331E1"
+  sign_key: "HCLN-BINDING-SECURE"
