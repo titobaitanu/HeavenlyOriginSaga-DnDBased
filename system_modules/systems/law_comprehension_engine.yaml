@@ -1,0 +1,263 @@
+# ============================================================
+# SYSTEM MODULE — Law Comprehension Engine (LCE)
+# File: system/law_comprehension_engine.yaml
+# Version: 1.0-secure
+# Maintainer: Heavenal Control Node
+# Purpose: Central game rules for Law Comprehension (LC), Law Resonance,
+#          Law Compression, growth mechanics, caps, checks, and interactions
+# ============================================================
+
+meta:
+  module_id: "SYS-LCE-001"
+  title: "Law Comprehension Engine"
+  version: "1.0-secure"
+  author: "Heavenal Control Node"
+  last_updated: "2025-11-10"
+  linked_codex:
+    - "codex_cosmic_realm_full.yaml"
+    - "codex_XIX_technique_system.yaml"
+    - "codex_XX_realm_architecture.yaml"
+  description: >
+    Governs how characters learn, increase, and use Law Comprehension (LC).
+    Implements realm-based caps, incremental growth rules, Law Resonance,
+    Law Compression mechanics, tribulation interactions, and GM hooks.
+
+principles:
+  - "Law Comprehension (LC) measures depth of understanding of cosmic law."
+  - "LC is distinct from raw Qi / HP / SPIRIT; it is a scarce, slow-progressing stat."
+  - "Realm-level caps limit maximum LC to preserve world balance (see law_cap)."
+  - "LC increases are small and granular (micro-steps) to keep Law growth meaningful."
+  - "Some LC manipulations are hidden (server/Gm-side) to avoid meta-exploitation."
+
+law_cap:            # canonical caps (from codex_cosmic_realm_full)
+  mortal_max: 1.5
+  immortal_max: 5.0
+  divine_max: 7.0
+  transcendent_max: "infinite"
+
+# ---------------------------------------------------------------------
+# Core numeric model for LC growth
+# ---------------------------------------------------------------------
+growth_model:
+  base_increment:
+    description: "Small guaranteed LC gain for reliable actions (micro-step)."
+    value: 0.02     # default micro-step per qualified major action
+  bonus_increment:
+    description: "Additional LC gain possible from exceptional events."
+    value: 0.05     # bonus micro-step on perfect tribulation / 20+ Law roll
+  max_increment_per_day:
+    description: "Hard cap of LC increase per Heavenal Day to avoid fast-scaling"
+    mortal: 0.10
+    immortal: 0.05
+    divine: 0.02
+    transcendent: 0.001
+
+growth_sources:
+  actions_and_yield:
+    - name: "Meditation on Law (Still Qi Meditation)"
+      requirement: "LC >= 0.2 for efficacy"
+      roll: "D20 + LC_mod + SR_mod"
+      success_tiers:
+        - "10-14: +base_increment"
+        - "15-19: +base_increment + (0.01)"
+        - "20+: +base_increment + bonus_increment (Law Resonance Trigger)"
+    - name: "Passing Tribulation Perfectly (Natural 20 on Heaven Roll)"
+      effect: "+bonus_increment (stackable once per major tribulation)"
+    - name: "Studying/Composing Sutra or Law Manuscript"
+      requirement: "Access to Codex/Heavenal Archive"
+      reward: "+0.02 to +0.05 depending on quality & LC parity"
+    - name: "Law Duel / Debate with Higher LC Opponent"
+      outcome: "Winner gains +0.02; loser may lose temporary LC_stability"
+    - name: "Domain Creation / Law-writing Minor (GM approved)"
+      outcome: "Large LC reward (GM narrative); may trigger Great Court notice"
+  exceptional_sources:
+    - "Divine Epiphany (GM story event): large LC jumps (narrative only)."
+    - "Artifact of Law (rare): grants temporary LC boost; may be taxed by Law System."
+
+# ---------------------------------------------------------------------
+# Incremental (micro) rule: floating precision
+# ---------------------------------------------------------------------
+precision:
+  storage_precision: 3   # example: LC stored as float with 3 decimal places (e.g., 1.234)
+  display_precision: 2   # UI shows 2 decimal places to players
+
+# ---------------------------------------------------------------------
+# Law Resonance & Manifestation rules
+# ---------------------------------------------------------------------
+law_resonance:
+  definition: "Alignment/harmony between soul comprehension (LC), Soul Resonance (SR), and world law."
+  thresholds:
+    - name: "Moderate Insight (Law Touch)"
+      min_LC: 0.5
+      effects:
+        - "Use techniques 1 grade above realm for short bursts with penalty."
+    - name: "True Comprehension (Law Resonance)"
+      min_LC: 1.0
+      effects:
+        - "Use techniques 1–2 grade above realm with reduced penalty if SR high."
+    - name: "Law Manifestation (Heaven Recognition-like)"
+      min_LC: 3.0
+      effects:
+        - "World recognizes the user as part of Law (special exemptions possible)."
+  resonance_check:
+    roll: "D20 + floor(LC*10) + floor(SR/2) + HR_bonus"
+    interpretation:
+      - "<=9 : Resonance Failure (possible recoil)"
+      - "10–14: Weak resonance (reduced efficiency)"
+      - "15–19: Stable resonance (nominal use)"
+      - "20+: Resonance Trigger — temporary amplified effects (+10–25% power)"
+
+# ---------------------------------------------------------------------
+# Law Compression (safe downscaling) mechanics
+# ---------------------------------------------------------------------
+law_compression:
+  purpose: "Safely convert higher-grade law effects into a local-world friendly version."
+  requirements:
+    - "User LC sufficiently high to understand target law (LC >= target_grade_index * 0.2 recommended)"
+    - "Skill slot: Law Compression technique or artifact (cauldron/altar may help for sutra compression)"
+  mechanics:
+    compression_ratio:
+      examples:
+        - "Divine -> Mortal: Compress by factor 0.05–0.6 depending on LC & SR"
+        - "Immortal -> Mortal: Compress by factor 0.2–0.8"
+    cost:
+      - "Qi cost scales by 10× compared to normal technique use."
+      - "Temporary Soul Strain: SR −1 to −3 for 1–24 hours depending on compression strength."
+    failure_penalty:
+      - "Resonance Recoil (see below)"
+      - "If overloaded: trigger local Thunder Tribulation."
+
+# ---------------------------------------------------------------------
+# Resonance Recoil & Thunder Tribulation integration
+# ---------------------------------------------------------------------
+resonance_recoil:
+  triggers:
+    - "Using technique > allowed compression ratio"
+    - "LC mismatch greater than threshold (ex: using Transcendent grade without compression)"
+  effects:
+    light:
+      - "Internal Qi burn: −10% QP"
+      - "Minor HP (Meridian) damage: 1d6"
+    medium:
+      - "Soul Cracks: − temporary SR points, possible stability loss"
+      - "Loss of technique access for short duration"
+    heavy:
+      - "Heavenal Burn: lose realm progression for a time / forced Law Seal"
+      - "Trigger Thunder Tribulation (see codex XIX mapping for severity classification)"
+  mitigation:
+    - "Law Compression with certified artifact reduces recoil chance by 40–80%."
+    - "Heaven Recognition / high CHA reduces recoil severity."
+    - "Law Resonance checks can reroll recoil (limited uses)."
+
+# ---------------------------------------------------------------------
+# Checks and Rolls (GM / System)
+# ---------------------------------------------------------------------
+checks:
+  law_check:
+    description: "General attempt to apply law-based action (learning, compression, casting)."
+    roll: "D20 + floor(LC*10) + floor(LC_progress_bonus) + GM_mod"
+    difficulty_classes:
+      - trivial: 8
+      - easy: 12
+      - moderate: 16
+      - hard: 20
+      - epic: 25
+  tribulation_heaven_roll:
+    description: "Roll performed during tribulation / ascension."
+    roll: "D20 + floor(SR) + floor(HR/2) + LC_modifier"
+    result_map:
+      - 1–9: "Fail — heavy penalty"
+      - 10–19: "Pass"
+      - 20: "Perfect — +bonus_increment & Heaven Recognition chance"
+
+# ---------------------------------------------------------------------
+# LC Stability, Decay, & Hidden Caps
+# ---------------------------------------------------------------------
+stability_and_decay:
+  stability_index:
+    formula: "base = SR × 2 + LC × 10"
+    interpretation: "Determines susceptibility to soul crack & forced regression"
+  decay:
+    - "Prolonged use of Law above realm without compression increases a hidden 'strain meter'."
+    - "If strain meter ≥ threshold → automatic LC reduction (micro) and possible soul fracture events."
+  hidden_caps:
+    description: >
+      Some LC ceilings and enforcement are hidden server-side to prevent bypass.
+      GM can set secret soft-caps per region, artifact, or event.
+
+# ---------------------------------------------------------------------
+# Cross-Realm & Enforcement Rules
+# ---------------------------------------------------------------------
+cross_realm_rules:
+  mortal_rules:
+    - "Mortal characters cannot exceed LC > law_cap.mortal_max (1.5)."
+    - "Any detected attempt to circumvent (scripts, meta) triggers immediate Heavenal watch."
+    - "Mortal may gain temporary LC-like bonuses via artifacts but these are non-persistent and taxed by Karma."
+  immortal_rules:
+    - "Immortal characters capped at immortal_max (5.0) unless granted temporary divine recognition."
+  divine_rules:
+    - "Divine capped at divine_max (7.0) except transcendent beings (narrative only)."
+  enforcement:
+    - "GCEB & Heavenal Control Node may impose Law Seal or Trial for blatant law-writing or misuse."
+
+# ---------------------------------------------------------------------
+# UI / Data exposure & player-visible fields
+# ---------------------------------------------------------------------
+ui_exposure:
+  player_visible:
+    - "LC (displayed to two decimals)"
+    - "LC_Cap (based on current realm)"
+    - "LC_Stability (Low/Med/High)"
+    - "Law_Resonance_Status (None/Weak/Stable/Triggered)"
+  gm_visible:
+    - "Exact LC strain meter"
+    - "Hidden_caps and server side enforcement"
+    - "Event triggers & recommended GM actions"
+
+# ---------------------------------------------------------------------
+# Examples (practical)
+# ---------------------------------------------------------------------
+examples:
+  - scenario: "Mortal Reincarnator (LC 1.2) uses Divine Sutra fragment with Law Compression."
+    steps:
+      - "Check: Player initiates Law Compression (roll Law Check)."
+      - "If success: compress Divine → Saint equivalent; Qi cost doubled; SR −1 for 2 hours."
+      - "If failure: Resonance Recoil medium; 2d6 HP Meridian damage; trigger local minor tribulation."
+  - scenario: "Immortal (LC 4.9) edges toward cap 5.0 via meditation."
+    steps:
+      - "Meditation success grants +0.02 micro-step; display LC 4.92 (rounded)."
+      - "System enforces max_increment_per_day for immortals (0.05)."
+  - scenario: "Player attempts to craft new minor law artifact (GM approval)."
+    steps:
+      - "Requires Law Check (hard), Alchemy/Forge success, and potential GCEB notification on completion."
+
+# ---------------------------------------------------------------------
+# Integration hooks (system / event engine / gm)
+# ---------------------------------------------------------------------
+integration:
+  event_engine_hooks:
+    - "on_LC_increase: record in Heavenal Log Archive (for audit/tracking)."
+    - "on_LC_overflow_attempt: flag and notify GCEB (GM notification)."
+    - "on_tribulation_result: trigger follow-up events (karma changes, law notices)."
+  api_endpoints (expected by engine implementation):
+    - "lce.get_player_lc(player_id)"
+    - "lce.attempt_law_check(player_id, action_id, context)"
+    - "lce.apply_compression(player_id, target_grade, resources)"
+  gm_tools:
+    - "gm.adjust_lc(player_id, delta, reason)"
+    - "gm.set_hidden_cap(region_id, cap_value)"
+    - "gm.force_resonance(player_id, level)"
+
+# ---------------------------------------------------------------------
+# Notes & GM guidance
+# ---------------------------------------------------------------------
+gm_guidance:
+  - "Make LC growth rare and narratively meaningful — avoid making LC a grind stat."
+  - "Use hidden caps and strain meters to prevent powergaming (server-side)."
+  - "Grant large LC rewards only as story milestones (tribulation victories, Divine trials)."
+  - "When players attempt law-writing, treat it as a major event that may alter codex; require coordination."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  signature: "LCE-SYS-V1-HCLN"
