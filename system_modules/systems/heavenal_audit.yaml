@@ -1,0 +1,161 @@
+# ============================================================
+# system/heavenal_audit.yaml
+# Heavenal Audit & Validation Engine Configuration
+# Version: 3.2-secure
+# Maintainer: Heavenal Control Node
+# Purpose: Centralized audit rules, validation checks, and remediation
+# ============================================================
+
+meta:
+  name: "Heavenal Audit Engine"
+  version: "3.2-secure"
+  maintainer: "Heavenal Control Node"
+  auth_reference: "ENV[HEAVENAL_GM_TOKEN]"
+  last_updated: "2025-11-11"
+  contact: "admin@heavenal.local"
+  audit_id_prefix: "HAE"
+
+audit_schedule:
+  on_push: true                # run on every git push (CI)
+  nightly_run: "03:00"         # daily heavenal time (UTC)
+  on_demand: true              # allow manual runs via CLI
+  auto_backup_before_fix: true
+
+checks:
+  manifest:
+    enabled: true
+    description: "Validate manifest.yaml integrity, schema, checksum, and token references."
+    actions:
+      - validate_schema: "schemas/manifest_schema.yaml"
+      - verify_checksums: true
+      - detect_plaintext_tokens: true
+    severity: HIGH
+
+  codex_registry:
+    enabled: true
+    description: "Verify codex file presence, linkage, and required fields."
+    actions:
+      - required_files:
+          - codex_I_creation.yaml
+          - codex_II_balance.yaml
+          - codex_III_structure.yaml
+          - codex_IV_immortal_structure.yaml
+          - codex_cosmic_realm_full.yaml
+      - check_frontmatter: true
+      - crosslink_consistency: true
+    severity: HIGH
+
+  yaml_lint:
+    enabled: true
+    description: "Run YAML linting and formatting rules (no tabs, utf-8, key ordering)."
+    actions:
+      - yamllint: "config/.yamllint"
+    severity: MEDIUM
+
+  secret_scan:
+    enabled: true
+    description: "Detect leaked credentials or API keys (pattern & entropy based)."
+    actions:
+      - git-secrets-scan: true
+      - regex_patterns:
+          - "(HEAVENAL_GM_TOKEN|GM_SECRET_TOKEN|PRIVATE_KEY|SECRET_KEY)"
+      - remediate_suggestion: "Replace with ENV refs and rotate tokens."
+    severity: CRITICAL
+
+  license_compliance:
+    enabled: true
+    description: "Ensure license headers + HLOCL constraints present where required."
+    actions:
+      - check_license_header_in_dirs:
+          - codex_registry
+          - world
+          - system
+      - verify_dual_license_presence: true
+    severity: MEDIUM
+
+  json_binding_map:
+    enabled: true
+    description: "Validate JSON binding maps against available JSON datasets (counts, keys)."
+    actions:
+      - locate_data_files:
+          - data/artifacts_10000.json
+          - data/pill_catalog_2000.json
+          - data/herb_catalog_2000.json
+      - validate_keys: true
+      - sample_count_check: true
+    severity: LOW
+
+  sync_integrity:
+    enabled: true
+    description: "Check manifest sync status vs actual repository contents."
+    actions:
+      - compare_registry_lists: true
+      - flag_missing_entries: true
+    severity: HIGH
+
+  npc_registry:
+    enabled: true
+    description: "Random-sample NPC entries to ensure required fields & no secrets."
+    actions:
+      - sample_n: 50
+      - required_fields: ["name","realm","affiliation","power_estimate"]
+    severity: LOW
+
+outputs_and_reporting:
+  report_formats:
+    - html: "reports/heavenal_audit_report.html"
+    - yaml: "reports/heavenal_audit_summary.yaml"
+    - json: "reports/heavenal_audit_detail.json"
+  send_notifications:
+    enabled: true
+    channels:
+      - type: webhook
+        url: "https://heavenal-notify.local/hooks/audit"   # replace in local env
+      - type: email
+        to: ["admin@heavenal.local"]
+  severity_email_threshold: HIGH
+
+auto_remediation:
+  enabled: true
+  rules:
+    - name: "remove_plaintext_token"
+      when: secret_scan.findings_present
+      action:
+        - create_issue: true
+        - replace_with_env_placeholder: true
+        - rotate_token_recommendation: true
+    - name: "fix_yaml_lint_errors"
+      when: yaml_lint.errors > 0
+      action:
+        - attempt_autoformat: true
+        - create_pr_with_fixes: true
+  require_gm_approval_for: ["manifest_changes", "codex_primus_edits"]
+
+cli_examples:
+  run_full_audit: "make audit:full"
+  run_target_audit: "make audit:target CHECK=secret_scan"
+  view_summary: "cat reports/heavenal_audit_summary.yaml"
+  manual_fix_flow: |
+    1. Run targeted audit (make audit:target CHECK=manifest)
+    2. Review reports/
+    3. If auto-remediation created PR, review and merge with GM token locally
+    4. Re-run audit
+
+verification_and_signature:
+  post_audit_action:
+    - generate_signature: true
+    - append_to_manifest: true
+  signature_key_ref: "ENV[HCLN_AUDIT_KEY]"
+  example_signature_field_in_manifest: "audit_signature: HAE-20251111-<hash>"
+
+security:
+  required_env:
+    - HEAVENAL_GM_TOKEN
+    - HCLN_AUDIT_KEY
+  minimum_gm_level_to_override: 9
+  log_retention_days: 365
+  backup_on_fail: true
+
+notes:
+  - "This audit config is enforced by CI and local admin hooks."
+  - "Never commit HEAVENAL_GM_TOKEN or private keys to repo; audit will fail if detected."
