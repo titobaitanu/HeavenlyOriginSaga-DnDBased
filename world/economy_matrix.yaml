@@ -1,284 +1,174 @@
 # ============================================================
 # WORLD ARCHITECTURE — ECONOMY MATRIX
-# Repository Path: world/world_economy_matrix.yaml
-# Version: v3.2-secure
+# Repository Path: world/economy_matrix.yaml
 # Maintainer: Heavenal Control Node
-# License: Dual (MIT + Heavenal Law Open-Collab)
-# Last Updated: 2025-11-10
+# Version: v3.2-secure
+# Linked Codex: codex_economy_trade.yaml, codex_heavenal_shop.yaml
 # ============================================================
 
 meta:
-  id: "WRL-ECONOMY-001"
-  title: "World Economy & Trade Matrix"
+  world_id: "WRL-ECONOMY"
+  title: "World Economy & Pricing Matrix"
   version: 3.2-secure
-  author: "Tito Baitanu"
-  maintainer: "Heavenal Control Node"
+  author: "Heavenal Control Node"
+  last_updated: "2025-11-10"
+  status: verified
+  sync_hash: "ECON-MAT-3.2-A9"
+
+currencies:
+  tiers:
+    - name: "Gold"
+      symbol: "G"
+      use: "High-value mortal transactions, noble trade"
+    - name: "Silver"
+      symbol: "S"
+      use: "Everyday trade, merchants, caravans"
+    - name: "Copper"
+      symbol: "C"
+      use: "Small purchases"
+    - name: "Spirit Stone"
+      symbol: "SS"
+      use: "Base spiritual currency; cross-realm low-tier"
+    - name: "Immortal Jade"
+      symbol: "IJ"
+      use: "High-tier immortal trade"
+    - name: "Divine Crystal"
+      symbol: "DC"
+      use: "Great Heaven / Divine trade"
+
+exchange_rates:
+  base:
+    - "1 Gold = 100 Silver"
+    - "1 Silver = 100 Copper"
+    - "1000 Copper = 10 Gold"   # convenience rounding
+  spiritual:
+    - "1000 Spirit Stones = 1 Immortal Jade"
+    - "100 Immortal Jade = 1 Divine Crystal"
+  remark: "Rates are baseline; local markets apply multipliers."
+
+price_multipliers:
+  global_modifiers:
+    - supply_scarcity_multiplier: 1.0   # increases price when scarcity
+    - region_remote_multiplier: 1.0    # remote provinces add cost
+    - trade_embargo_multiplier: 2.5
+    - black_market_premium: 3.0
+  item_tier_multiplier:
+    - Tier_G1: 1.0
+    - Tier_G2: 1.3
+    - Tier_G3: 1.6
+    - Tier_G4: 2.2
+    - Tier_G5: 3.5
+    - Tier_G6: 6.0
+    - Tier_G7: 18.0
+    - Tier_G8: 60.0
+    - Tier_G9: 250.0
+
+shop_restrictions:
+  mortal_limits:
+    - "Mortals MAY NOT purchase Tier_G8 and Tier_G9 from public shops."
+    - "Tier_G7+ items require faction reputation >= 80 OR auction win OR special permit."
+    - "Mortals may purchase Tier_G1–G6 freely, subject to price."
+  immortal_limits:
+    - "Immortals may purchase across mortal tiers freely."
+    - "Immortal-tier (IJ/DC) items require proof of origin & identification."
+  divine_policy:
+    - "Divine-tier items transacted only via Divine Permits or Great Court auctions."
+
+market_types:
+  - name: "Local Market"
+    restock_interval: "7 Heavenal Days"
+    allowed_tiers: ["G1","G2","G3"]
+    typical_stock_per_item: 30
+  - name: "Regional Bazaar"
+    restock_interval: "14 Heavenal Days"
+    allowed_tiers: ["G1","G2","G3","G4"]
+    typical_stock_per_item: 12
+  - name: "Capital Grand Market"
+    restock_interval: "30 Heavenal Days"
+    allowed_tiers: ["G1".."G6"]
+    typical_stock_per_item: 8
+  - name: "Rare Auction House"
+    restock_interval: "Variable (events/auctions)"
+    allowed_tiers: ["G5".."G9"]
+    typical_stock_per_item: 1
+    access_requirements: ["reputation", "divine_permit", "auction_bid"]
+  - name: "Black Market (Abyss-linked)"
+    restock_interval: "Hidden / Irregular"
+    allowed_tiers: ["G4".."G9"]
+    typical_stock_per_item: "Low"
+    risk: "High (Karmic Trace, GCEB watch)"
+
+trade_laws_and_taxation:
+  standard_tax:
+    - local_sales_tax: 0.05   # 5%
+    - cross_region_tariff: 0.12
+    - luxury_tax(G7+): 0.25
+  levies:
+    - "Merchant Alliance collects trade fee for cross-realm caravans."
+    - "Great Court may impose wartime levies."
+  smuggling_penalties:
+    - detection: "Karmic Flag + reputation penalty"
+    - punishment: "Fines, asset seizure, GCEB intervention"
+
+supply_chain:
+  nodes:
+    - producer: "Herb Gatherers / Alchemy Farms"
+    - processor: "Alchemist Tower / Forging Houses"
+    - trader: "Merchant Caravan / Market Hubs"
+    - wholesaler: "Regional Warehouses"
+    - retailer: "Local Shops / Bazaar"
+  logistics:
+    - caravan_base_capacity: 500 (units)
+    - caravan_guard_requirement: "1 guard per 50 units in high-risk zones"
+    - route_decay: "Each anti-realm crossing increases loss probability"
+
+resource_valuation_guidelines:
+  - "Materials graded by rarity, purity, and origin."
+  - "Spiritual materials priced higher in regions with low Qi density."
+  - "Artifacts priced by tier, resonance, and provenance (authenticity)."
+
+auction_and_auction_rules:
+  auction_types:
+    - sealed: "Bids secret; highest wins."
+    - open: "Ascending bid; time-limited."
+  auction_fees:
+    - listing_fee: "2% of estimated value"
+    - sale_commission: "5% if successful"
+  dispute_resolution: "Great Court Arbitration (for items > G8)"
+
+loot_and_reward_scaling:
+  - "Quest rewards scaled to realm tier and faction reputation."
+  - "Dungeon/raid loot uses Tier/GRADE tables (GM-defined)."
+  - "Event world-boss drops may be flagged G8–G9 and routed to auction."
+
+black_market_mechanics:
+  detection:
+    - karmic_trace_threshold: 0.75
+    - gceg_watch_trigger: "Cross-realm transfer of G7+ without permit"
+  mitigation:
+    - "Bribes increase risk and karma penalty."
+    - "Use of Abyssian courier increases premium but raises GCEB attention."
+
+economic_event_triggers:
+  scarcity_event:
+    condition: "Mass harvest failure / war"
+    effect: "Multiplier supply_scarcity_multiplier ↑"
+  market_glut:
+    condition: "Overproduction of herb/material"
+    effect: "Price drop by 20–60% depending on severity"
+  divine_intervention:
+    condition: "Great Heaven sanction"
+    effect: "Currency freeze in affected regions; temporary embargo"
+
+integration_links:
   linked_systems:
     - "systems/shop_catalog.yaml"
     - "systems/forging_sheet.yaml"
     - "systems/alchemy_sheet.yaml"
     - "npc/faction_index.yaml"
-  sync_hash: "ECON-MATRIX-LOCK-4F2A1"
-  status: verified
+  monitored_by: "Merchant Alliance & Heavenal Control Node"
 
-# ============================================================
-# CURRENCIES & EXCHANGE
-# ============================================================
-currencies:
-  mortal:
-    - code: "GC"    # Gold Coin (formerly Mortal Coin)
-      name: "Gold"
-      smallest_unit: "Copper"
-      subdivisions: ["Silver", "Copper"]
-      description: "Main mortal currency for normal trade in Mortal Realm."
-  spiritual:
-    - code: "SS"    # Spirit Stone
-      name: "Spirit Stone"
-      description: "Crystallized Qi used as convertible energy currency between Mortal and Immortal markets."
-  immortal:
-    - code: "IJ"    # Immortal Jade
-      name: "Immortal Jade"
-      description: "High-purity essence currency for high-tier immortal trade."
-  divine:
-    - code: "DC"    # Divine Crystal
-      name: "Divine Crystal"
-      description: "Currency used in Great Heaven & Divine-level markets."
-
-exchange_rates:
-  # base canonical rates (subject to region modifiers / inflation)
-  baseline:
-    - "1000 SS = 1 IJ"
-    - "100 IJ = 1 DC"
-    - "1000 GC = 1 SS"
-  notes:
-    - "Shop modules may apply spread (buy/sell) depending on faction reputation & market conditions."
-    - "Rates can be modified by major events (Karma Spike, War, Heavenal Intervention)."
-
-# ============================================================
-# MARKET TIERS (ITEM GRADES & ACCESS)
-# ============================================================
-market_tiers:
-  overview: >
-    Items are classified into Grade G1..G9 across realms (Mortal G1–G9,
-    Immortal-tier items marked as I-G1..I-G9, Divine as D-G1..D-G9).
-  access_rules:
-    mortal_limits:
-      - "Mortals can purchase up to mortal-tier G1..G9 items as allowed by shop policy."
-      - "Mortals CANNOT directly purchase Immortal-tier (I-G*) or Divine-tier (D-*) items."
-      - "G8/G9 mortal-tier items are extremely rare and flagged as 'treasure' — often auction-only or faction-guarded."
-    immortal_limits:
-      - "Immortals may buy mortal-tier and immortal-tier items freely (subject to funds & reputation)."
-    divine_limits:
-      - "Divine-tier items require Divine Permits and are restricted to Dewa/authorized entities."
-  tier_descriptions:
-    - G1..G3: "Common — basic herbs, low-grade pills, common forging materials."
-    - G4..G6: "Uncommon — advanced formulas, mid-tier artefacts, crafted weapons."
-    - G7: "Rare — sect-grade equipment, high-year herbs (e.g., 5k+ year ginseng equivalent)."
-    - G8: "Epic — near-legendary mortal items, often auction-only or quest reward."
-    - G9: "Relic — state-level treasures, often cause faction wars; G9 mortal-tier treated as national treasure."
-  purchase_channels:
-    - "Regular Shop (shop_catalog)"
-    - "Auction / Lelang (weekly or event-driven)"
-    - "Black Market (Abyss / shadow nodes) — high risk (Karmic Trace)."
-
-# ============================================================
-# PRICE SCHEME & GUIDELINES
-# ============================================================
-price_model:
-  base_price_factors:
-    - "Material Rarity (R): numeric factor"
-    - "Craft Complexity (C): numeric factor"
-    - "Cauldron / Forging Grade (Q): numeric factor"
-    - "Law Affinity Requirement (L): numeric factor (if applicable)"
-    - "Faction Markup (F): based on seller reputation and tax"
-  price_formula: "BasePrice = (R * 100) + (C * 50) + (Q * 200) + (L * 500) ; Final = BasePrice * (1 + F)"
-  rounding: "Prices rounded to nearest Copper (GC subdivisions)."
-
-example_prices:
-  - item: "10.000-year Ginseng (Mortal G7)"
-    estimated_price: "1200 GC"
-    note: "High-demand item; can trigger sect raids if found in quantity."
-  - item: "Common Pill (G3)"
-    estimated_price: "25 GC"
-  - item: "Immortal Jade Tincture (I-G4)"
-    estimated_price: "15 IJ"
-
-# ============================================================
-# SHOP & RESTOCK RULES
-# ============================================================
-shop_mechanics:
-  restock_interval:
-    mortal_shops: "Every 7 Heavenal Days (configurable per shop node)."
-    merchant_caravans: "Every 3 Heavenal Days (route-dependent)."
-    elite_auctions: "Event-driven / weekly."
-  stock_handling:
-    - "Each shop entry includes `quantity_available` which decreases on purchases."
-    - "Shops can have dynamic price increase if stock < 10%."
-  listing_metadata:
-    - "item_code"
-    - "display_name"
-    - "tier"
-    - "price"
-    - "quantity_available"
-    - "seller_faction"
-    - "restock_in"
-  shop_visibility:
-    - "Mortals see only mortal-realm shops & filtered immortal offers (if allowed via reputation/permits)."
-    - "Immortals see all mortal + immortal shops; divine items hidden unless authorized."
-
-auction_system:
-  auction_types:
-    - "Open Auction — public bidding"
-    - "Silent Auction — sealed bids"
-    - "Faction Auction — restricted to faction members or invited allies"
-  auction_timing:
-    - "Standard auctions: weekly"
-    - "Emergency auctions: triggered by world events (e.g., lot of pill harvest)"
-  anti-fraud:
-    - "Karmic Trace applied to suspicious transfers (monitored by GCEB)."
-    - "High-value transfers require `transfer_permit` signed by Merchant Alliance."
-
-# ============================================================
-# TAXATION, DUTIES, & MERCHANT NETWORK
-# ============================================================
-taxation:
-  overseer: "Great Court Treasury (Immortal Region) & Local Kingdoms (Mortal Region)"
-  rates:
-    - "Local trade tax: 2% (small merchants)"
-    - "Caravan toll: variable 1%–5% depending on region control"
-    - "Cross-realm duty (Spirit Stone ↔ Immortal Jade): 8%"
-    - "Luxury / Relic transfer tax: 15% (applies to G8–G9 items)"
-  exemptions:
-    - "Approved GM events"
-    - "Charitable transfers recorded in Heavenal Log"
-  tax_collection:
-    - "Collected at point-of-sale or via Merchant Alliance escrow accounts."
-
-merchant_network:
-  node_types:
-    - "Local Trader (Small) — 18 per kingdom"
-    - "Regional Trader (Medium) — 5 per kingdom"
-    - "Major Trader (Large) — 2 per kingdom (member of Merchant Alliance)"
-  caravan_system:
-    - "Routes have risk_level (0..100). Higher risk -> higher insurance/premium."
-    - "Caravans can be attacked (event engine) causing stock loss & price spikes."
-  merchant_alliance:
-    - "Coordinates trade routes, sets exchange spreads, manages escrow and auctions."
-
-# ============================================================
-# CRAFTING ECONOMY (ALCHEMY & FORGING)
-# ============================================================
-crafting_economy:
-  cauldron_grades: "I..IX (9 grades) — matches Alchemist Rank I..IX"
-  crafting_requirements:
-    - "To craft pill of grade N: Alchemist Rank >= N AND Cauldron Grade >= N (unless Law Compression exception applies)."
-    - "To forge artefact grade N: Forger Rank >= N AND Forge Tool Grade >= N."
-  success_rate_factors:
-    - "stat_wisdom, stat_intelligence, alchemy_skill, cauldron_grade, material_rarity, law_comprehension"
-  sample_success_roll:
-    formula: >
-      "Roll d100 + (Wisdom * 0.5) + (AlchemySkill * 1.2) + (CauldronGrade * 3) + MaterialBonus - (Complexity * 2)"
-    thresholds:
-      - ">= 85: Critical Success (extra potency or bonus effect)"
-      - "60–84: Success"
-      - "30–59: Partial success (weaker potency, side effects)"
-      - "<30: Failure (material lost, chance of backfire)"
-  market_impact:
-    - "Large successful batch crafting -> temporary market supply increase -> price falls."
-    - "Repeated failures -> material scarcity -> price increases."
-
-# ============================================================
-# BLACK MARKET & KARMA TRACE
-# ============================================================
-black_market:
-  nodes:
-    - "Abyss Shadow Nodes (Abyss realm)"
-    - "Hidden Bazaar (Mortal undercities)"
-    - "Void Pockets (illegal cross-realm hideouts)"
-  items_traded:
-    - "Stolen G8–G9 items"
-    - "Forbidden techniques / law fragments"
-    - "Sealed Divine relics (smuggled)"
-  risk_mechanics:
-    - "Karmic Trace score increases with illicit trades; once threshold reached, GCEB flagged."
-    - "GCEB action tiers: warning → raid → Heaven Seal Strike"
-  laundering:
-    - "Merchant Alliance escrow services can be compromised; laundering leaves traces."
-
-# ============================================================
-# ECONOMIC EVENTS & SHOCKS
-# ============================================================
-economic_events:
-  common_events:
-    - "Harvest Boom: sudden herb/ingredient abundance -> price drop"
-    - "Sect Raid: loss of production nodes -> price spike"
-    - "Tribulation Aftershock: surge in demand for pills -> increase in G3–G7 prices"
-  major_shocks:
-    - "Heavenal Intervention: Great Court embargo -> cross-realm trade freezes"
-    - "Void Incursion: destruction of trade hubs -> long-term scarcity"
-  event_effects:
-    - "Modify exchange_rates, restock_intervals, and shop spreads."
-    - "Trigger emergency auctions & GCEB deployment."
-
-# ============================================================
-# MARKET BALANCE TOOLS (FOR GM & ENGINE)
-# ============================================================
-balance_tools:
-  dynamic_pricing:
-    - "Algorithm adjusts price by supply_ratio and demand_index."
-    - "Price_change = base_price * (1 + min(0.5, demand_index - supply_ratio))"
-  inflation_model:
-    - "Global inflation tracked as `Heavenal CPI` (0..200)."
-    - "Default inflation: 1% per 100 Heavenal Days"
-    - "Major wars/events adjust CPI by event_impact_factor."
-  player_controls:
-    - "GM can freeze shop prices for events."
-    - "GM can inject resources (e.g., Holy Grants) to stabilize markets."
-  monitoring:
-    - "Merchant Alliance dashboard (shop_catalog) exposes key metrics: turnover, liquidity, black_market_index."
-
-# ============================================================
-# INTEGRATION & RULES (SHOP / GCEB / FACTIONS)
-# ============================================================
-integration:
-  shop_catalog_integration: "Each shop entry must include seller_faction, tier_limit_flags, and quantity_available. Linked to 'systems/shop_catalog.yaml'."
-  gceb_monitoring:
-    - "All cross-realm transfers > threshold require `transfer_permit` and are audited."
-    - "GCEB can freeze assets flagged with Karmic Trace pending investigation."
-  faction_privileges:
-    - "Alliances and Great Sects can operate private auction houses and set custom tax rates within their domains (subject to Great Court oversight for cross-realm activity)."
-
-# ============================================================
-# SAMPLE SHOP ENTRY (YAML SCHEMA)
-# ============================================================
-shop_entry_schema:
-  item_code: "string (unique)"
-  display_name: "string"
-  tier: "string (G1..G9 | I-G1..I-G9 | D-G1..D-G9)"
-  base_price: "numeric (in GC or SS/IJ depending)"
-  currency: "string (GC | SS | IJ | DC)"
-  quantity_available: "integer"
-  seller_faction: "string"
-  restock_in: "Heavenal Days"
-  purchase_restriction:
-    - "min_realm: string (e.g., Mortal:Half-Immortal 5)"
-    - "law_minimum: numeric (if law required)"
-  notes: "string"
-
-# ============================================================
-# VERIFICATION & MAINTENANCE
-# ============================================================
 verification:
   maintained_by: "Heavenal Control Node"
-  validated_on: "2025-11-10"
-  linked_manifest: "manifest.yaml v3.2-secure"
-  integrity_checks:
-    - "shop_catalog linkage verified"
-    - "cauldron/alchemist registry cross-check passed"
-    - "taxation rules and auction config validated"
-  checksum: "ECON-MATRIX-SHA-77B2C"
-  sign_key: "HCLN-ECON-SECURE"
-
-notes:
-  - "Any modification to exchange_rates or tier access must be reflected in 'systems/shop_catalog.yaml' and logged into Heavenal Log Archive."
-  - "GM may tune restock intervals, auction cadence, and tax rates for seasonal/event balancing."
+  last_audit: "2025-11-10"
+  checksum: "ECON-MAT-SHA-1122"
