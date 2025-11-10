@@ -1,0 +1,286 @@
+# ============================================================
+# NPC/TEMPLE_REGISTRY.YAML — HEAVENLY ORIGIN SAGA
+# Secure Public Version (v3.2)
+# Repository Path: npc/temple_registry.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  file_id: "NPC-TEMPLE-REG"
+  title: "Temple & Sacred Site Registry"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "NPC Subset — Spiritual Nodes & Nexus"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  linked_to:
+    - "npc/faction_index.yaml"
+    - "world/realm_structure.yaml"
+    - "codex_IV_immortal_structure.yaml"
+  status: verified
+  checksum: "NPC-TEMPLE-LOCK-9D3F1"
+  last_updated: "2025-11-11"
+
+introduction:
+  description: >
+    Temple Registry catalogs sacred sites, law-nexus, shrines, ascension arenas,
+    and pilgrimage routes across Mortal, Immortal, Divine, Abyssal, and Beast Realms.
+    Each entry specifies purpose, guardian entities, faction ties, permitted rites,
+    and mechanical effects for gameplay (buffs, debuffs, quest triggers).
+  purpose: >
+    To provide a canonical index for GM orchestration, event-engine triggers,
+    Heavenal Tribunal referrals, and player pilgrimage mechanics.
+  quote: |
+    "Where laws are carved into stone, fate finds an address."
+
+registry_structure:
+  record_fields:
+    - id: "Unique temple identifier (TMP-XXXX)"
+    - name: "Common name"
+    - realm: "Mortal / Immortal / Divine / Abyssal / Beast"
+    - location: "Continent / Region / Coordinates"
+    - affiliation: "Faction / Independent / Holy Region"
+    - guardian: "NPC, Primordial Beast, Divine Warden, or Artifact"
+    - sanctity_level: "1..10 (affects potency & risk)"
+    - permitted_rites: "List (pilgrimage, tribulation, sealing, forging, rebirth)"
+    - mechanical_effects: "Gameplay effects (buffs, debuffs, quest triggers)"
+    - access_requirements: "Realm/Rank/Item/Quest prerequisites"
+    - history_summary: "Short lore paragraph"
+    - security_measures: "Seals, wards, GCEB watch, divine locks"
+    - spawn_events: "Events that may occur (incursions, awakening, auction)"
+    - notes: "GM guidance / audit log"
+
+core_temples:
+  - id: "TMP-0001"
+    name: "Heavenal Archive Shrine"
+    realm: "Immortal — Middle Realm"
+    location: "Central Celestial Region, Holy District"
+    affiliation: "Heavenal Control Node / Holy Region Alliance"
+    guardian:
+      type: "Divine Archivist"
+      name: "Archivist Seratha"
+      realm_rank: "Dewa Transformasi Lv.15"
+    sanctity_level: 10
+    permitted_rites:
+      - "Law Research"
+      - "Karma Audit"
+      - "Heavenal Seal Application"
+    mechanical_effects:
+      - "Heavenal Insight: +5% Law Comprehension XP (temporary, 6 Heavenal Hours)"
+      - "Karma Readout: reveals major karma spikes in region"
+    access_requirements:
+      - "Immortal Langit+ to view restricted stacks"
+      - "Alchemist Tower clearance for cauldron logs"
+    history_summary: >
+      Ancient archive where Law Edicts are mirrored. Records are partially
+      inaccessible to Abyssial entities and require Heavenal Seal to decode.
+    security_measures:
+      - "Law Ward (permanent)"
+      - "GCEB audit beacon"
+    spawn_events:
+      - "Archive Leak (rare) — triggers GCEB silent-hunter task"
+    notes: "Primary hub for codex synchronization & GM lore references."
+
+  - id: "TMP-0002"
+    name: "Ascension Arena of Ten Thousand Steps"
+    realm: "Mortal — Tianlun Continent"
+    location: "Northern Plateau, Ascension Basin"
+    affiliation: "Holy Region — Tournament Commission"
+    guardian:
+      type: "Legacy Warden"
+      name: "Warden Lu Fang"
+      realm_rank: "Raja Immortal Lv.12"
+    sanctity_level: 9
+    permitted_rites:
+      - "Regional Trials"
+      - "Tribulation Simulation"
+      - "Ascension Qualification"
+    mechanical_effects:
+      - "Trial Echo: temporary XP bonus for performance (1–10%)"
+      - "Tribulation Feedback: increases tribulation difficulty trace if exploited"
+    access_requirements:
+      - "S-rank academy diploma or invited by kingdom governor"
+    history_summary: >
+      Arena where candidates for Ascension Tournament are vetted. Each step is
+      a small pocket-realm that simulates tribulation conditions.
+    security_measures:
+      - "Echo Dampeners"
+      - "Heavenal Observer Nodes"
+    spawn_events:
+      - "Rogue Trial (common during Ascension season)"
+    notes: "Use as GM-controlled challenge node; supports automated scoring."
+
+  - id: "TMP-0101"
+    name: "Nihility Gate Shrine"
+    realm: "Mortal — Nihility Border"
+    location: "Gates of the Shaded Vale"
+    affiliation: "Local Beast Clan / Neutral"
+    guardian:
+      type: "Primordial Beast Warden"
+      name: "Raxus (Proxy)"
+      realm_rank: "Transcendent Proxy"
+    sanctity_level: 8
+    permitted_rites:
+      - "Void Amalgamation Rites (restricted)"
+      - "Beast Pact Renewal"
+    mechanical_effects:
+      - "Nihility Echo: applies small debuff to Law Usage in surrounding 2 km"
+      - "Beast Resonance: +10% taming success for beast-related rites"
+    access_requirements:
+      - "Permission from Primordial Beast Council or stealth infiltration"
+    history_summary: >
+      A border shrine where beast ascension rites intersect with mortal law.
+      Acts as a stabilizer to prevent Void bleed into mortal lands.
+    security_measures:
+      - "Primordial Wards"
+      - "GCEB soft-watch"
+    spawn_events:
+      - "Beast Ascension Attempt (periodic)"
+    notes: "High roleplay value; treat tribulation simulation carefully."
+
+  - id: "TMP-1000"
+    name: "Abyssal Null Chapel"
+    realm: "Abyssal — Lower Depths"
+    location: "Hollow Spire, Abyssal Depths"
+    affiliation: "Evil Path — Tenebrous Conclave (de facto)"
+    guardian:
+      type: "Abyssal Patriarch Warden"
+      name: "Vor, High Patriarch"
+      realm_rank: "Dewa Transformasi Lv.60 (Abyssal)"
+    sanctity_level: 9
+    permitted_rites:
+      - "Void Corruption Invocation (forbidden)"
+      - "Dark Pact Sealing"
+    mechanical_effects:
+      - "Corruption Aura: high negative karma accumulation for nearby factions"
+      - "Law Distortion: reduces efficacy of law-based sealing in area"
+    access_requirements:
+      - "Abyssal Invitation or stolen permit"
+    history_summary: >
+      Chapel used by evil sects to bind corrupted souls. Dangerous for mortals;
+      GCEB flags any cross-realm trade originating here.
+    security_measures:
+      - "Null Seals that resist Heavenal audits"
+      - "Abyssal Wards"
+    spawn_events:
+      - "Corruption Surge (rare; triggers GCEB escalation)"
+    notes: "GM caution: high-risk location, may trigger world-level events."
+
+  - id: "TMP-2000"
+    name: "Temple of Rebirth — Soul Warden Hall"
+    realm: "Divine — Lower Deity"
+    location: "Heart of Rebirth (Divine Plane)"
+    affiliation: "Order of Soul Wardens"
+    guardian:
+      type: "Divine Warden"
+      name: "Goddess Shura Ilyana"
+      realm_rank: "Dewa Sejati Lv.40"
+    sanctity_level: 10
+    permitted_rites:
+      - "Reincarnation Authorization"
+      - "Soul Cleansing"
+      - "Memory Sealing / Unsealing (Divine-level)"
+    mechanical_effects:
+      - "Rebirth Ledger Access: can determine likely reincarnation epoch"
+      - "Memory Seal: allows GM to seal/unseal memories per rules (quest locked)"
+    access_requirements:
+      - "Divine Petition or Heavenal Tribunal Warrant"
+    history_summary: >
+      Central sanctuary for managing the soul wheel. It authorizes reincarnation
+      and adjudicates extraordinary soul events (e.g., Law-broken souls).
+    security_measures:
+      - "Divine Audit Chains"
+      - "Heavenal Tribunal oversight"
+    spawn_events:
+      - "Divine Petition (rare; triggers cross-realm council)"
+    notes: "Mechanics tied to rebirth/returner systems. GM-controlled."
+
+additional_temples_sample:
+  - id: "TMP-0033"
+    name: "Tower Cauldron Shrine"
+    realm: "Immortal"
+    sanctity_level: 7
+    permitted_rites:
+      - "Cauldron Certification"
+      - "High-Grade Pill Imbuing"
+    mechanical_effects:
+      - "Alchemy Success +X% when certified cauldron used"
+    access_requirements:
+      - "Alchemist Tower badge or temporary permit"
+    notes: "Linked to alchemy_sheet and forging systems."
+
+  - id: "TMP-0077"
+    name: "Warding Circle of the Ten Thousand Stars"
+    realm: "Immortal — Great Heaven border"
+    sanctity_level: 9
+    permitted_rites:
+      - "Mass Seal Casting"
+      - "World-Anchor Ritual"
+    mechanical_effects:
+      - "Global Defensive buff when activated by council (event-level)"
+    access_requirements:
+      - "Great Court authorization"
+    notes: "Use sparingly — large mechanical impact."
+
+pilgrimage_routes:
+  - id: "PLG-001"
+    name: "Path of the Nine Trials"
+    start: "Tianlun City"
+    waypoints:
+      - "Ascension Arena of Ten Thousand Steps (TMP-0002)"
+      - "Tower Cauldron Shrine (TMP-0033)"
+      - "Heavenal Archive Shrine (TMP-0001)"
+    length: "1200 km (narrative)"
+    mechanical_effects:
+      - "Completing route grants 'Pilgrim's Merit' (reputation +50 with Holy Region)"
+      - "Small permanent bonus to Spirit Pool (+0.5%)"
+    access_requirements:
+      - "No active criminal seal; pilgrim pass"
+    spawn_events:
+      - "Pilgrim Bandit Raid (common)"
+    notes: "Use to introduce multi-stage questlines."
+
+mechanics_integration:
+  tied_systems:
+    - "systems/karma_system.yaml"
+    - "systems/ascension_trial.yaml"
+    - "systems/alchemy_sheet.yaml"
+    - "systems/heaven_timer.yaml"
+    - "systems/heavenal_audit.yaml"
+  gm_triggers:
+    - "When temple sanctity drops below 3 → spawn cleansing event"
+    - "If shrine ledger compromised → create Archive Leak mission"
+    - "Divine petitions may auto-escalate to Heavenal Tribunal"
+  automated_checks:
+    - "Heavenal Control Node runs integrity check on sacred nodes every 7 Heavenal Days"
+    - "GCEB flagged temples produce a 'watch' token visible to authorized immortals"
+
+access_control_and_security:
+  access_tokens:
+    - "Heavenal Seal (issued by Great Court)"
+    - "Alchemist Permit (issued by Alchemist Tower)"
+    - "Primordial Warden Consent (beast nodes)"
+  prohibited_actions:
+    - "Open corruption invocation in non-Abyssal temples"
+    - "Unauthorized memory unsealing at Divine Shrines"
+    - "Mass law rewriting in archive shrines"
+  enforcement:
+    - "Local Garrison (mortal sites)"
+    - "GCEB (immortal/divine incidents)"
+    - "Heavenal Tribunal (major transgressions)"
+
+gm_guidelines:
+  - "Record any temple-state changes in Heavenal Log Archive (not codex)."
+  - "Use sanctity_level as a sliding scale for risk/reward. Higher sanctity → stronger effects, higher divine scrutiny."
+  - "Temple mechanical effects must be play-tested for balance before permanent activation."
+  - "Link temple events to faction reputation to encourage player-faction interaction."
+  - "When allowing player to seal/unseal memories, create clear quest nodes and cost (karma, resource, or trial)."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-11"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "NPC-TEMPLE-SHA-4B7E2"
+  sign_key: "HCLN-TEMPLE-REG-SECURE"
