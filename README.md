@@ -1,274 +1,76 @@
-# Heavenly Origin Saga · v0.1.0
+# 🌌 Heavenly Origin Saga  
+Sistem permainan dan dunia fiksi **cultivation x Dungeons & Dragons** yang dirancang untuk campaign naratif skala besar.  
+Heavenly Origin Saga memperluas *progression* karakter dari sekadar level menjadi perjalanan mendaki **realm eksistensi**, hukum kosmik, dan keterlibatan dengan takdir itu sendiri.
 
-## Quick Start
-- Clone repo, install deps, run the main entrypoint.
+---
 
-## Installation
-- No explicit installation requirements specified in `manifest.yaml`.
+## 🎯 Tujuan Proyek
+- Menciptakan **sistem kultivasi** yang dapat dimainkan sebagai tabletop RPG.
+- Menyediakan **dunia lengkap** berisi sekte, kerajaan, faksi, dan sejarah kosmik.
+- Mendukung permainan **manual**, **VTT (Foundry/Roll20)**, atau **ChatGPT sebagai Dungeon Master**.
 
-## Repository Structure
-_Refer to the repository tree. Update this section if structure changes._
+---
 
-## Contributing
-- Please open issues or PRs following the repository's guidelines.
+## 🗺 Lapisan Dunia
 
-## License
-- UNSPECIFIED
+| Lapisan | Deskripsi | Contoh Penghuni |
+|---|---|---|
+| **Dunia Mortal** | Awal seluruh jiwa, tempat kerajaan dan sekte dasar | Kultivator pemula |
+| **Dunia Immortal** | Negeri sekte langit & para Immortal | 36 Sekte Besar, Holy Region Alliance |
+| **Dunia Dewa** | Alam hukum dan kehendak eksistensi | Dewa Transformasi, Dewa Sejati |
+| **Dunia Chaos** | Ruang primordial sebelum hukum | Chaos Sovereign |
+| **Dunia Void** | Kekosongan di luar eksistensi | Void Lord, GCEB Task Force |
 
-## Manifest Snapshot
-> Generated from `manifest.yaml` on 2025-11-10 18:08 
+---
 
-```yaml
-# ===========================================
-# HEAVENLY ORIGIN SAGA — MANIFEST (v3.2-secure-revised)
-# Generated: 2025-11-10T17:59:24Z
-# Maintainer: Heavenal Control Node
-# Note: GM token must be provided via environment variable: HEAVENAL_GM_TOKEN
-# ===========================================
+## 🎮 Sistem Progression (Gameplay)
 
-meta:
-  version: "3.2-secure-revised"
-  repository: "HeavenlyOriginSaga-DnDBased"
-  author: "Tito Baitanu"
-  maintainer: "Heavenal Control Node"
-  auth_reference: "ENV[HEAVENAL_GM_TOKEN]"
-  license_model: "Dual License (MIT + Heavenal Law Open-Collab)"
-  codex_count: 31
-  sync_integrity: "verified"
-  checksum_hash: "ae71f3c4b1-secure-v3"
-  repository_status: "stable"
-  encryption_mode: "local_safe"
-  build_environment: "Heavenal Engine v2.0"
-  release_channel: "public"
-  last_updated: "2025-11-10"
+Karakter berkembang dalam **Tier Eksistensi**:
 
-# -------------------------
-# Core Codex Registry
-# -------------------------
-codex_registry:
-  core_codex:
-    # Core legal / cosmology / mechanistic codices (ordered, authoritative)
-    - codex_I_creation.yaml
-    - codex_II_balance.yaml
-    - codex_III_structure.yaml
-    - codex_IV_immortal_structure.yaml
-    - codex_V_divine_tribunal.yaml
-    - codex_VI_heavenal_great_court.yaml
-    - codex_VII_heavenal_law_cycle.yaml
-    - codex_VIII_karma_and_fate_system.yaml
-    - codex_IX_soul_and_reincarnation.yaml
-    - codex_X_divine_soul_network.yaml
-    - codex_XI_heavenal_network.yaml
-    - codex_XII_divine_comunication_matrix.yaml
-    - codex_XIII_heaven_tribunal.yaml
-    - codex_XIV_abyssal_law_demonic.yaml
-    - codex_XV_heavenal_mechanism.yaml
-    - codex_XVI_divine_realm_and_ascension.yaml
-    - codex_XVII_celestial_conflict_and_era_cycle.yaml
-    - codex_XVIII_soul_wheel_and_reincarnation.yaml
-    - codex_XIX_technique_system.yaml
-    - codex_XX_realm_architecture.yaml
-    - codex_XXI_heavenal_gate_ascension.yaml
-    - codex_XXII_heavenal_law_regulation.yaml
-    - Codex_XXIII_karma_and_reincanation.yaml
-    - codex_XXIV_battle_law_limitation.yaml
-    - codex_XXV_abyss_beast.yaml
-    - codex_XXVI_divine_concord.yaml
-    - codex_XXVII_heavenal_tribulation.yaml
-    - codex_XXVIII_karma_reincanation.yaml
-    - codex_XXIX_transcendent_order.yaml
-    - codex_XXX_heavenal_reset_genesis.yaml
-    - codex_cosmic_realm_full.yaml
+| Tier | Level Gameplay | Status Eksistensi (Realm) |
+|---|---|---|
+| **Tier 1** | Lv. 1–20 | Dunia Mortal (Qi Refining → Half Immortal) |
+| **Tier 2** | Lv. 21–40 | Dunia Immortal (Immortal Langit → Raja Immortal) |
+| **Tier 3** | Lv. 41–60 | Dunia Dewa (Dewa Transformasi → Dewa Sejati) |
+| **Tier 4** | Lv. 61–70 | Divine Transcendent |
+| **Tier 5** | Lv. 71+ | Beyond Existence (Peerless Ancient Wanderer) |
 
-  auxiliary_codex:
-    # Gameplay, economy, systems, and lore indices (supporting but editable)
-    - codex_lore_master_index.yaml
-    - codex_alchemy_forging.yaml
-    - codex_economy_trade.yaml
-    - codex_faction_legion.yaml
-    - codex_heavenal_shop.yaml
-    - codex_npc_faction.yaml
-    - codex_conflict_matrix.yaml
-    - codex_beast_doctrine.yaml
-    - codex_synchronization.yaml
-    - codex_world_event.yaml
-    - codex_cause_effect.yaml
-    - codex_karma_registry.yaml
-    - codex_rebirth_evolution.yaml
-    - codex_timeflow_temporal.yaml
-    - codex_world_synchrinization.yaml
-    - codex_world_event_anomaly.yaml
-    - codex_karma_registry_cause.yaml
-    - codex_rebirth_evolution_transmigration.yaml
-    - codex_timeflow_temporal_law.yaml
-    - codex_forging_recipes_index.yaml
-    - codex_pill_catalog_index.yaml
-    - codex_herb_catalyst_compendium.yaml
-    - codex_artifact_index.yaml
-    - codex_codex_dependencies.yaml
-    - codex_security_protocols.yaml
+---
 
-# -------------------------
-# System Modules (runtime)
-# -------------------------
-system_modules:
-    - systems/shop_catalog.yaml
-    - systems/forging_sheet.yaml
-    - systems/alchemy_sheet.yaml
-    - systems/json_binding_map.yaml
-    - systems/battle_law_limitation.yaml
-    - systems/karma_system.yaml
-    - systems/ascension_trial.yaml
-    - systems/inventory_module.yaml
-    - systems/reward_loot_tier.yaml
-    - systems/heaven_timer.yaml
-    - systems/law_compression_engine.yaml
-    - systems/heavenal_audit.yaml
-    - systems/panel_interface_player.yaml
-    - systems/news_interface.yaml
+## 🌀 Sistem Teknik (Heavenly Technique System)
 
-# -------------------------
-# World Architecture files
-# -------------------------
-world_architecture:
-    - world/realm_structure.yaml
-    - world/world_map.yaml
-    - world/beast_realm.yaml
-    - world/abyss_realm.yaml
-    - world/immortal_domains.yaml
-    - world/deity_domain.yaml
-    - world/great_heaven.yaml
-    - world/chaos_realm.yaml
-    - world/void_realm.yaml
-    - world/void_realm.yaml
-    - wolrd/transcendent_realm.yaml
-    - world/economy_matrix.yaml
-    - world/holy_region.yaml
-    - world/merchant_network.yaml
-    - world/continent_division.yaml
+Teknik terbagi menjadi 16 jalur seni, misalnya:
+- Heavenly Sutra  
+- Sword Arts  
+- Martial Arts  
+- Soul Arts  
+- Law Arts (Waktu, Ruang, Karma, Takdir)  
+- Body Forging  
+- Elemental Arts (Api, Petir, Bayangan, Cahaya, dll)
 
-# -------------------------
-# NPC, Faction & Legion registries
-# -------------------------
-npc_and_faction:
-    - npc/faction_index.yaml
-    - npc/npc_registry.yaml
-    - npc/divine_entities.yaml
-    - npc/beast_clans.yaml
-    - npc/abyss_legion.yaml
-    - npc/merchant_guilds.yaml
-    - npc/academy_registry.yaml
-    - npc/temple_registry.yaml
+Semakin tinggi realm, semakin dalam **resonansi hukum** dan potensi teknik.
 
-# -------------------------
-# Event Engine & triggers
-# -------------------------
-event_engine:
-    - event/world_event_engine.yaml
-    - event/karma_trigger.yaml
-    - event/ascension_trial.yaml
-    - event/divine_intervention.yaml
-    - event/void_invasion.yaml
-    - event/heavenal_resonance_watch.yaml
+---
 
-# -------------------------
-# Security & sync protocols
-# -------------------------
-security_protocols:
-  token_reference: "ENV[HEAVENAL_GM_TOKEN]"    # DO NOT store token plaintext in repo
-  sync_mode: true
-  auto_backup: true
-  encryption: true
-  auto_recover: enabled
-  access_control:
-    gm_level: 9
-    lead_maintainer: 8
-    contributor_level: 4
-    reviewer_level: 3
-    viewer_level: 1
-  integrity_check:
-    law_consistency: verified
-    codex_linkage: stable
-    npc_binding: synchronized
-    system_dependency: complete
+## 📦 Struktur Repository
 
-# -------------------------
-# Data (wildcards)
-# -------------------------
-data_globs:
-  - data/**
+HeavenlyOriginSaga/
+│
+├─ world/ # Lore, wilayah, sejarah, geopolitik dunia
+├─ npc/ # Sekte, faksi, karakter penting, divine entities
+├─ event/ # Sistem event, karma, tribulation, perang langit
+├─ system/ # Mekanik permainan, leveling, skill tree
+├─ data/ # Item, herb, pill, artifact, senjata (JSON)
+├─ scripts/ # Generator & automation tools
+└─ README.md # Dokumentasi utama
 
-# -------------------------
-# Sync Status Snapshot
-# -------------------------
-sync_status:
-  codex: "100%"
-  systems: "100%"
-  npc_registry: "99%"
-  world_architecture: "99%"
-  event_engine: "98%"
-  shop_catalog: "100%"
-  alchemy_db: "96%"
-  overall_sync: "98.6%"
-  notes: >
-    Most modules operational. alchemy recipe DB still awaiting full validation (approx 4% remaining).
-    GM environment variable required for write-lock operations.
 
-# -------------------------
-# Update Log (recent)
-# -------------------------
-update_log:
-  - date: "2025-11-10"
-    author: "Heavenal Control Node"
-    changes:
-      - Harmonized manifest to match on-disk structure (per user-provided list)
-      - Added data/** wildcard include
-      - Kept file names as-is (including potential typos) for strict matching
+---
 
-# -------------------------
-# Verification / Signatures
-# -------------------------
-verification:
-  signed_by: "Heavenal Control Node"
-  key_signature: "HCLN-SECURE-PRIME-v3"
-  verified_date: "2025-11-10"
-  signature_hash: "b29f1e-verified-lock-v3"
+## 🚀 Cara Menggunakan
 
-# -------------------------
-# Operational Notes (GM)
-# -------------------------
-operational:
-  gm_instructions:
-    - "Set HEAVENAL_GM_TOKEN in your environment before performing any lock/unlock operations."
-    - "Do NOT commit tokens or secrets to the repository. Use .gitignore for local export files."
-    - "When updating core codex files, increment manifest.version and add an update_log entry."
-    - "Use codex_codex_dependencies.yaml to validate cross-codex references before merging."
-  backup_policy:
-    frequency: "daily"
-    retention_days: 90
-    location: "encrypted-local / remote-s3-optional"
-  release_policy:
-    stable_branch: "main"
-    dev_branch: "dev"
-    hotfix_branch_prefix: "hotfix/"
+### 1) Clone Repository
+```bash
+git clone https://github.com/titobaitanu/HeavenlyOriginSaga-DnDBased.git
+cd HeavenlyOriginSaga-DnDBased
 
-# -------------------------
-# Developer / Export Helpers
-# -------------------------
-export_presets:
-  archive_format: "tar.gz"
-  manifest_export: "manifest_v3.2-secure-revised.yaml"
-  recommended_files_for_export:
-    - README.md
-    - LICENSE
-    - LICENSE_NOTICE.md
-    - manifest.yaml
-    - codex_registry/
-    - systems/
-    - world/
-    - npc/
-    - event/
-    - data/**
-
-# End of manifest
-```
