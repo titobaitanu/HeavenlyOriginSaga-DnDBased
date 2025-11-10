@@ -1,1 +1,277 @@
+# =============================================================================
+# event/void_invasion.yaml
+# CODE: EVT-VOID-001
+# Title: Void Invasion Event System
+# Version: 3.2-secure
+# Maintainer: Heavenal Control Node
+# Repository Path: event/void_invasion.yaml
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# =============================================================================
 
+meta:
+  id: "EVT-VOID-001"
+  title: "Void Invasion Event System"
+  version: "3.2-secure"
+  author: "Heavenal Control Node"
+  last_updated: "2025-11-10"
+  classification: "Event Engine — World Threat"
+  linked_codex:
+    - "codex_XIV_rebirth.yaml"
+    - "codex_XIX_technique_system.yaml"
+    - "codex_XX_realm_architecture.yaml"
+    - "codex_IV_immortal_structure.yaml"
+    - "codex_cosmic_realm_full.yaml"
+  dependencies:
+    - "event/world_event_engine.yaml"
+    - "systems/heaven_timer.yaml"
+    - "systems/heavenal_audit.yaml"
+    - "npc/faction_index.yaml"
+    - "world/abyss_realm.yaml"
+    - "world/void_realm.yaml"
+
+description: >
+  Sistem Void Invasion mendeteksi, menilai, dan mengatur respons terhadap
+  munculnya anomali Void (Abyssal Null incursions) yang menimbulkan penghapusan
+  hukum lokal, kelumpuhan Qi, atau manipulasi timeline. Void Invasion
+  mencakup insiden dari skala lokal (pocket null) hingga skala kosmik (Null Rift).
+  Event ini terikat langsung pada GCEB, Heavenal Control Node, dan dapat
+  memicu intervensi legiun Immortal / Divine.
+
+terminology:
+  Void Echo: "Jejak hukum yang hilang; sumber kebocoran realitas."
+  Pocket Null: "Kecil — area 10–500 m, efek lokal."
+  Null Rift: "Sedang — area 0.5–50 km, memicu tribulation regional."
+  Abyssal Breach: "Besar — multiregional / antar-realm; membutuhkan respon GCEB Tier 3."
+  Law Corrosion: "Proses di mana hukum lokal melemah dan terhapus."
+  Soul Attrition: "Kerusakan permanen pada SR / jiwa akibat paparan Void."
+  Containment Ring: "Portal & struktur hukum untuk memblokir penyebaran Void."
+
+triggers:
+  passive_triggers:
+    - "Void Echo detection via Heavenal Mirror (background scan)."
+    - "Karmic Trace: anomali karma bertambah > threshold."
+    - "Law Distortion readings abnormal (Law Audit delta > 12%)."
+    - "Sector merchant / traveller reports of 'white silence' zones."
+  active_triggers:
+    - "Portal breach observed (visual / sensor evidence)."
+    - "Massive soul disappearances (>50 individuals dalam 1 jam lokal)."
+    - "Transcendent signature resonance detected near Mortal/Immortal border."
+    - "Use of forbidden Law Writing with Void-affinity (automatic alert)."
+
+threat_levels:
+  0:
+    name: "Stable"
+    description: "Tidak ada ancaman Void aktif."
+    response: "Monitoring periodic (Heavenal Mirror)."
+  1:
+    name: "Pocket Null"
+    radius_m: 10
+    impact: "Minor — local Qi suppression, sanity haze."
+    response: "Local clerks & Silent Hunters dispatch. Containment ring attempt."
+  2:
+    name: "Null Breach (Local)"
+    radius_km: 0.5
+    impact: "Medium — law corruption, soul strain, fauna mutation."
+    response: "Heavenly Inquisitors + Alchemist Tower support. Area quarantine."
+  3:
+    name: "Null Rift (Regional)"
+    radius_km: 50
+    impact: "Severe — regional law collapse, weather anomalies, long-term soul attrition."
+    response: "Void Guardians & Void Marshal mobilize. Divine permits for intervention."
+  4:
+    name: "Abyssal Breach (Cross-Realm)"
+    radius: "multiregional"
+    impact: "Critical — cascading law failures, possible World Resonance Rejection."
+    response: "Heavenly Arbiter direct command; full GCEB Tier 3 response; call Divine Legions."
+
+detection_mechanics:
+  baseline_scan:
+    frequency: "Every 1 Heavenal Hour"
+    sources:
+      - "Heavenal Mirror nodes"
+      - "Void Sentinel Army patrol feeds"
+      - "Merchant Alliance trade anomaly reports"
+    detection_roll: "D20 + (Heavenal Mirror Integrity Index × 0.1) + (GCEB Awareness Bonus)"
+    detection_thresholds:
+      - "≤ 8: undetected (pocket may form)"
+      - "9–14: flag for monitoring"
+      - "15–20+: immediate alert — spawn Active Trigger"
+  local_sensor:
+    inputs: ["Qi Flux", "Law Audit Delta", "Soul Flux"]
+    sensor_formula: "Qi Flux × 0.4 + Law Audit Delta × 0.6"
+    sensor_threshold: 12
+
+escalation_rules:
+  - "If threat level increases by 1 within 6 Heavenal Hours → auto-escalate to next tier."
+  - "If multiple pockets (>3) occur in same region within 24 Heavenal Hours → merge into Null Rift."
+  - "Use of large-scale Law Writing near breach → immediate +1 to threat level and increases tribulation chance."
+
+containment_protocols:
+  immediate_actions:
+    - "Establish Containment Ring (requires 1–3 skilled casters + 1 Alchemist Cauldron anchor)."
+    - "Evacuate non-essential lifeforms within radius (GM/engine handles NPC evacuation)."
+    - "Deploy Silent Hunters to mark and record anomalies."
+  technical_requirements:
+    - "Containment Ring success roll: D20 + (Total LC of ritual team × 0.5) + (Cauldron Grade bonus)"
+    - "Success DC per tier:"
+      - "Pocket Null: DC 12"
+      - "Null Breach: DC 16"
+      - "Null Rift: DC 22"
+      - "Abyssal Breach: DC 30 (GM only, narrative)"
+  failure_consequences:
+    - "Partial failure: ring holds but leaks → slow law corrosion; increase Soul Attrition rate +10%."
+    - "Total failure: ring collapses → threat_level++ and possible permanent area loss."
+
+tribulation_and_world_effects:
+  heaven_roll_trigger: "Any active containment failure or use of trans-realm law near breach"
+  heaven_roll: "D20 + (Region SR Average ÷ 5) + (Heaven Recognition median ÷ 2)"
+  outcome_table:
+    1-4:
+      effect: "Divine Backlash — instant Heavenal Strike causing major casualties."
+      mechanics: "All present characters suffer 2d10 damage; -2 SR for 24 hours."
+    5-9:
+      effect: "Soul Distortion — temporary loss of memories (seal)."
+      mechanics: "Target vs. SR save (DC 15) or lose random memory thread (GM narrates)."
+    10-14:
+      effect: "Containment Opportunity — partial stabilization, high cost."
+      mechanics: "Containment roll receives +2 bonus; heavy Qi consumption."
+    15-19:
+      effect: "Heavenal Aid — minor divine assistance."
+      mechanics: "Receive help from local Heavenal entity; +1 to future containment rolls."
+    20:
+      effect: "Divine Recognition — Langit acknowledges region; reduces future invasion probability."
+      mechanics: "Region gains temporary Heavenal Blessing (30 Heavenal Days)."
+
+long_term_effects:
+  - "Law Corrosion: affected area loses one grade of local law per 1 month until restored."
+  - "Soil & Qi Poisoning: herbs and pill catalysts potency reduced by 20–60%."
+  - "Permanent Soul Mark: survivors may carry a Void Mark lowering Heaven Recognition by -1."
+  - "Domain Shift: persistent Null Rifts can create micro-void pockets (GM discretion)."
+
+response_actors_and_roles:
+  local:
+    - "Town Leaden — evacuation & basic warding."
+    - "Local Sect Elders — provide domain rituals (if available)."
+  regional:
+    - "Silent Hunters — reconnaissance & covert containment."
+    - "Heavenly Inquisitors — ritual enforcement & arrests."
+    - "Alchemist Tower — cauldron anchors, material synthesis for sealing."
+  global:
+    - "Void Marshal — coordinates large-scale suppression."
+    - "Heavenly Arbiter — final authorization for Divine Legions or Law Rewrite."
+    - "Divine Legions — may be called only when Abyssal Breach threatens core realms."
+
+mitigation_tools_and_artifacts:
+  approved_tools:
+    - "Containment Cauldron (Grade I–IX) — anchor for ring rituals."
+    - "Void Lantern (Gadget) — map pocket nulls for 24 Heavenal Hours."
+    - "Heaven Seal Fragment — temporary law reinforcement (single use)."
+    - "Karmic Beacon — draws Void away from populated areas (low success rate)."
+  forbidden_tools:
+    - "Heaven Stealing Law when active Void present (double resonance backlash)."
+    - "Law Rewrite near Null Rift (unless authorized by Heavenly Arbiter)."
+
+loot_and_rewards:
+  salvageable:
+    - "Void Remnant Shard — rare component for high-tier artefacts; high risk to craft with."
+    - "Corrupted Essence — usable for forbidden transmutations (heavy karma penalty)."
+  rewards_for_successful_containment:
+    - "Heavenal Favor points (region-wide) — used for petitions to Great Court."
+    - "Alchemist Credits — exchangeable for cauldron upgrades."
+    - "Reputation boost with GCEB or Alchemist Tower."
+  crafting_notes:
+    - "Void Remnant requires special forging: D20 + LC + CauldronGrade / DC variable (GM)."
+    - "Using Corrupted Essence increases negative karma and raises future invasion probability."
+
+npc_and_faction_behavior_rules:
+  abyss_factions:
+    - "Demonic factions may intentionally probe Null edges for Law-stealing opportunities."
+    - "Evil factions may exploit weak regions to plant corruption rites."
+  beast_clans:
+    - "Beasts exposed to Null may mutate; Primordial Protectors can attempt natural sealing rites."
+  mortal_sects:
+    - "Lower-rank sects should avoid direct engagement; seek Alchemist/Immortal aid."
+  merchant_reactions:
+    - "Trade routes crossing Null zones become high-risk — price surge for essentials."
+
+event_templates (GM / Engine use):
+  pocket_null_template:
+    id: "TEMPLATE-PN"
+    tier: 1
+    spawn_conditions:
+      - "Random scan fail near leyline weakpoint"
+      - "Illicit Law Writing ritual backfire"
+    duration: "12–72 Heavenal Hours"
+    suggested_npcs: ["Silent Hunter Squad", "Local Alchemist Master"]
+  null_rift_template:
+    id: "TEMPLATE-NR"
+    tier: 3
+    spawn_conditions:
+      - "Merged pocket nulls > 3 in same biome"
+      - "Transcendent interference"
+    duration: "7–90 Heavenal Days"
+    suggested_npcs: ["Void Marshal", "Regional Heavenly Inquisitors", "Divine Aid (narrative)"]
+  abyssal_breach_template:
+    id: "TEMPLATE-AB"
+    tier: 4
+    spawn_conditions:
+      - "Intentional Abyss opening (Abyssal Ritual)"
+      - "Cataclysmic Law Rewrite attempt"
+    duration: "Indeterminate (requires Divine Intervention)"
+    suggested_npcs: ["Heavenly Arbiter", "Divine Legions", "Peerless-level narrative events"]
+
+automation_and_engine_hooks:
+  - "world_event_engine:register_event(type='void_invasion', template_id=... )"
+  - "gceb_watchlist:add_region_if(threat_level>=2)"
+  - "heaven_timer:pause_region_time_dilation on Abyssal Breach"
+  - "karma_system:apply_karmic_spike(region, magnitude) on containment failure"
+  - "shop_catalog:disable_region_items_when(soil_poisoning=true)"
+  - "npc_registry:flag_spawn_blacklist for affected npc types"
+
+probabilities_and_random_tables:
+  pocket_null_spawn_chance:
+    base_chance_percent: 0.4
+    modifiers:
+      - "Nearby Abyss faction ritual: +3%"
+      - "High Karma instability: +2% per 200 karma delta"
+      - "Law Writing attempts in region: +5% per major attempt"
+  containment_success_base:
+    Pocket_Null: 75
+    Null_Breach: 45
+    Null_Rift: 25
+    Abyssal_Breach: 5
+  containment_modifiers:
+    - "Each Cauldron Grade above required: +5% per grade"
+    - "Total LC of team per 5 points: +3%"
+    - "Heavenal Mirror Integrity > 80: +10%"
+
+logging_and_audit:
+  - "All Void Invasions are recorded in Heavenal Log Archive (technical only)."
+  - "GM actions during Abyssal Breach must be annotated with reason and signature (auth GM token required)."
+  - "Containment roll outcomes persisted to codex_sync for analytics."
+
+gm_guidance_and_narrative_notes:
+  - "Void events should feel dangerous and rare; use them to create high-stakes story beats."
+  - "Avoid making Void remediation entirely mechanical — allow roleplay solutions (sacrifices, bargains)."
+  - "Use loot (Void Remnant) sparingly — heavy narrative cost (karma, attention of Abyss)."
+  - "When invoking Divine Legions, prepare long-term world consequences (political fallout)."
+
+tests_and_example_flows:
+  example_1_pocket_null:
+    setup: "Small shrine vandalized; Law Writing backfired."
+    detection: "Local Heavenal Mirror flagged anomaly (D20 roll 16)."
+    response: "Silent Hunters + Local Alchemist dispatched; containment roll success (DC12)."
+    outcome: "Containment stable; region gains minor Heavenal Favor +5."
+  example_2_null_rift:
+    setup: "Three pocket nulls merged near merchant hub after illegal ritual."
+    detection: "Auto escalation to tier 3; GCEB alerted."
+    response: "Void Guardians + Inquisitors attempt containment; initial failure."
+    outcome: "Divine Aid requested; region undergoes long-term soil poisoning; trade routes reroute."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "EVT-VOID-001-SHA-7B2D"
+  sign_key: "HCLN-EVT-VOID-SECURE"
