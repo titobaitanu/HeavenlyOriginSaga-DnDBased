@@ -1,0 +1,263 @@
+# ============================================================
+# NPC/MERCHANT_GUILDS.YAML — HEAVENLY ORIGIN SAGA
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: npc/merchant_guilds.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  file_id: "NPC-MERCHANT-GUILDS"
+  title: "Merchant Guilds & Trade Network Index"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "NPC Subset — Economy & Trade"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  linked_to:
+    - "world/merchant_network.yaml"
+    - "codex_economy_trade.yaml"
+    - "npc/faction_index.yaml"
+    - "systems/shop_catalog.yaml"
+  status: verified
+  checksum: "NPC-MERCH-LOCK-4F2E1"
+  last_updated: "2025-11-11"
+
+introduction:
+  description: >
+    Merchant Guilds form the circulatory system of the Heavenly Origin Saga's economy.
+    They organize trade nodes, regulate exchange rates between mortal/immortal/divine currencies,
+    control major caravan routes, and operate legal & clandestine markets.
+  purpose: >
+    Define merchant organizations, trade mechanics, restock cycles, auction procedures,
+    blacklist/whitelist systems, and integration points for NPC generation and event engine.
+  quote: |
+    "We move what the heavens leave behind — coin, goods, and the rumor of power."
+
+guild_hierarchy:
+  tiers:
+    - Tier: "Small Merchant"     # local stall owners, small caravans
+    - Tier: "Medium Merchant"    # regional traders, caravan leaders
+    - Tier: "Grand Merchant"     # nation-level merchant houses
+    - Tier: "Guild Council"      # cross-kingdom alliances (Merchant Alliance)
+    - Tier: "Divine Consortium"  # interacts with Immortal & Divine trade
+  governance:
+    - "Local Guildmasters — manage city/market level."
+    - "Regional Merchants — oversee caravan routes and wholesaling."
+    - "Grand Houses — control import/export, rare goods, auctions."
+    - "Merchant Alliance Council — sets exchange baselines and dispute resolution."
+
+major_guilds:
+  - id: "MG-001"
+    name: "Heavenly Merchant Guild"
+    base: "Central Celestial Region (Holy District)"
+    leader: "Master Kredan"
+    tier: "Guild Council"
+    specialties:
+      - "Cross-realm logistics"
+      - "Currency exchange (Gold/Silver/Copper ⇄ Spirit Stone)"
+      - "Certified auctions (G7–G9 grade items by permission)"
+    assets:
+      warehouses: 24
+      caravans: 180
+      flagged_trade_routes: ["Silk of Essence", "Spirit Stone Lane"]
+    reputation: 85
+    special_permissions: ["Heavenal Cauldron Registry Access (watch-only)"]
+
+  - id: "MG-002"
+    name: "Lotus Harbor Consortium"
+    base: "Baiyang Harbor"
+    leader: "House Lian"
+    tier: "Grand Merchant"
+    specialties:
+      - "Maritime trade & rare herbs"
+      - "Smuggling control (licensed)"
+    assets:
+      docks: 12
+      merchant_ships: 60
+    reputation: 72
+
+  - id: "MG-003"
+    name: "Tenebrous Brokers"
+    base: "Underveil Road (Abyss Border Node)"
+    leader: "Broker Vor"
+    tier: "Medium Merchant"
+    specialties:
+      - "Black market liaison"
+      - "Trade in Law Shards & Dark Jades (regulated)"
+    assets:
+      safe_houses: 9
+      covert_agents: 45
+    reputation: 38
+    notes: "Flagged by GCEB; trades often monitored and taxed if crossing realms."
+
+  - id: "MG-004"
+    name: "Caravan of Nine Winds"
+    base: "Tianlun Crossroad"
+    leader: "Ser Tohan"
+    tier: "Medium Merchant"
+    specialties:
+      - "Long-route caravans"
+      - "Provisioning armies & legions"
+    assets:
+      caravans: 240
+      licensed_guards: 600
+    reputation: 64
+
+  - id: "MG-005"
+    name: "Divine Exchange Consortium"
+    base: "Heavenal Gate Market (Immortal Middle Realm)"
+    leader: "Consul Arvela"
+    tier: "Divine Consortium"
+    specialties:
+      - "Immortal Jade trade & forbidden relic brokerage (by permit)"
+      - "Divine-grade auctions (needs Great Court sanction)"
+    assets:
+      vaults: 8 (divine-warded)
+    reputation: 91
+    special_permissions: ["Divine Auction Licensing", "Great Court Brokerage"]
+
+merchant_mechanics:
+  shop_restocks:
+    mortal_shop_cycle: "7 Heavenal Days"
+    immortal_shop_cycle: "1 Heavenal Day"
+    restock_rules:
+      - "G7–G9 tier items only sold by Grand Houses or via Auction (Divine Auction)."
+      - "Mortal shops rotate basic supply; rare goods appear via auctions or special events."
+    quantity_tracking:
+      - "Each shop tracks item_count and restock_timestamp."
+      - "Player purchase reduces available quantity; merchant can reorder via caravan."
+  auctions:
+    types:
+      - "Public Auction (open bidding)"
+      - "Private Auction (invitation only; reputation threshold >= 60)"
+      - "Divine Auction (requires Great Court permit)"
+    currency_rules:
+      - "Auctions accept Gold, Spirit Stone (with exchange fee), Immortal Jade (Divine only)."
+    escrow:
+      - "High-tier auctions use escrow managed by Merchant Alliance to prevent fraud."
+
+trade_nodes:
+  default_node_structure:
+    - "Market Square (local)"
+    - "Regional Depot (storage)"
+    - "Caravan Hub (logistics)"
+    - "Cross-Realm Gate (regulated by GCEB)"
+  sample_nodes:
+    - name: "Silk of Essence Route"
+      origin: "Tianlun City"
+      destination: "Holy District"
+      frequency: "Daily convoys"
+      risk_level: "Medium"
+    - name: "Obsidian Rift Passage"
+      origin: "Western Marsh"
+      destination: "Underveil Road"
+      frequency: "Weekly convoys"
+      risk_level: "High (Abyss proximity)"
+
+pricing_and_economy:
+  base_currencies:
+    - name: "Gold"
+      usage: "Common mortal high-value currency"
+    - name: "Silver"
+      usage: "Common trade currency"
+    - name: "Copper"
+      usage: "Minor purchases"
+    - name: "Spirit Stone"
+      usage: "Energy currency; trade between Mortal & Immortal"
+    - name: "Immortal Jade"
+      usage: "High-tier Immortal currency (Divine-grade goods)"
+  exchange_rates:
+    - "100 Copper = 1 Silver"
+    - "100 Silver = 1 Gold"
+    - "1000 Spirit Stones = 1 Immortal Jade"
+  price_influencers:
+    - "Supply & Demand (node saturation)"
+    - "Faction Reputation (merchant discounts/penalties)"
+    - "Karma Events (heavenal blessings or curses)"
+    - "War & Blockades (increase risk premium)"
+  merchant_fees:
+    - "Cross-realm Tax: 5% (automated to Merchant Alliance)"
+    - "GCEB Karmic Audit Fee: variable (applied on flagged goods)"
+    - "Auction Commission: 10% (standard), 5% (Merchant Alliance members)"
+
+trade_laws_and_regulation:
+  registration:
+    - "All merchant houses must register with Merchant Alliance to access major routes."
+    - "Unregistered cross-realm trade flagged for inspection by GCEB."
+  prohibited_goods:
+    - "Law Fragments (G9+ without permit)"
+    - "Soul Harvesting Devices"
+    - "Divine-grade Artefacts (G9) without Great Court license"
+  penalties:
+    - "Seizure of goods"
+    - "Blacklisting from major trade nodes"
+    - "Karmic fines (paid in Spirit Stone)"
+    - "GCEB prosecution for smuggling or law tampering"
+
+black_market_and_clandestine_trade:
+  structure:
+    - "Front Companies (legit shops used as covers)"
+    - "Broker Networks (Tenebrous Brokers style)"
+    - "Hidden Auctions (invite-only; high-risk high-reward)"
+  detection:
+    - "Karmic Trace signatures"
+    - "Void Echo Beacons (GCEB tech)"
+    - "Merchant Alliance whistleblower rewards"
+  mitigation:
+    - "Merchant Alliance may grant amnesty post-audit (one-time per entity every 100 Heavenal Days)."
+
+merchant_npc_templates:
+  templates:
+    - type: "Local Shopkeeper"
+      fields: ["name","shop_id","inventory_scope","restock_cycle","reputation"]
+    - type: "Caravan Captain"
+      fields: ["name","caravan_id","route","armed_escort_count","license"]
+    - type: "Grand House Broker"
+      fields: ["name","house_id","vault_capacity","auction_access","political_influence"]
+    - type: "Black Market Broker"
+      fields: ["alias","network_size","safe_houses","risk_profile"]
+  spawn_rules:
+    - "Local Shopkeepers spawn per city market nodes automatically."
+    - "Caravan Captains generated per active route; frequency based on demand."
+    - "Grand House Brokers spawn as named NPCs tied to faction events."
+
+integration_points:
+  systems_linked:
+    - "systems/shop_catalog.yaml"
+    - "systems/forging_sheet.yaml"
+    - "systems/alchemy_sheet.yaml"
+    - "event/world_event_engine.yaml"
+    - "npc/npc_registry.yaml"
+  event_engine_hooks:
+    - "restock_event → triggers caravan dispatch & shop restock"
+    - "auction_event → opens bidding UI & calculates escrow"
+    - "blockade_event → adjusts price_influencers for affected nodes"
+
+gm_guidelines:
+  - "For immersive play, adjust restock frequency and caravan loss rates to change difficulty."
+  - "Use reputation thresholds to gate access to rare auctions or secret catalogs."
+  - "Log major seizures or scandalous trades in Heavenal Log Archive (not codex)."
+  - "When a merchant house is destroyed or blacklisted, propagate economic shock to connected nodes."
+
+sample_merchant_items:
+  - code: "MER-TEC-001"
+    name: "10,000 Year Ginseng (Mortal Tier G7)"
+    description: "Expands Qi pool; prized by sects and likely to trigger disputes."
+    base_price: "120 Gold"
+    availability: "Rare (1–3 per major market cycle)"
+    legal_status: "Legal (but tightly controlled)"
+  - code: "MER-ARC-045"
+    name: "Cauldron Certificate (Grade IV)"
+    description: "Credential issued by Alchemist Tower to craft pill Grade 4."
+    base_price: "500 Gold or 20 Spirit Stone"
+    availability: "Limited (Grand Houses & Alchemists)"
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-11"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "NPC-MERCH-SHA-7B2F0"
+  sign_key: "HCLN-MERCHANT-INDEX-SECURE"
