@@ -1,0 +1,464 @@
+# ============================================================
+# FILE: npc/faction_index.yaml
+# PATH: npc/faction_index.yaml
+# TITLE: HEAVENAL — NPC & FACTION INDEX
+# VERSION: 3.2-secure
+# MAINTAINER: Heavenal Control Node
+# LICENSE: Dual (MIT + HLOCL)
+# UPDATED: 2025-11-10
+# ============================================================
+
+meta:
+  codex_id: "NPC-FX-001"
+  title: "NPC & Faction Index — Mortal, Immortal, Abyss, Beast, Divine"
+  version: "3.2-secure"
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  status: "verified"
+  repository_path: "codex_registry/auxiliary_codex/"
+  last_updated: "2025-11-10"
+  checksum: "NPC-FX-001-SHA-4C9D12"
+
+introduction:
+  description: >
+    Indeks faksi dan NPC memberikan referensi terstandarisasi untuk GM dan
+    engine event (World Event Engine). Mencakup struktur organisasi, kepemimpinan,
+    legiun, zona pengaruh, mekanik reputasi, dan aturan interaksi antar-realm.
+  purpose: >
+    Mengatur data untuk: NPC generation, faction relations, GCEB triggers,
+    market/regulation hooks, quest hooks, dan conflict matrix.
+
+global_rules:
+  - "Semua faksi yang beroperasi lintas-realm wajib tercatat pada NPC Registry."
+  - "Abyss factions (Demonic & Evil) bersifat independen; tindakan lintas-realm berat dapat memicu GCEB."
+  - "Beast Realm bersifat otonom; mereka dapat beraliansi tetapi tidak otomatis tunduk pada Great Court."
+  - "Merchant & Alchemist Alliances berstatus netral dan mengatur ekonomi lintas realm."
+  - "Reputation & Karma memengaruhi akses ke lelang, toko langka, dan divine permits."
+
+faction_schema:
+  fields:
+    - id: "unique faction id (string)"
+    - name: "faction name (string)"
+    - type: "Sect | Clan | Alliance | Guild | Court | Legion | Order"
+    - path: "Heavenly | Demonic | Evil | Neutral | Hybrid"
+    - realm: "Mortal | Immortal | Divine | Abyss | Beast"
+    - headquarters: "place string or coordinates"
+    - leader: "name & title"
+    - leader_realm_rank: "realm rank if applicable"
+    - influence_radius_km: "numeric"
+    - troops_est: "approx integer or 'variable'"
+    - assets: "list (fortress, trade hubs, cauldron tower, etc.)"
+    - reputation: "0..100 (default 50)"
+    - karma: "-1000..+1000"
+    - faction_relations: "map of relations with other factions"
+    - special_permissions: "list"
+    - notes: "free text"
+
+# =================================================================
+# MORTAL FACTIONS — SAMPLE MASTER LIST (region entries are examples)
+# =================================================================
+mortal_factions:
+  kingdoms:
+    - id: "K-TNL-001"
+      name: "Tianlun Kingdom"
+      capital: "Tianlun City"
+      governor: "Governor Lian"
+      realm: "Mortal"
+      academies:
+        - "Tianlun Spiritual Academy"
+        - "Azure Sword Academy"
+        - "Qingsha Alchemist School"
+        - "Shadow Fang Mercantile School"
+      merchant_nodes:
+        large: 2
+        medium: 5
+        small: 18
+      allied_sects:
+        - "Azure Gate Sect (Heavenly branch)"
+        - "Shadow Fang Union (Neutral)"
+      influence_radius_km: 3200
+      notes: "Major trading hub bridging central continent with Holy Region trade lanes."
+
+    - id: "K-BYG-001"
+      name: "Baiyang Principality"
+      capital: "Baiyang Harbor"
+      governor: "Duke Shen"
+      realm: "Mortal"
+      academies:
+        - "Harbor Art of Spears"
+        - "Baiyang Soul Institute"
+        - "Golden Core Forging School"
+        - "Merchant's Harbor Academy"
+      merchant_nodes:
+        large: 2
+        medium: 5
+        small: 18
+      allied_sects:
+        - "Lotus Flame Sect (Evil branch)"
+        - "Heavenly Merchant Guild"
+      influence_radius_km: 2800
+
+  sects_and_guilds:
+    - id: "G-MER-001"
+      name: "Heavenly Merchant Guild"
+      type: "Guild"
+      base: "Central Celestial Region (Holy District)"
+      leader: "Master Kredan"
+      role: "Commerce, cross-realm logistics, exchange oversight"
+      reputation: 85
+      faction_relations:
+        allied: ["Alchemist Tower", "Holy Region Alliance"]
+        rival: ["Shadow Fang Union"]
+        neutral: []
+      assets:
+        - "Central Exchange Hall"
+        - "Arc of Trade Routes (licensed)"
+      notes: "Controls currency exchange and certification for Spirit Stones."
+
+    - id: "G-ALC-001"
+      name: "Alchemist Tower"
+      type: "Guild / Institution"
+      base: "Tower Capital, Holy District"
+      leader: "Grand Alchemist Seretha"
+      role: "Regulates cauldrons, pill grades, and certifications"
+      certifications:
+        - "Cauldron Grade I–IX"
+        - "Alchemist Rank I–IX"
+      special_permissions:
+        - "Heavenal Cauldron Registry Access"
+      faction_relations:
+        allied: ["Heavenly Merchant Guild"]
+      notes: "Issue cauldron licenses; arbitrates pill grade disputes."
+
+    - id: "G-SFU-001"
+      name: "Shadow Fang Union"
+      type: "Organization"
+      base: "Western Marshlands"
+      leader: "Elder Wuhen"
+      role: "Artifact hunters, covert operations"
+      reputation: 42
+      faction_relations:
+        allied: []
+        rival: ["Heavenly Merchant Guild"]
+        neutral: ["Local Kingdoms"]
+      troops_est: 1200
+      notes: "Operates smuggling rings; skilled in hidden-weapons arts."
+
+  mortal_sects_sample:
+    - id: "S-AZG-001"
+      name: "Azure Gate Sect"
+      path: "Heavenly"
+      base: "Azure Peaks"
+      leader: "Elder Fayan"
+      leader_realm_rank: "Immortal Langit (affiliate)"
+      rank_requirement: "Elder: Half Immortal Lv.5+ for top posts"
+      troops_est: 4800
+      role: "Martial training and guarding trade routes"
+      assets:
+        - "Sky Gate Dojo"
+        - "Azure Bridge Outpost"
+
+    - id: "S-LFS-001"
+      name: "Lotus Flame Sect"
+      path: "Evil"
+      base: "Crimson Marsh"
+      leader: "Master Qiu"
+      troops_est: 2100
+      role: "Pyromancy & pill smuggling"
+      notes: "Often contracted by criminal merchants."
+
+# =================================================================
+# IMMORTAL FACTIONS — CORE SNAPSHOT
+# =================================================================
+immortal_factions:
+  overview:
+    total_great_sects: 36
+    martial_families: 7
+    neutral_alliances:
+      - "Merchant Alliance"
+      - "Alchemist Tower"
+      - "Holy Region Alliance"
+
+  sample_great_sects:
+    - id: "IS-CEL-001"
+      name: "Celestial Ninefold"
+      path: "Heavenly"
+      headquarter: "Ninefold Sky Citadel (Immortal Middle Realm)"
+      leader: "Archon Mireo (Raja Immortal)"
+      legions: 3
+      legion_strength_est_each: 1200
+      special_law: "Skybound Formation Law"
+      political_weight: 9
+
+    - id: "IS-DEM-001"
+      name: "Heavenly Demon Order"
+      path: "Demonic"
+      headquarter: "Demonbridge Hold (Abyss border)"
+      leader: "Heavenly Demonic Lord"
+      legions: 5
+      political_weight: 10
+      notes: "Independent ties to Abyss; protector is Transcendent."
+
+    - id: "IS-OBS-001"
+      name: "Obsidian Covenant"
+      path: "Evil"
+      headquarter: "Obsidian Spire"
+      leader: "Lord Nox Obsidian"
+      legions: 4
+      role: "Shadow law & covert operations across realms"
+      political_weight: 8
+
+  governance:
+    - "Immortal Great Court (Great Heaven) — lawmakers and adjudication."
+    - "GCEB — enforcement branch reporting to Heavenly Arbiter."
+
+# =================================================================
+# DIVINE FACTIONS — SUMMARY
+# =================================================================
+divine_factions:
+  key_orders:
+    - id: "DV-LAW-001"
+      name: "Order of Law Keepers"
+      function: "Interpretation and maintenance of Law Edicts"
+      leader: "Deus Ardentis (Dewa Sejati)"
+      authority_level: "High"
+    - id: "DV-SWL-001"
+      name: "Soul Wardens"
+      function: "Manage Soul Wheel & reincarnation protocol"
+      leader: "Goddess Shura Ilyana"
+      authority_level: "High"
+
+  divine_legions:
+    - id: "DV-AETH-001"
+      name: "Aetherion Sentinels"
+      commanded_by: "Eternal Marshal Kynthos"
+      role: "Defend points of Divine influence (eg. Heart of Rebirth)"
+      size_est: "variable (manifestation based on crisis)"
+
+# =================================================================
+# ABYSS FACTIONS (Demonic & Evil Paths)
+# =================================================================
+abyss_factions:
+  governance:
+    notes: >
+      Abyss realm is politically independent from Great Court.
+      Demonic & Evil blocs manage their own laws; cross-realm crimes can trigger GCEB.
+  sample_major_sects:
+    - id: "AB-TEN-001"
+      name: "Tenebrous Conclave"
+      classification: "Evil Path"
+      leader: "High Patriarch Vor"
+      stronghold: "The Hollow Spire (Abyssal Depths)"
+      troops_est: 15000
+      special_ability: "Void Corruption Rites"
+      relations:
+        hostile_to: ["Heavenly Merchant Guild"]
+        aligned_with: []
+    - id: "AB-HDC-001"
+      name: "Heavenly Demon Circle"
+      classification: "Demonic Path"
+      leader: "Lord of Freed Will"
+      stronghold: "Demon's Fold"
+      troops_est: 9000
+      special_ability: "Law Stealing (forbidden technique)"
+      relations:
+        allied_with: ["Some Immortal Demonic Sects"]
+        neutral_to: ["Beast Protector Houses"]
+
+  abyss_rules_of_engagement:
+    - "Abyssian entities may invade Mortal Realm only if targets are mortal-level."
+    - "Large incursions trigger GCEB detection & possible Immortal response."
+    - "Black Market trade within Abyss flagged by Karmic Trace when crossing realms."
+
+# =================================================================
+# BEAST REALM — CLANS & PRIMORDIAL HOUSES
+# =================================================================
+beast_factions:
+  overview:
+    description: >
+      Beasts ascend naturally from fauna; they form clans & primordial houses.
+      They have their own ascension pathways and may interact diplomatically.
+  sample_clans:
+    - id: "BE-IF-001"
+      name: "Ironfang Pride"
+      origin_biome: "Mountain Ranges"
+      leader: "Elder Ironfang (Ensouled Golden Core)"
+      population_est: 1200
+      role: "Territorial defense, herb guardians"
+      relations:
+        allied_with: ["Tianlun Kingdom (trade)"]
+        hostile_to: ["Corrupted Marsh Wyrms"]
+    - id: "BE-AM-001"
+      name: "Abyssal Maw Pack"
+      origin_biome: "Borderlands"
+      leader: "Prime Maw (Void-born)"
+      population_est: 8000
+      role: "Raids & territorial expansion"
+      relations:
+        allied_with: ["Demonic Path factions"]
+        hostile_to: ["Merchant caravans"]
+
+  protectors:
+    - id: "BE-PR-001"
+      name: "Primordial Beast — Raxus"
+      status: "Transcendent"
+      role: "Guardian of Beast Realm passages"
+      function: "Opens Beast Ascension Gates on clan consensus."
+
+# =================================================================
+# FACTION RELATIONSHIP MATRIX (simplified)
+# =================================================================
+relationship_matrix:
+  legend:
+    A: "Allied / Strong Cooperation"
+    N: "Neutral / Trade"
+    H: "Hostile / Conflict"
+    S: "Subordinate / Vassal"
+  matrix_samples:
+    Heavenly_Merchant_Guild:
+      Celestial_Ninefold: "A"
+      Shadow_Fang_Union: "H"
+      Alchemist_Tower: "A"
+    Heavenly_Demon_Order:
+      Great_Court: "H"
+      Demonic_Path_Sects: "A"
+      Beast_Clans: "N"
+    Obsidian_Covenant:
+      GCEB: "H"
+      Immortal_Great_Court: "H"
+      Local_Kingdoms: "N"
+
+# =================================================================
+# FACTION MECHANICS — REPUTATION, INFLUENCE & KARMA
+# =================================================================
+faction_mechanics:
+  reputation:
+    scale: 0..100
+    sources:
+      - "Quest completion for faction"
+      - "Donations & trade volumes"
+      - "Military aid or defensive actions"
+      - "Completion of faction-specific rites"
+    effects:
+      - ">= 60: Access to elite shop catalog & auctions"
+      - ">= 80: Invitation to regional councils"
+      - "< 30: Trade restrictions and bounty markers"
+  influence:
+    formula: "base_influence + (reputation × holdings_factor) + (military_strength × 0.5)"
+    holdings_factor: "derived from controlled territory & assets"
+  karma:
+    range: -1000..+1000
+    mechanics:
+      - "Mass genocide or world-harming acts -> large negative spike"
+      - "Mass charity or salvation -> positive spike"
+      - "Karma events can trigger Heavenal Tribunal review"
+
+# =================================================================
+# NPC REGISTRY — TEMPLATES & GENERATION
+# =================================================================
+npc_registry:
+  templates:
+    - type: "Faction Leader"
+      required_fields: ["name","title","realm_rank","affiliation","power_estimate","unique_skill","bio"]
+    - type: "Legion Commander"
+      required_fields: ["name","legion","command_capacity","unit_strength","tactics"]
+    - type: "Merchant"
+      required_fields: ["name","trade_level","inventory_scope","reputation"]
+    - type: "Alchemist Master"
+      required_fields: ["name","cauldron_grade","alchemy_rank","recipe_access"]
+    - type: "Cultivator (Generic)"
+      required_fields: ["name","realm","level","techniques","affiliation"]
+  spawn_rules:
+    - "Major faction leaders spawn during faction-level events or GM call only."
+    - "Legion commanders generated dynamically in wartime."
+    - "Merchants respawn / restock per shop_catalog restock_interval."
+    - "NPC scaling limited to realm caps for stability."
+
+  notable_npcs:
+    - id: "NPC-GZ-001"
+      name: "Gazilla Baitanu"
+      title: "Void-Born Reincarnator"
+      realm: "Dewa Transformasi Lv.52"
+      affiliation: "Holy Region"
+      alignment: "Holy Neutral"
+      role: "Divine Protector of Balance"
+      notes: "High Law Comprehension; subject to Heavenal scrutiny."
+
+    - id: "NPC-TD-001"
+      name: "Tian Dong"
+      title: "Divine Cardinal (former)"
+      realm: "Dewa Transformasi"
+      affiliation: "Holy Region"
+      alignment: "Holy"
+      role: "Guardian of Void Law (historical record)"
+
+# =================================================================
+# GCEB INTERACTIONS & OVERSIGHT
+# =================================================================
+gceb_interactions:
+  authority_scope:
+    - "Investigate cross-realm crimes (law theft, forbidden tech transfer)."
+    - "Intervene when Abyss factions breach Immortal thresholds."
+    - "Apprehend rogue immortals or factions violating Heavenal Law."
+  intervention_tiers:
+    - Tier 1 (Local): "Silent Hunters & Clerks of Law (Immortal Langit)"
+    - Tier 2 (Regional): "Heavenly Inquisitors & Void Guardians (Immortal Emas)"
+    - Tier 3 (Global): "Void Marshal & Heavenly Arbiter (Kaisar Immortal)"
+  enforcement_mechanics:
+    - "Karmic Trace: Detects monetary & action trails."
+    - "Heaven Seal Strike: Executed on validated major offenders."
+    - "Containment Portals: Temporary quarantine of affected zones."
+  trigger_conditions:
+    - "Cross-realm trade of restricted G7–G9 items."
+    - "Large legion mobilization near realm borders."
+    - "Use of Law-Stealing, Heaven-Stealing, or other forbidden techniques."
+
+# =================================================================
+# EVENT TRIGGERS (FACTION-BASED)
+# =================================================================
+event_triggers:
+  trade_conflict:
+    condition: "Cross-realm trade of restricted tier items"
+    reaction: "Merchant Alliance audit + GCEB watchlist"
+  military_invasion:
+    condition: "Legion mobilization > threshold in neighbor territory"
+    reaction: "Regional Court summons + possible Heavenly Arbiter review"
+  abyss_incursion:
+    condition: "Abyss faction troops crossing Mortal border without Grace"
+    reaction: "Automatic GCEB detection & Heavenly Marshals dispatched"
+  beast_ascension:
+    condition: "Beast clan achieves Golden Core and performs Ascension Rite"
+    reaction: "Local kingdoms attempt diplomacy; Alchemist Tower offers fusion options"
+
+# =================================================================
+# GM GUIDELINES & TOOLS
+# =================================================================
+gm_tools:
+  - "Use 'relationship_matrix' to adjudicate NPC reactions."
+  - "Balance faction power relative to realm caps (law_cap & realm multipliers)."
+  - "Record major faction events in Heavenal Log Archive (separate from codex)."
+  - "When adding a faction, update npc_registry and manifest sync."
+  - "Use spawn throttles to prevent overpopulation of high-realm NPCs in mortal zones."
+
+# =================================================================
+# DATA SYNC & REFRESH
+# =================================================================
+data_sync:
+  npc_data_refresh_interval: "Every 3 Heavenal Days"
+  faction_sync_requirements:
+    - "Update manifest.yaml upon structural changes."
+    - "Notify Heavenal Control Node for high-impact deltas."
+  backup_policy:
+    - "Daily local snapshot (auto_backup enabled in manifest)."
+    - "Weekly signed snapshot to secure archive."
+
+# =================================================================
+# VERIFICATION / SIGNATURE
+# =================================================================
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: "verified"
+  checksum: "NPC-FX-001-SHA-4C9D12"
+  sign_key: "HCLN-FACTION-INDEX-SECURE"
