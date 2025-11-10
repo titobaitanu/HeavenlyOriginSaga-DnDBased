@@ -1,0 +1,256 @@
+# ============================================================
+# SYSTEM MODULE — HEAVENAL TIMER & ASCENSION SYSTEM
+# File: system_modules/system/heaven_timer.yaml
+# Secure Public Version (v3.2)
+# ============================================================
+meta:
+  module_id: "SYS-HEAVEN-TIMER"
+  title: "Heavenal Timer & Ascension System"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  status: verified
+  linked_codex:
+    - "codex_XX_realm_architecture.yaml"
+    - "codex_XV_heavenal_mechanism.yaml"
+    - "codex_XXIV_battle_law.yaml"
+    - "codex_ascension_trial.yaml"
+  checksum: "SYS-HEAVEN-TIMER-SHA-7C1F2"
+  last_updated: "2025-11-10"
+
+description:
+  summary: >
+    Sistem penanggalan dan penghitung waktu Heavenal mengatur:
+    - Konversi waktu dunia-nyata ⇄ Heavenal (in-game)
+    - Siklus Ascension, Tribulation, dan Gate Events
+    - Freeze / Resume saat log-out
+    - Perhitungan probabilitas sukses tribulation tiap kenaikan level
+    - Hukuman / konsekuensi kegagalan tribulation
+  design_goals:
+    - Realisme naratif-mekanik (semi-realistik)
+    - Konsistensi dengan law caps & realm tiers
+    - GM / player control untuk freeze & event scheduling
+
+time_units:
+  definitions:
+    - name: "Heavenal Second"
+      description: "Unit waktu terkecil sistem internal."
+    - name: "Heavenal Minute"
+      equals: "60 Heavenal Seconds"
+    - name: "Heavenal Hour"
+      equals: "60 Heavenal Minutes"
+    - name: "Heavenal Day"
+      equals: "24 Heavenal Hours"
+    - name: "Heavenal Year"
+      equals: "360 Heavenal Days"
+
+real_world_conversion:
+  note: "Konversi default; dapat diubah di pengaturan GM."
+  defaults:
+    - "1 Real Day = 10 Heavenal Days"
+    - "1 Real Hour = 0.4167 Heavenal Day (≈10 Heavenal Days / 24)"
+    - "1 Real Minute = 0.00694 Heavenal Day"
+  examples:
+    - "Jika user bermain 8 real hours => ~3.333 Heavenal Days progressed."
+    - "Jika user bermain 1 real day (aktif) => 10 Heavenal Days progressed."
+
+session_handling:
+  mode: "FreezeOnLogout"   # opsi: FreezeOnLogout | PersistentTime
+  description:
+    FreezeOnLogout: >
+      Saat pemain log out, waktu karakter dibekukan — progres individual (exp, cultivation ticks,
+      internal cooldowns) dihentikan sampai login kembali. World events tetap berjalan kecuali GM set otherwise.
+    PersistentTime: >
+      (opsional) Karakter tetap terkena efek waktu saat offline (NOT DEFAULT).
+  auto_resume:
+    on_login: "Resume all personal timers; re-calc pending scheduled events."
+  offline_limits:
+    - "Max offline freeze window default: 365 Real Days (archives apply beyond)."
+
+ascension_cycles:
+  types:
+    - name: "Level-Up Tick"
+      description: "Progress unit toward next sub-level (e.g., Nascent Soul Lv.3 -> Lv.4)."
+      tick_frequency: "Per action, quest, training session, or passive Qi accumulation."
+    - name: "Realm Ascension"
+      description: "Kenaikan dari akhir realm ke realm berikutnya (men-trigger Tribulation)."
+      triggers:
+        - "Reach EXP threshold for realm"
+        - "Qualify by requirements in codex (essence purity, karma, law cap)."
+
+tribulation_system:
+  overview: >
+    Tribulation adalah uji Langit untuk menilai perubahan takdir saat naik level/realm.
+    Berlaku pada:
+      - Setiap kenaikan level dalam realm (contoh: Immortal Langit Lv.12 → Lv.13)
+      - Naik realm penting (contoh: Half-Immortal → Dewa Transformasi)
+  trigger_conditions:
+    - "Level-up to new sub-level (every sub-level in mortal/immortal/divine as configured)."
+    - "Realm ascension (tier boundary)"
+  success_chance_base:
+    formula: >
+      base = clamp( 20% + (Cultivation_Progress% × 0.6) + (Law_Comprehension × 2%) + (Heavenal_Blessing ? 15% : 0) , 1%, 99% )
+    notes:
+      - "Cultivation_Progress%: percent of EXP into next level (0–100)."
+      - "Law_Comprehension: raw numeric (use law caps per realm)."
+      - "Heavenal_Blessing: boolean from quests / items / high reputations."
+
+tribulation_modifiers:
+  positive_modifiers:
+    - name: "Heavenal Blessing"
+      effect: "+15% success"
+      source: "Quest reward / Holy Region favor / rare artefact"
+    - name: "Purity of Essence"
+      effect: "+(Essence_Purity% × 0.1)%"
+      source: "Alchemist elixirs & cauldron refinement"
+    - name: "Karma Favor"
+      effect: "+(KarmaScore / 1000)%"
+      source: "High faction reputation / selfless deeds"
+    - name: "Tribulation Aid (Ritual)"
+      effect: "+10% per participant (max 50%)"
+      source: "Group ritual – requires participants and resource cost"
+  negative_modifiers:
+    - name: "Law Distortion"
+      effect: "-20% to -80% depending on severity"
+      source: "Using forbidden law techniques, cursed artefacts"
+    - name: "Karmic Debt"
+      effect: "-(DebtScore / 500)%"
+      source: "Crimes, mass destruction"
+    - name: "World Instability"
+      effect: "-(GlobalInstabilityIndex × 5)%"
+      source: "Active world calamities (war, collapse)"
+
+tribulation_outcomes:
+  success:
+    - "Increase target level/realm by 1 step (or realm boundary)."
+    - "Grant tribulation reward: Heavenal XP bonus, unique loot, possible law shard."
+    - "Potential minor Heavenal Blessing (duration-limited)."
+  partial_success:
+    conditions: "When success roll close to threshold (GM discretion)."
+    effects:
+      - "Gain level progress but with a sealed sub-trait (memory seal, restricted technique)."
+      - "Receive a Quest to unlock full ascension."
+  failure_minor:
+    - "Lose a percentage of EXP toward next level (configurable 10%–50%)."
+    - "Suffer temporary debuffs (meridian damage, reduced Qi regen) for N Heavenal Days."
+  failure_major:
+    - "Soul Crack: permanent minor penalty to Soul Stability, potential technique loss."
+    - "Trigger a Karmic Mark assigned to character."
+    - "If severe, cause realm regression (drop 1 sub-level)."
+  catastrophic_failure:
+    - "Heavenal Burn: chance of death or soul erasure (very rare, reserved for high-risk attempts)."
+    - "Automatically reported to GCEB — may trigger tribunal if caused by law theft."
+
+tribulation_roll_mechanic:
+  dice: "2d100 (primary) + 1d20 (fate die, optional if Fate token used)"
+  procedure:
+    1. "Compute base success chance (from formula)."
+    2. "Apply all modifiers (positive & negative)."
+    3. "Roll 2d100; total ≤ success_chance% → success."
+    4. "If within 5% margin above/below threshold → partial success (GM calls)."
+    5. "If catastrophic failure triggers (roll ≤ 2 or specific negative condition) → catastrophic path."
+  example:
+    - "Base success 45% + Heavenal Blessing 15% = 60% total."
+    - "Roll 2d100 → 58 → Success."
+
+ascension_timing:
+  gating_rules:
+    - "Tribulation can be attempted only when EXP threshold reached and required materials (if any) consumed."
+    - "Cooldown between ascension attempts: default 7 Heavenal Days (modifiable by GM/items)."
+  synchronization:
+    - "Ascension events are scheduled and logged in Heavenal Log Archive."
+    - "Group ascensions require synchronized start time (within same Heavenal Hour)."
+
+event_gates:
+  definitions:
+    - name: "Ascension Gate"
+      description: "Metaphysical portal that opens for realm ascension events; controlled by Heavenal Domain."
+    - name: "Tribulation Eye"
+      description: "Global broadcast point where major tribulation outcomes are registered."
+  gate_access:
+    - "Lower realms: localized Ascension Gate (academy/sect controlled)."
+    - "Divine realm gates: controlled by Great Court / Heavenal Control Node."
+    - "Abyss gates: forbidden but can be coerced (illicit) — flagged by GCEB."
+
+heavenal_calendar_events:
+  recurring:
+    - name: "Heavenal Synchronization"
+      frequency: "Every 100 Heavenal Days"
+      effect: "Resets minor world modifiers; refresh certain shop stocks and merchant cycles."
+    - name: "Divine Tribunal"
+      frequency: "Every 10,000 Heavenal Years (codex event)"
+      effect: "Major law revisions, large-scale karma audits."
+  seasonal:
+    - "Ascension Tournament (regional): annually in many mortal kingdoms — grants ascension tokens and recognition."
+
+integration_points:
+  systems_linked:
+    - "inventory_module.yaml (resource consumption for rituals)"
+    - "alchemy_sheet.yaml (elixirs/pills affecting success)"
+    - "forging_sheet.yaml (artifacts that alter timers)"
+    - "karma_system.yaml (karma modifiers)"
+    - "event_engine (schedules / world events)"
+  API_endpoints:
+    - "heavenal.timer.get_current_time()"
+    - "heavenal.timer.convert_real_to_heavenal(real_timestamp)"
+    - "heavenal.timer.schedule_event(event_id, heavenal_timestamp)"
+    - "heavenal.tribulation.attempt(player_id, target_level, modifiers)"
+
+gm_tools:
+  gm_commands:
+    - "/heavenal time now"         # show current Heavenal timestamp & world state
+    - "/heavenal convert <real_ts>"
+    - "/heavenal schedule <event> <heavenal_ts>"
+    - "/tribulation attempt <player> <target_level>"
+    - "/tribulation force_success <player> <auth_code>"
+    - "/heavenal freeze <player>"  # force freeze player timers
+    - "/heavenal resume <player>"
+  admin_restrictions:
+    - "Only GM level ≥ 8 may force success/cancel catastrophic outcomes."
+    - "All forced actions logged and signed."
+
+ui_and_notifications:
+  player_ui:
+    - "Timer bar showing Heavenal Day & local event markers."
+    - "Ascension panel: shows progress, required items, predicted base success%."
+    - "Tribulation queue & history log."
+  notifications:
+    - "On next login: show pending scheduled events and last session's Heavenal time."
+    - "Notify player 1 Heavenal Day before scheduled ascension or group ritual."
+
+balance_and_safety:
+  safeguards:
+    - "Law cap enforcement: attempts to use law beyond cap impose severe negative modifiers."
+    - "Limit bulk ascension farming: diminishing returns for repeated attempts in short real-time windows."
+    - "World-impacting ascensions (Divine level) require GCEB review/authorization."
+  anti-abuse:
+    - "No offline XP farming beyond configured systems (FreezeOnLogout default)."
+    - "Expensive resource costs for repeated tribulation attempts to prevent grind exploits."
+
+examples:
+  example_1_basic:
+    scenario: "Mortal A reached Nascent Soul Lv.3 → Lv.4"
+    base_calc:
+      cultivation_progress: 100
+      law_comprehension: 0.2
+      heavenal_blessing: false
+    computed_base: "20% + (100 × 0.6)=80% ; + law(0.2×2%)=0.4% => ~100% (clamped to 99%)"
+    roll: "2d100 → 45 → Success"
+    outcome: "Lv.4 achieved; granted minor pill & 1 ascension point."
+  example_2_high_risk:
+    scenario: "Immortal (Kaisar Lv.19) → attempt Kaisar Lv.20 (boundary to Divine)"
+    modifiers:
+      - "base progression low (exp 40%)"
+      - "law_comprehension 6.5 (cap 7)"
+      - "world instability high (-30%)"
+      - "Heavenal Blessing applied (+15%)"
+    computed: "Base 20 + (40×0.6=24) + (6.5×2=13) +15 -30 = 42% (approx)"
+    roll: "2d100 → 03 → Catastrophic failure => Heavenal Burn triggered (GM escalation)."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "SYS-HEAVEN-TIMER-SHA-7C1F2"
+  sign_key: "HCLN-HEAVEN-TIMER-SECURE"
