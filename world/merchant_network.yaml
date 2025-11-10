@@ -1,0 +1,176 @@
+# ============================================================
+# WORLD ARCHITECTURE — MERCHANT NETWORK
+# Repository Path: world/merchant_network.yaml
+# Maintainer: Heavenal Control Node
+# Version: v3.2-secure
+# Linked Codex: codex_npc_faction.yaml, codex_economy_trade.yaml
+# ============================================================
+
+meta:
+  world_id: "WRL-MERCHANT"
+  title: "Merchant Network & Trade Routes"
+  version: 3.2-secure
+  author: "Heavenal Control Node"
+  last_updated: "2025-11-10"
+  status: verified
+  sync_hash: "MER-NET-3.2-B7"
+
+overview:
+  description: >
+    Struktur merchant network mencakup pedagang tingkat kecil-menengah-besar, aliansi merchant,
+    rute dagang utama, serta mekanik restock dan pengawalan caravan.
+  purpose: "Standarisasi perdagangan, restock, dan interaksi merchant–faction."
+
+merchant_tiers:
+  - name: "Small Trader"
+    capacity: 50
+    typical_goods: ["herbs","basic_tools","food"]
+    restock_frequency: "Every 7 Heavenal Days"
+    license_required: false
+  - name: "Medium Trader"
+    capacity: 300
+    typical_goods: ["pills G1–G3","basic_artifacts","recipes"]
+    restock_frequency: "Every 14 Heavenal Days"
+    license_required: true
+  - name: "Large Trader"
+    capacity: 1200
+    typical_goods: ["G3–G6 items","wholesale materials"]
+    restock_frequency: "Every 30 Heavenal Days"
+    license_required: true
+  - name: "Major Merchant House"
+    capacity: 5000
+    typical_goods: ["G5–G8 consignments","auction consignments"]
+    restock_frequency: "Event-driven / monthly"
+    license_required: "Merchant Alliance Membership"
+
+merchant_nodes_and_distribution:
+  per_kingdom:
+    - kingdom: "Tianlun Kingdom"
+      capital: "Tianlun City"
+      merchant_nodes:
+        - type: "Large"
+          count: 2
+        - type: "Medium"
+          count: 5
+        - type: "Small"
+          count: 18
+      caravan_hubs: 3
+    - kingdom: "Baiyang Principality"
+      capital: "Baiyang Harbor"
+      merchant_nodes:
+        - type: "Large"
+          count: 2
+        - type: "Medium"
+          count: 5
+        - type: "Small"
+          count: 18
+      caravan_hubs: 2
+  note: "Default template applied to all 6 continents; GM may modify per region."
+
+major_actors:
+  - name: "Heavenly Merchant Guild"
+    role: "Coordination, dispute resolution, major trade licenses"
+    membership_requirements: ["wealth_threshold", "reputation >= 60"]
+    control_share: "Manages cross-realm tariffs & common warehouses"
+  - name: "Merchant Alliance"
+    role: "Pan-continental trade agreements; caravan escorts"
+    caravan_registry: true
+    insurance_fund: true
+  - name: "Local Guilds"
+    role: "City-level market management & restock scheduling"
+
+trade_routes:
+  major:
+    - name: "Silk of Qi Route"
+      from: "Tianlun City"
+      to: "Holy District Capital"
+      distance_km: 3800
+      risk_level: "Moderate"
+      typical_travel_days: 18
+      security: "Merchant guards + local militia escort"
+    - name: "Azure Sea Passage"
+      from: "Baiyang Harbor"
+      to: "Southern Isles"
+      distance_km: 1200
+      risk_level: "Low (pirates seasonal)"
+      typical_travel_days: 5
+  cross_realm:
+    - name: "Ascension Gate Corridor"
+      from: "Capital Grand Market"
+      to: "Immortal Middle Realm Hub"
+      requirement: "Immortal/Permit only; GCEB logged"
+      special_handling: "Spiritual cargo requires sanctification"
+
+caravan_mechanics:
+  composition_rules:
+    - "Base guard ratio: 1 guard per 50 units (increases in high-risk zones)"
+    - "Medics/alchemist: 1 per 200 units recommended"
+    - "Max convoy length: 50 carts"
+  restock_and_resupply:
+    - "Caravans may resupply at caravan_hubs."
+    - "Random event chance during travel: 0.02 × (route_risk_level multiplier)."
+  insurance:
+    - "Merchant Alliance funds compensate 60% loss on insured consignments (subject to claim audit)."
+
+warehouse_and_storage:
+  - type: "Regional Warehouse"
+    capacity_units: 50000
+    security_level: "Medium"
+    management: "Merchant Alliance / Local Guild"
+  - type: "Divine Vault"
+    capacity_units: 500
+    security_level: "Divine-grade"
+    management: "Alchemist Tower / Great Court"
+    access_restrictions: ["Divine Permit", "High Reputation"]
+
+restock_schedule_and_mechanics:
+  - local_market: "7 Heavenal Days"
+  - regional_bazaar: "14 Heavenal Days"
+  - capital_market: "30 Heavenal Days"
+  - auction_house: "Event-driven"
+  restock_algorithm:
+    - "Base restock = typical_stock_per_item × (1 + demand_modifier - scarcity_modifier)"
+    - "Demand modifier derived from recent sales velocity (last 3 restocks)."
+    - "Scarcity modifier from world events (war, calamity)."
+
+pricing_influence_factors:
+  - "Faction control of region increases merchant tax but stabilizes supply."
+  - "Reputation with Merchant Guild reduces price by 5–20% depending on tier."
+  - "Karmic flags raise risk premium for insurers."
+
+black_market_nodes:
+  detection_and_risk:
+    - "Known hidden markets localised in Abyss border towns; high premium but flagged by Karmic Trace."
+    - "GCEB watchlist updated weekly."
+  mitigation_for_merchants:
+    - "Use trusted couriers, laundered documentation (illegal — karmic penalty if caught)."
+
+merchant_governance_and_dispute:
+  arbitration:
+    - "First-level: Merchant Guild arbitration (fees apply)."
+    - "Second-level: Regional Court (requires majority of Merchant Alliance reps)."
+    - "Final: Great Court (items G8+ or cross-realm disputes)."
+  sanctions_for_violation:
+    - "Fines, asset seizure, trade ban, GCEB escalation."
+
+integration_and_apis:
+  system_bindings:
+    - "systems/shop_catalog.yaml (stock & pricing)"
+    - "systems/inventory_module.yaml (warehouse & caravan inventory)"
+    - "npc/faction_index.yaml (merchant ownership & alliance data)"
+  monitoring:
+    - "Heavenal Control Node monitors macro flows; Merchant Alliance manages micro flows."
+
+telemetry_and_reporting:
+  metrics_collected:
+    - weekly_trade_volume
+    - rare_item_transfers (G7+)
+    - caravan_losses
+    - cross_realm_transfers
+  reporting_interval: "Every 7 Heavenal Days to Merchant Alliance; every 30 to Great Court"
+
+verification:
+  maintained_by: "Heavenal Control Node & Merchant Alliance"
+  last_audit: "2025-11-10"
+  checksum: "MER-NET-SHA-44F2"
+  sign_key: "HCLN-MERCHANT-NET-SECURE"
