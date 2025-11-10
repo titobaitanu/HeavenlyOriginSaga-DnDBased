@@ -1,0 +1,285 @@
+# ============================================================
+# world/continent_division.yaml
+# HEAVENLY ORIGIN SAGA — World Continent Division
+# Created for repository: HeavenlyOriginSaga-DnDBased
+# Language: Indonesian
+# Version: 1.0
+# Maintainer: Heavenal Control Node (GM)
+# ============================================================
+
+meta:
+  file_id: "world_continent_division_v1"
+  created_on: "2025-11-10"
+  author: "Heavenal Control Node"
+  description: >
+    Pembagian enam benua utama untuk Dunia Mortal. Benua-benua ini
+    menjadi panggung geopolitik, perdagangan, akademi kultivasi, dan
+    sumber daya. Benua pusat (Central Celestial) menampung Holy Region,
+    Tower of Alchemists, dan Merchant Alliance Hub.
+
+global_rules:
+  - "Setiap kerajaan memiliki tepat 4 akademi (sebagai default; GM bisa modifikasi)."
+  - "Setiap kerajaan memiliki merchant_nodes: small:18 | medium:5 | large:2."
+  - "Distribusi sekte mortal disesuaikan agar tiap benua menerima representasi dari ketiga jalur (Heavenly, Demonic, Evil) — GM dapat menyesuaikan nama/nilai."
+  - "Sumber daya langka (G7–G9 tier) tersebar mayoritas di pulau-pulau terpencil dan petak khusus; memicu konflik antar-kerajaan/sekte."
+  - "Waktu restock shop nasional: setiap 7 Heavenal Days (default); GM dapat ubah per region."
+
+continents:
+  - id: "C01"
+    name: "Central Celestial"
+    role: "Pusat politik, perdagangan, dan akademi; lokasi Holy Region & Tower of Alchemists"
+    coordinates: { x: 0, y: 0 }
+    primary_sites:
+      - name: "Holy Region Capital"
+        type: "Neutral/Divine Hub"
+      - name: "Tower of Alchemists (Alchemist Tower)"
+        type: "Institution - Alchemy"
+      - name: "Merchant Alliance Hub"
+        type: "Trade & Finance"
+      - name: "Hall of Ten Thousand Stars"
+        type: "Military Command (Immortal Legions Liaison)"
+    kingdoms:
+      - name: "Tianlun Kingdom"
+        capital: "Tianlun City"
+        governor: "Governor Lian"
+        academies:
+          - "Tianlun Spiritual Academy"
+          - "Azure Sword Academy"
+          - "Qingsha Alchemist School"
+          - "Shadow Fang Mercantile School"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+        dominant_sects_sample:
+          - "Azure Gate Sect (Heavenly branch)"
+          - "Shadow Fang Union (Neutral)"
+      - name: "Baiyang Principality"
+        capital: "Baiyang Harbor"
+        governor: "Duke Shen"
+        academies:
+          - "Harbor Art of Spears"
+          - "Baiyang Soul Institute"
+          - "Golden Core Forging School"
+          - "Merchant's Harbor Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+        dominant_sects_sample:
+          - "Lotus Flame Sect (Evil branch)"
+          - "Heavenly Merchant Guild"
+    notes:
+      - "Central Celestial berfungsi sebagai titik restock artefak langka dan auction house tingkat tinggi."
+      - "GCEB memiliki kantor regional tersembunyi di bawah Holy Region."
+
+  - id: "C02"
+    name: "Azure Expanse"
+    role: "Benua pesisir & pegunungan; pusat seni pedang dan sekte Heavenly"
+    coordinates: { x: -1200, y: 400 }
+    kingdoms:
+      - name: "Azure Peaks Dominion"
+        capital: "Skycliff"
+        governor: "Elder Fayan"
+        academies:
+          - "Peak Sword Academy"
+          - "Cloud Meditation Institute"
+          - "Azure Healer School"
+          - "Windborne Artificery"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+      - name: "Mistvale Duchy"
+        capital: "Mistgate"
+        governor: "Duchess Ren"
+        academies:
+          - "Mist Soul Academy"
+          - "Hidden Blade School"
+          - "Herbalist Conservatory"
+          - "Maritime Traders' Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+    special_resources:
+      - "High-mountain ginseng (tier 7–8 spawn chance)"
+      - "Sky-ore (forging catalyst)"
+
+  - id: "C03"
+    name: "Crimson Basin"
+    role: "Benua rawa & lava; pusat sekte Evil & alkimia neraka"
+    coordinates: { x: 900, y: -300 }
+    kingdoms:
+      - name: "Crimson Marshlands"
+        capital: "Cinderhold"
+        governor: "Lord Qiu"
+        academies:
+          - "Flame Alchemy School"
+          - "Ashen Blade Academy"
+          - "Marshborn Soulcraft"
+          - "Trade & Smuggling Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+      - name: "Blackfen Territory"
+        capital: "Fenport"
+        governor: "Elder Mora"
+        academies:
+          - "Poison & Venom Institute"
+          - "Obscure Arts Academy"
+          - "Swampland Foraging School"
+          - "Merchant's Ebb Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+    hazards:
+      - "Void Corruption pockets (trigger Abyss detection)"
+      - "Frequent tribulation echoes near deep fissures"
+
+  - id: "C04"
+    name: "Verdant Reach"
+    role: "Benua hutan luas, pusat herbarium, beast clans, dan beastiary interaction"
+    coordinates: { x: -600, y: -900 }
+    kingdoms:
+      - name: "Sylvan March"
+        capital: "Greenhold"
+        governor: "Chancellor Yao"
+        academies:
+          - "Herbalist Grand Academy"
+          - "Beast-kin Coexistence School"
+          - "Forest Martial Institute"
+          - "Trade Grove Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+      - name: "Highwood Canton"
+        capital: "Highward"
+        governor: "Elder Mera"
+        academies:
+          - "Woodland Alchemy Conservatory"
+          - "Spear & Trap Academy"
+          - "Nature's Heart Meditation"
+          - "Local Commerce School"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+    notes:
+      - "Beast clans cenderung menguasai pedalaman; diplomasi lokal diperlukan."
+      - "Herb nodes berkualitas tinggi (tier 6–8) tersebar di glades suci."
+
+  - id: "C05"
+    name: "Obsidian Frontier"
+    role: "Benua pegunungan batu & benteng, pusat penempaan dan martial families"
+    coordinates: { x: 1400, y: 1200 }
+    kingdoms:
+      - name: "Ironhold Marches"
+        capital: "Irongate"
+        governor: "Marshal Kor"
+        academies:
+          - "Forgemaster Academy"
+          - "Armament Smith School"
+          - "Body Forging Institute"
+          - "Tactical War College"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+      - name: "Stoneveil County"
+        capital: "Stoneveil"
+        governor: "Baron Huo"
+        academies:
+          - "Voidsteel Art Academy"
+          - "Shieldwall School"
+          - "Blacksmith's Conservatory"
+          - "Merchant Outfitting Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+    resources:
+      - "Voidsteel ore (forging catalyst tier 7–9)"
+      - "Ancient cauldron remnants (site for rare recipe discovery)"
+
+  - id: "C06"
+    name: "Northern Wastes"
+    role: "Benua dingin & lapangan luas; tempat percobaan dan wilayah militar"
+    coordinates: { x: 0, y: 2200 }
+    kingdoms:
+      - name: "Frostborne Hold"
+        capital: "Frostfall"
+        governor: "Warden Sora"
+        academies:
+          - "Ice Law Academy"
+          - "Survivalist School"
+          - "Rune & Sigil Institute"
+          - "Northern Trade Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+      - name: "Glacier March"
+        capital: "Glacial Spire"
+        governor: "Elder Venn"
+        academies:
+          - "Cold-Heart Forging"
+          - "Soul Chill Meditation"
+          - "Ranger's Lodge Academy"
+          - "Merchant's Waystation"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+    notes:
+      - "Northern Wastes menyimpan beberapa gerbang nihility kecil; penjagaan ketat oleh GCEB jika aktif."
+
+global_trade_routes:
+  - name: "Silk of Heavens Route"
+    connects: ["Central Celestial", "Azure Expanse", "Obsidian Frontier"]
+    frequency: "Weekly convoys (per 7 Heavenal Days)"
+    hazards: ["Abyss raiders near Crimson Basin frontier"]
+  - name: "Mariner Belt"
+    connects: ["Central Celestial", "Mistvale Duchy", "Baiyang Principality"]
+    frequency: "Daily merchant runs"
+    notes: "Merchant Alliance enforces tariffs and levies."
+
+resource_distribution_rules:
+  - "Item Tier G1–G6: umum, tersedia hampir di semua kingdom (herbs, common ores)."
+  - "Item Tier G7–G9: langka; spawn pada special nodes (mountain peaks, sacred glades, void fissures)."
+  - "Artefak Transcendent / Divine: tidak diperdagangkan di pasar biasa; hanya tersedia lewat event, auction langit, atau pemberian dewa."
+  - "Cauldron Grade & Alchemist Rank: Cauldrons (I–IX) tersebar di Alchemist Tower cabang dan beberapa site khusus (rare)."
+
+gameplay_mechanics_notes:
+  shop_restocks:
+    mortal_shops: "7 Heavenal Days (default)"
+    regional_auctions: "30 Heavenal Days"
+    divine_auctions: "By GM event only"
+  merchant_nodes_behavior:
+    - "Large nodes: pusat trade, akses rarities, smart restock."
+    - "Medium nodes: regional supplies + occasional G6–G7."
+    - "Small nodes: local goods only (G1–G4)."
+  NPC_spawn_modifiers:
+    - "Beast clans: +20% spawn in Verdant Reach interior."
+    - "Abyss incursions: +15% near Crimson Basin fissures during tribulation windows."
+  travel_time_estimates:
+    - "Walk (normal): 1 tile = 1 Heavenal Hour"
+    - "Ride / Mount: 1 tile = 15–30 minutes"
+    - "Fast travel via Merchant Convoy / Portal: instant between hubs (cost & permission apply)."
+
+gm_guidance:
+  - "GM dapat mengubah nama kerajaan, leader, atau jumlah akademi sesuai narasi."
+  - "Untuk event besar (invasion/ascension/void pulse), gunakan resource nodes dan merchant node dynamics untuk memicu konflik."
+  - "Jaga agar distribusi item G7–G9 memicu persaingan antar faksi; jangan kebanyakan supply."
+  - "Jika ingin menambahkan pulau/pusat rahasia (Abyss / Void), place them as subzones with GCEB oversight flags."
+
+audit_info:
+  last_audit: "2025-11-10"
+  audited_by: "Heavenal Control Node"
+  integrity_status: "verified"
+  notes: "Ini adalah template awal. Harap sinkronkan dengan world_map.yaml dan faction_index.yaml untuk konsistensi."
+
+# END OF FILE
