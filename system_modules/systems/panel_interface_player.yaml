@@ -1,0 +1,306 @@
+# ============================================================
+# File: system_modules/system/panel_interface_player.yaml
+# Title: Player Panel Interface (Heavenal Panel)
+# Version: 3.2-secure
+# Maintainer: Heavenal Control Node
+# Purpose: Definisi struktur, perintah, batas akses, dan event hooks
+#          untuk antarmuka panel pemain (status / inventory / shop / news / codex).
+# License: Dual (MIT + HLOCL)
+# ============================================================
+
+meta:
+  id: "SYS-PLAYER-PANEL"
+  version: "3.2-secure"
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  last_updated: "2025-11-10"
+  repo_path: "system_modules/system/panel_interface_player.yaml"
+  description: >
+    Definisi lengkap untuk Panel Pemain (Heavenal Panel).
+    Menyediakan template tampilan, perintah CLI, batas informasi berdasarkan realm,
+    hooks event (shop, inventory, ascension), dan integrasi dengan sistem keamanan GM.
+
+security:
+  auth_reference: "ENV[HEAVENAL_GM_TOKEN]"
+  gm_roles_allowed:
+    - gm_level: 9
+    - gm_level: 8
+  viewer_role: "player"
+  sensitive_fields_masked: true
+  tokenless_mode: false
+
+ui_layout:
+  theme: "heavenal-default"   # template name: can be mapped to HTML/CSS or chat UI
+  sections_order:
+    - header
+    - status_panel
+    - attributes_panel
+    - energy_panel
+    - skill_panel
+    - inventory_panel
+    - equipment_panel
+    - money_panel
+    - quest_panel
+    - news_panel
+    - shop_panel
+    - codex_quick
+    - footer
+  responsive: true
+  compact_mode: true
+  yaml_template: true
+
+panel_definitions:
+  header:
+    title_template: "{display_name} — {title} | {realm_name} Lv.{realm_level}"
+    subtitle: "Heavenal Panel — {datetime}"
+  status_panel:
+    fields:
+      - HP:
+          label: "HP (Meridian)"
+          display_rule: "numeric / bar"
+          source: "character.hp_current / character.hp_max"
+      - Qi:
+          label: "Qi (MP)"
+          display_rule: "numeric / bar"
+          source: "character.qi_current / character.qi_max"
+      - SPIRIT:
+          label: "Spirit (Soul Energy)"
+          display_rule: "numeric / bar"
+          source: "character.spirit_current / character.spirit_max"
+      - MeridianIntegrity:
+          label: "Meridian Integrity"
+          display_rule: "percent"
+          source: "character.meridian_integrity"
+  attributes_panel:
+    fields:
+      - BodyPower: {label: "BP", source: "character.stats.bp"}
+      - FlowControl: {label: "FC", source: "character.stats.fc"}
+      - QiVitality: {label: "QV", source: "character.stats.qv"}
+      - LawComprehension: {label: "LC", source: "character.stats.lc"}
+      - SoulResonance: {label: "SR", source: "character.stats.sr"}
+      - HeavenRecognition: {label: "HR", source: "character.stats.hr"}
+    display_rules:
+      - "LawComprehension max display adjusted by realm caps (see law_caps)."
+      - "Small fractional increments shown to two decimal places."
+  energy_panel:
+    derived_stats:
+      - QiPool: "formula: (QV * 10) + (LC * 5)"
+      - SoulDepth: "formula: (SR * 10)"
+      - HeavenResistance: "formula: ((SR + HR) / 2) percent"
+  skill_panel:
+    slots:
+      - body_skills: 6
+      - qi_skills: 6
+      - soul_skills: 3
+    active_skill_display: "name, grade, qi_cost, cooldown, equipped"
+    equipped_shortcuts: true
+  inventory_panel:
+    max_visible_rows: 10
+    show_quantities: true
+    weight_system:
+      enabled: true
+      current_weight: "sum(items.weight * qty)"
+      max_weight: "based on BP + QV + equipped encumbrance"
+    storage_items:
+      - pocket: {capacity: 10}
+      - pouch_dimensional: {capacity: "scales with realm", access_rule: "requires item binding"}
+    commands:
+      - "inventory show"
+      - "inventory show all"
+      - "inventory find <item_code>"
+      - "inventory sort <by:price|weight|rarity>"
+  equipment_panel:
+    slots:
+      - main_weapon
+      - offhand
+      - armor
+      - accessory1
+      - accessory2
+      - storage_item
+      - soul_talisman
+    display: "equipped name, grade, resonance, bound_status"
+  money_panel:
+    currencies:
+      - gold
+      - silver
+      - copper
+      - spirit_stone
+      - immortal_jade
+    wallet_display: "list with conversions and totals"
+    commands:
+      - "wallet show"
+      - "wallet transfer <target> <currency> <amount>"
+  quest_panel:
+    show_active: true
+    show_progress: true
+    show_rewards_preview: true
+  news_panel:
+    header: "Heavenal News"
+    visible_lines: 6
+    reveal_command: "news open"
+    access_rule:
+      - "Mortal players see filtered mortal news only (see realm_info)."
+      - "Immortal players see Mortal + Immortal headlines (filtered by relevance)."
+  shop_panel:
+    quick_access: true
+    favorites: true
+    restock_timer: "7 Heavenal Days for mortal shops (configurable)"
+    shop_filters:
+      - category
+      - grade
+      - law_limit
+      - price_range
+    commands:
+      - "shop list <filter>"
+      - "shop info <item_code>"
+      - "shop buy <item_code> <qty>"
+  codex_quick:
+    show_titles_only: true
+    open_command: "codex open <id>"
+    access_rule: "codex visibility depends on player's realm & role"
+  footer:
+    shortcuts:
+      - "help"
+      - "panel refresh"
+      - "panel lock"
+      - "panel export yaml/json"
+
+law_caps:
+  description: "Batas tampilan dan penggunaan LawComprehension berdasarkan realm."
+  mortal:
+    max_display: 1.5
+    usage_limit: "max 5% of original law power (mechanic)"
+  immortal:
+    max_display: 5.0
+    usage_limit: "max 20% of original law power"
+  divine_transformasi:
+    max_display: 7.0
+    usage_limit: "max 50% of original law power"
+  divine_and_above:
+    max_display: "∞"
+    usage_limit: "no mechanical cap"
+
+display_rules_by_realm:
+  mortal:
+    - "Show only Mortal-relevant news, shops, questlines."
+    - "Hide detailed Immortal/Divine codex entries; show only titles."
+    - "Inventory & shop: mortal cannot purchase items with min_law > 1.5 unless via auction/GM."
+  immortal:
+    - "Show Mortal + Immortal relevant information. Codex entries for immortal-level accessible."
+    - "Shop: Immortal can buy mortal-tier items freely; immortal-tier items shown if price & reputation suffice."
+  divine:
+    - "Full codex access unless sealed by Great Court."
+
+commands:
+  help:
+    description: "Show panel commands and usage tips."
+    syntax: "help [command]"
+  panel:
+    - "panel refresh" : "Refresh UI and pull latest world snapshot."
+    - "panel lock" : "Lock personal panel (obfuscate sensitive fields)."
+    - "panel export yaml" : "Export current panel snapshot to YAML file."
+  status:
+    - "status open" : "Open full status panel."
+    - "status hp" : "Show HP details."
+  inventory:
+    - "inventory show" : "List visible inventory items (paginated)."
+    - "inventory show all" : "List full inventory (GM may restrict based on realm)."
+    - "inventory use <item_code>" : "Use an item; triggers item effect and event hooks."
+  shop:
+    - "shop list [filters]" : "List items in current shop."
+    - "shop info <item_code>" : "Show full item tooltip and requirements."
+    - "shop buy <item_code> <qty>" : "Purchase items; checks wallet & purchase limits."
+  codex:
+    - "codex open <id>" : "Open codex entry; access controlled by realm & GM flags."
+  news:
+    - "news show" : "Show headlines."
+    - "news open <id>" : "Open full article if allowed by realm."
+  ascension:
+    - "ascend status" : "Show ascension progress & next threshold."
+    - "ascend attempt" : "Initiate ascension roll (uses Ascension Trial system)."
+  gm:
+    - "panel override <player_id> <action>" : "GM-only: override panel visibility or content."
+
+ui_behaviour:
+  auto_refresh_interval: "30s"
+  save_snapshot_on_logout: true
+  freeze_on_logout: true
+  offline_mode:
+    description: "When player logs out with 'freeze_on_logout' active, world time stops for that character."
+  notification_rules:
+    - "If Tribulation Risk > 50% -> show urgent marker."
+    - "If Heaven Timer < 3 days -> show warning and grace actions."
+
+event_hooks:
+  on_item_use:
+    - "validate_law_limits"        # call to law_comprehension_engine
+    - "apply_item_effect"          # apply buff/debuff from item DB
+    - "trigger_world_event"        # if item is rare/artefact
+    - "log_to_heavenal_archive"
+  on_ascension_attempt:
+    - "compute_ascension_chance"   # consult ascension_trial system
+    - "spawn_tribulation_event"    # call to event engine
+    - "notify_gceB_if_major"
+  on_shop_purchase:
+    - "check_stock_and_decrement"
+    - "apply_tax_and_trade_logs"
+    - "update_economy_matrix"
+  on_codex_open:
+    - "check_access_control"
+    - "record_read_log"
+
+integration_points:
+  systems:
+    - "systems/ascension_trial.yaml"
+    - "systems/law_comprehension_engine.yaml"
+    - "systems/heaven_timer.yaml"
+    - "systems/inventory_module.yaml"
+    - "systems/shop_catalog.yaml"
+    - "systems/karma_system.yaml"
+  data_bindings:
+    - "world/realm_structure.yaml"
+    - "codex_registry/codex_cosmic_realm_full.yaml"
+    - "npc/faction_index.yaml"
+    - "player_db/characters.json"
+  api_endpoints:
+    - "GET /panel/snapshot/{player_id}"
+    - "POST /panel/command"
+    - "GET /panel/inventory/{player_id}"
+    - "POST /panel/shop/buy"
+
+replication_and_backup:
+  snapshot_on_change: true
+  auto_backup_interval: "1 Heavenal Day"
+  export_formats:
+    - yaml
+    - json
+    - csv (inventory only)
+  gm_backup_command: "panel export yaml --gm-backup --token ENV[HEAVENAL_GM_TOKEN]"
+
+ui_examples:
+  minimal_cli_example: |
+    # Lihat status ringkas
+    > panel refresh
+    > status open
+
+    # Inventory
+    > inventory show
+    > inventory use TEC-0020
+
+    # Shop
+    > shop list category=pill grade<=4
+    > shop buy TEC-0020 1
+
+    # Codex
+    > codex open COD-IV
+
+notes_and_constraints:
+  - "Informasi yang tampil dibatasi sesuai realm (lihat law_caps & display_rules_by_realm)."
+  - "Semua perubahan UI harus mencatat ke Heavenal Log Archive (arsip terpisah, bukan codex)."
+  - "Perintah yang menyentuh keseimbangan dunia (contoh: law writing, mass resurrection, world-seal) memerlukan GM auth."
+  - "Panel dapat dikustomisasi per pemain (skins, compact/expanded), namun fungsionalitas tetap mengikuti server rules."
+
+verification:
+  validated_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  integrity_hash: "SYS-PLAYER-PANEL-3.2-LOCK"
