@@ -1,1 +1,244 @@
+# ============================================================
+# EVENT MODULE — HEAVENAL RESONANCE WATCH
+# Repository Path: event/heavenal_resonance_watch.yaml
+# Secure Public Version: v3.2-secure
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# Purpose: Continuous monitoring & automated response system for
+#          Heavenal resonance anomalies, Law Echoes, and pre-tribulation signals.
+# ============================================================
 
+meta:
+  module_id: "EVT-HRW"
+  title: "Heavenal Resonance Watch"
+  version: "3.2-secure"
+  author: "Heavenal Control Node"
+  maintainer: "Heavenal Control Node"
+  status: "operational"
+  linked_codex:
+    - "codex_XX_realm_architecture.yaml"
+    - "codex_XXIV_battle_law.yaml"
+    - "codex_XIX_technique_system.yaml"
+    - "codex_cosmic_realm_full.yaml"
+  last_updated: "2025-11-10"
+  sync_hash: "HRW-V3-7f2b1"
+  repository: "HeavenlyOriginSaga-DnDBased"
+
+description:
+  short: >
+    The Heavenal Resonance Watch (HRW) continuously scans local and trans-realm
+    law-frequency signatures to detect illegal law-writing, large-scale Law usage,
+    Law Echo formation, and pre-tribulation resonance that could destabilize realms.
+  long: >
+    HRW is an event engine module intended to integrate with the World Event Engine,
+    GCEB enforcement pipelines, Heavenal Audit, and the Heavenal Panel News feed.
+    It raises alerts, triggers soft-containment measures, notifies relevant authorities
+    (GCEB tiers), and can auto-deploy countermeasures depending on severity and policy.
+
+scope:
+  monitors:
+    - local_mortal_regions: true
+    - immortal_domains: true
+    - abyssal_border_nodes: true
+    - beast_passages: true
+    - trans-realm_gateways: true
+  signatures_tracked:
+    - LawWritingSignature (patterned edits to world-law echoes)
+    - PrimordialQiSurge
+    - VoidEchoPulse
+    - ResonantStacking (multi-source law stacking)
+    - HeavenalSealFracture
+    - PeerlessStepTrace (extremely rare)
+  integration_endpoints:
+    - event/world_event_engine.yaml
+    - systems/heavenal_audit.yaml
+    - npc/faction_index.yaml
+    - systems/heaven_timer.yaml
+    - systems/ascension_trial.yaml
+
+thresholds_and_levels:
+  severity_levels:
+    - level: INFO
+      code: HRW-01
+      description: "Minor local resonance fluctuation — documented."
+      response: ["Log", "Notify Local Region Node"]
+    - level: WARNING
+      code: HRW-02
+      description: "Sustained resonance increase; potential illegal law usage."
+      response: ["Log", "Notify Regional GCEB (Tier 1)", "Increase scan frequency"]
+    - level: CRITICAL
+      code: HRW-03
+      description: "Trans-realm law echo forming; risk of Thunder Tribulation."
+      response: ["Alert GCEB Tier 2", "Engage soft containment", "Broadcast restricted warnings to Heavenal Panel"]
+    - level: EMERGENCY
+      code: HRW-04
+      description: "Active law-writing/primordial rewrite detected; possible world collapse."
+      response: ["Alert GCEB Tier 3 (Void Marshal & Heavenly Arbiter)", "Trigger containment portals", "Invoke Heavenal Seal Strike protocol", "Initiate evacuation triggers for populated nodes"]
+  numeric_thresholds:
+    resonance_index:
+      unit: "HRW-RI"
+      ranges:
+        - 0..0.2: "Nominal"
+        - 0.2..0.5: "Elevated"
+        - 0.5..0.75: "Warning"
+        - 0.75..0.9: "Critical"
+        - 0.9..1.0: "Emergency"
+    echo_stability:
+      unit: "HRW-ES"
+      note: "Higher values = more stable law-echo formation (worse)."
+    law_fragment_detection_rate:
+      unit: "fragments/min"
+      trigger_warn: 3
+      trigger_critical: 12
+
+sensors_and_probes:
+  sensor_types:
+    - Heavenal Mirror Node (passive signature mirror)
+    - Void Amber Beacon (Abyss border probe)
+    - Primordial Array (Chaos-proximate sensor)
+    - Soul Resonance Tap (senses jarring Soul-level shifts)
+    - Merchant Ledger Karmic Scanner (economic crosschecks)
+  deployment_model:
+    - "Fixed: Heavenal Mirror Nodes in major immortal hubs and Holy Region."
+    - "Mobile: Void Amber Beacons mounted to Silent Hunters & Void Guardians."
+    - "Ambient: Soul Resonance Taps embedded in key academies and temples."
+  refresh_rate:
+    - normal: "Every 6 Heavenal minutes"
+    - elevated: "Every 1 Heavenal minute"
+    - locked: "Continuous streaming"
+
+detection_algorithms:
+  techniques:
+    - "Frequency Correlation Analysis: correlate law-frequency spikes across nodes."
+    - "Echo Fingerprinting: compare signatures against known forbidden-tech hashes (e.g., Law Stealing variants)."
+    - "Temporal Backtracing: reconstruct source timelines of law-writing events."
+    - "Karmic Ledger Crosscheck: correlate suspicious economic swaps with law anomalies."
+    - "Heuristic Anomaly Scoring: ML-like scoring (deterministic in-game rules) combining LC shifts, SR spikes, and artifact activations."
+  false_positive_mitigation:
+    - "Grace windows for known sanctioned rituals (e.g., sanctioned Ascension Trials)."
+    - "Whitelist for registered Heavenal Seals & approved Divine Permits."
+    - "Manual verification step for WARNING level events (GCEB Clerk review)."
+
+automated_responses:
+  soft_containment:
+    description: "Non-destructive temporal dampening & resonance dilution in local area."
+    mechanics:
+      - "Apply Law Compression Field (-20% effective law potency in radius)."
+      - "Deploy Resonance Dampers (reduce HRW-RI by configured percent)."
+    allowed_by: "GCEB Tier 1 or Heavenal Control Node"
+  hard_containment:
+    description: "Portal quarantine, Heavenal Seals, or forced Ascension Lightning (non-lethal transport)."
+    mechanics:
+      - "Open Containment Portal and redirect law-echo mass to Void repository."
+      - "Apply Heavenal Seal Strike (requires GCEB Tier 3 approval)."
+    allowed_by: "Void Marshal / Heavenly Arbiter"
+  notification_actions:
+    - "Push formatted alert to Heavenal Panel News (restricted channel) — includes sanitized summary."
+    - "Open emergency channels to relevant factions (Alchemist Tower, Merchant Alliance) when economic artifacts are implicated."
+    - "Trigger local NPC evacuation events via World Event Engine."
+
+escalation_flow:
+  step_1:
+    trigger: "HRW-02 (WARNING)"
+    actors: ["Local GCEB Node", "Regional Auditor"]
+    actions: ["Increase scan frequency", "Begin manual corroboration", "Notify nearby faction elders if applicable"]
+  step_2:
+    trigger: "HRW-03 (CRITICAL)"
+    actors: ["Void Guardians", "Heavenly Inquisitors"]
+    actions: ["Deploy soft containment", "Isolate affected law fragments", "Issue temporary trade bans in affected nodes"]
+  step_3:
+    trigger: "HRW-04 (EMERGENCY)"
+    actors: ["Void Marshal", "Heavenly Arbiter", "Great Court Enforcement Bureau (full)"]
+    actions: ["Execute hard containment", "Authorize Heavenal Seal Strike", "Initiate wider Ascension Gate closures", "Call Divine Tribunal if necessary"]
+
+relations_with_other_systems:
+  - world_event_engine: "Injects HRW events as world events (e.g., Tribulation Forecasts, Evacuations)."
+  - systems/heavenal_audit.yaml: "Receives detailed forensic logs for legal review and codex update."
+  - systems/heaven_timer.yaml: "Considers Heaven Timer constraints when planning Grace Period extensions."
+  - systems/ascension_trial.yaml: "Cross-checks sanctioned trials to avoid false positives."
+  - codex_registry/core_codex/codex_XXIV_battle_law.yaml: "Applies battle law limits during resonance containment."
+
+logging_and_forensics:
+  minimal_log:
+    - timestamp
+    - node_id
+    - signature_hash
+    - resonance_index
+    - detected_fragments
+    - suggested_action
+  forensic_record:
+    - full_signature_trace
+    - temporal backtrace map
+    - associated actor IDs (if available)
+    - faction_karmic_impact_estimate
+    - containment_outcome
+  retention_policy:
+    - "INFO logs: retain 1 Heavenal Year"
+    - "WARNING logs: retain 5 Heavenal Years"
+    - "CRITICAL/EMERGENCY logs: retain indefinitely in encrypted Heavenal Archive (GM access only)"
+
+gm_controls_and_tools:
+  gm_dashboard_actions:
+    - "Acknowledge / Dismiss alerts"
+    - "Force containment (soft/hard) with credentials"
+    - "Temporarily mute a sensor node (for sanctioned trials)"
+    - "Inject faux-signature for testing (test mode only)"
+  gm_permissions_required: "GCEB Tier 2+ or GM Secret (ENV[HEAVENAL_GM_TOKEN])"
+  audit_trail: "All GM interventions are recorded and appended to Heavenal Log Archive."
+
+sample_event_scenarios:
+  - id: "HRW-SIM-001"
+    description: "Local law-writing script detected in minor county — attempted ritual to erase shrine memory."
+    detection: "RI = 0.48, fragments/min = 5"
+    initial_response: ["WARNING", "Notify Regional GCEB", "Increase scan rate"]
+    resolution: "Alchemist Tower sent containment dampers; fragments isolated; legal review opened."
+  - id: "HRW-SIM-002"
+    description: "Primordial Qi ripple from Chaos-sourced fissure near border node."
+    detection: "RI = 0.81, echo_stability = 0.62"
+    initial_response: ["CRITICAL", "Soft containment engaged", "Void Guardians patrol dispatched"]
+    resolution: "Containment stable; Heavenal Panel issued public safety note; GCEB investigation ongoing."
+  - id: "HRW-SIM-003"
+    description: "Large-scale illegal law-writing by unknown actor attempting to mask history of an Echo-World."
+    detection: "RI = 0.96, PeerlessStepTrace = partial"
+    initial_response: ["EMERGENCY", "Alert Tier 3", "Invoke Heavenal Seal Strike protocol"]
+    resolution: "Emergency Tribunal convened; actor chased into Chaos; long-term codex amendment recommended."
+
+policy_and_whitelisting:
+  sanctioned_signatures:
+    - "AscensionTrial-Signature (Alchemist Tower Registered)"
+    - "DivinePermit-OpenGate (Great Court Approved)"
+  forbidden_signatures:
+    - "LawStealing-Pattern-A"
+    - "MassEchoSuppression-Pattern-X"
+    - "PeerlessImpersonation-Pattern"
+  whitelist_process:
+    - "Factions request whitelist via Heavenal Audit with documentation and GM verification."
+    - "Temporary grace windows can be granted for sanctioned research."
+
+testing_and_simulation:
+  test_modes:
+    - "Dry Run: simulation-only, no containment actions"
+    - "Soft Live: containment simulated, notifications sent"
+    - "Full Live: actions executed (GM confirmation required)"
+  test_data_sets:
+    - "HRW-Testset-01: benign ritual signatures"
+    - "HRW-Testset-02: simulated echo formation"
+    - "HRW-Testset-03: high-intensity law-writing"
+
+security_and_privacy:
+  access_control:
+    - "Read: viewer_level+"
+    - "Acknowledge: contributor_level+"
+    - "Contain/Halt: gm_level only"
+  sensitive_data_handling:
+    - "Player-identifying data stripped from public reports."
+    - "Forensic secret keys stored in encrypted Heavenal Vault (ENV references only)."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  checksum: "HRW-CHK-5d3c9"
+  sign_key: "HCLN-HRW-SECURE"
+  notes: "HRW must be synced with manifest.yaml and heavenal_audit module. Any changes that alter containment rules require Great Court approval."
+
+# End of file
