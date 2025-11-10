@@ -1,0 +1,85 @@
+# ============================================================
+# system/security/license_notice_header.yaml
+# Standard license/header snippet (to be injected into files)
+# Version: 3.1-secure
+# Maintainer: Heavenal Control Node
+# ============================================================
+
+notice:
+  notice_version: "3.1-secure"
+  linked_license: "../LICENSE.md"
+  repository: "HeavenlyOriginSaga-DnDBased"
+  maintainer: "Heavenal Control Node"
+  contact: "admin@heavenal.local"
+  last_revision: "2025-11-11"
+  required_fields:
+    - notice_version
+    - linked_license
+    - repository
+    - maintainer
+    - last_revision
+
+header_template: |
+  ---
+  notice_version: {notice_version}
+  linked_license: "{linked_license}"
+  repository: "{repository}"
+  maintainer: "{maintainer}"
+  last_revision: "{last_revision}"
+  ---
+  # ⚖️ License Notice
+  # This file is part of the Heavenly Origin Saga repository.
+  # See {linked_license} for full license terms (MIT + HLOCL).
+  #
+
+injection_rules:
+  apply_to_directories:
+    - codex_registry
+    - world
+    - system
+    - npc
+    - event
+  file_types:
+    - ".yaml"
+    - ".yml"
+    - ".md"
+  skip_if_present: true   # do not duplicate if header already exists
+  pre_commit_hook:
+    enabled: true
+    script_path: ".githooks/pre-commit-insert-license.sh"
+  ci_job:
+    enabled: true
+    job_name: "license_header_check"
+    runner: "heavenal-ci"
+
+ci_example_job: |
+  license_header_check:
+    stage: verify
+    script:
+      - python tools/check_license_header.py --root .
+    only:
+      - branches
+
+automation_notes:
+  - "Use the header_template with the frontmatter keys replaced."
+  - "Pre-commit hook should call a small inserter that reads this file and inserts header into target files."
+  - "CI will fail if required header missing or header fields mismatch manifest.version."
+
+signature:
+  sign_by: "Heavenal Control Node"
+  key_ref: "ENV[HCLN_LICENSE_KEY]"
+  verification_instruction: "tools/verify_license_header.py --key $HCLN_LICENSE_KEY"
+
+example_usage:
+  # Example of rendered header for a codex file
+  example_header_rendered: |
+    ---
+    notice_version: 3.1-secure
+    linked_license: "../LICENSE.md"
+    repository: "HeavenlyOriginSaga-DnDBased"
+    maintainer: "Heavenal Control Node"
+    last_revision: "2025-11-11"
+    ---
+    # ⚖️ License Notice
+    # This file is part of the Heavenly Origin Saga repository.
+    # See ../LICENSE.md for full license terms (MIT + HLOCL).
