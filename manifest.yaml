@@ -1,6 +1,6 @@
 # ===========================================
 # HEAVENLY ORIGIN SAGA — MANIFEST (v3.2-secure-revised)
-# Generated: 2025-11-09TUTC
+# Generated: 2025-11-10T17:59:24Z
 # Maintainer: Heavenal Control Node
 # Note: GM token must be provided via environment variable: HEAVENAL_GM_TOKEN
 # ===========================================
@@ -12,14 +12,14 @@ meta:
   maintainer: "Heavenal Control Node"
   auth_reference: "ENV[HEAVENAL_GM_TOKEN]"
   license_model: "Dual License (MIT + Heavenal Law Open-Collab)"
-  codex_count: 43
+  codex_count: 31
   sync_integrity: "verified"
   checksum_hash: "ae71f3c4b1-secure-v3"
   repository_status: "stable"
   encryption_mode: "local_safe"
   build_environment: "Heavenal Engine v2.0"
   release_channel: "public"
-  last_updated: "2025-11-09"
+  last_updated: "2025-11-10"
 
 # -------------------------
 # Core Codex Registry
@@ -30,13 +30,33 @@ codex_registry:
     - codex_I_creation.yaml
     - codex_II_balance.yaml
     - codex_III_structure.yaml
-    - codex_IV_immortal_structure.yaml        # Great Court, GCEB, Immortal law & hierarchy
-    - codex_V_divine_tribunal.yaml           # Divine Tribunal, Diety court & divine law
+    - codex_IV_immortal_structure.yaml
+    - codex_V_divine_tribunal.yaml
+    - codex_VI_heavenal_great_court.yaml
+    - codex_VII_heavenal_law_cycle.yaml
+    - codex_VIII_karma_and_fate_system.yaml
+    - codex_IX_soul_and_reincarnation.yaml
+    - codex_X_divine_soul_network.yaml
+    - codex_XI_heavenal_network.yaml
+    - codex_XII_divine_comunication_matrix.yaml
+    - codex_XIII_heaven_tribunal.yaml
+    - codex_XIV_abyssal_law_demonic.yaml
     - codex_XV_heavenal_mechanism.yaml
+    - codex_XVI_divine_realm_and_ascension.yaml
+    - codex_XVII_celestial_conflict_and_era_cycle.yaml
+    - codex_XVIII_soul_wheel_and_reincarnation.yaml
     - codex_XIX_technique_system.yaml
     - codex_XX_realm_architecture.yaml
-    - codex_XXIV_battle_law.yaml
+    - codex_XXI_heavenal_gate_ascension.yaml
+    - codex_XXII_heavenal_law_regulation.yaml
+    - Codex_XXIII_karma_and_reincanation.yaml
+    - codex_XXIV_battle_law_limitation.yaml
     - codex_XXV_abyss_beast.yaml
+    - codex_XXVI_divine_concord.yaml
+    - codex_XXVII_heavenal_tribulation.yaml
+    - codex_XXVIII_karma_reincanation.yaml
+    - codex_XXIX_transcendent_order.yaml
+    - codex_XXX_heavenal_reset_genesis.yaml
     - codex_cosmic_realm_full.yaml
 
   auxiliary_codex:
@@ -51,66 +71,84 @@ codex_registry:
     - codex_beast_doctrine.yaml
     - codex_synchronization.yaml
     - codex_world_event.yaml
+    - codex_cause_effect.yaml
+    - codex_karma_registry.yaml
+    - codex_rebirth_evolution.yaml
+    - codex_timeflow_temporal.yaml
+    - codex_world_synchrinization.yaml
+    - codex_world_event_anomaly.yaml
+    - codex_karma_registry_cause.yaml
+    - codex_rebirth_evolution_transmigration.yaml
+    - codex_timeflow_temporal_law.yaml
     - codex_forging_recipes_index.yaml
     - codex_pill_catalog_index.yaml
+    - codex_herb_catalyst_compendium.yaml
     - codex_artifact_index.yaml
-    - codex_codex_dependencies.yaml         # explicit dependency map between codices
+    - codex_codex_dependencies.yaml
     - codex_security_protocols.yaml
 
 # -------------------------
 # System Modules (runtime)
 # -------------------------
 system_modules:
-  - systems/shop_catalog.yaml
-  - systems/forging_sheet.yaml
-  - systems/alchemy_sheet.yaml
-  - systems/battle_law_limitation.yaml
-  - systems/karma_system.yaml
-  - systems/ascension_trial.yaml
-  - systems/inventory_module.yaml
-  - systems/reward_loot_tier.yaml
-  - systems/heaven_timer.yaml
-  - systems/law_compression_engine.yaml
-  - systems/heavenal_audit.yaml
+    - systems/shop_catalog.yaml
+    - systems/forging_sheet.yaml
+    - systems/alchemy_sheet.yaml
+    - systems/json_binding_map.yaml
+    - systems/battle_law_limitation.yaml
+    - systems/karma_system.yaml
+    - systems/ascension_trial.yaml
+    - systems/inventory_module.yaml
+    - systems/reward_loot_tier.yaml
+    - systems/heaven_timer.yaml
+    - systems/law_compression_engine.yaml
+    - systems/heavenal_audit.yaml
+    - systems/panel_interface_player.yaml
+    - systems/news_interface.yaml
 
 # -------------------------
 # World Architecture files
 # -------------------------
 world_architecture:
-  - world/realm_structure.yaml
-  - world/world_map.yaml
-  - world/beast_realm.yaml
-  - world/abyss_realm.yaml
-  - world/immortal_domains.yaml
-  - world/deity_domain.yaml
-  - world/great_heaven.yaml
-  - world/economy_matrix.yaml
-  - world/holy_region.yaml
-  - world/merchant_network.yaml
-  - world/continent_division.yaml
+    - world/realm_structure.yaml
+    - world/world_map.yaml
+    - world/beast_realm.yaml
+    - world/abyss_realm.yaml
+    - world/immortal_domains.yaml
+    - world/deity_domain.yaml
+    - world/great_heaven.yaml
+    - world/chaos_realm.yaml
+    - world/void_realm.yaml
+    - world/void_realm.yaml
+    - wolrd/transcendent_realm.yaml
+    - world/economy_matrix.yaml
+    - world/holy_region.yaml
+    - world/merchant_network.yaml
+    - world/continent_division.yaml
 
 # -------------------------
 # NPC, Faction & Legion registries
 # -------------------------
 npc_and_faction:
-  - npc/faction_index.yaml
-  - npc/npc_registry.yaml
-  - npc/divine_entities.yaml
-  - npc/beast_clans.yaml
-  - npc/abyss_legion.yaml
-  - npc/merchant_guilds.yaml
-  - npc/academy_registry.yaml
+    - npc/faction_index.yaml
+    - npc/npc_registry.yaml
+    - npc/divine_entities.yaml
+    - npc/beast_clans.yaml
+    - npc/abyss_legion.yaml
+    - npc/merchant_guilds.yaml
+    - npc/academy_registry.yaml
+    - npc/temple_registry.yaml
 
 # -------------------------
 # Event Engine & triggers
 # -------------------------
 event_engine:
-  - event/world_event_engine.yaml
-  - event/karma_trigger.yaml
-  - event/ascension_trial.yaml
-  - event/divine_intervention.yaml
-  - event/void_invasion.yaml
-  - event/heavenal_resonance_watch.yaml
+    - event/world_event_engine.yaml
+    - event/karma_trigger.yaml
+    - event/ascension_trial.yaml
+    - event/divine_intervention.yaml
+    - event/void_invasion.yaml
+    - event/heavenal_resonance_watch.yaml
 
 # -------------------------
 # Security & sync protocols
@@ -134,6 +172,12 @@ security_protocols:
     system_dependency: complete
 
 # -------------------------
+# Data (wildcards)
+# -------------------------
+data_globs:
+  - data/**
+
+# -------------------------
 # Sync Status Snapshot
 # -------------------------
 sync_status:
@@ -153,20 +197,12 @@ sync_status:
 # Update Log (recent)
 # -------------------------
 update_log:
-  - date: "2025-11-09"
+  - date: "2025-11-10"
     author: "Heavenal Control Node"
     changes:
-      - Replaced plaintext tokens with environment variable references (ENV[HEAVENAL_GM_TOKEN])
-      - Separated Immortal Structure (Codex IV) from Divine Tribunal (Codex V)
-      - Added encryption and repository integrity layers
-      - Validated Heavenal Law Open-Collab compliance
-      - Completed secure sync of core codex files
-  - date: "2025-11-08"
-    author: "Heavenal Control Node"
-    changes:
-      - Integrated NPC Faction index and Beast Doctrine
-      - Finalized Beast Realm and Abyss adjustments
-      - Adjusted world economy balancing for Mortal Tier 7–9 artifacts
+      - Harmonized manifest to match on-disk structure (per user-provided list)
+      - Added data/** wildcard include
+      - Kept file names as-is (including potential typos) for strict matching
 
 # -------------------------
 # Verification / Signatures
@@ -174,7 +210,7 @@ update_log:
 verification:
   signed_by: "Heavenal Control Node"
   key_signature: "HCLN-SECURE-PRIME-v3"
-  verified_date: "2025-11-09"
+  verified_date: "2025-11-10"
   signature_hash: "b29f1e-verified-lock-v3"
 
 # -------------------------
@@ -211,5 +247,6 @@ export_presets:
     - world/
     - npc/
     - event/
+    - data/**
 
 # End of manifest
