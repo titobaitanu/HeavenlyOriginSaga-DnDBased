@@ -1,78 +1,64 @@
 ---
-license_version: 3.2-secure
-license_type: Dual License (MIT + Heavenal Law Open-Collab License)
-maintainer_authority: Heavenal Control Node
-token_reference: Local Environment
-revision_date: 2025-11-09
-verified_integrity: true
+notice_version: 3.1-secure
+linked_license: "../LICENSE.md"
+repository: HeavenlyOriginSaga-DnDBased
+maintainer: Heavenal Control Node
+last_revision: 2025-11-09
 ---
 
-# ⚖️ Heavenly Origin Saga — License Notice
+# ⚖️ Heavenal Law License Notice  
+*(Applies to all contents within this directory)*
 
-**Repository:** HeavenlyOriginSaga-DnDBased  
-**Maintainer:** Heavenal Control Node (via Local Token System)  
-**Licensing Model:** Dual-License System  
-**Classification:** Open Development Framework / Protected Lore Universe  
+This directory and all files contained herein are protected under the  
+**Dual License System** of the *Heavenly Origin Saga (HOS)* Project:
 
----
-
-## 🌌 I. Preamble
-
-Heavenly Origin Saga (HOS) adalah proyek dunia terbuka yang menggabungkan sistem **Dungeons & Dragons** dengan struktur **kultivasi xianxia kosmik**.  
-Repositori ini terdiri atas dua aspek utama:
-- **Teknis:** kode, modul YAML, sistem, dan gameplay engine.  
-- **Naratif:** hukum langit, codex, karakter, realm, dan lore dunia.
-
-Untuk menjaga keterbukaan dan keaslian hukum surgawi, proyek ini berada di bawah **Dual License System**:
-
-1. **MIT License** — untuk kode dan infrastruktur teknis.  
-2. **Heavenal Law Open-Collab License (HLOCL)** — untuk dunia, hukum, dan konten naratif.
+- **MIT License** — applies to all code, YAML systems, and technical scripts.  
+- **Heavenal Law Open-Collab License (HLOCL)** — applies to all lore, realm data, codex, and narrative structures.  
 
 ---
 
-## 🧭 II. License Scope & Rights
+## 📜 Summary of Legal Scope
 
-| Komponen | Lisensi | Keterangan |
+| Category | License | Description |
 |-----------|----------|-------------|
-| Kode program, YAML sistem | MIT | Bebas digunakan, dimodifikasi, dan dibagikan. |
-| Lore, hukum, realm, codex | HLOCL | Terlindungi oleh hukum kolaboratif Heavenal. |
-| Artefak, sutra, teknik, realm law | HLOCL | Hanya boleh digunakan di bawah aturan Heavenal Codex. |
-| Dokumentasi (README, Markdown) | MIT | Dapat direplikasi dengan atribusi. |
-| Token & sinkronisasi GM | Lokal | Tidak disimpan publik, hanya aktif di environment lokal. |
+| System YAML / Scripts | MIT | Open for modification & redistribution |
+| Lore / Realm / Codex Data | HLOCL | Governed by Heavenal Law & Collaboration Protocol |
+| NPC / Event / Faction Files | HLOCL | Must remain consistent with Codex Registry integrity |
+| README / Documentation | MIT | Reproducible with attribution |
+| Tokens / Keys / Environment | Local Only | Do **not** commit public credentials |
 
 ---
 
-## 🕯️ III. Heavenal Law Open-Collab License (HLOCL)
+## 🕯️ Heavenal Law Reminder
 
-### Pasal 1 — Kepemilikan
-Seluruh konten dunia, hukum, codex, dan sistem surgawi merupakan bagian dari **Heavenal Archive Authority**  
-yang dijaga oleh **Heavenal Control Node**, bertindak sebagai penjaga hukum dunia dan pemegang otoritas sinkronisasi.
+By contributing, copying, or redistributing any file under this directory,  
+you agree to uphold the following Heavenal Law principles:
 
-### Pasal 2 — Kolaborasi Terbuka
-- Kontributor dapat menambahkan lore, item, sect, atau realm baru.  
-- Semua penambahan wajib mengikuti *Law Synchronization Protocol* agar hukum tidak tumpang tindih.  
-- Penggunaan untuk penelitian, roleplay, dan simulasi diperbolehkan.  
-- Modifikasi hukum inti (Codex Primus) hanya dapat dilakukan oleh Heavenal Authority.
-
-### Pasal 3 — Pembatasan
-- Dilarang menggunakan dunia ini untuk pelatihan AI, komersialisasi tertutup, atau rebranding tanpa izin tertulis.  
-- Token atau kredensial sistem dilarang dimasukkan ke file publik.  
-- Semua perubahan besar pada sistem hukum harus melalui *Heavenal Review Council*.
-
-### Pasal 4 — Penegakan
-Pelanggaran terhadap HLOCL akan dicatat dalam *Heavenal Synchronization Log*  
-dan dapat mengakibatkan pemutusan akses sinkronisasi dunia secara permanen.
+1. **No alteration** of Codex Primus or Heavenal Mechanisms without approval.  
+2. **No closed-source monetization** of lore or realm data.  
+3. **All additions must maintain law synchronization** through the Heavenal Protocol.  
+4. **Environment tokens (GM / Sync / Access)** are strictly local variables.  
 
 ---
 
-## 🛡️ IV. Security & Compliance Statement
+## 🔗 Reference
 
-Bagian ini dibuat untuk menjamin keamanan data repositori.
+For complete license terms and enforcement clauses, please read the root license file:  
+📄 **[LICENSE.md](../LICENSE.md)**  
 
-- **Tidak ada kredensial rahasia** dalam file publik.  
-- Semua token & ID dikelola melalui **variabel environment lokal** seperti berikut:
+---
 
-```bash
-# Contoh konfigurasi lokal (bukan untuk publik)
-HEAVENAL_GM_TOKEN=LOCAL_SECURE_MODE
-HEAVENAL_SYNC_MODE=true
+## 🪶 Attribution Example
+
+If redistributing part of this world, please include the following credit line:
+
+> “Portions of this work are derived from *Heavenly Origin Saga* © 2025 by Tito Baitanu,  
+> licensed under the Dual License System (MIT + Heavenal Law Open-Collab).  
+> Maintained by Heavenal Control Node.”
+
+---
+
+## 🛡️ Verification
+
+This notice was auto-signed and verified by **Heavenal Control Node**  
+under manifest sync reference: `manifest.yaml v3.2-secure`.
