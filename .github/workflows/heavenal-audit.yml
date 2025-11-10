@@ -1,5 +1,33 @@
-- name: Setup Environment
-  run: |
-    echo "HEAVENAL_SYNC_MODE=true" >> $GITHUB_ENV
-    echo "HEAVENAL_ENVIRONMENT=production" >> $GITHUB_ENV
-    echo "HEAVENAL_GM_TOKEN=${{ vars.HEAVENAL_GM_TOKEN }}" >> $GITHUB_ENV
+name: 🕊️ Heavenal Auto-Audit System
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  heavenal_audit:
+    runs-on: ubuntu-latest
+    name: Run Heavenal Repository Audit
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Environment
+        run: |
+          echo "HEAVENAL_SYNC_MODE=true" >> $GITHUB_ENV
+          echo "HEAVENAL_ENVIRONMENT=production" >> $GITHUB_ENV
+          echo "HEAVENAL_GM_TOKEN=${{ vars.HEAVENAL_GM_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Run Heavenal Audit Script
+        run: bash .github/scripts/heavenal_audit.sh
+
+      - name: Upload Audit Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: heavenal-audit-log
+          path: logs/
