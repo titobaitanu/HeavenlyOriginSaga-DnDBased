@@ -1,87 +1,274 @@
-# 🌌 Heavenly Origin Saga — Codex Primus Edition
-**Version:** 3.0Ω  
-**Maintainer:** GM_Token_201218  
-**Repository:** [HeavenlyOriginSaga-DnDBased](https://github.com/titobaitanu/HeavenlyOriginSaga-DnDBased)  
-**License:** Dual MIT + Heavenal Law Open-Collab  
+# Heavenly Origin Saga · v0.1.0
 
----
+## Quick Start
+- Clone repo, install deps, run the main entrypoint.
 
-## 🕯️ Overview
-**Heavenly Origin Saga** adalah dunia **DnD–Kultivasi interaktif** yang hidup di bawah sistem hukum surgawi.  
-Semua realm, hukum, dan makhluk diatur oleh **Codex Primus**, pusat hukum universal yang menghubungkan 42 Codex, 27 Cheat Sheet, dan 19 modul dunia.
+## Installation
+- No explicit installation requirements specified in `manifest.yaml`.
 
-Dunia ini mencakup lima lapisan eksistensi:  
-🜏 **Mortal Realm**, ☯️ **Immortal Realm**, ⚖️ **Divine Realm**, 🜂 **Transcendent Layer**, dan ♾️ **Eternal Nexus**.
+## Repository Structure
+_Refer to the repository tree. Update this section if structure changes._
 
----
+## Contributing
+- Please open issues or PRs following the repository's guidelines.
 
-## ⚙️ Heavenal System Components
-| Komponen | Jumlah | Format | Status |
-|-----------|----------|----------|-----------|
-| Codex | 42 | `.yaml` | ✅ Lengkap |
-| Cheat Sheet | 27 | `.yaml` | ✅ Sinkron |
-| Sistem Modular | 19 | `.yaml` | ✅ Stabil |
-| NPC & Faksi | 213 entitas | `.yaml` | 🔄 Aktif |
-| Event Dunia | 48 event global | `.yaml` | 🔄 Dinamis |
+## License
+- UNSPECIFIED
 
----
+## Manifest Snapshot
+> Generated from `manifest.yaml` on 2025-11-10 18:08 
 
-## ⚖️ Realm & Law Structure
-| Realm | Level | Energi Inti | Batas Law | Pengawas |
-|--------|----------|--------------|--------------|-----------|
-| Mortal | Lv.1–10 per realm | Qi Energy | 1.5 | Heavenly Inspectors |
-| Immortal | Lv.1–20 per realm | Immortal Essence | 5 | Great Court & GCEB |
-| Divine | Lv.1–100 per realm | Creation Qi | 7 | Twelve Great Gods |
-| Transcendent | Lv.∞ | Primordial/Void Essence | ∞ | Divine Transcendents |
-| Eternal Nexus | — | Dual Primordial Law | — | Peerless Ancient Wanderer |
+```yaml
+# ===========================================
+# HEAVENLY ORIGIN SAGA — MANIFEST (v3.2-secure-revised)
+# Generated: 2025-11-10T17:59:24Z
+# Maintainer: Heavenal Control Node
+# Note: GM token must be provided via environment variable: HEAVENAL_GM_TOKEN
+# ===========================================
 
----
+meta:
+  version: "3.2-secure-revised"
+  repository: "HeavenlyOriginSaga-DnDBased"
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  auth_reference: "ENV[HEAVENAL_GM_TOKEN]"
+  license_model: "Dual License (MIT + Heavenal Law Open-Collab)"
+  codex_count: 31
+  sync_integrity: "verified"
+  checksum_hash: "ae71f3c4b1-secure-v3"
+  repository_status: "stable"
+  encryption_mode: "local_safe"
+  build_environment: "Heavenal Engine v2.0"
+  release_channel: "public"
+  last_updated: "2025-11-10"
 
-## 💠 Core Codex Network
-| ID | Nama Codex | Fungsi Utama | Status |
-|----|-------------|----------------|----------|
-| I | Codex of Creation | Asal mula hukum dan energi | ✅ Lengkap |
-| XVII | Cycle of Rebirth | Mekanisme kelahiran & kehancuran dunia | ✅ Lengkap |
-| XIX | Tribunal & Enforcement | Sistem peradilan dan hukum Langit | ✅ Lengkap |
-| XX | Law Architecture | Struktur hukum semesta dan Nexus | ✅ Lengkap |
-| XXII | Heavenly War Code | Hukum perang antar realm | ✅ Lengkap |
-| XXIV | Battle Law Limitation | Regulasi kekuatan & hukum pertarungan | ✅ Lengkap |
-| XXV | Abyss & Beast Doctrine | Sistem Abyss, Beast Realm & keseimbangan alam | ✅ Lengkap |
-| PRIMUS | Heavenal Integration Manifest | Penggabungan total semua hukum | ✅ Aktif |
+# -------------------------
+# Core Codex Registry
+# -------------------------
+codex_registry:
+  core_codex:
+    # Core legal / cosmology / mechanistic codices (ordered, authoritative)
+    - codex_I_creation.yaml
+    - codex_II_balance.yaml
+    - codex_III_structure.yaml
+    - codex_IV_immortal_structure.yaml
+    - codex_V_divine_tribunal.yaml
+    - codex_VI_heavenal_great_court.yaml
+    - codex_VII_heavenal_law_cycle.yaml
+    - codex_VIII_karma_and_fate_system.yaml
+    - codex_IX_soul_and_reincarnation.yaml
+    - codex_X_divine_soul_network.yaml
+    - codex_XI_heavenal_network.yaml
+    - codex_XII_divine_comunication_matrix.yaml
+    - codex_XIII_heaven_tribunal.yaml
+    - codex_XIV_abyssal_law_demonic.yaml
+    - codex_XV_heavenal_mechanism.yaml
+    - codex_XVI_divine_realm_and_ascension.yaml
+    - codex_XVII_celestial_conflict_and_era_cycle.yaml
+    - codex_XVIII_soul_wheel_and_reincarnation.yaml
+    - codex_XIX_technique_system.yaml
+    - codex_XX_realm_architecture.yaml
+    - codex_XXI_heavenal_gate_ascension.yaml
+    - codex_XXII_heavenal_law_regulation.yaml
+    - Codex_XXIII_karma_and_reincanation.yaml
+    - codex_XXIV_battle_law_limitation.yaml
+    - codex_XXV_abyss_beast.yaml
+    - codex_XXVI_divine_concord.yaml
+    - codex_XXVII_heavenal_tribulation.yaml
+    - codex_XXVIII_karma_reincanation.yaml
+    - codex_XXIX_transcendent_order.yaml
+    - codex_XXX_heavenal_reset_genesis.yaml
+    - codex_cosmic_realm_full.yaml
 
----
+  auxiliary_codex:
+    # Gameplay, economy, systems, and lore indices (supporting but editable)
+    - codex_lore_master_index.yaml
+    - codex_alchemy_forging.yaml
+    - codex_economy_trade.yaml
+    - codex_faction_legion.yaml
+    - codex_heavenal_shop.yaml
+    - codex_npc_faction.yaml
+    - codex_conflict_matrix.yaml
+    - codex_beast_doctrine.yaml
+    - codex_synchronization.yaml
+    - codex_world_event.yaml
+    - codex_cause_effect.yaml
+    - codex_karma_registry.yaml
+    - codex_rebirth_evolution.yaml
+    - codex_timeflow_temporal.yaml
+    - codex_world_synchrinization.yaml
+    - codex_world_event_anomaly.yaml
+    - codex_karma_registry_cause.yaml
+    - codex_rebirth_evolution_transmigration.yaml
+    - codex_timeflow_temporal_law.yaml
+    - codex_forging_recipes_index.yaml
+    - codex_pill_catalog_index.yaml
+    - codex_herb_catalyst_compendium.yaml
+    - codex_artifact_index.yaml
+    - codex_codex_dependencies.yaml
+    - codex_security_protocols.yaml
 
-## 🧩 File Struktur
-HeavenlyOriginSaga-DnDBased/
-├── README.md
-├── LICENSE
-├── license_notice.md
-├── manifest.yaml
-├── heavenal_primus_archive.yaml
-├── /codex/
-│   ├── codex_I_creation.yaml
-│   ├── codex_XVII_rebirth.yaml
-│   ├── codex_XIX_tribunal.yaml
-│   ├── codex_XX_architecture.yaml
-│   ├── codex_XXV_abyss_beast.yaml
-│   └── …
-├── /systems/
-│   ├── forging_sheet.yaml
-│   ├── alchemy_sheet.yaml
-│   ├── shop_catalog.yaml
-│   └── battle_law_limitation.yaml
-├── /world/
-│   ├── world_map.yaml
-│   ├── realm_structure.yaml
-│   └── economy_matrix.yaml
-├── /npc/
-│   ├── faction_index.yaml
-│   ├── npc_registry.yaml
-│   └── divine_entities.yaml
-└── /event/
-├── world_event_engine.yaml
-├── karma_trigger.yaml
-└── ascension_trial.yaml
+# -------------------------
+# System Modules (runtime)
+# -------------------------
+system_modules:
+    - systems/shop_catalog.yaml
+    - systems/forging_sheet.yaml
+    - systems/alchemy_sheet.yaml
+    - systems/json_binding_map.yaml
+    - systems/battle_law_limitation.yaml
+    - systems/karma_system.yaml
+    - systems/ascension_trial.yaml
+    - systems/inventory_module.yaml
+    - systems/reward_loot_tier.yaml
+    - systems/heaven_timer.yaml
+    - systems/law_compression_engine.yaml
+    - systems/heavenal_audit.yaml
+    - systems/panel_interface_player.yaml
+    - systems/news_interface.yaml
 
----
+# -------------------------
+# World Architecture files
+# -------------------------
+world_architecture:
+    - world/realm_structure.yaml
+    - world/world_map.yaml
+    - world/beast_realm.yaml
+    - world/abyss_realm.yaml
+    - world/immortal_domains.yaml
+    - world/deity_domain.yaml
+    - world/great_heaven.yaml
+    - world/chaos_realm.yaml
+    - world/void_realm.yaml
+    - world/void_realm.yaml
+    - wolrd/transcendent_realm.yaml
+    - world/economy_matrix.yaml
+    - world/holy_region.yaml
+    - world/merchant_network.yaml
+    - world/continent_division.yaml
 
+# -------------------------
+# NPC, Faction & Legion registries
+# -------------------------
+npc_and_faction:
+    - npc/faction_index.yaml
+    - npc/npc_registry.yaml
+    - npc/divine_entities.yaml
+    - npc/beast_clans.yaml
+    - npc/abyss_legion.yaml
+    - npc/merchant_guilds.yaml
+    - npc/academy_registry.yaml
+    - npc/temple_registry.yaml
+
+# -------------------------
+# Event Engine & triggers
+# -------------------------
+event_engine:
+    - event/world_event_engine.yaml
+    - event/karma_trigger.yaml
+    - event/ascension_trial.yaml
+    - event/divine_intervention.yaml
+    - event/void_invasion.yaml
+    - event/heavenal_resonance_watch.yaml
+
+# -------------------------
+# Security & sync protocols
+# -------------------------
+security_protocols:
+  token_reference: "ENV[HEAVENAL_GM_TOKEN]"    # DO NOT store token plaintext in repo
+  sync_mode: true
+  auto_backup: true
+  encryption: true
+  auto_recover: enabled
+  access_control:
+    gm_level: 9
+    lead_maintainer: 8
+    contributor_level: 4
+    reviewer_level: 3
+    viewer_level: 1
+  integrity_check:
+    law_consistency: verified
+    codex_linkage: stable
+    npc_binding: synchronized
+    system_dependency: complete
+
+# -------------------------
+# Data (wildcards)
+# -------------------------
+data_globs:
+  - data/**
+
+# -------------------------
+# Sync Status Snapshot
+# -------------------------
+sync_status:
+  codex: "100%"
+  systems: "100%"
+  npc_registry: "99%"
+  world_architecture: "99%"
+  event_engine: "98%"
+  shop_catalog: "100%"
+  alchemy_db: "96%"
+  overall_sync: "98.6%"
+  notes: >
+    Most modules operational. alchemy recipe DB still awaiting full validation (approx 4% remaining).
+    GM environment variable required for write-lock operations.
+
+# -------------------------
+# Update Log (recent)
+# -------------------------
+update_log:
+  - date: "2025-11-10"
+    author: "Heavenal Control Node"
+    changes:
+      - Harmonized manifest to match on-disk structure (per user-provided list)
+      - Added data/** wildcard include
+      - Kept file names as-is (including potential typos) for strict matching
+
+# -------------------------
+# Verification / Signatures
+# -------------------------
+verification:
+  signed_by: "Heavenal Control Node"
+  key_signature: "HCLN-SECURE-PRIME-v3"
+  verified_date: "2025-11-10"
+  signature_hash: "b29f1e-verified-lock-v3"
+
+# -------------------------
+# Operational Notes (GM)
+# -------------------------
+operational:
+  gm_instructions:
+    - "Set HEAVENAL_GM_TOKEN in your environment before performing any lock/unlock operations."
+    - "Do NOT commit tokens or secrets to the repository. Use .gitignore for local export files."
+    - "When updating core codex files, increment manifest.version and add an update_log entry."
+    - "Use codex_codex_dependencies.yaml to validate cross-codex references before merging."
+  backup_policy:
+    frequency: "daily"
+    retention_days: 90
+    location: "encrypted-local / remote-s3-optional"
+  release_policy:
+    stable_branch: "main"
+    dev_branch: "dev"
+    hotfix_branch_prefix: "hotfix/"
+
+# -------------------------
+# Developer / Export Helpers
+# -------------------------
+export_presets:
+  archive_format: "tar.gz"
+  manifest_export: "manifest_v3.2-secure-revised.yaml"
+  recommended_files_for_export:
+    - README.md
+    - LICENSE
+    - LICENSE_NOTICE.md
+    - manifest.yaml
+    - codex_registry/
+    - systems/
+    - world/
+    - npc/
+    - event/
+    - data/**
+
+# End of manifest
+```
