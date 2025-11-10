@@ -1,0 +1,388 @@
+# ============================================================
+# NPC REGISTRY — codex_registry/npc/npc_registry.yaml
+# Secure Public Version (v3.2)
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  registry_id: "NPC-REG-001"
+  title: "NPC Registry — Global Index for Mortal/Immortal/Divine/Abyss/Beast"
+  version: 3.2-secure
+  author: "Heavenal Control Node"
+  maintainer: "Heavenal Control Node"
+  last_updated: "2025-11-10"
+  sync_hash: "NPC-REG-LOCK-7F1C2"
+  repository_path: "codex_registry/npc/npc_registry.yaml"
+  description: >
+    Centralized registry of non-player characters used by the World Event Engine,
+    Faction Index, and NPC Generation systems. Entries include static major NPCs
+    and templates/rules for procedural generation.
+  verification:
+    verified_by: "Heavenal Control Node"
+    integrity: verified
+    sign_key: "HCLN-NPC-REG-SECURE"
+
+# -------------------------------------------------------------------
+# NPC INDEXED FIELDS (STANDARDIZED)
+# -------------------------------------------------------------------
+npc_fields:
+  - id: "unique string (NPC-<TYPE>-<NUMBER>)"
+  - name: "display name"
+  - title: "honorific / rank / epithet"
+  - realm_rank: "e.g., Mortal:Nascent Soul Lv.3 / Immortal:Kaisar Immortal Lv.5 / Transcendent"
+  - realm_type: "Mortal | Immortal | Divine | Abyss | Beast"
+  - affiliation: "Faction key or 'Independent'"
+  - alignment: "Heavenly | Demonic | Evil | Neutral | Chaotic"
+  - role: "Leader | Merchant | Commander | Artisan | QuestGiver | RandomNPC"
+  - power_estimate: "numeric index or descriptive (e.g., 1-10000 or 'High')"
+  - law_comprehension: "float (cap obeyed by global law_cap rules)"
+  - core_stats:
+      BP: "Body Power"
+      FC: "Flow Control"
+      QV: "Qi Vitality"
+      LC: "Law Comprehension"
+      SR: "Soul Resonance"
+      HR: "Heaven Recognition"
+  - resources: "currency, unique artifacts, inventory snapshot"
+  - domain_base: "geographic/realm location"
+  - troops: "if applicable, estimated troop numbers or legion names"
+  - unique_skills: "list of named techniques / sutras / laws"
+  - narrative_hook: "short lore/quest hook"
+  - spawn_rules: "how/when this NPC appears"
+  - persistence: "Static | Ephemeral | Event-Bound"
+  - gm_notes: "internal GM guidance"
+
+# -------------------------------------------------------------------
+# MAJOR STATIC NPC ENTRIES (examples)
+# -------------------------------------------------------------------
+static_npcs:
+  - id: "NPC-LEADER-0001"
+    name: "Gazilla Baitanu"
+    title: "Void-Born Reincarnator / Divine Protector"
+    realm_rank: "Dewa Transformasi Lv.52"
+    realm_type: "Divine"
+    affiliation: "Holy Region"
+    alignment: "Holy Neutral"
+    role: "Divine Guardian / Story Anchor"
+    power_estimate: "Very High"
+    law_comprehension: 6.5
+    core_stats:
+      BP: 28
+      FC: 26
+      QV: 32000
+      LC: 6.5
+      SR: 85
+      HR: 92
+    resources:
+      currency:
+        - type: "Divine Crystal"
+          amount: 12
+      artifacts:
+        - "Eternal Caravan Treasury Bell (Bound)"
+        - "Voidsong Heavenly Edge (Sealed)"
+    domain_base: "Throne of Balance, Holy Region"
+    troops:
+      - name: "Paladins of the Seal"
+        estimate: 120
+    unique_skills:
+      - "Law Compression (Mastered)"
+      - "Heavenly Origin Sutra — Fragmented Usage"
+      - "Void Anchor"
+    narrative_hook: >
+      Central figure in several balance quests. Responsible for sealing Echo artifacts.
+    spawn_rules:
+      persistence: "Static"
+      trigger: "Story-critical; appears on Divine Event calendar or GM call"
+    gm_notes: "High-authority NPC. Interactions may trigger major world events."
+
+  - id: "NPC-LEADER-0002"
+    name: "Tian Dong"
+    title: "Divine Cardinal (Former)"
+    realm_rank: "Dewa Transformasi Lv.52 (Pre-Reincarnation)"
+    realm_type: "Divine"
+    affiliation: "Holy Region"
+    alignment: "Holy"
+    role: "Guardian / Advisor"
+    power_estimate: "Very High"
+    law_comprehension: 6.2
+    core_stats:
+      BP: 26
+      FC: 24
+      QV: 30000
+      LC: 6.2
+      SR: 90
+      HR: 95
+    resources:
+      artifacts:
+        - "Soul Lantern Cycle Sutra (Bound Archive)"
+    domain_base: "Heaven's Shadow Citadel (GCEB adjunct)"
+    troops: null
+    unique_skills:
+      - "Void Deletion Law (Restricted Fragments)"
+      - "Heavenal Inquisition"
+    narrative_hook: "Linked to Void-based trials and past Tribunal records."
+    spawn_rules:
+      persistence: "Static"
+      trigger: "Tribunal or GCEB operation calls"
+
+  - id: "NPC-TRANSC-0001"
+    name: "Heavenly Demonic Lord"
+    title: "Heavenly Demonic Lord"
+    realm_rank: "Transcendent (Protector)"
+    realm_type: "Transcendent"
+    affiliation: "Heavenly Demon Order"
+    alignment: "Demonic (Protector)"
+    role: "Abyss Protector / Transcendent Patron"
+    power_estimate: "Transcendent"
+    law_comprehension: "∞"
+    core_stats:
+      BP: 50
+      FC: 50
+      QV: 999999
+      LC: 999.99
+      SR: 999
+      HR: 999
+    resources:
+      artifacts:
+        - "Heaven Stealing Law (Sealed Fragment) — Forbidden"
+    domain_base: "Demonbridge Hold (Abyss border)"
+    troops:
+      - name: "Demon Lineage Legions"
+        estimate: 50000
+    unique_skills:
+      - "Law Stealing (Forbidden)"
+      - "Primordial Breath"
+    narrative_hook: "Protector of demonic path; political balance with Great Court."
+    spawn_rules:
+      persistence: "Event-Bound"
+      trigger: "Abyss transgression > threshold OR GM narrative escalation"
+    gm_notes: "Handling requires caution: transcedent NPCs bypass many world rules."
+
+  - id: "NPC-BEAST-0001"
+    name: "Raxus"
+    title: "Primordial Beast — Azure Sovereign"
+    realm_rank: "Transcendent (Beast Protector)"
+    realm_type: "Transcendent"
+    affiliation: "Primordial Beast Council"
+    alignment: "Neutral"
+    role: "Beast Realm Guardian"
+    power_estimate: "Transcendent"
+    law_comprehension: "Primordial"
+    core_stats:
+      BP: 48
+      FC: 42
+      QV: 750000
+      LC: 999
+      SR: 980
+      HR: 500
+    domain_base: "Heart of the Beast Realm"
+    narrative_hook: "May open Beast Ascension Gates for clans under extreme crisis."
+    spawn_rules:
+      persistence: "Event-Bound"
+      trigger: "Beast Ascension Rite or GM petition"
+
+# -------------------------------------------------------------------
+# NPC TEMPLATES FOR PROCEDURAL GENERATION
+# -------------------------------------------------------------------
+templates:
+  - template_id: "TPL-FACTION-LEADER"
+    type: "Faction Leader"
+    required_fields:
+      - name
+      - faction_affiliation
+      - realm_rank
+      - political_weight
+      - unique_skill
+    default_behavior:
+      - "holds council weekly"
+      - "issues faction quests"
+      - "may call diplomatic missions"
+    spawn_rules:
+      spawn_condition: "Faction influence >= threshold OR major event"
+      persistence: "Static"
+      event_hooks: ["Faction War", "Tribunal Summon"]
+
+  - template_id: "TPL-LEGION-COMMANDER"
+    type: "Legion Commander"
+    required_fields:
+      - name
+      - legion_name
+      - command_capacity
+      - unit_strength
+    default_behavior:
+      - "mobilize on GM trigger"
+      - "defend assigned territory"
+    spawn_rules:
+      spawn_condition: "Wartime OR faction mobilization"
+      persistence: "Ephemeral"
+
+  - template_id: "TPL-MERCHANT"
+    type: "Merchant"
+    required_fields:
+      - name
+      - trade_level
+      - inventory_scope
+      - reputation
+    default_behavior:
+      - "restocks per shop_catalog restock interval"
+      - "offers quests for rare items if reputation >= 60"
+    spawn_rules:
+      spawn_condition: "Market presence in merchant node"
+      persistence: "Ephemeral"
+
+  - template_id: "TPL-ALCHEMIST-MASTER"
+    type: "Alchemist Master"
+    required_fields:
+      - name
+      - cauldron_grade
+      - alchemy_rank
+      - recipe_access
+    default_behavior:
+      - "accepts crafting jobs"
+      - "teaches high-rank recipes when persuaded"
+    spawn_rules:
+      spawn_condition: "Located at Alchemist Tower or allied node"
+      persistence: "Static for registered masters"
+
+# -------------------------------------------------------------------
+# NPC GENERATION RULES (Procedural)
+# -------------------------------------------------------------------
+generation_rules:
+  ids:
+    format: "NPC-<TYPECODE>-<6digit>"
+  seed_sources:
+    - "npc_20000.json (GM catalogue)"
+    - "faction_index.yaml"
+    - "world/merchant_network.yaml"
+  rarity_tiers:
+    - common: 60%
+    - uncommon: 25%
+    - rare: 10%
+    - legendary: 4%
+    - unique: 1%
+  stat_assignment:
+    method: "realm_multiplier × base_template_stats + random_gaussian(μ=0,σ=1)"
+    realm_multipliers:
+      mortal: 1.0
+      immortal: 8.0
+      divine: 40.0
+      transcendent: 100.0
+  law_cap_enforcement:
+    description: >
+      Any generated NPC must obey global law caps (manifest law_cap). If generation attempts a law_comprehension above cap:
+      - Mortal: max 1.5
+      - Immortal: max 5.0
+      - Divine: max 7.0
+      - Transcendent: no cap
+    corrective_action: "auto-reduce LC to cap and add compensatory SR or unique_skill slots"
+
+# -------------------------------------------------------------------
+# SPAWN & DESPAWN / PERSISTENCE LOGIC
+# -------------------------------------------------------------------
+spawn_persistence:
+  categories:
+    - Static:
+        description: "Always present in world unless world-altering event removes them."
+        examples: ["Gazilla", "Tian Dong (archival)"]
+    - Ephemeral:
+        description: "Spawned for events and removed after conclusion."
+        examples: ["Legion Commander during war"]
+    - Event-Bound:
+        description: "Appears exclusively when a narrative or system event triggers."
+        examples: ["Raxus", "Heavenly Demonic Lord"]
+  despawn_rules:
+    - "If NPC HP and SR both reach 0 due to narrative death -> mark as 'Deceased' and archive with reincarnation rules."
+    - "If event ends -> ephemeral NPCs removed, persistent resources returned to faction inventories"
+  persistence_storage:
+    archive_path: "heavenal_log_archive/npc/"
+    snapshot_frequency: "Every Heavenal Day (configurable)"
+
+# -------------------------------------------------------------------
+# NPC INTERACTION & QUEST HOOKS
+# -------------------------------------------------------------------
+interaction_system:
+  dialog_system:
+    - "Dialog nodes stored per NPC under npc_dialogs/<npc_id>.yaml"
+    - "Dialog options can be gated by reputation, karma, or item possession"
+  quest_integration:
+    - "NPC can provide: Fetch, Escort, Trial, Ascension, Karma, Faction War quests"
+    - "Quest rewards may influence faction reputation and world economy"
+  reputation_influence:
+    - "NPC actions and quests modify faction and personal reputation metrics"
+
+# -------------------------------------------------------------------
+# NPC COMBAT & BEHAVIOR SCRIPTS
+# -------------------------------------------------------------------
+combat_behaviors:
+  behavior_profiles:
+    - name: "Defensive Commander"
+      triggers:
+        - "if allied_forces < 30% -> Retreat & Call Reinforcements"
+        - "if own_HP < 40% -> Cast Protective Domain"
+    - name: "Aggressive Vanguard"
+      triggers:
+        - "if enemy_present -> Charge & Use AoE"
+    - name: "Healer Support"
+      triggers:
+        - "if allied_HP < 60% -> Prioritize Healing"
+  ai_notes:
+    - "Use Law Use Probability = min(LawCapFraction, template_likelihood) to decide law-tech usage (obey global limits)."
+    - "Transcendent NPCs may trigger environmental transformations — GM should pre-approve."
+
+# -------------------------------------------------------------------
+# NPC DATA MAINTENANCE & SYNC
+# -------------------------------------------------------------------
+maintenance:
+  update_interval: "Every 7 Heavenal Days"
+  auto_audit:
+    - "Validate law_comprehension caps"
+    - "Check faction affiliation consistency"
+    - "Confirm item/artifact binding status"
+  backup:
+    enabled: true
+    path: "backups/npc_registry/"
+    retention: 90 # days
+
+# -------------------------------------------------------------------
+# SAMPLE USAGE (GM API / Commands)
+# -------------------------------------------------------------------
+gm_commands_examples:
+  - command: "/npc spawn NPC-LEADER-0001 at 'Tianlun City' force:true"
+    effect: "Spawns Gazilla at location; logs event"
+  - command: "/npc generate TPL-MERCHANT region='Baiyang Harbor' rarity=uncommon"
+    effect: "Procedurally creates merchant NPC and registers to merchant node"
+  - command: "/npc archive NPC-XXXXXX reason='death' auth:GM"
+    effect: "Moves NPC snapshot to heavenal_log_archive and frees bindings"
+
+# -------------------------------------------------------------------
+# INTEGRATIONS
+# -------------------------------------------------------------------
+integrations:
+  - system: "world_event_engine"
+    linkage: "direct"
+    description: "Pulls NPC templates and triggers spawns for major events"
+  - system: "shop_catalog"
+    linkage: "indirect"
+    description: "Merchant NPCs reference shop_catalog for inventories and restock"
+  - system: "faction_index"
+    linkage: "direct"
+    description: "NPC affiliations validated and cross-referenced"
+  - system: "heavenal_audit"
+    linkage: "direct"
+    description: "Enforces law caps & logs suspicious entities"
+  - data_sources:
+      - "/data/json/npc_20000.json"
+      - "/data/json/faction_index.json"
+
+# -------------------------------------------------------------------
+# VERIFICATION & SIGNATURE
+# -------------------------------------------------------------------
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  integrity_check: verified
+  checksum: "NPC-REG-SHA-4D5E7"
+  sign_key: "HCLN-NPC-REG-SIGN"
+
+# End of npc_registry.yaml
