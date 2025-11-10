@@ -1,0 +1,178 @@
+# ============================================================
+# EVENT/KARMA_TRIGGER.YAML — HEAVENLY ORIGIN SAGA
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: event/karma_trigger.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  event_id: "EVT-KARMA"
+  title: "Karma Trigger System"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  classification: "Event Engine Subsystem — Karma & Moral Resonance"
+  status: verified
+  checksum: "EVT-KARMA-SHA-3A7E2"
+  last_updated: "2025-11-11"
+
+---
+
+introduction:
+  description: >
+    The Karma Trigger System governs how player and NPC actions
+    resonate across realms through karmic cause-and-effect.
+    It determines alignment shifts, faction relationships,
+    divine recognition, and Heavenal tribulations.
+  quote: |
+    “Every action births a ripple across fate —
+     the Law remembers what the soul forgets.”
+
+---
+
+core_mechanism:
+  karma_scale:
+    range: [-10000, +10000]
+    neutral_point: 0
+    alignment_reference:
+      - "< -7000": "Abyssal Corruption (Condemned)"
+      - "-7000 – -3000": "Demonic / Malevolent"
+      - "-3000 – +3000": "Neutral / Balance"
+      - "+3000 – +7000": "Heavenly / Virtuous"
+      - "> +7000": "Divine Enlightenment"
+  measurement_unit: "Karma Points (KP)"
+  recalibration_cycle: "Every 3 Heavenal Days"
+
+---
+
+trigger_sources:
+  mortal_actions:
+    - name: "Slaying Evil Beasts"
+      karma_change: +50
+      type: "Combat / Defense"
+    - name: "Murdering Innocents"
+      karma_change: -500
+      type: "Crime"
+    - name: "Donating Spirit Stones to Orphans"
+      karma_change: +25
+      type: "Charity"
+    - name: "Corrupt Trade / Tax Evasion"
+      karma_change: -75
+      type: "Economic"
+  immortal_actions:
+    - name: "Interfering in Mortal Wars"
+      karma_change: -1000
+      law_trigger: "Heavenal Violation"
+    - name: "Judging Fairly in Great Court"
+      karma_change: +1200
+      law_trigger: "Law Resonance"
+    - name: "Using Forbidden Law Arts"
+      karma_change: -2000
+      law_trigger: "Law Corruption"
+  divine_actions:
+    - name: "Creating New Life or Law"
+      karma_change: +5000
+    - name: "Erasing a Worldline"
+      karma_change: -10000
+      note: "Triggers Divine Tribunal review"
+  beast_actions:
+    - name: "Protecting Sacred Forests"
+      karma_change: +300
+    - name: "Massacre of Human Settlements"
+      karma_change: -400
+  abyssal_actions:
+    - name: "Offering Souls to Void"
+      karma_change: -1000
+    - name: "Sealing Corruption Leak"
+      karma_change: +800
+
+---
+
+event_tiers:
+  tier_list:
+    - Tier I: "Local Karma (affects NPC disposition)"
+    - Tier II: "Regional Karma (affects faction relationships)"
+    - Tier III: "Realm Karma (affects world state events)"
+    - Tier IV: "Heavenal Karma (affects divine favor or wrath)"
+    - Tier V: "Transcendent Karma (alters laws permanently)"
+  automatic_reactions:
+    - Tier I–II → Immediate faction & NPC reputation update
+    - Tier III → Potential GCEB investigation
+    - Tier IV → Heavenal Edict recalibration
+    - Tier V → Law of Causality rewrite event (handled by Heavenal Node)
+
+---
+
+karma_balancing_events:
+  triggers:
+    - name: "Karmic Overload"
+      condition: "Total KP magnitude > 8000"
+      effect: "Triggers Heavenal Lightning & Essence Burn"
+    - name: "Karmic Purge"
+      condition: "Negative KP sustained over 10000 cycles"
+      effect: "Erases portion of soul memories"
+    - name: "Karmic Rebirth"
+      condition: "Karma fully reset to 0 via meditation"
+      effect: "Unlocks special enlightenment traits"
+    - name: "Karmic Eclipse"
+      condition: "Mass Karma Shift > 50,000 realm-wide"
+      effect: "Realm balance destabilization → Heavenal Tribunal Review"
+
+---
+
+npc_interaction_rules:
+  influence_modifiers:
+    - "NPCs aligned with Holy or Heavenly paths react positively to high Karma."
+    - "Demonic or Abyssal NPCs prefer negative Karma alignment."
+    - "Neutral NPCs prioritize Balance over morality."
+  reputation_link:
+    - "Faction reputation shifts by (Karma / 1000) each recalibration cycle."
+  speech_patterns:
+    - "High Karma → NPCs use honorifics and respectful dialogue."
+    - "Low Karma → NPCs use suspicion and hostility tones."
+
+---
+
+integration_with_systems:
+  linked_modules:
+    - "systems/karma_system.yaml"
+    - "event/world_event_engine.yaml"
+    - "systems/law_comprehension_engine.yaml"
+    - "codex_conflict_matrix.yaml"
+  sync_behavior:
+    - "All Karma changes logged to Heavenal Archive."
+    - "Heavenal Node recalibrates fate threads every 72 Heavenal Hours."
+  oversight: "Heavenal Control Node & Great Court Arbiter Network"
+
+---
+
+visual_feedback_system:
+  effects:
+    - name: "Karmic Radiance"
+      trigger: "Karma > +7000"
+      visuals: "Golden aura & glowing sigil behind player"
+      duration: "Continuous"
+    - name: "Abyssal Corruption"
+      trigger: "Karma < -7000"
+      visuals: "Dark smoke aura and whispering voices"
+      duration: "Continuous"
+    - name: "Karmic Equilibrium"
+      trigger: "-3000 < Karma < 3000"
+      visuals: "Subtle white-gold glow; eyes reflect neutral light"
+      duration: "Passive"
+  optional_effects:
+    - "Voice resonance changes with Karma polarity."
+    - "Certain factions detect high Karma users automatically."
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-11"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "EVT-KARMA-SHA-777DA"
+  sign_key: "HCLN-KARMA-EVENT-SECURE"
