@@ -1,0 +1,199 @@
+# ============================================================
+# NPC/BEAST_CLANS.YAML — HEAVENLY ORIGIN SAGA
+# Secure Public Version (v3.2)
+# ============================================================
+# Repository Path: npc/beast_clans.yaml
+# Maintainer: Heavenal Control Node
+# License: Dual (MIT + Heavenal Law Open-Collab)
+# ============================================================
+
+meta:
+  file_id: "NPC-BEAST-CLANS"
+  title: "Beast Clans and Primordial Lineages Index"
+  version: 3.2-secure
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  classification: "NPC Subset — Beast Realm"
+  repository_link: "HeavenlyOriginSaga-DnDBased"
+  linked_to:
+    - "codex_XXV_abyss_beast.yaml"
+    - "world/beast_realm.yaml"
+    - "npc/faction_index.yaml"
+  status: verified
+  checksum: "NPC-BEAST-LOCK-92B8E"
+  last_updated: "2025-11-11"
+
+---
+
+introduction:
+  description: >
+    The Beast Realm is home to countless intelligent and semi-intelligent species
+    who have ascended from mortal fauna through natural Qi evolution.
+    Beast clans form ancient hierarchies mirroring both instinct and law,
+    with the strongest led by Primordial Protectors who resonate directly
+    with Heavenal Law and Nature’s Will.
+  quote: |
+    “From instinct came wisdom,
+     from roar came will,
+     and from blood came Law.”
+
+---
+
+realm_hierarchy:
+  tiers:
+    - Mortal Beasts (Qi Refining to Half-Immortal)
+    - Ascended Beasts (Immortal Langit to Penguasa Immortal)
+    - Primordial Beasts (Raja Immortal to Dewa Transformasi)
+    - Divine Beasts (Dewa Sejati to Dewa Agung)
+    - Transcendent Protectors (Primordial Sovereign Tier)
+  notes: >
+    Each tier follows cultivation principles identical to humans,
+    but focuses on instinctual comprehension rather than spiritual reasoning.
+
+---
+
+clan_council:
+  structure:
+    - Beast King Council (Low–Mid-tier leadership)
+    - Elder Council (High-tier leaders, Immortal level)
+    - Primordial Assembly (Beast Gods and Protectors)
+  governing_body:
+    - Supreme Protector: "Azure Sovereign"
+    - Elders: 9 (each representing one domain of nature)
+    - Liaison: "Holy Beast Envoy (connects to Great Court via Holy Region)"
+  role: >
+    The Council mediates inter-clan conflicts, maintains ecosystem balance,
+    and governs Beast Ascension Rites.
+
+---
+
+clan_divisions:
+  terrestrial:
+    - name: "Ironfang Pride"
+      biome: "Mountain Range"
+      population_est: 1200
+      leader: "Elder Ironfang"
+      rank: "Ensouled Golden Core Beast"
+      abilities: ["Mountain Tremor Roar", "Iron Hide", "Stone Qi Absorption"]
+      alignment: "Neutral"
+      relation_with_mortals: "Friendly trade pact with Tianlun Kingdom"
+    - name: "Silverhoof Herd"
+      biome: "Grassland Plains"
+      population_est: 900
+      leader: "Matron Silverhoof"
+      rank: "Nascent Soul"
+      abilities: ["Swiftstep Aura", "Healing Hoof", "Wind Barrier"]
+      alignment: "Peaceful"
+      relation_with_mortals: "Allied with Baiyang Principality"
+  aquatic:
+    - name: "Bluefin Tideclan"
+      biome: "Southern Seas"
+      population_est: 5000
+      leader: "Warden Nael'Thor"
+      rank: "Immortal Emas"
+      abilities: ["Tidal Surge", "Water Veil Camouflage", "Pressure Song"]
+      alignment: "Cautious Neutral"
+      relation_with_mortals: "Guards spiritual waters; toll required for passage"
+  aerial:
+    - name: "Crimson Sky Raptors"
+      biome: "High Peaks"
+      population_est: 3500
+      leader: "Lord Aerion"
+      rank: "Penguasa Immortal"
+      abilities: ["Storm Wing", "Eye of Wind", "Lightning Resonance"]
+      alignment: "Lawful Neutral"
+      relation_with_mortals: "Occasionally aids Immortal sects during tribulation"
+  infernal:
+    - name: "Abyssal Maw Pack"
+      biome: "Borderlands / Abyssal Rift"
+      population_est: 8000
+      leader: "Prime Maw"
+      rank: "Dewa Transformasi"
+      abilities: ["Void Corruption Breath", "Soul Shred", "Abyssal Howl"]
+      alignment: "Chaotic Evil"
+      relation_with_mortals: "Predatory; monitored by GCEB"
+  celestial:
+    - name: "Radiant Scale Dynasty"
+      biome: "Celestial Lake of Great Heaven"
+      population_est: 120
+      leader: "Radiant Dragon Seraphon"
+      rank: "Dewa Sejati"
+      abilities: ["Heavenal Breath", "Starfire Rebirth", "Law Reflection"]
+      alignment: "Holy Neutral"
+      relation_with_mortals: "Rarely appears; interacts only during cosmic events"
+
+---
+
+primordial_protectors:
+  protectors:
+    - name: "Azure Sovereign"
+      realm: "Transcendent — Primordial Sovereign"
+      element: "Sky and River"
+      role: "Guardian of Beast Ascension and Nature’s Cycle"
+      domain: "Heavenal Beast Realm Core"
+    - name: "Verdant Leviathan"
+      realm: "Dewa Agung Lv.88"
+      element: "Life and Growth"
+      role: "Regulator of forest expansion and balance"
+      domain: "Deep Verdant Abyss"
+    - name: "Crimson Fang Serpent"
+      realm: "Dewa Sejati Lv.60"
+      element: "Flame and Mutation"
+      role: "Catalyst of evolution and bloodline awakening"
+      domain: "Crimson Canyon"
+    - name: "Onyx Titan"
+      realm: "Dewa Agung Lv.72"
+      element: "Earth and Gravity"
+      role: "Foundation guardian and tectonic stabilizer"
+      domain: "Titanic Range"
+  doctrine:
+    rule_1: "No Primordial may interfere with mortal wars unless natural balance is endangered."
+    rule_2: "Killing a Primordial Beast triggers Heavenal Catastrophe."
+    rule_3: "Beast Ascension must be sanctioned by the Council of Nine."
+
+---
+
+ascension_system:
+  stages:
+    - "Beast Awakening (Qi Refining)"
+    - "Beast Soul Formation (Golden Core)"
+    - "Beast Spirit Manifestation (Nascent Soul)"
+    - "Law Synchronization (Immortal)"
+    - "Primordial Resonance (Divine)"
+  trial_requirements:
+    - "Harmony with elemental domain"
+    - "No consumption of corrupted Qi"
+    - "Beast must form instinctual Law Resonance"
+  success_rate_formula: "((Soul Purity × Elemental Sync × Law Stability) ÷ 100)"
+
+---
+
+relations_with_other_realms:
+  mortal_realm: "Symbiotic — trade, herb protection, territorial conflicts"
+  immortal_realm: "Cautious — exchange through Alchemist Tower"
+  abyss_realm: "Hostile — Abyssal corruption despised by Primordials"
+  divine_realm: "Neutral — connected via Heavenal Law synchronization"
+
+---
+
+law_of_beast:
+  description: >
+    The Law of Beast governs the instinctual evolution of all living beings.
+    It prioritizes balance, purity, and primal resonance over morality.
+  principles:
+    - "Instinct is Truth."
+    - "Nature is Law."
+    - "Balance is Purity."
+  divine_enforcement:
+    overseer: "Azure Sovereign"
+    penalty_for_violation: "Erasure of beast lineage for 10 generations."
+
+---
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-11"
+  sync_with: "manifest.yaml v3.2-secure"
+  integrity_check: verified
+  checksum: "NPC-BEAST-SHA-77E9C"
+  sign_key: "HCLN-BEAST-CLAN-SECURE"
