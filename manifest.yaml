@@ -105,6 +105,7 @@ system_modules:
     - systems/heavenal_audit.yaml
     - systems/panel_interface_player.yaml
     - systems/news_interface.yaml
+    - systems/security/license_notice_header.yaml
 
 # -------------------------
 # World Architecture files
