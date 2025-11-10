@@ -1,0 +1,23 @@
+name: Heavenal Audit
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up bash (for script)
+        run: sudo apt-get update && sudo apt-get install -y grep yamllint || true
+
+      - name: Run Heavenal audit script
+        run: |
+          chmod +x ./scripts/heavenal_audit.sh
+          ./scripts/heavenal_audit.sh
