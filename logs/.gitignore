@@ -1,0 +1,5 @@
+git add .github/scripts .github/workflows/scripts/heavenal_audit.sh .github/workflows/heavenal-audit.yml .gitignore
+# jika file dibuat di path berbeda, sesuaikan path di perintah add
+
+git commit -m "Add Heavenal auto-audit workflow and script"
+git push origin main
