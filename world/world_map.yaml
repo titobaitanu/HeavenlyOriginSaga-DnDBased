@@ -1,0 +1,221 @@
+# ============================================================
+# WORLD MAP — GEOGRAPHY & POLITICAL LAYOUT
+# Repository Path: world/world_map.yaml
+# Maintainer: Heavenal Control Node
+# Version: v3.2-secure
+# Last Updated: 2025-11-10
+# ============================================================
+
+meta:
+  map_id: "WRL-MAP-001"
+  title: "Tianlun Global Map — Six Continents Layout"
+  author: "Tito Baitanu"
+  maintainer: "Heavenal Control Node"
+  linked_files:
+    - "world/world_realm_structure.yaml"
+    - "codex_npc_faction.yaml"
+    - "world/holy_region.yaml"
+  coordinate_system: "Heavenal Grid (X,Y sectors)"
+  projection_notes: "Abstracted; sectors are gameplay regions, not real-world scale."
+
+global_overview:
+  continents_total: 6
+  main_center: "Holy District (Central Continent — Celestia)"
+  ocean_names:
+    - "Silver Expanse"
+    - "Voidfrost Sea"
+    - "Crimson Gulf"
+  climate_bands:
+    - "Polar (north/south)"
+    - "Temperate (mid-latitude)"
+    - "Tropical (equatorial)"
+
+continents:
+  - id: C01
+    name: "Celestia (Central Continent)"
+    role: "Seat of Holy Region, Alchemist Tower, Merchant Alliance HQ"
+    description: >
+      Central continent—political, spiritual, and trade heart.
+      Houses Holy District, Tower of Refinement, Hall of Ten Thousand Stars.
+    central_node:
+      name: "Holy District"
+      coords: [0,0]
+      major_installations:
+        - "Holy Region Citadel"
+        - "Tower of Refinement (Alchemist HQ)"
+        - "Hall of Ten Thousand Stars (Military Archive)"
+        - "Grand Market & Merchant Exchange"
+    kingdoms:
+      - name: "Central Celestial Kingdom"
+        capital: "Azure Gate City"
+        academies:
+          - "Azure Sword Academy"
+          - "Celestial Arts Academy"
+          - "Tower-Linked Alchemy Branch"
+          - "Merchant Strategy Institute"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+        allied_sects: ["Azure Gate Sect (Heavenly)"]
+    sect_hubs:
+      - "Alchemist Registry (Level I–IX Cauldrons)"
+      - "Heavenly Merchant Guild Branch"
+
+  - id: C02
+    name: "Tian Sea Archipelago"
+    role: "Maritime trade, naval kingdoms, fishing clans"
+    description: "Scattered islands rich in sea-essence herbs and merchant ports."
+    major_ports:
+      - "Baiyang Harbor"
+      - "Salted Wind Cove"
+    kingdoms:
+      - name: "Baiyang Principality"
+        capital: "Baiyang Harbor"
+        academies:
+          - "Harbor Art of Spears"
+          - "Baiyang Soul Institute"
+          - "Golden Core Forging School"
+          - "Merchant's Harbor Academy"
+        merchant_nodes:
+          large: 2
+          medium: 5
+          small: 18
+
+  - id: C03
+    name: "Qingsha Plateau"
+    role: "Plateau kingdoms, forging centers, martial family heartlands"
+    description: "Highland forges, training grounds of the 7 Martial Families."
+    notable_sites:
+      - "Ironpeak Forgehalls"
+      - "Nine Heavens Dojo Cluster"
+    kingdoms:
+      - name: "Qingsha Domain"
+        capital: "Ironpeak"
+        academies:
+          - "Spear Mastery Academy"
+          - "Blade & Temper School"
+          - "Soulcraft Academy"
+          - "Foundry Alchemy Branch"
+        merchant_nodes:
+          large: 1
+          medium: 4
+          small: 20
+
+  - id: C04
+    name: "Crimson Expanse"
+    role: "Savannah & volcanic regions; home to Evil-path sects and pill smuggling"
+    description: >
+      Fertile yet dangerous; home to Lotus Flame and other Evil-path mortal sects.
+    kingdoms:
+      - name: "Crimson Marchlands"
+        capital: "Red Ember City"
+        academies:
+          - "Flame Cultivation School"
+          - "Marsh Soul Institute"
+          - "Shadow Foraging Academy"
+          - "Trade & Smuggling Studies"
+        merchant_nodes:
+          large: 1
+          medium: 3
+          small: 22
+
+  - id: C05
+    name: "Obsidian Wastes"
+    role: "Borderlands to Abyss; harsh climates; fortress cities"
+    description: "Frontier between Mortal and Abyss influence — frequent conflicts and GCEB watch posts."
+    fortresses:
+      - "Abysswatch Outpost"
+      - "Hollow Gate Fort"
+    kingdoms:
+      - name: "Heimu March"
+        capital: "Hollow Gate"
+        academies:
+          - "Warden's Academy"
+          - "Void Awareness School"
+          - "Ranger & Scout Institute"
+          - "Defensive Artificer Academy"
+        merchant_nodes:
+          large: 0
+          medium: 3
+          small: 15
+
+  - id: C06
+    name: "Glacial North"
+    role: "Cold realms, beast migratory routes, primordial beast sanctuaries"
+    description: "Sparsely populated, guarded by Beast Clans and Primordial sanctuaries."
+    sanctuaries:
+      - "Azure Sovereign's Den"
+      - "Raxus Stonehold"
+    kingdoms:
+      - name: "Frostward Canton"
+        capital: "Frostgate"
+        academies:
+          - "Cold Qi Tempering"
+          - "Beast Diplomacy Academy"
+          - "Ice Forging School"
+          - "Soul Resilience Institute"
+        merchant_nodes:
+          large: 0
+          medium: 2
+          small: 8
+
+regional_distribution:
+  - note: "Each continent is divided into Sectors (game regions). GM may map Sectors to hex/grid for tactical play."
+  sector_grid:
+    sector_size_km: 320
+    sector_labeling: "A1..Z99"
+  special_zones:
+    - name: "Heavenal Mirror Node (Central Celestia)"
+      function: "Global awareness & minor divination access for high-ranking Immortals."
+    - name: "Ascension Arena (Celestia North)"
+      function: "Public ascension tests and tournament ground every 10,000 years."
+    - name: "Nihility Gate (Obsidian Wastes)"
+      function: "Local portal to Nihility / Void rifts — sealed & gated by GCEB."
+
+holy_region_layout:
+  central_holy_district:
+    districts:
+      - "Sanctum of Records"
+      - "Market of Ten Thousand Trades"
+      - "Alchemist Quarter"
+      - "Immortal Court Plaza"
+    security: "GCEB presence, Heavenal Seal Patrols, Merchant Guards"
+    trade_flow: "Major import/export hub for Spirit Stones, Pill Materials, Essence Crystals"
+  alchemist_tower_branch_network:
+    notes: "Each kingdom hosts at least one Tower Branch; Celestia hosts Grand Tower (central cauldron registry)."
+  merchant_alliance_hub:
+    functions:
+      - "Treasury clearing & exchange (Spirit Stone / Immortal Jade / Divine Crystal)"
+      - "Auction house for G7–G9 items (restricted access)"
+
+kingdom_placement_rules_for_gm:
+  - "Distribute 4 major kingdoms per Central Continent (examples above); other continents get 1–3 kingdoms depending on size."
+  - "Each kingdom must have 4 academies (names & specialties customizable)."
+  - "Assign 25 merchant nodes per kingdom: 18 small, 5 medium, 2 large (nodes used for shop respawn & economy simulation)."
+  - "Sects and sect-branches placed close to natural affinity (e.g., Fire sects near volcano, Beast clans near wilderness)."
+
+strategic_nodes_and_routes:
+  - name: "Silk-Essence Road"
+    connects: ["Baiyang Harbor", "Azure Gate City", "Ironpeak"]
+    function: "Major merchant caravan route — frequent bandit targets; taxed by Merchant Alliance."
+  - name: "Heavenal Sea Lane"
+    connects: ["Baiyang Harbor", "Salted Wind Cove"]
+    function: "Maritime trade lane subject to naval skirmishes."
+  - name: "Abysswatch Frontier"
+    connects: ["Hollow Gate Fort", "Obsidian Spire (Abyss border)"]
+    function: "High-alert military zone; GCEB & Immortal patrol presence."
+
+map_gameplay_notes:
+  - "Shops: each merchant node holds a shop inventory; small nodes restock weekly (Heavenal Days), mediums biweekly, large monthly."
+  - "Resource hotspots (10k-year ginseng, rare ores, spirit springs) are seeded on the map and provoke conflicts."
+  - "Tribulation hotspots: mapped near Nihility Gate and Void Rifts — dangerous for low-realm players."
+  - "GM can flag sectors as 'sealed' (no cross-realm travel) to orchestrate story arcs."
+
+verification:
+  maintained_by: "Heavenal Control Node"
+  validated_on: "2025-11-10"
+  linked_with: "world/world_realm_structure.yaml"
+  integrity_check: verified
+  checksum: "WRL-MAP-SHA-3F7B2"
+  sign_key: "HCLN-WORLD-MAP-SECURE"
